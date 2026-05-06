@@ -5,5 +5,36 @@
 <meta http-equiv="refresh" content="0; url=cover/cover.html">
 <style>body{margin:0;padding:60px;font-family:sans-serif;text-align:center;background:#F8FAF6;color:#0F0E0C;}</style>
 </head><body>
+<div id="gate-overlay" style="position:fixed;inset:0;background:#0F0E0C;z-index:9999;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;">
+  <div style="max-width:380px;padding:48px 40px;text-align:center;">
+    <div style="font-family:'Instrument Serif',Georgia,serif;font-size:32px;color:#4FA86A;line-height:1.1;margin-bottom:14px;letter-spacing:-.02em;">GESINE</div>
+    <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(245,241,232,.45);margin-bottom:28px;">Foundation Sprint Delivery</div>
+    <input id="gate-pw" type="password" placeholder="enter password" autofocus style="width:100%;padding:14px 18px;background:transparent;border:1px solid rgba(245,241,232,.25);border-radius:10px;color:#F5F1E8;font-family:'DM Mono',monospace;font-size:13px;letter-spacing:.04em;outline:none;margin-bottom:14px;text-align:center;box-sizing:border-box;">
+    <button id="gate-btn" style="width:100%;padding:14px;background:#4FA86A;color:#0F0E0C;border:none;border-radius:10px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;cursor:pointer;">Unlock</button>
+    <div id="gate-err" style="font-family:'DM Mono',monospace;font-size:10px;color:#D87878;margin-top:14px;letter-spacing:.04em;display:none;">Wrong password.</div>
+  </div>
+</div>
+<script>
+(function(){
+  var ok = sessionStorage.getItem("gesine_unlocked") === "1";
+  var overlay = document.getElementById("gate-overlay");
+  var pw = document.getElementById("gate-pw");
+  var btn = document.getElementById("gate-btn");
+  var err = document.getElementById("gate-err");
+  if (ok) { overlay.style.display = "none"; return; }
+  function check() {
+    if (pw.value.trim().toLowerCase() === "loopworker2026") {
+      sessionStorage.setItem("gesine_unlocked", "1");
+      overlay.style.display = "none";
+    } else {
+      err.style.display = "block";
+      pw.value = ""; pw.focus();
+    }
+  }
+  btn.addEventListener("click", check);
+  pw.addEventListener("keydown", function(e){ if (e.key === "Enter") check(); });
+})();
+</script>
+
 <p>Redirecting to <a href="cover/cover.html">GESINE deliverable</a>…</p>
 </body></html>
