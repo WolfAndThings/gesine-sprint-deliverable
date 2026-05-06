@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){if(sessionStorage.getItem('gesine_unlock')==='1')return;var p=prompt('GESINE — enter password to view');if(p==='gesine2026'){sessionStorage.setItem('gesine_unlock','1');}else{document.documentElement.innerHTML='<body style="margin:0;padding:60px;font-family:sans-serif;text-align:center;background:#0F0E0C;color:#F5F1E8;font-size:18px;">Access required.</body>';}})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>GESINE — Landing Page + 5-Angle Ad Test Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --ink:#0F0E0C; --dark:#1A1814;
+  --cream:#F8FAF6; --off:#E8EFE3; --soft:#D6E4D0;
+  --amber:#4FA86A; --amber-deep:#2D5F3F;
+  --olive:#4A5240; --sage:#7C8470;
+  --muted:#6F665A; --light:#9C9285;
+  --border:rgba(15,14,12,0.08); --bmd:rgba(15,14,12,0.14); --bstr:rgba(15,14,12,0.20);
+}
+body { background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-serif; font-size:15px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+.page { max-width:1040px; margin:0 auto; padding:56px 48px 80px; }
+
+.doc-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:48px; padding-bottom:24px; border-bottom:2px solid var(--ink); }
+.wordmark { display:flex; align-items:center; gap:12px; }
+.logo-box { width:36px; height:36px; background:var(--ink); border-radius:8px; display:grid; place-items:center; }
+.brand-name { font-family:'Instrument Serif',Georgia,serif; font-size:18px; letter-spacing:.02em; }
+.doc-meta { text-align:right; font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); line-height:2; }
+
+.hero { background:var(--ink); border-radius:16px; padding:44px 48px; margin-bottom:48px; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg, var(--amber), var(--sage)); }
+.hero-eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:rgba(245,241,232,.40); display:block; margin-bottom:16px; }
+.hero-headline { font-family:'Instrument Serif',Georgia,serif; font-size:clamp(28px,3.6vw,38px); line-height:1.15; letter-spacing:-.02em; color:var(--cream); margin-bottom:18px; }
+.hero-headline em { color:var(--amber); font-style:italic; }
+.hero-body { font-size:15px; color:rgba(245,241,232,.72); line-height:1.7; font-weight:300; max-width:680px; }
+.hero-body strong { color:var(--cream); font-weight:500; }
+
+.section { margin-bottom:56px; }
+.eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:12px; }
+.h2 { font-family:'Instrument Serif',Georgia,serif; font-size:clamp(24px,3vw,32px); line-height:1.15; letter-spacing:-.015em; color:var(--ink); margin-bottom:14px; }
+.h2 em { font-style:italic; }
+.body { font-size:14px; color:#2A2620; line-height:1.75; font-weight:300; max-width:720px; }
+.body strong { font-weight:600; color:var(--ink); }
+
+/* WIREFRAME */
+.wireframe { display:flex; flex-direction:column; gap:14px; margin-top:24px; }
+.wf-row { background:var(--cream); border:1px solid var(--bstr); border-radius:14px; padding:24px 28px; display:grid; grid-template-columns:160px 1fr; gap:24px; align-items:flex-start; }
+.wf-row.dark { background:var(--ink); color:var(--cream); border-color:var(--ink); }
+.wf-num { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; color:var(--amber-deep); }
+.wf-row.dark .wf-num { color:var(--amber); }
+.wf-section-name { font-family:'Instrument Serif',Georgia,serif; font-size:18px; line-height:1.2; letter-spacing:-.01em; margin-top:6px; }
+.wf-row.dark .wf-section-name { color:var(--amber); }
+.wf-content {}
+.wf-headline { font-family:'Instrument Serif',Georgia,serif; font-size:22px; line-height:1.25; letter-spacing:-.015em; margin-bottom:10px; font-style:italic; }
+.wf-row.dark .wf-headline { color:var(--cream); }
+.wf-list { display:flex; flex-direction:column; gap:6px; margin-top:8px; }
+.wf-li { font-size:13px; line-height:1.55; padding-left:14px; position:relative; font-weight:300; color:#2A2620; }
+.wf-row.dark .wf-li { color:rgba(245,241,232,0.78); }
+.wf-li::before { content:'\2014'; position:absolute; left:0; color:var(--amber); }
+.wf-li strong { font-weight:600; color:var(--ink); }
+.wf-row.dark .wf-li strong { color:var(--cream); }
+
+/* AD ANGLES TABLE */
+.ad-angle { background:var(--cream); border:1px solid var(--bstr); border-radius:18px; overflow:hidden; margin-bottom:18px; }
+.ad-angle-head { padding:24px 32px; display:grid; grid-template-columns:1fr auto; gap:24px; align-items:center; border-bottom:1px solid var(--bmd); background:linear-gradient(135deg, rgba(79,168,106,0.05) 0%, rgba(124,132,112,0.02) 100%); }
+.ad-num { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; color:var(--amber-deep); margin-bottom:6px; display:block; }
+.ad-name { font-family:'Instrument Serif',Georgia,serif; font-size:24px; line-height:1.1; letter-spacing:-.015em; color:var(--ink); margin-bottom:6px; }
+.ad-name em { font-style:italic; color:var(--amber-deep); }
+.ad-budget { text-align:right; }
+.ad-budget-num { font-family:'Instrument Serif',Georgia,serif; font-size:22px; line-height:1; color:var(--amber-deep); letter-spacing:-.01em; }
+.ad-budget-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin-top:6px; }
+
+.ad-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:0; }
+.ad-cell { padding:18px 28px; border-right:1px solid var(--bmd); border-bottom:1px solid var(--bmd); }
+.ad-cell:nth-child(3n) { border-right:none; }
+.ad-cell:nth-last-child(-n+3) { border-bottom:none; }
+.ac-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; display:block; }
+.ac-text { font-size:13px; color:#2A2620; line-height:1.55; font-weight:400; }
+.ac-text strong { color:var(--ink); font-weight:600; }
+.ac-text em { font-style:italic; color:var(--amber-deep); }
+
+.ad-copy-row { background:var(--ink); padding:22px 32px; color:var(--cream); display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.copy-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.22em; text-transform:uppercase; color:var(--amber); margin-bottom:8px; display:block; }
+.copy-headline { font-family:'Instrument Serif',Georgia,serif; font-size:18px; line-height:1.3; color:var(--cream); font-style:italic; }
+.copy-primary { font-size:13px; color:rgba(245,241,232,0.85); line-height:1.6; font-weight:300; }
+
+/* TEST PLAN */
+.test-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-top:24px; }
+.test-card { padding:24px 26px; background:var(--cream); border:1px solid var(--bstr); border-radius:14px; }
+.test-num { font-family:'Instrument Serif',Georgia,serif; font-size:32px; line-height:1; color:var(--amber-deep); letter-spacing:-.01em; margin-bottom:10px; }
+.test-num em { font-style:italic; }
+.test-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin-bottom:10px; display:block; }
+.test-desc { font-size:13px; color:#2A2620; line-height:1.55; font-weight:300; }
+.test-desc strong { color:var(--ink); font-weight:600; }
+
+/* WIN CRITERIA */
+.win-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:20px; }
+.win-card { padding:22px 26px; border-radius:12px; }
+.win-card.scale { background:rgba(74,82,64,0.08); border:1px solid rgba(74,82,64,0.2); }
+.win-card.kill { background:rgba(139,58,47,0.06); border:1px solid rgba(139,58,47,0.18); }
+.win-tag { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; margin-bottom:10px; display:block; }
+.win-card.scale .win-tag { color:var(--olive); }
+.win-card.kill .win-tag { color:#8B3A2F; }
+.win-name { font-family:'Instrument Serif',Georgia,serif; font-size:20px; line-height:1.2; letter-spacing:-.01em; margin-bottom:10px; }
+.win-rules { display:flex; flex-direction:column; gap:6px; }
+.win-rule { font-size:13px; color:#2A2620; line-height:1.5; padding-left:14px; position:relative; font-weight:400; }
+.win-rule::before { content:''; position:absolute; left:0; top:7px; width:5px; height:5px; border-radius:50%; }
+.win-card.scale .win-rule::before { background:var(--olive); }
+.win-card.kill .win-rule::before { background:#8B3A2F; }
+.win-rule strong { color:var(--ink); font-weight:600; }
+
+/* TIMELINE */
+.timeline-box { background:linear-gradient(135deg, rgba(79,168,106,.08) 0%, rgba(74,82,64,.08) 100%); border:1px solid rgba(79,168,106,.3); border-radius:14px; padding:30px 34px; margin-top:24px; }
+.tl-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--amber-deep); display:block; margin-bottom:14px; }
+.tl-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+.tl-day { font-size:13px; color:#2A2620; line-height:1.55; font-weight:400; }
+.tl-day strong { display:block; font-family:'Instrument Serif',Georgia,serif; font-size:18px; color:var(--ink); margin-bottom:4px; font-weight:500; letter-spacing:-.01em; }
+
+.doc-footer { margin-top:64px; padding-top:24px; border-top:2px solid var(--ink); display:flex; justify-content:space-between; align-items:center; }
+.ft-l { font-size:12px; color:var(--muted); }
+.ft-r { font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); }
+
+@media(max-width:760px) {
+  .page { padding:36px 20px 64px; }
+  .doc-header { flex-direction:column; align-items:flex-start; gap:14px; }
+  .hero { padding:30px 24px; }
+  .wf-row { grid-template-columns:1fr; padding:20px 22px; }
+  .ad-angle-head { grid-template-columns:1fr; padding:20px 22px; }
+  .ad-budget { text-align:left; }
+  .ad-grid { grid-template-columns:1fr; }
+  .ad-cell { border-right:none; padding:18px 22px; }
+  .ad-copy-row { grid-template-columns:1fr; padding:18px 22px; }
+  .test-grid, .win-grid, .tl-grid { grid-template-columns:1fr; }
+  .doc-footer { flex-direction:column; gap:12px; align-items:flex-start; }
+}
+@media print { body { background:#fff; } .page { padding:24px; } .hero, .wf-row.dark, .ad-copy-row { -webkit-print-color-adjust:exact; print-color-adjust:exact; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="doc-header">
+  <div class="wordmark">
+    <div class="logo-box">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <circle cx="9" cy="9" r="7" stroke="#4FA86A" stroke-width="1.5" fill="none"/>
+        <circle cx="9" cy="9" r="3" fill="#4FA86A"/>
+      </svg>
+    </div>
+    <span class="brand-name">GESINE &times; Alex Lamb</span>
+  </div>
+  <div class="doc-meta">Deliverable 09 &middot; Landing Page + 5-Angle Ad Test Plan<br>Foundation Sprint &middot; May 2026</div>
+</header>
+
+<div class="hero">
+  <span class="hero-eyebrow">&#9670; The D2C launch surface and the $5K test that picks the winner</span>
+  <div class="hero-headline">
+    One landing page.<br>
+    Five paid angles.<br>
+    <em>Fourteen days to a winner.</em>
+  </div>
+  <div class="hero-body">
+    The D2C launch lives or dies on two surfaces: the <strong>landing page</strong> and the <strong>five paid angles that drive traffic to it</strong>. This document defines both. The page is wireframed section by section with copy starters. The ad test runs $1K per angle for 14 days &mdash; a $5K experiment that picks the winning hero, headline, and audience for full launch spend. <em>Win criteria are pre-defined; the data picks the call.</em>
+  </div>
+</div>
+
+<!-- WIREFRAME -->
+<section class="section">
+  <span class="eyebrow">&#9670; Landing page wireframe</span>
+  <h2 class="h2">The page, <em>section by section.</em></h2>
+  <p class="body">Every section below is locked in order. Copy is a starter, not the final &mdash; sub the winning ad headline into Section 02 once the test resolves. Mobile-first, vertical scroll, single-CTA-per-screen.</p>
+
+  <div class="wireframe">
+
+    <div class="wf-row dark">
+      <div>
+        <span class="wf-num">SECTION 01</span>
+        <div class="wf-section-name">Hero</div>
+      </div>
+      <div class="wf-content">
+        <div class="wf-headline">"Finally, a cleaning product you don't hide under the sink."</div>
+        <div class="wf-list">
+          <div class="wf-li"><strong>Sub-headline:</strong> A scent-led home reset, designed to live on the counter.</div>
+          <div class="wf-li"><strong>Primary CTA:</strong> Shop the bottle &middot; <strong>Secondary:</strong> Find your scent (3-question quiz)</div>
+          <div class="wf-li"><strong>Hero visual:</strong> Concept 04 (Aesop-Adjacent Bath Shelf) on desktop &middot; Concept 06 (Sunday Reset) on mobile</div>
+          <div class="wf-li"><strong>Trust strip below:</strong> Plastic-free &middot; Refillable &middot; Fragrance fully disclosed &middot; Free shipping over $75</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wf-row">
+      <div>
+        <span class="wf-num">SECTION 02</span>
+        <div class="wf-section-name">The problem</div>
+      </div>
+      <div class="wf-content">
+        <div class="wf-headline">"Your hand wash got beautiful. Your cookware got beautiful. Your spray bottle still looks like 1998."</div>
+        <div class="wf-list">
+          <div class="wf-li">Two-image split: ugly plastic spray bottle / sculptural GESINE bottle on the same counter.</div>
+          <div class="wf-li">Body copy: "GESINE is the upgrade for the last visible utility on your counter."</div>
+          <div class="wf-li"><em>This section is rewritten once the winning ad angle is picked.</em></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wf-row">
+      <div>
+        <span class="wf-num">SECTION 03</span>
+        <div class="wf-section-name">Social proof slot</div>
+      </div>
+      <div class="wf-content">
+        <div class="wf-headline">"As seen in" &mdash; press logos + creator UGC carousel.</div>
+        <div class="wf-list">
+          <div class="wf-li"><strong>Press strip:</strong> Goldune, Apartamento, Cereal, Kinfolk (real or aspirational placeholders &mdash; replace with actual hits).</div>
+          <div class="wf-li"><strong>UGC carousel:</strong> 6 creator clips, 4&ndash;8 sec each, autoplay muted.</div>
+          <div class="wf-li"><strong>Testimonial pull-quotes:</strong> 3 &times; one-line founder/creator/customer quotes with avatars.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wf-row">
+      <div>
+        <span class="wf-num">SECTION 04</span>
+        <div class="wf-section-name">The eight rituals</div>
+      </div>
+      <div class="wf-content">
+        <div class="wf-headline">"Eight scent rituals. One sculptural bottle."</div>
+        <div class="wf-list">
+          <div class="wf-li">Grid of 8 ritual cards (Nightstand, Desk, Kitchen, Entryway, Guest, Sunday, Post-Meeting, Hotel) &mdash; each a hover/tap to reveal scent + ritual cadence.</div>
+          <div class="wf-li"><strong>Sub-CTA:</strong> "Take the 3-question quiz to find yours."</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wf-row dark">
+      <div>
+        <span class="wf-num">SECTION 05</span>
+        <div class="wf-section-name">Refill subscription</div>
+      </div>
+      <div class="wf-content">
+        <div class="wf-headline">"Refill is now a ritual, not a chore."</div>
+        <div class="wf-list">
+          <div class="wf-li"><strong>3-tier subscription:</strong> Solo Ritual ($24/refill, every 6 weeks) &middot; Two-Room ($44/refill) &middot; House Reset ($64/refill, free holder).</div>
+          <div class="wf-li"><strong>Primary CTA:</strong> Start subscription &middot; <strong>Secondary:</strong> Skip, edit, or pause anytime.</div>
+          <div class="wf-li"><strong>Visual:</strong> Concept 07 (Refill Subscription Box).</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wf-row">
+      <div>
+        <span class="wf-num">SECTION 06</span>
+        <div class="wf-section-name">Gifting upsell</div>
+      </div>
+      <div class="wf-content">
+        <div class="wf-headline">"The gift you stop hiding."</div>
+        <div class="wf-list">
+          <div class="wf-li">3 pre-built bundles: New Home Reset ($95), Hostess Ritual ($110), Founder Gift ($220).</div>
+          <div class="wf-li"><strong>Primary CTA:</strong> Send the gift &middot; <strong>Secondary:</strong> "Buying 25+? Inquire about corporate gifting."</div>
+          <div class="wf-li"><strong>Visual:</strong> Concept 05 (Corporate Gift Unboxing).</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wf-row">
+      <div>
+        <span class="wf-num">SECTION 07</span>
+        <div class="wf-section-name">Ingredient transparency</div>
+      </div>
+      <div class="wf-content">
+        <div class="wf-headline">"Every ingredient. Disclosed. <em>By name.</em>"</div>
+        <div class="wf-list">
+          <div class="wf-li">Full INCI list per scent in an expandable card. Fragrance components named.</div>
+          <div class="wf-li"><strong>Trust badges row:</strong> Plastic-free certification &middot; Leaping Bunny &middot; EWG-conscious (or EWG VERIFIED post-cert) &middot; Biodegradability test (with date).</div>
+          <div class="wf-li"><strong>Body copy:</strong> "If we wouldn't say it on the bottle, we don't put it in the bottle."</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wf-row">
+      <div>
+        <span class="wf-num">SECTION 08</span>
+        <div class="wf-section-name">Founder note</div>
+      </div>
+      <div class="wf-content">
+        <div class="wf-headline">"Why I built this."</div>
+        <div class="wf-list">
+          <div class="wf-li">Short founder story (4&ndash;6 sentences). The brief = "every other thing on my counter had a designer. The cleaner did not. So I made one."</div>
+          <div class="wf-li"><strong>Visual:</strong> Concept 09 (Founder Hand-Holding Bottle).</div>
+          <div class="wf-li"><strong>Sub-CTA:</strong> Read the longer story / Watch the founder film.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wf-row">
+      <div>
+        <span class="wf-num">SECTION 09</span>
+        <div class="wf-section-name">FAQ + objection handling</div>
+      </div>
+      <div class="wf-content">
+        <div class="wf-headline">Six pinned questions, expandable.</div>
+        <div class="wf-list">
+          <div class="wf-li">"Is this safe on marble / wood / stone?" &middot; "Can I use it on glass?"</div>
+          <div class="wf-li">"How does the refill work?" &middot; "Why $80?" &middot; "What's in the fragrance?"</div>
+          <div class="wf-li">"Do you ship internationally?"</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wf-row dark">
+      <div>
+        <span class="wf-num">SECTION 10</span>
+        <div class="wf-section-name">Footer</div>
+      </div>
+      <div class="wf-content">
+        <div class="wf-headline">Final CTA + email capture.</div>
+        <div class="wf-list">
+          <div class="wf-li"><strong>Email opt-in:</strong> "Get the first scent flight + 10% off your first bottle."</div>
+          <div class="wf-li">Press &middot; Wholesale &middot; Corporate gifting &middot; Press kit &middot; Returns &middot; Contact</div>
+          <div class="wf-li">Social: IG &middot; TikTok &middot; Pinterest &middot; LinkedIn (founder).</div>
+          <div class="wf-li"><strong>Legal footer:</strong> Full ingredient disclosure link &middot; Substantiation &middot; Privacy &middot; Terms.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 5 AD ANGLES -->
+<section class="section">
+  <span class="eyebrow">&#9670; Five paid angles</span>
+  <h2 class="h2">$1,000 each. <em>14 days. Pick the winner.</em></h2>
+  <p class="body">Each angle gets its own headline, primary text (90-character cap for Meta), CTA, creative format, persona target, and KPI. Run all five in parallel on Meta + TikTok. <strong>Don't re-mix. Don't kitchen-sink.</strong></p>
+
+  <!-- ANGLE 1 -->
+  <div class="ad-angle">
+    <div class="ad-angle-head">
+      <div>
+        <span class="ad-num">ANGLE 01</span>
+        <div class="ad-name">Designed <em>to be seen</em></div>
+      </div>
+      <div class="ad-budget">
+        <div class="ad-budget-num">$1,000</div>
+        <div class="ad-budget-label">&#9670; 14-day spend</div>
+      </div>
+    </div>
+    <div class="ad-grid">
+      <div class="ad-cell">
+        <span class="ac-label">Persona</span>
+        <div class="ac-text">Design-Wellness Millennial</div>
+      </div>
+      <div class="ad-cell">
+        <span class="ac-label">Creative format</span>
+        <div class="ac-text">Static carousel (5 frames) &middot; Concept 04 + Concept 01 imagery</div>
+      </div>
+      <div class="ad-cell">
+        <span class="ac-label">KPI</span>
+        <div class="ac-text"><strong>CTR &gt; 1.6%</strong> &middot; ROAS &gt; 1.4 &middot; AOV &gt; $80</div>
+      </div>
+    </div>
+    <div class="ad-copy-row">
+      <div>
+        <span class="copy-label">&#9670; Headline (40-char)</span>
+        <div class="copy-headline">"You don't hide an Aesop bottle."</div>
+      </div>
+      <div>
+        <span class="copy-label">&#9670; Primary text (90-char)</span>
+        <div class="copy-primary">"GESINE: cleaning, designed to live on the counter. Eight scent rituals. Refillable."</div>
+        <div style="margin-top:10px;"><span class="copy-label">&#9670; CTA</span><div class="copy-primary">Shop the bottle</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ANGLE 2 -->
+  <div class="ad-angle">
+    <div class="ad-angle-head">
+      <div>
+        <span class="ad-num">ANGLE 02</span>
+        <div class="ad-name">Cleaning <em>as ritual</em></div>
+      </div>
+      <div class="ad-budget">
+        <div class="ad-budget-num">$1,000</div>
+        <div class="ad-budget-label">&#9670; 14-day spend</div>
+      </div>
+    </div>
+    <div class="ad-grid">
+      <div class="ad-cell">
+        <span class="ac-label">Persona</span>
+        <div class="ac-text">Sunday Reset Buyer</div>
+      </div>
+      <div class="ad-cell">
+        <span class="ac-label">Creative format</span>
+        <div class="ac-text">UGC video (15s + 30s) &middot; Concept 06 (Sunday Reset Aesthetic) base</div>
+      </div>
+      <div class="ad-cell">
+        <span class="ac-label">KPI</span>
+        <div class="ac-text"><strong>VTR @ 3s &gt; 35%</strong> &middot; CTR &gt; 1.8% &middot; CAC &lt; $40</div>
+      </div>
+    </div>
+    <div class="ad-copy-row">
+      <div>
+        <span class="copy-label">&#9670; Headline (40-char)</span>
+        <div class="copy-headline">"Cleaning, but make it candle."</div>
+      </div>
+      <div>
+        <span class="copy-label">&#9670; Primary text (90-char)</span>
+        <div class="copy-primary">"The Sunday reset, but the spray bottle is the part you actually look forward to."</div>
+        <div style="margin-top:10px;"><span class="copy-label">&#9670; CTA</span><div class="copy-primary">Start the ritual</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ANGLE 3 -->
+  <div class="ad-angle">
+    <div class="ad-angle-head">
+      <div>
+        <span class="ad-num">ANGLE 03</span>
+        <div class="ad-name">Safer <em>home</em></div>
+      </div>
+      <div class="ad-budget">
+        <div class="ad-budget-num">$1,000</div>
+        <div class="ad-budget-label">&#9670; 14-day spend</div>
+      </div>
+    </div>
+    <div class="ad-grid">
+      <div class="ad-cell">
+        <span class="ac-label">Persona</span>
+        <div class="ac-text">Clean Home Buyer</div>
+      </div>
+      <div class="ad-cell">
+        <span class="ac-label">Creative format</span>
+        <div class="ac-text">Static + 15s explainer &middot; Concept 08 (Plastic-Free Pantry Reveal) + ingredient scroll</div>
+      </div>
+      <div class="ad-cell">
+        <span class="ac-label">KPI</span>
+        <div class="ac-text"><strong>CPM &lt; $24</strong> &middot; SaveRate &gt; 4% &middot; CAC &lt; $50</div>
+      </div>
+    </div>
+    <div class="ad-copy-row">
+      <div>
+        <span class="copy-label">&#9670; Headline (40-char)</span>
+        <div class="copy-headline">"Plastic-free. Fragrance disclosed."</div>
+      </div>
+      <div>
+        <span class="copy-label">&#9670; Primary text (90-char)</span>
+        <div class="copy-primary">"Every ingredient on the bottle. Refillable, recyclable, EWG-conscious. By design."</div>
+        <div style="margin-top:10px;"><span class="copy-label">&#9670; CTA</span><div class="copy-primary">Read the ingredients</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ANGLE 4 -->
+  <div class="ad-angle">
+    <div class="ad-angle-head">
+      <div>
+        <span class="ad-num">ANGLE 04</span>
+        <div class="ad-name">Corporate <em>gifting</em></div>
+      </div>
+      <div class="ad-budget">
+        <div class="ad-budget-num">$1,000</div>
+        <div class="ad-budget-label">&#9670; 14-day spend</div>
+      </div>
+    </div>
+    <div class="ad-grid">
+      <div class="ad-cell">
+        <span class="ac-label">Persona</span>
+        <div class="ac-text">Premium Gift Buyer &middot; HR / agency lead</div>
+      </div>
+      <div class="ad-cell">
+        <span class="ac-label">Creative format</span>
+        <div class="ac-text">Static (LinkedIn) + 15s carousel &middot; Concept 05 (Corporate Gift Unboxing)</div>
+      </div>
+      <div class="ad-cell">
+        <span class="ac-label">KPI</span>
+        <div class="ac-text"><strong>Lead-form fill &gt; 1.2%</strong> &middot; MQL CAC &lt; $90</div>
+      </div>
+    </div>
+    <div class="ad-copy-row">
+      <div>
+        <span class="copy-label">&#9670; Headline (40-char)</span>
+        <div class="copy-headline">"The gift that doesn't end up in a drawer."</div>
+      </div>
+      <div>
+        <span class="copy-label">&#9670; Primary text (90-char)</span>
+        <div class="copy-primary">"Premium co-branded gifting from $80/unit. Wax-sealed box. Founder hand-signed card."</div>
+        <div style="margin-top:10px;"><span class="copy-label">&#9670; CTA</span><div class="copy-primary">Inquire about MOQ</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ANGLE 5 -->
+  <div class="ad-angle">
+    <div class="ad-angle-head">
+      <div>
+        <span class="ad-num">ANGLE 05</span>
+        <div class="ad-name">Scent-led <em>dopamine</em></div>
+      </div>
+      <div class="ad-budget">
+        <div class="ad-budget-num">$1,000</div>
+        <div class="ad-budget-label">&#9670; 14-day spend</div>
+      </div>
+    </div>
+    <div class="ad-grid">
+      <div class="ad-cell">
+        <span class="ac-label">Persona</span>
+        <div class="ac-text">Sunday Reset Buyer &middot; Design-Wellness Millennial</div>
+      </div>
+      <div class="ad-cell">
+        <span class="ac-label">Creative format</span>
+        <div class="ac-text">UGC creator confessional (15s + 30s) &middot; multi-creator seed</div>
+      </div>
+      <div class="ad-cell">
+        <span class="ac-label">KPI</span>
+        <div class="ac-text"><strong>VTR @ 3s &gt; 40%</strong> &middot; SaveRate &gt; 5% &middot; CAC &lt; $35</div>
+      </div>
+    </div>
+    <div class="ad-copy-row">
+      <div>
+        <span class="copy-label">&#9670; Headline (40-char)</span>
+        <div class="copy-headline">"The reason she actually cleans now."</div>
+      </div>
+      <div>
+        <span class="copy-label">&#9670; Primary text (90-char)</span>
+        <div class="copy-primary">"Eight scents. One bottle. The chore is the byproduct of the pleasure."</div>
+        <div style="margin-top:10px;"><span class="copy-label">&#9670; CTA</span><div class="copy-primary">Start with a scent</div></div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- BUDGET SUMMARY -->
+<section class="section">
+  <span class="eyebrow">&#9670; Budget &amp; allocation</span>
+  <h2 class="h2">$5K, fourteen days, <em>five angles, equal weight.</em></h2>
+  <p class="body">Equal-weight test, no early reallocation in week 1. Statistical floor: minimum 1,200 link clicks per angle to call a winner with confidence. <strong>If an angle is starved by Meta's auction, drop the audience floor before adding budget.</strong></p>
+
+  <div class="test-grid">
+    <div class="test-card">
+      <div class="test-num">$5,000</div>
+      <span class="test-label">&#9670; Total budget</span>
+      <div class="test-desc"><strong>$1K per angle</strong> &middot; 60% Meta &middot; 40% TikTok &middot; 0% Google (held until winning hook is selected for SEM).</div>
+    </div>
+    <div class="test-card">
+      <div class="test-num">14 <em>days</em></div>
+      <span class="test-label">&#9670; Test duration</span>
+      <div class="test-desc"><strong>Days 1&ndash;3:</strong> learning &middot; <strong>Days 4&ndash;10:</strong> data collection &middot; <strong>Days 11&ndash;14:</strong> winner selection &amp; scale prep.</div>
+    </div>
+    <div class="test-card">
+      <div class="test-num">1,200</div>
+      <span class="test-label">&#9670; Min clicks / angle</span>
+      <div class="test-desc">Minimum link clicks required per angle <strong>before any kill / scale call</strong> is made. Below this, the data is noise.</div>
+    </div>
+  </div>
+</section>
+
+<!-- WIN CRITERIA -->
+<section class="section">
+  <span class="eyebrow">&#9670; Win &amp; kill criteria</span>
+  <h2 class="h2">Pre-decide the rules. <em>Then trust them.</em></h2>
+  <p class="body">Day-15 decisions are made <strong>against this list, not against gut</strong>. The angle that meets all four "scale" criteria gets reweighted to 60% of full launch spend; angles meeting all four "kill" criteria are paused.</p>
+
+  <div class="win-grid">
+    <div class="win-card scale">
+      <span class="win-tag">&#9670; Scale criteria</span>
+      <div class="win-name">When to 4x the budget</div>
+      <div class="win-rules">
+        <div class="win-rule">CTR <strong>&gt; 1.6%</strong> on static / <strong>VTR&nbsp;@&nbsp;3s &gt; 35%</strong> on video</div>
+        <div class="win-rule"><strong>ROAS &gt; 1.4</strong> over the last 7 days</div>
+        <div class="win-rule"><strong>CAC &lt; $50</strong> for D2C / <strong>&lt; $100</strong> for gifting MQL</div>
+        <div class="win-rule">Statistical confidence <strong>&gt; 90%</strong> on lift vs. control</div>
+      </div>
+    </div>
+    <div class="win-card kill">
+      <span class="win-tag">&#9670; Kill criteria</span>
+      <div class="win-name">When to pull the plug</div>
+      <div class="win-rules">
+        <div class="win-rule">CTR <strong>&lt; 0.7%</strong> after 1,200 clicks</div>
+        <div class="win-rule"><strong>ROAS &lt; 0.5</strong> over the last 7 days</div>
+        <div class="win-rule"><strong>CAC &gt; $90</strong> for D2C with no improvement trend</div>
+        <div class="win-rule">Frequency <strong>&gt; 4.0</strong> with <strong>declining</strong> CTR (creative fatigue, not audience size)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section">
+  <span class="eyebrow">&#9670; 14-day timeline</span>
+  <div class="timeline-box">
+    <span class="tl-label">&#9670; Week-by-week</span>
+    <div class="tl-grid">
+      <div class="tl-day"><strong>Days 1&ndash;3</strong>Launch all 5 angles. Equal $70/day each. Meta + TikTok learning phase. <em>No edits.</em></div>
+      <div class="tl-day"><strong>Days 4&ndash;7</strong>Daily check on CTR + VTR. Refresh creatives only on critical underperformers (frequency &gt; 4 with no engagement).</div>
+      <div class="tl-day"><strong>Days 8&ndash;10</strong>Mid-test review. Confirm minimum click thresholds met. Begin landing-page heatmap analysis.</div>
+      <div class="tl-day"><strong>Days 11&ndash;13</strong>Decision window. Apply scale + kill criteria. Identify winner + runner-up.</div>
+      <div class="tl-day"><strong>Day 14</strong>Lock winner. Reallocate to 60% of next-month spend. Brief retail buyers + press with the winning angle.</div>
+      <div class="tl-day"><strong>Day 15&plus;</strong>Full launch with winner-as-hero, runner-up as retargeting, three losers retired. <em>Repeat the test quarterly.</em></div>
+    </div>
+  </div>
+</section>
+
+<footer class="doc-footer">
+  <div class="ft-l">Alex Lamb &middot; Creative Director, AI Architect</div>
+  <div class="ft-r">GESINE Foundation Sprint &middot; Deliverable 09</div>
+</footer>
+
+</div>
+</body>
+</html>

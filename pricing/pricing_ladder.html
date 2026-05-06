@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){if(sessionStorage.getItem('gesine_unlock')==='1')return;var p=prompt('GESINE — enter password to view');if(p==='gesine2026'){sessionStorage.setItem('gesine_unlock','1');}else{document.documentElement.innerHTML='<body style="margin:0;padding:60px;font-family:sans-serif;text-align:center;background:#0F0E0C;color:#F5F1E8;font-size:18px;">Access required.</body>';}})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GESINE — Pricing Ladder One-Pager</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --ink:#0F0E0C; --dark:#1A1814;
+  --cream:#F8FAF6; --off:#E8EFE3; --soft:#D6E4D0;
+  --amber:#4FA86A; --amber-deep:#2D5F3F;
+  --olive:#4A5240; --sage:#7C8470;
+  --muted:#6F665A; --light:#9C9285;
+  --border:rgba(15,14,12,0.08); --bmd:rgba(15,14,12,0.14); --bstr:rgba(15,14,12,0.20);
+}
+body { background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-serif; font-size:15px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+.page { max-width:980px; margin:0 auto; padding:56px 48px 80px; }
+
+.doc-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:48px; padding-bottom:24px; border-bottom:2px solid var(--ink); }
+.wordmark { display:flex; align-items:center; gap:12px; }
+.logo-box { width:36px; height:36px; background:var(--ink); border-radius:8px; display:grid; place-items:center; }
+.brand-name { font-family:'Instrument Serif',Georgia,serif; font-size:18px; letter-spacing:.02em; }
+.doc-meta { text-align:right; font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); line-height:2; }
+
+.hero { background:var(--ink); border-radius:16px; padding:44px 48px; margin-bottom:48px; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg, var(--amber), var(--sage)); }
+.hero-eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:rgba(245,241,232,.40); display:block; margin-bottom:16px; }
+.hero-headline { font-family:'Instrument Serif',Georgia,serif; font-size:clamp(28px,3.6vw,38px); line-height:1.15; letter-spacing:-.02em; color:var(--cream); margin-bottom:18px; }
+.hero-headline em { color:var(--amber); font-style:italic; }
+.hero-body { font-size:15px; color:rgba(245,241,232,.72); line-height:1.7; font-weight:300; max-width:680px; }
+.hero-body strong { color:var(--cream); font-weight:500; }
+
+.section { margin-bottom:56px; }
+.eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:12px; }
+.h2 { font-family:'Instrument Serif',Georgia,serif; font-size:clamp(24px,3vw,32px); line-height:1.15; letter-spacing:-.015em; color:var(--ink); margin-bottom:14px; }
+.h2 em { font-style:italic; }
+.body { font-size:14px; color:#2A2620; line-height:1.75; font-weight:300; max-width:720px; }
+.body strong { font-weight:600; color:var(--ink); }
+hr.rule { border:none; border-top:1px solid var(--bmd); margin:0 0 56px; }
+
+/* LADDER VIZ */
+.ladder { display:grid; grid-template-columns:160px 1fr 80px; gap:0; margin-top:24px; border:1px solid var(--bstr); border-radius:14px; overflow:hidden; }
+.ladder-row { display:contents; }
+.ladder-cell { padding:18px 20px; border-bottom:1px solid var(--bmd); display:flex; align-items:center; }
+.ladder-row:last-child .ladder-cell { border-bottom:none; }
+.ladder-cell.brand { background:var(--off); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink); font-weight:500; }
+.ladder-cell.bar { padding:18px 24px; }
+.bar-track { width:100%; height:32px; background:var(--soft); border-radius:6px; position:relative; overflow:hidden; }
+.bar-fill { position:absolute; top:0; left:0; bottom:0; border-radius:6px; display:flex; align-items:center; justify-content:flex-end; padding:0 12px; }
+.bar-fill .bar-product { font-family:'DM Mono',monospace; font-size:10px; color:rgba(245,241,232,0.85); letter-spacing:.04em; white-space:nowrap; }
+.ladder-cell.price { background:var(--off); font-family:'Instrument Serif',Georgia,serif; font-size:20px; line-height:1; color:var(--amber-deep); justify-content:flex-end; padding-right:22px; }
+
+.ladder-cell.gesine.brand { background:var(--ink); color:var(--cream); }
+.ladder-cell.gesine.bar { background:rgba(79,168,106,0.06); }
+.ladder-cell.gesine.price { background:var(--ink); color:var(--amber); }
+.ladder-cell.gesine.bar .bar-fill { background:linear-gradient(90deg, var(--amber), var(--amber-deep)); }
+.ladder-cell.gesine.bar .bar-track { background:rgba(79,168,106,0.18); }
+
+/* COMPETITOR BAR COLORS */
+.bar-touchland { background:linear-gradient(90deg,#FF7BA0,#FF5E8E); }
+.bar-blueland { background:linear-gradient(90deg,#4FA3D1,#2D7AA8); }
+.bar-method { background:linear-gradient(90deg,#7AB85C,#5A9E3F); }
+.bar-flamingo { background:linear-gradient(90deg,#E8553F,#C03E2C); }
+.bar-aesop { background:linear-gradient(90deg,#5A4234,#2C2520); }
+.bar-caraway { background:linear-gradient(90deg,#D4A574,#A87E50); }
+.bar-byredo { background:linear-gradient(90deg,#C4B391,#8B7E5F); }
+
+/* CATEGORY ZONES */
+.zones { margin-top:32px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; }
+.zone { padding:24px 26px; border-radius:14px; border:1px solid var(--bstr); }
+.zone.commodity { background:rgba(204,204,204,0.08); }
+.zone.premium { background:rgba(79,168,106,0.08); border-color:rgba(79,168,106,0.3); }
+.zone.luxury { background:var(--ink); color:var(--cream); border-color:var(--ink); }
+.zone-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.2em; text-transform:uppercase; margin-bottom:10px; display:block; }
+.zone.commodity .zone-label { color:var(--muted); }
+.zone.premium .zone-label { color:var(--amber-deep); }
+.zone.luxury .zone-label { color:var(--amber); }
+.zone-range { font-family:'Instrument Serif',Georgia,serif; font-size:24px; line-height:1.1; margin-bottom:8px; letter-spacing:-.01em; }
+.zone-desc { font-size:12.5px; line-height:1.55; font-weight:300; color:#2A2620; }
+.zone.luxury .zone-desc { color:rgba(245,241,232,.72); }
+
+/* WHY $78 BREAKDOWN */
+.breakdown { background:var(--off); border:1px solid var(--bstr); border-radius:14px; padding:28px 32px; margin-top:24px; }
+.breakdown-title { font-family:'Instrument Serif',Georgia,serif; font-size:22px; line-height:1.2; margin-bottom:18px; letter-spacing:-.01em; }
+.breakdown-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.breakdown-item { padding:14px 18px; background:var(--cream); border:1px solid var(--bmd); border-radius:10px; display:flex; justify-content:space-between; align-items:center; gap:12px; }
+.bd-label { font-size:13px; color:#2A2620; font-weight:400; }
+.bd-value { font-family:'DM Mono',monospace; font-size:11px; color:var(--amber-deep); font-weight:600; letter-spacing:.04em; }
+.breakdown-total { display:flex; justify-content:space-between; align-items:center; margin-top:18px; padding-top:18px; border-top:2px solid var(--ink); }
+.bd-total-label { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink); font-weight:600; }
+.bd-total-value { font-family:'Instrument Serif',Georgia,serif; font-size:34px; line-height:1; color:var(--ink); letter-spacing:-.02em; }
+
+/* INVESTOR LINE */
+.investor-box { background:linear-gradient(135deg, rgba(79,168,106,.08) 0%, rgba(74,82,64,.08) 100%); border:1px solid rgba(79,168,106,.3); border-radius:14px; padding:30px 34px; margin-top:24px; }
+.investor-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--amber-deep); display:block; margin-bottom:14px; }
+.investor-text { font-family:'Instrument Serif',Georgia,serif; font-size:24px; line-height:1.4; color:var(--ink); letter-spacing:-.01em; }
+.investor-text em { font-style:italic; color:var(--amber-deep); }
+
+.doc-footer { margin-top:64px; padding-top:24px; border-top:2px solid var(--ink); display:flex; justify-content:space-between; align-items:center; }
+.ft-l { font-size:12px; color:var(--muted); }
+.ft-r { font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); }
+
+@media(max-width:760px) {
+  .page { padding:36px 20px 64px; }
+  .doc-header { flex-direction:column; align-items:flex-start; gap:14px; }
+  .hero { padding:30px 24px; }
+  .ladder { grid-template-columns:110px 1fr 70px; }
+  .ladder-cell { padding:14px 12px; font-size:10px; }
+  .ladder-cell.bar { padding:14px 12px; }
+  .ladder-cell.price { font-size:16px; }
+  .zones { grid-template-columns:1fr; }
+  .breakdown-grid { grid-template-columns:1fr; }
+  .doc-footer { flex-direction:column; gap:12px; align-items:flex-start; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="doc-header">
+  <div class="wordmark">
+    <div class="logo-box">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <circle cx="9" cy="9" r="7" stroke="#4FA86A" stroke-width="1.5" fill="none"/>
+        <circle cx="9" cy="9" r="3" fill="#4FA86A"/>
+      </svg>
+    </div>
+    <span class="brand-name">GESINE × Alex Lamb</span>
+  </div>
+  <div class="doc-meta">Deliverable 02 · Pricing Ladder One-Pager<br>Foundation Sprint · May 2026</div>
+</header>
+
+<div class="hero">
+  <span class="hero-eyebrow">Why $78 is the right price</span>
+  <div class="hero-headline">
+    GESINE is not<br>
+    <em>an $78 cleaning spray.</em>
+  </div>
+  <div class="hero-body">
+    GESINE is an <strong>$78 ritual kit</strong> — sculptural bottle, scent concentrates, display holder, bamboo towels, refill system. At $78, GESINE doesn't compete with Clorox. It competes with the candle on the shelf, the hand soap on the sink, the cookware on the counter. <strong>The price only reads as expensive when the buyer thinks "cleaner." It reads as a deal when the buyer thinks "ritual kit."</strong>
+  </div>
+</div>
+
+
+<!-- VISUAL LADDER -->
+<section class="section">
+  <span class="eyebrow">The visual ladder</span>
+  <h2 class="h2">Where $78 lives.</h2>
+  <p class="body">Anchors pulled from Target, Amazon, Selfridges, and DTC sites as of May 2026. Dollar values reflect entry SKU or single-unit price; sets and discovery kits go higher.</p>
+
+  <div class="ladder">
+    <div class="ladder-row">
+      <div class="ladder-cell brand">Touchland Power Mist</div>
+      <div class="ladder-cell bar">
+        <div class="bar-track"><div class="bar-fill bar-touchland" style="width:6%;"><span class="bar-product">1oz mist</span></div></div>
+      </div>
+      <div class="ladder-cell price">$10</div>
+    </div>
+    <div class="ladder-row">
+      <div class="ladder-cell brand">Method All-Purpose</div>
+      <div class="ladder-cell bar">
+        <div class="bar-track"><div class="bar-fill bar-method" style="width:4%;"><span class="bar-product">28oz spray</span></div></div>
+      </div>
+      <div class="ladder-cell price">$5</div>
+    </div>
+    <div class="ladder-row">
+      <div class="ladder-cell brand">Blueland Starter</div>
+      <div class="ladder-cell bar">
+        <div class="bar-track"><div class="bar-fill bar-blueland" style="width:24%;"><span class="bar-product">refill set + bottles</span></div></div>
+      </div>
+      <div class="ladder-cell price">$39</div>
+    </div>
+    <div class="ladder-row">
+      <div class="ladder-cell brand">DedCool Detergent</div>
+      <div class="ladder-cell bar">
+        <div class="bar-track"><div class="bar-fill bar-method" style="width:22%;"><span class="bar-product">32oz / 60 wash</span></div></div>
+      </div>
+      <div class="ladder-cell price">$35</div>
+    </div>
+    <div class="ladder-row">
+      <div class="ladder-cell brand">Aesop Hand Wash</div>
+      <div class="ladder-cell bar">
+        <div class="bar-track"><div class="bar-fill bar-aesop" style="width:26%;"><span class="bar-product">500ml resurrection</span></div></div>
+      </div>
+      <div class="ladder-cell price">$42</div>
+    </div>
+    <div class="ladder-row">
+      <div class="ladder-cell brand">Flamingo Estate Cleaner</div>
+      <div class="ladder-cell bar">
+        <div class="bar-track"><div class="bar-fill bar-flamingo" style="width:30%;"><span class="bar-product">heirloom tomato 16oz</span></div></div>
+      </div>
+      <div class="ladder-cell price">$48</div>
+    </div>
+    <div class="ladder-row gesine">
+      <div class="ladder-cell brand gesine">GESINE Ritual Kit</div>
+      <div class="ladder-cell bar gesine">
+        <div class="bar-track"><div class="bar-fill" style="width:50%;"><span class="bar-product">bottle + 2 refills + holder + towels</span></div></div>
+      </div>
+      <div class="ladder-cell price gesine">$78</div>
+    </div>
+    <div class="ladder-row">
+      <div class="ladder-cell brand">Byredo Hand Wash</div>
+      <div class="ladder-cell bar">
+        <div class="bar-track"><div class="bar-fill bar-byredo" style="width:42%;"><span class="bar-product">450ml apothecary</span></div></div>
+      </div>
+      <div class="ladder-cell price">$68</div>
+    </div>
+    <div class="ladder-row">
+      <div class="ladder-cell brand">Le Labo Hand Wash</div>
+      <div class="ladder-cell bar">
+        <div class="bar-track"><div class="bar-fill bar-byredo" style="width:55%;"><span class="bar-product">300ml hinoki</span></div></div>
+      </div>
+      <div class="ladder-cell price">$88</div>
+    </div>
+    <div class="ladder-row">
+      <div class="ladder-cell brand">Diptyque Candle</div>
+      <div class="ladder-cell bar">
+        <div class="bar-track"><div class="bar-fill bar-byredo" style="width:46%;"><span class="bar-product">190g baies</span></div></div>
+      </div>
+      <div class="ladder-cell price">$74</div>
+    </div>
+    <div class="ladder-row">
+      <div class="ladder-cell brand">Caraway Pan</div>
+      <div class="ladder-cell bar">
+        <div class="bar-track"><div class="bar-fill bar-caraway" style="width:62%;"><span class="bar-product">10.5" fry pan single</span></div></div>
+      </div>
+      <div class="ladder-cell price">$95</div>
+    </div>
+    <div class="ladder-row">
+      <div class="ladder-cell brand">Caraway Deluxe Set</div>
+      <div class="ladder-cell bar">
+        <div class="bar-track"><div class="bar-fill bar-caraway" style="width:100%;"><span class="bar-product">7-piece + organizers</span></div></div>
+      </div>
+      <div class="ladder-cell price">$670</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CATEGORY ZONES -->
+<section class="section">
+  <span class="eyebrow">Three pricing zones</span>
+  <h2 class="h2">$78 sits in the<br><em>premium ritual</em> zone.</h2>
+  <p class="body">Cleaning has a commodity price ceiling around $25. Premium ritual products sit between $40 and $90. Luxury home objects start at $90 and go up. GESINE sits inside the premium ritual band — the same band as Aesop hand wash, Le Labo, Diptyque, and Flamingo Estate.</p>
+
+  <div class="zones">
+    <div class="zone commodity">
+      <span class="zone-label">Zone 01 · Commodity</span>
+      <div class="zone-range">$3 – $25</div>
+      <div class="zone-desc">Clorox, Lysol, Method, Mrs. Meyers, grocery refills. Volume-driven, shelf-driven, function-led copy. <strong>GESINE never enters this zone — it would collapse the brand.</strong></div>
+    </div>
+    <div class="zone premium">
+      <span class="zone-label">Zone 02 · Premium ritual</span>
+      <div class="zone-range">$40 – $90</div>
+      <div class="zone-desc">Aesop, DedCool, Flamingo Estate, Byredo, Diptyque, Le Labo. Object pricing, scent-led copy, gifting-grade packaging. <strong>GESINE owns the home-care slot in this band.</strong></div>
+    </div>
+    <div class="zone luxury">
+      <span class="zone-label">Zone 03 · Luxury system</span>
+      <div class="zone-range">$95 – $670+</div>
+      <div class="zone-desc">Caraway sets, Our Place sets, Le Labo limited bottles, hospitality kits. Sets and systems justify the price. <strong>GESINE expansion path — gifting kits and collab drops live here.</strong></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- WHY $78 BREAKDOWN -->
+<section class="section">
+  <span class="eyebrow">Anatomy of the $78</span>
+  <h2 class="h2">What the buyer<br><em>actually receives.</em></h2>
+  <p class="body">Reframing the price means showing the kit, not the spray. When the buyer counts five distinct premium objects in the box, $78 reads as a deal. When they count "a cleaner," it reads as expensive.</p>
+
+  <div class="breakdown">
+    <div class="breakdown-title">Inside the GESINE Ritual Kit</div>
+    <div class="breakdown-grid">
+      <div class="breakdown-item"><span class="bd-label">Sculptural reusable bottle</span><span class="bd-value">~$24 perceived</span></div>
+      <div class="breakdown-item"><span class="bd-label">Two scent concentrates</span><span class="bd-value">~$22 perceived</span></div>
+      <div class="breakdown-item"><span class="bd-label">Counter-display holder</span><span class="bd-value">~$14 perceived</span></div>
+      <div class="breakdown-item"><span class="bd-label">Two bamboo ritual towels</span><span class="bd-value">~$10 perceived</span></div>
+      <div class="breakdown-item"><span class="bd-label">Refill-based system / EWG Verified</span><span class="bd-value">+ premium signal</span></div>
+      <div class="breakdown-item"><span class="bd-label">Refill capsules · 2-pack</span><span class="bd-value">$18 · 64% margin</span></div>
+      <div class="breakdown-item"><span class="bd-label">Bamboo cloths · 4-pack</span><span class="bd-value">$18 · 78% margin</span></div>
+      <div class="breakdown-item"><span class="bd-label">Subscription cycle</span><span class="bd-value">4-8 weeks</span></div>
+      <div class="breakdown-item"><span class="bd-label">Magnetic gift-grade packaging</span><span class="bd-value">+ giftability premium</span></div>
+    </div>
+    <div class="breakdown-total">
+      <span class="bd-total-label">Perceived value</span>
+      <span class="bd-total-value">$95 – $120</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- INVESTOR LINE -->
+<section class="section">
+  <span class="eyebrow">The investor line</span>
+
+  <div class="investor-box">
+    <span class="investor-label">Why this price proves the thesis</span>
+    <div class="investor-text">
+      Pricing GESINE at $78 isn't aspirational — it's the entry fee<br>
+      to a category that doesn't yet exist. <em>Premium home-care ritual.</em>
+    </div>
+  </div>
+</section>
+
+
+<footer class="doc-footer">
+  <div class="ft-l">Alex Lamb · Creative Director, AI Architect</div>
+  <div class="ft-r">GESINE Foundation Sprint · Deliverable 02</div>
+</footer>
+
+</div>
+</body>
+</html>

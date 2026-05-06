@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){if(sessionStorage.getItem('gesine_unlock')==='1')return;var p=prompt('GESINE — enter password to view');if(p==='gesine2026'){sessionStorage.setItem('gesine_unlock','1');}else{document.documentElement.innerHTML='<body style="margin:0;padding:60px;font-family:sans-serif;text-align:center;background:#0F0E0C;color:#F5F1E8;font-size:18px;">Access required.</body>';}})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GESINE — Crate &amp; Barrel Launch Playbook</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --ink:#0F0E0C; --cream:#F8FAF6; --off:#E8EFE3; --soft:#D6E4D0;
+  --amber:#4FA86A; --amber-deep:#2D5F3F;
+  --olive:#4A5240; --sage:#7C8470;
+  --muted:#6F665A; --light:#9C9285;
+  --bmd:rgba(15,14,12,0.14); --bstr:rgba(15,14,12,0.20);
+}
+body { background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-serif; font-size:15px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+.page { max-width:1100px; margin:0 auto; padding:56px 48px 80px; }
+.doc-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:48px; padding-bottom:24px; border-bottom:2px solid var(--ink); }
+.wordmark { display:flex; align-items:center; gap:12px; }
+.logo-box { width:36px; height:36px; background:var(--ink); border-radius:8px; display:grid; place-items:center; color:var(--amber); font-family:'Instrument Serif',serif; font-size:20px; }
+.brand-name { font-family:'Instrument Serif',Georgia,serif; font-size:18px; letter-spacing:.02em; }
+.doc-meta { text-align:right; font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); line-height:2; }
+
+.hero { background:var(--ink); border-radius:16px; padding:44px 48px; margin-bottom:48px; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg, var(--amber), var(--sage)); }
+.hero-eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:rgba(245,241,232,.40); display:block; margin-bottom:16px; }
+.hero-headline { font-family:'Instrument Serif',serif; font-size:clamp(28px,3.6vw,38px); line-height:1.15; letter-spacing:-.02em; color:var(--cream); margin-bottom:18px; }
+.hero-headline em { color:var(--amber); font-style:italic; }
+.hero-body { font-size:15px; color:rgba(245,241,232,.72); line-height:1.7; font-weight:300; max-width:780px; }
+.hero-body strong { color:var(--cream); font-weight:500; }
+
+.section { margin-bottom:48px; }
+.eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:12px; }
+.h2 { font-family:'Instrument Serif',serif; font-size:clamp(24px,3vw,32px); line-height:1.15; letter-spacing:-.015em; color:var(--ink); margin-bottom:14px; }
+.h2 em { font-style:italic; }
+.body { font-size:14px; color:#2A2620; line-height:1.75; font-weight:300; max-width:880px; }
+.body strong { font-weight:600; color:var(--ink); }
+
+.stat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:24px; }
+.stat { background:var(--off); border:1px solid var(--bstr); border-radius:12px; padding:22px 22px; }
+.stat-num { font-family:'Instrument Serif',serif; font-size:28px; line-height:1.1; color:var(--ink); margin-bottom:6px; }
+.stat-num em { color:var(--amber-deep); font-style:italic; }
+.stat-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); }
+
+.intel-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:24px; }
+.intel { background:var(--off); border:1px solid var(--bstr); border-radius:12px; padding:24px 26px; }
+.intel-eye { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.18em; text-transform:uppercase; color:var(--amber-deep); margin-bottom:8px; display:block; }
+.intel-h { font-family:'Instrument Serif',serif; font-size:18px; line-height:1.2; margin-bottom:10px; }
+.intel-body { font-size:13px; line-height:1.65; color:#2A2620; }
+.intel-body strong { color:var(--ink); }
+.intel-body a { color:var(--amber-deep); text-decoration:none; border-bottom:1px dotted var(--amber-deep); }
+.unknown { background:rgba(79,168,106,0.08); border-color:rgba(79,168,106,0.3); }
+.unknown .intel-eye { color:var(--amber-deep); }
+.unknown::after { content:'?'; position:absolute; }
+
+.timeline { display:grid; grid-template-columns:140px 1fr; gap:14px; margin-top:24px; }
+.tl-col { background:var(--ink); color:var(--cream); padding:24px 24px; border-radius:12px; }
+.tl-eye { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; color:var(--amber); margin-bottom:8px; display:block; }
+.tl-when { font-family:'Instrument Serif',serif; font-size:24px; line-height:1.1; margin-bottom:6px; color:var(--cream); }
+.tl-month { font-family:'DM Mono',monospace; font-size:11px; color:rgba(245,241,232,.6); }
+.tl-list { background:var(--off); border:1px solid var(--bstr); border-radius:12px; padding:22px 26px; }
+.tl-list ol { padding-left:0; counter-reset:tl; list-style:none; }
+.tl-list li { padding:10px 0 10px 36px; position:relative; counter-increment:tl; font-size:13.5px; line-height:1.65; color:#2A2620; border-bottom:1px dashed var(--bmd); }
+.tl-list li:last-child { border-bottom:none; }
+.tl-list li::before { content:counter(tl); position:absolute; left:0; top:11px; font-family:'DM Mono',monospace; font-size:11px; color:var(--amber-deep); width:24px; height:24px; border-radius:50%; background:var(--soft); display:grid; place-items:center; font-weight:500; }
+.tl-list li strong { color:var(--ink); }
+
+.callout { background:linear-gradient(135deg,var(--amber-deep) 0%, var(--olive) 100%); color:var(--cream); border-radius:14px; padding:32px 36px; margin:32px 0; }
+.callout .eyebrow { color:rgba(245,241,232,.5); }
+.callout .h2 { color:var(--cream); }
+.callout .h2 em { color:var(--cream); }
+.callout .body { color:rgba(245,241,232,.85); max-width:none; }
+.callout .body strong { color:var(--cream); }
+
+.unknowns-list { background:var(--off); border:1px solid var(--bmd); border-radius:12px; padding:24px 28px; margin-top:24px; }
+.unknowns-list h4 { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--amber-deep); margin-bottom:12px; }
+.unknowns-list ul { list-style:none; padding:0; }
+.unknowns-list li { padding:7px 0 7px 24px; font-size:13px; color:var(--muted); position:relative; line-height:1.6; }
+.unknowns-list li::before { content:'?'; position:absolute; left:6px; color:var(--amber-deep); font-family:'DM Mono',monospace; font-weight:500; }
+.unknowns-list li strong { color:var(--ink); }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="doc-header">
+  <div class="wordmark">
+    <div class="logo-box">G</div>
+    <span class="brand-name">GESINE</span>
+  </div>
+  <div class="doc-meta">
+    PHASE 2 · INVESTOR<br>
+    CRATE &amp; BARREL PLAYBOOK<br>
+    MAY 2026
+  </div>
+</header>
+
+<section class="hero">
+  <span class="hero-eyebrow">Retail anchor · 2027 nationwide · Smoked Sage exclusive</span>
+  <h1 class="hero-headline">Caraway sold 3 months of inventory in 5 hours.<br><em>That's the bar to clear.</em></h1>
+  <p class="hero-body">C&amp;B's first Caraway drop (Silt Green, 2023) sold three months of inventory in <strong>five hours</strong>. The Sept 2025 Blue Lagoon expansion confirmed the playbook. <strong>GESINE inherits the same retail muscle</strong> — same parent merchandising org, same in-store theatre, same exclusive-colorway model. The Organizer Set at $78 slots into existing C&amp;B price architecture (room sprays $24.95-$49.95, scented candles $36-$84). Smoked Sage differentiates against a cream/amber-dominant home-fragrance wall. Cleaning-meets-fragrance is open whitespace at C&amp;B.</p>
+</section>
+
+<div class="section">
+  <span class="eyebrow">C&amp;B at a glance</span>
+  <h2 class="h2">The retail anchor.</h2>
+
+  <div class="stat-grid">
+    <div class="stat">
+      <div class="stat-num"><em>~$1.25B</em></div>
+      <div class="stat-label">Crateandbarrel.com 2025 sales (ECDB)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num"><em>89</em></div>
+      <div class="stat-label">US/Canada stores + 8 outlets</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num"><em>&gt;60%</em></div>
+      <div class="stat-label">Digital share of biz (CEO Janet Hayes)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num"><em>$200-$300</em></div>
+      <div class="stat-label">AOV (ECDB volume implied)</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <span class="eyebrow">Buyer org · what we know</span>
+  <h2 class="h2">Who decides on the GESINE shelf.</h2>
+
+  <div class="intel-grid">
+    <div class="intel">
+      <span class="intel-eye">CEO</span>
+      <div class="intel-h">Janet Hayes</div>
+      <div class="intel-body">Since 2020. Ex-Williams-Sonoma / Pottery Barn. Driving banner unification + accelerated growth. Recent <a href="https://hbr.org/2022/12/crate-barrel-ceo-janet-hayes-on-navigating-turbulent-times-for-retail">HBR podcast</a> + <a href="https://businessofhome.com/articles/more-stores-a-restructure-and-trade-perks-crate-barrel-s-ceo-talks-big-plans">BoH interview</a>.</div>
+    </div>
+    <div class="intel">
+      <span class="intel-eye">EVP Merchandising</span>
+      <div class="intel-h">Pat Eckerstrom</div>
+      <div class="intel-body">Owns Strategy + Design/Development + Buying. Org states <strong>100+ artists &amp; designers</strong> in active exclusive product partnerships.</div>
+    </div>
+    <div class="intel">
+      <span class="intel-eye">Sr. Dir Visual Merch</span>
+      <div class="intel-h">Amy Axford</div>
+      <div class="intel-body">Drives in-store endcap + dedicated fixture decisions. Caraway colorways got dedicated fixtures via this team.</div>
+    </div>
+    <div class="intel unknown">
+      <span class="intel-eye">Home-care / Fragrance buyer</span>
+      <div class="intel-h">Unknown · ask C&amp;B contact</div>
+      <div class="intel-body">No public source — direct ask required of Lee's C&amp;B contact. Pattern: C&amp;B prefers named-designer collabs + DTC kitchen/cookware brands with proven momentum.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <span class="eyebrow">Recent collab cadence · last 24 months</span>
+  <h2 class="h2">What's working in C&amp;B's launch playbook.</h2>
+
+  <div class="intel-grid">
+    <div class="intel">
+      <span class="intel-eye">Caraway · Silt Green 2023</span>
+      <div class="intel-h">3 months of inventory · 5 hours.</div>
+      <div class="intel-body">Sept 2025 Blue Lagoon expansion. Cookware + bakeware + Squareware. Dedicated in-store fixtures. <a href="https://modernretail.co/startups/caraway-crate-and-barrel">Modern Retail</a>.</div>
+    </div>
+    <div class="intel">
+      <span class="intel-eye">Jeremiah Brent · 2025</span>
+      <div class="intel-h">"The Collected Home"</div>
+      <div class="intel-body">Named-designer collection. Full PR + IG + catalog spread treatment. <a href="https://www.prnewswire.com/news-releases/crate--barrel-launches-exclusive-collection-with-jeremiah-brent-302550109.html">PR Newswire</a>.</div>
+    </div>
+    <div class="intel">
+      <span class="intel-eye">Brigette Romanek · Feb 2025</span>
+      <div class="intel-h">54-piece California-palette collection</div>
+      <div class="intel-body">Eclectic-tranquil thesis. Confirms C&amp;B will commit to ~50-piece exclusive runs with named designers. <a href="https://www.prnewswire.com/news-releases/crate--barrel-and-brigette-romanek-release-first-ever-collaboration-unveiling-a-new-eclectic-tranquil-collection-302380949.html">PR Newswire</a>.</div>
+    </div>
+    <div class="intel">
+      <span class="intel-eye">Jake Arnold · Leanne Ford</span>
+      <div class="intel-h">Repeat collection expansions</div>
+      <div class="intel-body">Pattern: successful first drop earns Phase 2 expansion within 12 months. Crate &amp; Kids crossovers (Leanne Ford "Origins") add SKU breadth.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <span class="eyebrow">Vendor terms · industry benchmarks (no C&amp;B specifics)</span>
+  <h2 class="h2">What Lee will negotiate.</h2>
+
+  <div class="intel-grid">
+    <div class="intel">
+      <span class="intel-eye">Payment terms</span>
+      <div class="intel-h">Net 60 standard</div>
+      <div class="intel-body">Specialty retail benchmark. Net 30 only for proven smaller brands; Net 90 demanded by larger dept stores. Early-pay discounts (e.g. 2/35 Net 60) common.</div>
+    </div>
+    <div class="intel">
+      <span class="intel-eye">Markdown allowance</span>
+      <div class="intel-h">5-10% wholesale</div>
+      <div class="intel-body">Typical first-year specialty vendor.</div>
+    </div>
+    <div class="intel">
+      <span class="intel-eye">Wholesale margin</span>
+      <div class="intel-h">~55% keystone</div>
+      <div class="intel-body">Specialty 40-55% retailer-side. <strong>$78 SRP → ~$35 wholesale.</strong> Aligns with deck Organizer Set 72% margin if COGS holds.</div>
+    </div>
+    <div class="intel">
+      <span class="intel-eye">Slotting / co-op</span>
+      <div class="intel-h">5-8% co-op marketing</div>
+      <div class="intel-body">No standard slotting fees at specialty home — replaced by co-op marketing contribution. Negotiate as catalog spread + dedicated email + endcap fixtures fund.</div>
+    </div>
+    <div class="intel unknown">
+      <span class="intel-eye">MOQ for nationwide</span>
+      <div class="intel-h">~1,000-2,200 units · DC stock TBD</div>
+      <div class="intel-body">89 stores × 12-24 units initial set = 1,068-2,136 + DC buffer. <strong>No public source — ask C&amp;B contact for exact.</strong></div>
+    </div>
+    <div class="intel">
+      <span class="intel-eye">Compliance</span>
+      <div class="intel-h">CBH VOG · EDI · GS1 · chargebacks</div>
+      <div class="intel-body">2026 Vendor Operations Guide <a href="https://www.crateandbarrel.com/assets/Vendor/VOG/CBH_VendorOperationsGuide.pdf">PDF</a> covers labeling, EDI, delivery-window. Routine chargebacks for violations.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <span class="eyebrow">Imprint Visa loyalty · launched Oct 2025</span>
+  <h2 class="h2">The refill subscription accelerator.</h2>
+  <p class="body">C&amp;B + CB2 + Crate &amp; Kids + Hudson Grace cardholders get <strong>10% back in Reward Dollars</strong> on every banner purchase. <strong>Cardholders are repeat, high-LTV C&amp;B shoppers.</strong> If GESINE Organizer Set links to refills (capsules $18 · cloths $18), cardholders earn 10% back on every refill order. <em>This drives subscription-style behavior C&amp;B currently lacks in this category</em> — and sets up GESINE as the proof case for refill economics inside the Imprint Visa program. Pitch: card-linked auto-refill is the unlock.</p>
+</div>
+
+<div class="section">
+  <span class="eyebrow">Hudson Grace · sister brand · Phase 2 path</span>
+  <h2 class="h2">The premium expansion lane.</h2>
+  <p class="body">Acquired June 2019. 10 stores. Premium tabletop + entertaining, "coastal California" lean. Founders Monelle Totah + Gary McNatton still leading. <strong>Smaller, edited, higher-AOV — closer match to GESINE's ritual luxury positioning than mainline C&amp;B.</strong> Hudson Grace shopper indexes higher on tabletop + entertaining + gifting; an 8oz hand soap or candle co-pack would fit a HG endcap. <strong>Pitch HG buyer ~6 months after C&amp;B launch</strong> once sell-through data is in.</p>
+</div>
+
+<div class="callout">
+  <span class="eyebrow">Whitespace at C&amp;B</span>
+  <h2 class="h2">Cleaning-meets-fragrance · open category.</h2>
+  <p class="body">C&amp;B carries <strong>44 scented candles + 38 reed diffusers + room sprays + dish soaps + countertop sprays</strong>. Scent families: Lemon Zest + Tangerine, Lavender + Eucalyptus, Fig + Amber, Sea Salt + Citron. Pricing tiers: room sprays $24.95-$49.95, scented candles $36-$84, taper sets $34.95-$109.95. <strong>$78 GESINE Organizer Set slots cleanly.</strong> Smoked Sage colorway differentiates against the cream/amber-dominant wall. <em>No premium ritual brand owns the cleaning-meets-fragrance crossover at C&amp;B today — GESINE's whitespace.</em></p>
+</div>
+
+<div class="section">
+  <span class="eyebrow">Launch playbook · 6 / 3 / 1 month out</span>
+  <h2 class="h2"><em>Nov 2026</em> · <em>Feb 2027</em> · <em>Apr 2027.</em></h2>
+
+  <div class="timeline">
+    <div class="tl-col">
+      <span class="tl-eye">T-minus 6 mo</span>
+      <div class="tl-when">Lock</div>
+      <div class="tl-month">Nov 2026</div>
+    </div>
+    <div class="tl-list"><ol>
+      <li><strong>VOG compliance</strong> — EDI, GS1 barcoding, label spec, packaging dims. Build buffer DC inventory of <strong>~2,500 units</strong> (89 stores × 24 + 30% safety).</li>
+      <li><strong>Co-op marketing</strong> — negotiate 6-8% of wholesale fund, earmarked for catalog spread + dedicated email + endcap fixtures at top-25 stores.</li>
+      <li><strong>Founder narrative</strong> — pitch Lee as craft/ritual creator. C&amp;B's collab playbook is designer-led; lean in.</li>
+      <li><strong>PR slot</strong> — secure PR Newswire announcement tied to Mother's Day or Spring Cleaning 2027 adjacency.</li>
+    </ol></div>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-col" style="background:var(--olive);">
+      <span class="tl-eye">T-minus 3 mo</span>
+      <div class="tl-when">Activate</div>
+      <div class="tl-month">Feb 2027</div>
+    </div>
+    <div class="tl-list"><ol>
+      <li><strong>NYC Flatiron in-store activation</strong> — pop-up ritual demo with Lee, 1 weekend. C&amp;B's highest-traffic, highest-conversion door (+20% revenue, -40% footprint vs SoHo predecessor).</li>
+      <li><strong>Train 30 in-house designers</strong> on Smoked Sage colorway story so they recommend Organizer Set in Trade Program client consultations.</li>
+      <li><strong>Email lifecycle assets</strong> — launch send + abandon-cart trigger + refill-reminder cycle. Imprint Visa cardholders get 48-hr early access.</li>
+      <li><strong>Seed 50 designer/influencer kits</strong> via C&amp;B PR team (not GESINE's). Use C&amp;B's pre-vetted IG list for credibility lift.</li>
+    </ol></div>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-col" style="background:var(--amber-deep);">
+      <span class="tl-eye">T-minus 1 mo</span>
+      <div class="tl-when">Ship</div>
+      <div class="tl-month">Apr 2027</div>
+    </div>
+    <div class="tl-list"><ol>
+      <li><strong>Endcap fixture install</strong> — top-25 doors. Smoked Sage palette must dominate against the existing cream/amber home-fragrance wall.</li>
+      <li><strong>Catalog ship</strong> — confirm spread placement + scan code to Organizer Set PDP.</li>
+      <li><strong>Press embargo lift</strong> coordinated with C&amp;B comms — target WWD, Business of Home, Vogue Living, House Beautiful.</li>
+      <li><strong>Pre-brief Hudson Grace buyer for Phase 2</strong> — deliver 30/60/90-day sell-through data the moment C&amp;B shares it. Pitch HG endcap drop with tabletop-adjacent SKU (small candle or hand soap) by Sept 2027.</li>
+    </ol></div>
+  </div>
+</div>
+
+<div class="unknowns-list">
+  <h4>Open intel · ask C&amp;B contact</h4>
+  <ul>
+    <li><strong>Home-care / fragrance category buyer name</strong> — needed for direct briefing</li>
+    <li><strong>Exact MOQ for nationwide rollout</strong> — industry says 1,000-2,200; confirm with buyer</li>
+    <li><strong>Co-op marketing fund %</strong> — specialty norm 5-8%, lock the actual number</li>
+    <li><strong>Catalog drop dates 2027</strong> — confirm holiday cadence + featured slot dates</li>
+    <li><strong>Pop-up logistics by collab</strong> — Caraway-style activation specifics not public</li>
+    <li><strong>Imprint Visa data sharing</strong> — can GESINE see cardholder reorder rates on its SKUs?</li>
+    <li><strong>Trade Program enrollment</strong> — confirm GESINE eligibility for the 30 in-house designer recommendations</li>
+    <li><strong>Hudson Grace buyer name</strong> — for Phase 2 ~6 months post-launch</li>
+  </ul>
+</div>
+
+</div>
+</body>
+</html>

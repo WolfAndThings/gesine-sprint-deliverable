@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){if(sessionStorage.getItem('gesine_unlock')==='1')return;var p=prompt('GESINE — enter password to view');if(p==='gesine2026'){sessionStorage.setItem('gesine_unlock','1');}else{document.documentElement.innerHTML='<body style="margin:0;padding:60px;font-family:sans-serif;text-align:center;background:#0F0E0C;color:#F5F1E8;font-size:18px;">Access required.</body>';}})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GESINE — Trajectory Roadmap to $880M</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --ink:#0F0E0C; --cream:#F8FAF6; --off:#E8EFE3; --soft:#D6E4D0;
+  --amber:#4FA86A; --amber-deep:#2D5F3F;
+  --olive:#4A5240; --sage:#7C8470;
+  --muted:#6F665A; --light:#9C9285;
+  --bmd:rgba(15,14,12,0.14); --bstr:rgba(15,14,12,0.20);
+}
+body { background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-serif; font-size:15px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+.page { max-width:1180px; margin:0 auto; padding:56px 48px 80px; }
+.doc-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:48px; padding-bottom:24px; border-bottom:2px solid var(--ink); }
+.wordmark { display:flex; align-items:center; gap:12px; }
+.logo-box { width:36px; height:36px; background:var(--ink); border-radius:8px; display:grid; place-items:center; color:var(--amber); font-family:'Instrument Serif',serif; font-size:20px; }
+.brand-name { font-family:'Instrument Serif',Georgia,serif; font-size:18px; letter-spacing:.02em; }
+.doc-meta { text-align:right; font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); line-height:2; }
+
+.hero { background:var(--ink); border-radius:16px; padding:44px 48px; margin-bottom:48px; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg, var(--amber), var(--sage)); }
+.hero-eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:rgba(245,241,232,.40); display:block; margin-bottom:16px; }
+.hero-headline { font-family:'Instrument Serif',serif; font-size:clamp(28px,3.8vw,42px); line-height:1.1; letter-spacing:-.02em; color:var(--cream); margin-bottom:20px; }
+.hero-headline em { color:var(--amber); font-style:italic; }
+.hero-body { font-size:15px; color:rgba(245,241,232,.72); line-height:1.7; font-weight:300; max-width:820px; }
+.hero-body strong { color:var(--cream); font-weight:500; }
+
+.section { margin-bottom:56px; }
+.eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:12px; }
+.h2 { font-family:'Instrument Serif',serif; font-size:clamp(24px,3vw,32px); line-height:1.15; letter-spacing:-.015em; color:var(--ink); margin-bottom:14px; }
+.h2 em { font-style:italic; }
+.body { font-size:14px; color:#2A2620; line-height:1.75; font-weight:300; max-width:880px; }
+.body strong { font-weight:600; color:var(--ink); }
+
+/* REVENUE ARC */
+.arc { background:var(--ink); color:var(--cream); border-radius:16px; padding:36px 40px; margin-bottom:48px; }
+.arc .eyebrow { color:rgba(245,241,232,.4); }
+.arc .h2 { color:var(--cream); margin-bottom:24px; }
+.arc-bar { display:grid; grid-template-columns:repeat(6,1fr); gap:8px; margin-top:20px; }
+.arc-cell { padding:18px 16px; border-radius:8px; background:rgba(245,241,232,.06); border-left:3px solid var(--sage); }
+.arc-cell.year3 { border-left-color:var(--olive); background:rgba(74,82,64,0.18); }
+.arc-cell.year4 { border-left-color:var(--amber); background:rgba(79,168,106,0.16); }
+.arc-cell.year5 { border-left-color:var(--amber); background:rgba(79,168,106,0.24); }
+.arc-cell.year6 { border-left-color:var(--amber-deep); background:rgba(139,100,64,0.32); }
+.arc-when { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.16em; color:rgba(245,241,232,.5); margin-bottom:6px; }
+.arc-rev { font-family:'Instrument Serif',serif; font-size:28px; line-height:1.1; color:var(--cream); margin-bottom:4px; }
+.arc-rev em { color:var(--amber); font-style:italic; }
+.arc-tag { font-size:11px; color:rgba(245,241,232,.7); line-height:1.4; }
+
+/* FIVE LEVERS */
+.lever { background:var(--off); border:1px solid var(--bstr); border-radius:14px; padding:28px 32px; margin-bottom:18px; display:grid; grid-template-columns:90px 1fr; gap:24px; }
+.lever-num { font-family:'Instrument Serif',serif; font-size:60px; line-height:1; color:var(--amber); font-style:italic; }
+.lever-h { font-family:'Instrument Serif',serif; font-size:22px; line-height:1.2; margin-bottom:6px; }
+.lever-h em { color:var(--amber-deep); font-style:italic; }
+.lever-cite { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-bottom:14px; }
+.lever-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-top:10px; }
+.lever-cell { background:var(--cream); border-radius:10px; padding:16px 18px; border:1px solid var(--bmd); }
+.lever-cell .label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:var(--amber-deep); margin-bottom:6px; display:block; }
+.lever-cell .text { font-size:12.5px; line-height:1.6; color:#2A2620; }
+.lever-cell .text strong { color:var(--ink); }
+
+/* YEAR PLAN */
+.year { background:var(--cream); border:1px solid var(--bstr); border-radius:14px; padding:28px 32px; margin-bottom:18px; position:relative; overflow:hidden; }
+.year::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:var(--sage); }
+.year.y3::before { background:var(--olive); }
+.year.y4::before { background:var(--amber); }
+.year.y5::before { background:linear-gradient(90deg,var(--amber),var(--amber-deep)); }
+.year.y6::before { background:var(--amber-deep); }
+.year-head { display:grid; grid-template-columns:200px 1fr; gap:24px; align-items:flex-start; margin-bottom:20px; padding-bottom:18px; border-bottom:1px solid var(--bmd); }
+.year-when { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--amber-deep); margin-bottom:6px; }
+.year-target { font-family:'Instrument Serif',serif; font-size:32px; line-height:1.05; color:var(--ink); }
+.year-target em { color:var(--amber-deep); font-style:italic; }
+.year-thesis { font-size:14px; line-height:1.65; color:#2A2620; }
+.year-thesis strong { color:var(--ink); }
+.year-thesis em { color:var(--amber-deep); font-style:italic; }
+
+.move { display:grid; grid-template-columns:140px 1fr 220px; gap:18px; padding:14px 0; border-bottom:1px dashed var(--bmd); align-items:flex-start; }
+.move:last-child { border-bottom:none; padding-bottom:0; }
+.move-tag { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--olive); padding-top:3px; }
+.move-text { font-size:13px; line-height:1.65; color:#2A2620; }
+.move-text strong { color:var(--ink); }
+.move-comp { font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); padding-top:3px; padding-left:12px; border-left:2px solid var(--soft); line-height:1.5; }
+.move-comp strong { color:var(--amber-deep); font-family:'Instrument Serif',serif; font-style:italic; font-size:13px; font-weight:400; }
+
+.kpi-row { background:var(--ink); color:var(--cream); border-radius:10px; padding:16px 22px; margin-top:18px; display:flex; flex-wrap:wrap; gap:24px; align-items:center; }
+.kpi-row .label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.18em; color:rgba(245,241,232,.5); text-transform:uppercase; }
+.kpi-row .kpi { font-family:'Instrument Serif',serif; font-size:14px; }
+.kpi-row .kpi strong { color:var(--amber); font-style:italic; }
+
+/* EXIT WINDOW */
+.exit-callout { background:linear-gradient(135deg,var(--amber-deep),var(--olive)); color:var(--cream); border-radius:14px; padding:36px 40px; margin:32px 0; }
+.exit-callout .eyebrow { color:rgba(245,241,232,.5); }
+.exit-callout .h2 { color:var(--cream); }
+.exit-callout .h2 em { color:var(--cream); }
+.exit-callout .body { color:rgba(245,241,232,.85); max-width:none; }
+.exit-callout .body strong { color:var(--cream); }
+.exit-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:20px; }
+.exit-card { background:rgba(245,241,232,.08); border-radius:10px; padding:20px 24px; }
+.exit-card .label { font-family:'DM Mono',monospace; font-size:9.5px; letter-spacing:.18em; color:var(--amber); text-transform:uppercase; margin-bottom:6px; display:block; }
+.exit-card .h { font-family:'Instrument Serif',serif; font-size:18px; margin-bottom:6px; }
+.exit-card .body-sm { font-size:13px; line-height:1.6; color:rgba(245,241,232,.85); }
+.exit-card .body-sm strong { color:var(--cream); }
+
+/* CADENCE STRIP */
+.cadence { background:var(--off); border:1px solid var(--bstr); border-radius:12px; padding:20px 24px; margin-top:20px; }
+.cadence h4 { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--amber-deep); margin-bottom:12px; }
+.cadence-row { display:grid; grid-template-columns:120px 1fr; gap:14px; padding:6px 0; font-size:13px; line-height:1.55; color:#2A2620; }
+.cadence-row strong { font-family:'Instrument Serif',serif; font-size:15px; color:var(--ink); font-weight:500; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="doc-header">
+  <div class="wordmark">
+    <div class="logo-box">G</div>
+    <span class="brand-name">GESINE</span>
+  </div>
+  <div class="doc-meta">
+    PHASE 2 · INVESTOR<br>
+    TRAJECTORY ROADMAP<br>
+    MAY 2026
+  </div>
+</header>
+
+<section class="hero">
+  <span class="hero-eyebrow">Roadmap to the $880M lane · 12 comps stitched together</span>
+  <h1 class="hero-headline">Touchland's exit. Caraway's retail. Calm's licensing window.<br><em>Aesop's discipline. Le Labo's hospitality. Heinz's drop.</em></h1>
+  <p class="hero-body"><strong>None of GESINE's comps did all four moats.</strong> GESINE doesn't have to invent a single new playbook — it has to stitch the right ones together at the right beats. This roadmap maps the deck's revenue curve ($0 → $41M by 2031) to the specific comp move that unlocks each year. <strong>Touchland is the destination. Caraway is the launch model. Calm is the wellness multiplier. Le Labo is the channel multiplier. Aesop is the price discipline. Heinz is the drop cadence.</strong> Pull each at the right moment.</p>
+</section>
+
+<div class="arc">
+  <span class="eyebrow">The deck's revenue curve · 6-year arc</span>
+  <h2 class="h2">$0 → <em>$41M</em> by 2031.</h2>
+  <p class="body" style="color:rgba(245,241,232,.78); max-width:none; margin-bottom:0;">EBITDA positive ~2028. Each year unlocks a different comp's playbook. The trajectory only works if the moves stack — Year 1's retail proof drives Year 2's licensing leverage drives Year 3's hospitality + gifting drives Year 4's mass scale drives Year 5's exit option.</p>
+
+  <div class="arc-bar">
+    <div class="arc-cell"><div class="arc-when">Aug/Sept 2026</div><div class="arc-rev"><em>~$0</em></div><div class="arc-tag">D2C launch · seed proof</div></div>
+    <div class="arc-cell"><div class="arc-when">2027</div><div class="arc-rev">$2M</div><div class="arc-tag">C&amp;B nationwide · Caraway model</div></div>
+    <div class="arc-cell year3"><div class="arc-when">2028</div><div class="arc-rev">$6M</div><div class="arc-tag">Calm × GESINE pilot · gifting Q4</div></div>
+    <div class="arc-cell year4"><div class="arc-when">2029</div><div class="arc-rev">$13M</div><div class="arc-tag">Hospitality · Aesop discipline</div></div>
+    <div class="arc-cell year5"><div class="arc-when">2030</div><div class="arc-rev">$27M</div><div class="arc-tag">Channel multiply · DedCool 600% post-VC</div></div>
+    <div class="arc-cell year6"><div class="arc-when">2031</div><div class="arc-rev"><em>$41M</em></div><div class="arc-tag">Exit window opens at C&amp;D bar</div></div>
+  </div>
+</div>
+
+<!-- 5 LEVERS -->
+<div class="section">
+  <span class="eyebrow">The 5 levers · GESINE pulls one from each comp</span>
+  <h2 class="h2">No invention required.<br><em>Stitching, not building.</em></h2>
+
+  <div class="lever">
+    <div class="lever-num">01</div>
+    <div>
+      <div class="lever-h">Retail theater <em>· Caraway model</em></div>
+      <div class="lever-cite">Caraway × C&amp;B Silt Green 2023 · 3 mo of inventory in 5 hours · Sept 2025 Blue Lagoon expansion</div>
+      <div class="lever-grid">
+        <div class="lever-cell"><span class="label">Steal</span><div class="text">Exclusive colorway + named-designer drop + dedicated in-store fixtures + sell-out narrative becomes the launch story.</div></div>
+        <div class="lever-cell"><span class="label">GESINE move</span><div class="text"><strong>Smoked Sage exclusive</strong> at C&amp;B 2027. Lee positioned as designer/founder (C&amp;B's collab playbook is named-designer-led). NYC Flatiron pop-up = activation venue.</div></div>
+        <div class="lever-cell"><span class="label">KPI to clear</span><div class="text"><strong>Sell through 90-day inventory in &lt; 90 days</strong> at top-25 doors. Trigger Phase 2 expansion (Caraway pattern: first drop earns expansion within 12 mo).</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lever">
+    <div class="lever-num">02</div>
+    <div>
+      <div class="lever-h">Wellness licensing <em>· Joe Lawson window</em></div>
+      <div class="lever-cite">Calm hired Joe Lawson (ex-Netflix/DreamWorks/21CF) Head of Licensing 2025 · Licensing Expo 2025 debut · zero retail-CPG SKUs to date</div>
+      <div class="lever-grid">
+        <div class="lever-cell"><span class="label">Steal</span><div class="text">Calm needs proof points for a licensing exec hired specifically to land first physical co-branded SKU. <strong>Door open for the first time.</strong></div></div>
+        <div class="lever-cell"><span class="label">GESINE move</span><div class="text">Lock C&amp;B LOI + 1-2 hospitality LOIs by Aug 2026 → use as warm-intro proof point to Joe Lawson direct. Calm-branded Organizer Set with QR-linked Daily Reset session.</div></div>
+        <div class="lever-cell"><span class="label">KPI to clear</span><div class="text"><strong>Term sheet by Jan 2027</strong> · 5-12% wholesale royalty + co-marketing. Soft launch Q2 2027 via Calm email + C&amp;B endcap. Reduces deck's "concept" line to a signed deal.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lever">
+    <div class="lever-num">03</div>
+    <div>
+      <div class="lever-h">Hospitality scent <em>· Le Labo × EDITION model</em></div>
+      <div class="lever-cite">Le Labo × EDITION (Marriott/Schrager) 2008-present · custom black tea+bergamot · full bath line + candle + diffuser sold via shop.marriott.com</div>
+      <div class="lever-grid">
+        <div class="lever-cell"><span class="label">Steal</span><div class="text">Single signature scent + co-brand identity + retail-attached amenity = defensible vertical that retail can't poach. <strong>17 years and counting</strong> on this deal.</div></div>
+        <div class="lever-cell"><span class="label">GESINE move</span><div class="text">Pitch <strong>1 Hotels + Marriott EDITION</strong> in 2027 (sustainability-fit + STARS luxury tier). Custom GESINE-EDITION scent in refillable bottle. Sold on-property + shop.marriott.com.</div></div>
+        <div class="lever-cell"><span class="label">KPI to clear</span><div class="text"><strong>1 signed hospitality program by end-2028</strong> · revenue-share or flat-fee. Aesop benchmark: amenity = ~10-20% of brand revenue at scale. Diversifies away from C&amp;B concentration.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lever">
+    <div class="lever-num">04</div>
+    <div>
+      <div class="lever-h">Corporate gifting <em>· Aug 1 lock cycle</em></div>
+      <div class="lever-cite">Coresight $258B → $312B verified · 77% of B2B gifts cluster $50-$125 · Sendoso $15K-$100K platform fee · Snappy = only self-serve apply</div>
+      <div class="lever-grid">
+        <div class="lever-cell"><span class="label">Steal</span><div class="text">Snappy → Goody → Caroo onboarding order = drop-ship distribution without platform investment. <strong>Aug 1 lock</strong> = recurring annual demand spike.</div></div>
+        <div class="lever-cell"><span class="label">GESINE move</span><div class="text">3-tier AOV ladder ($58 / $78 / $148) covers both mid-tier mass + top-client band. 10 direct accounts pitched in parallel (1 Hotels · EDITION · Salesforce · Compass · Aman · Goop · Alo).</div></div>
+        <div class="lever-cell"><span class="label">KPI to clear</span><div class="text"><strong>Q4 2027 = first $1M month from gifting alone.</strong> Custom co-brand SKUs at MOQ 250 push capsule reorders into recurring revenue (rare in gifting — 90% are one-shot).</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lever">
+    <div class="lever-num">05</div>
+    <div>
+      <div class="lever-h">Drop cadence <em>· Heinz × Absolut formula</em></div>
+      <div class="lever-cite">Heinz × Absolut April 2023 · 9 months brief-to-shelf · 55 units/store/wk vs 7-unit category avg · +52% sales bump in 2 months</div>
+      <div class="lever-grid">
+        <div class="lever-cell"><span class="label">Steal</span><div class="text">Limited-edition co-brand = <strong>7.8x category velocity</strong>. Both brands keep identity. Co-typography. Limited-edition framing drives urgency.</div></div>
+        <div class="lever-cell"><span class="label">GESINE move</span><div class="text">2-3 limited-edition drops/yr starting 2028. Calm × GESINE Daily Reset · 1 Hotels × GESINE Bay Forest · Sotheby's × GESINE Closing Day. 9-mo brief-to-shelf cycle planned.</div></div>
+        <div class="lever-cell"><span class="label">KPI to clear</span><div class="text"><strong>Sell-through 8x baseline within 60 days.</strong> Drop cadence keeps the brand culturally relevant + drives 2 PR moments/yr the deck can cite at Series A.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- YEAR-BY-YEAR PLAN -->
+<div class="section">
+  <span class="eyebrow">Year-by-year · stacked moves · stacked comps</span>
+  <h2 class="h2">Each year unlocks the next.</h2>
+</div>
+
+<div class="year">
+  <div class="year-head">
+    <div>
+      <div class="year-when">AUG/SEPT 2026 · LAUNCH</div>
+      <div class="year-target">Year 0<br><em>Seed proof</em></div>
+    </div>
+    <div class="year-thesis"><strong>Goal:</strong> Get D2C live with C&amp;B 2027 LOI in pocket. <em>Year 0 isn't about revenue — it's about earning Year 1's retail explosion.</em> Pull Caraway's Silt Green narrative tightness. Pull DedCool's solo-founder voice. Pull Aesop's pricing discipline (no discounts, ever).</div>
+  </div>
+
+  <div class="move"><div class="move-tag">Aug-Sept 2026</div><div class="move-text"><strong>D2C launch.</strong> Soft-launch via founder narrative + 50 designer/influencer kits. No paid spend in month 1 — let the design speak.</div><div class="move-comp"><strong>Bala precedent</strong>: zero paid for years, organic content built brand</div></div>
+  <div class="move"><div class="move-tag">Aug-Oct 2026</div><div class="move-text"><strong>Lock C&amp;B 2027 LOI · negotiate co-op marketing</strong> at 6-8% of wholesale. VOG compliance, EDI, ~2,500-unit DC inventory build for 89 stores × 24 + 30% safety.</div><div class="move-comp"><strong>Caraway × C&amp;B</strong>: 3 mo inventory in 5 hours = the bar</div></div>
+  <div class="move"><div class="move-tag">Aug 1 2026</div><div class="move-text"><strong>Lock Q4 2026 corporate gifting inventory + Snappy + Goody apply.</strong> Even at low scale, drop-ship gives a 2nd revenue line + investor proof point.</div><div class="move-comp"><strong>Coresight</strong>: $312B market · Aug 1 = non-negotiable Q4 lock</div></div>
+  <div class="move"><div class="move-tag">Sept-Dec 2026</div><div class="move-text"><strong>Build Calm pitch deck</strong> (250 words, no slides). Map Calm cap table (Lightspeed · Insight · TPG) against GESINE Series A targets. Cold-warm Joe Lawson on LinkedIn with C&amp;B LOI as the hook.</div><div class="move-comp"><strong>Joe Lawson hire 2025</strong>: licensing window open</div></div>
+
+  <div class="kpi-row">
+    <span class="label">YEAR 0 KPI</span>
+    <span class="kpi"><strong>3,000</strong> D2C orders</span>
+    <span class="kpi"><strong>C&amp;B LOI</strong> signed</span>
+    <span class="kpi"><strong>Snappy</strong> approved</span>
+    <span class="kpi"><strong>Calm</strong> first call</span>
+  </div>
+</div>
+
+<div class="year">
+  <div class="year-head">
+    <div>
+      <div class="year-when">2027 · YEAR 1</div>
+      <div class="year-target">~<em>$2M</em><br>Retail explosion</div>
+    </div>
+    <div class="year-thesis"><strong>Goal:</strong> Replicate Caraway's C&amp;B sell-out. Get Calm to term sheet. Land 1 hospitality LOI. <em>This is the year that makes the rest of the trajectory possible.</em> If the C&amp;B drop doesn't sell through, the Calm conversation goes cold and Series A gets repriced.</div>
+  </div>
+
+  <div class="move"><div class="move-tag">Apr 2027</div><div class="move-text"><strong>C&amp;B nationwide launch.</strong> Smoked Sage exclusive. NYC Flatiron pop-up weekend with Lee. Endcap fixtures top-25 doors. Catalog spread + dedicated email + IG takeover.</div><div class="move-comp"><strong>Caraway 2023</strong>: 3 mo inventory in 5 hrs · <strong>Brigette Romanek 54-piece</strong> = scale benchmark</div></div>
+  <div class="move"><div class="move-tag">Q1-Q2 2027</div><div class="move-text"><strong>Calm × GESINE term sheet.</strong> 5-12% wholesale royalty. QR-linked Daily Reset session. Soft launch via Calm email + C&amp;B endcap Q2 2027.</div><div class="move-comp"><strong>Headspace × Sesame</strong>: app-to-physical-product template</div></div>
+  <div class="move"><div class="move-tag">Q3 2027</div><div class="move-text"><strong>Hudson Grace pitch</strong> (sister brand, premium tabletop). Use 30/60/90-day C&amp;B sell-through data the moment it lands. Tabletop-adjacent SKU (small candle or hand soap).</div><div class="move-comp"><strong>Aesop discipline</strong>: never discount · expand by adjacency</div></div>
+  <div class="move"><div class="move-tag">Q4 2027</div><div class="move-text"><strong>First $1M month from corporate gifting.</strong> Snappy + Goody + Caroo all live. Direct accounts at 1 Hotels + Salesforce + Compass closing-gift program.</div><div class="move-comp"><strong>Aug 1 lock</strong>: Coresight $312B Q4 cycle</div></div>
+  <div class="move"><div class="move-tag">Series A</div><div class="move-text"><strong>Raise $8-12M Series A late 2027.</strong> Lead targets: Cult Capital (Homecourt), Sandbridge (DedCool), Prelude (Blueland). C&amp;B + Calm + 1 hospitality LOI = the proof stack.</div><div class="move-comp"><strong>Homecourt $8M Cult Capital</strong> (Oct 2025) = comp size</div></div>
+
+  <div class="kpi-row">
+    <span class="label">YEAR 1 KPI</span>
+    <span class="kpi"><strong>$2M</strong> revenue</span>
+    <span class="kpi"><strong>90-day sell-through</strong> at C&amp;B</span>
+    <span class="kpi"><strong>Calm SKU</strong> shipped</span>
+    <span class="kpi"><strong>$8M</strong> Series A closed</span>
+  </div>
+</div>
+
+<div class="year y3">
+  <div class="year-head">
+    <div>
+      <div class="year-when">2028 · YEAR 2 · EBITDA-POSITIVE</div>
+      <div class="year-target"><em>$6M</em><br>Drop cadence kicks in</div>
+    </div>
+    <div class="year-thesis"><strong>Goal:</strong> Make limited-edition drops the marketing engine. EBITDA positive (per deck chart). Hospitality program signed. <em>Year 2 = where the brand stops looking like a single-product DTC and starts looking like a platform.</em></div>
+  </div>
+
+  <div class="move"><div class="move-tag">2 LE drops</div><div class="move-text"><strong>Calm × GESINE Daily Reset (Q1)</strong> + <strong>1 Hotels × GESINE Bay Forest (Q3)</strong>. Both 9-month brief-to-shelf cycles. Limited runs · co-typography · #GESINEcalm OOH.</div><div class="move-comp"><strong>Heinz × Absolut April 2023</strong>: 55 units/store/wk vs 7-unit avg = 7.8x velocity</div></div>
+  <div class="move"><div class="move-tag">Hospitality 1.0</div><div class="move-text"><strong>1 Hotels signed</strong> (sustainability fit). Or Marriott EDITION via SupplierOne. Custom signature scent. Refillable program. On-property + shop.marriott.com.</div><div class="move-comp"><strong>Le Labo × EDITION 2008-present</strong>: 17-year template</div></div>
+  <div class="move"><div class="move-tag">Hudson Grace</div><div class="move-text"><strong>Hudson Grace expansion</strong> (10 stores, premium tabletop). Smaller-edited SKU with HG color story. AOV indexes higher than mainline C&amp;B.</div><div class="move-comp"><strong>C&amp;B sister brand</strong>: $200-300 AOV vs mainline</div></div>
+  <div class="move"><div class="move-tag">Refill loop live</div><div class="move-text"><strong>Imprint Visa cardholders earn 10% back on every refill</strong> — leverages C&amp;B's October 2025 loyalty relaunch. 4-8 week refill cadence per deck. Capsule reorders = the layer Touchland never built.</div><div class="move-comp"><strong>Blueland $300M lifetime</strong> · <strong>Branch Basics $40M/yr</strong> = refill math at scale</div></div>
+  <div class="move"><div class="move-tag">Press</div><div class="move-text"><strong>Vogue Living + WWD + Business of Home spreads.</strong> Drop cadence creates 2 PR moments/yr investors can cite at Series B.</div><div class="move-comp"><strong>Method Karim Rashid + IDEO + MoMA</strong>: design press as channel</div></div>
+
+  <div class="kpi-row">
+    <span class="label">YEAR 2 KPI</span>
+    <span class="kpi"><strong>$6M</strong> revenue</span>
+    <span class="kpi"><strong>EBITDA</strong> positive</span>
+    <span class="kpi"><strong>Refill loop</strong> live</span>
+    <span class="kpi"><strong>1 hospitality</strong> live</span>
+  </div>
+</div>
+
+<div class="year y4">
+  <div class="year-head">
+    <div>
+      <div class="year-when">2029 · YEAR 3</div>
+      <div class="year-target"><em>$13M</em><br>Channel multiply</div>
+    </div>
+    <div class="year-thesis"><strong>Goal:</strong> Add Sephora or Nordstrom (Touchland's lane). Double hospitality. Extend international via franchise (C&amp;B has 15 international franchise locations — same path). <em>Year 3 = the comp set widens to brands that already exited.</em></div>
+  </div>
+
+  <div class="move"><div class="move-tag">2nd retailer</div><div class="move-text"><strong>Sephora or Nordstrom add</strong> (beauty-floor distribution). Touchland's playbook: ~70% retail / ~30% online. Endcap + training + in-store sampling.</div><div class="move-comp"><strong>Touchland Sephora·Ulta·Target</strong> path · <strong>Homecourt Sephora 2024</strong></div></div>
+  <div class="move"><div class="move-tag">Hospitality 2.0</div><div class="move-text"><strong>2nd hospitality signed</strong> (Aman Essentials or Equinox Hotels). 1 international hotel chain (Park Hyatt Asia mirroring Aesop's amenity geography).</div><div class="move-comp"><strong>Aesop Park Hyatt Tokyo·Seoul·Sydney·Melbourne</strong></div></div>
+  <div class="move"><div class="move-tag">3-4 LE drops</div><div class="move-text"><strong>Sotheby's × GESINE Closing Day</strong> (closing-gift SKU for 340K-agent post-merger network) + <strong>Goop × GESINE</strong> + 1-2 surprises. Drop cadence becomes the brand engine.</div><div class="move-comp"><strong>Compass + Anywhere $1.6B</strong>: 340K agents · <strong>Heinz×Absolut</strong> velocity</div></div>
+  <div class="move"><div class="move-tag">Floor Set</div><div class="move-text"><strong>Floor Set launches</strong> (deck product roadmap): collapsible pole + sweeper + broom + wet/dry wipes. Doubles AOV ceiling. Wet wipe refill = 2nd recurring revenue stream.</div><div class="move-comp"><strong>Caraway bakeware extension</strong>: design firm second-act</div></div>
+  <div class="move"><div class="move-tag">International</div><div class="move-text"><strong>UK + Australia DTC live</strong>. Australia mirrors Aesop's home market. UK = Selfridges + Liberty curation precedent (Our Place model).</div><div class="move-comp"><strong>Aesop $28M → $537M (2012-2022)</strong>: international compounds</div></div>
+
+  <div class="kpi-row">
+    <span class="label">YEAR 3 KPI</span>
+    <span class="kpi"><strong>$13M</strong> revenue</span>
+    <span class="kpi"><strong>2nd retailer</strong> live</span>
+    <span class="kpi"><strong>2 hospitality</strong> programs</span>
+    <span class="kpi"><strong>UK + AU</strong> launched</span>
+  </div>
+</div>
+
+<div class="year y5">
+  <div class="year-head">
+    <div>
+      <div class="year-when">2030 · YEAR 4</div>
+      <div class="year-target"><em>$27M</em><br>Touchland zone</div>
+    </div>
+    <div class="year-thesis"><strong>Goal:</strong> Hit Touchland's 2-years-pre-exit revenue band ($25-30M). Position for Series B at premium multiple. <em>Year 4 = where C&amp;D's M&amp;A team starts paying attention.</em> DedCool's 600% post-Sandbridge is the trajectory shape — paid plus retail keeps stacking.</div>
+  </div>
+
+  <div class="move"><div class="move-tag">Paid scale</div><div class="move-text"><strong>Paid scale begins.</strong> Pinterest + Meta + TikTok + retail co-op. Drop cadence + retail proof + Calm renewal in market = ad creative pipeline already supplied.</div><div class="move-comp"><strong>Caraway Pinterest+Meta</strong> · <strong>Drunk Elephant pre-Shiseido</strong> ad spend</div></div>
+  <div class="move"><div class="move-tag">Series B</div><div class="move-text"><strong>$25-40M Series B.</strong> Lead candidates: VMG Partners (pre-Shiseido Drunk Elephant playbook) · L Catterton (pre-IPO consumer). Targets premium home + scent multiples.</div><div class="move-comp"><strong>Caraway $35M Series A Sep 2022</strong> · <strong>VMG track record</strong></div></div>
+  <div class="move"><div class="move-tag">Essentials Set</div><div class="move-text"><strong>Essentials Set launches</strong> (deck roadmap = Surface + Floor combined). Bundle AOV crosses $200. Subscription bundle for super-users.</div><div class="move-comp"><strong>Our Place $565 Dream Cooker bundle</strong>: AOV-stretching SKUs</div></div>
+  <div class="move"><div class="move-tag">8-10 LE drops</div><div class="move-text"><strong>Drop cadence becomes the brand.</strong> 8-10 LEs/yr · 2 PR moments/quarter. Co-brands span wellness · hospitality · real estate · fashion (DedCool playbook stretch).</div><div class="move-comp"><strong>DedCool 600% growth</strong> post-Sandbridge · cross-category</div></div>
+  <div class="move"><div class="move-tag">Pricing power</div><div class="move-text"><strong>Refuse mass distribution.</strong> Aesop discipline: never Target, never grocery. Mid/upper-mid HHI lock. Price never decreases.</div><div class="move-comp"><strong>Aesop $537M</strong> built without mass · <strong>Method/Mrs Meyer's</strong> capped by mass</div></div>
+
+  <div class="kpi-row">
+    <span class="label">YEAR 4 KPI</span>
+    <span class="kpi"><strong>$27M</strong> revenue</span>
+    <span class="kpi"><strong>$25-40M</strong> Series B</span>
+    <span class="kpi"><strong>LTV/CAC &gt; 3:1</strong></span>
+    <span class="kpi"><strong>Touchland zone</strong> hit</span>
+  </div>
+</div>
+
+<div class="year y6">
+  <div class="year-head">
+    <div>
+      <div class="year-when">2031 · YEAR 5</div>
+      <div class="year-target"><em>$41M</em><br>Exit window opens</div>
+    </div>
+    <div class="year-thesis"><strong>Goal:</strong> Cross the C&amp;D bar. Touchland was acquired at $130M TTM but the pattern starts at ~$40M with strong EBITDA + retail proof. <em>Year 5 = optionality, not obligation.</em> Build the brand to stand alone past 2031; treat exit as upside.</div>
+  </div>
+
+  <div class="move"><div class="move-tag">Exit-readiness</div><div class="move-text"><strong>EBITDA &gt; 25% (Touchland was 42%).</strong> C&amp;B + 2nd retailer + 3 hospitality + Calm renewal = proof of channel breadth. Capsule + cloth refill cadence is the recurring-revenue layer Touchland never built.</div><div class="move-comp"><strong>Touchland 42% EBITDA · $130M TTM</strong> = the bar</div></div>
+  <div class="move"><div class="move-tag">Banker prep</div><div class="move-text"><strong>Engage M&amp;A advisor (Latham &amp; Watkins · Goldman consumer).</strong> Pre-LOI conversations with C&amp;D · Unilever · SC Johnson · L'Oréal.</div><div class="move-comp"><strong>Touchland Latham &amp; Watkins</strong> advised the $880M</div></div>
+  <div class="move"><div class="move-tag">2nd Floor SKU</div><div class="move-text"><strong>International scale up</strong> · UK + AU + EU. Hospitality footprint &gt;5 chains. Drop cadence still 8-10/yr — keeps cultural relevance through the diligence period.</div><div class="move-comp"><strong>Aesop 27 markets</strong> at acquisition</div></div>
+  <div class="move"><div class="move-tag">Optionality</div><div class="move-text"><strong>If passing on exit:</strong> reload Series C at $200M+ valuation (Homecourt/Blueland/DedCool path). Build to $100M+ revenue and Aesop/Drunk Elephant multiple territory (4.7-8.5x sales).</div><div class="move-comp"><strong>Aesop $2.525B at L'Oréal</strong> · <strong>Drunk Elephant $845M at 8.5x</strong></div></div>
+
+  <div class="kpi-row">
+    <span class="label">YEAR 5 KPI</span>
+    <span class="kpi"><strong>$41M</strong> revenue</span>
+    <span class="kpi"><strong>EBITDA &gt; 25%</strong></span>
+    <span class="kpi"><strong>Refill cadence</strong> proven</span>
+    <span class="kpi"><strong>Exit window</strong> open</span>
+  </div>
+</div>
+
+<!-- EXIT WINDOW -->
+<div class="exit-callout">
+  <span class="eyebrow">The exit window · 2031-2033</span>
+  <h2 class="h2">Touchland's $880M is the lane.<br><em>Aesop's $2.525B is the ceiling.</em></h2>
+  <p class="body">Year 5 puts GESINE in the same archetype-and-revenue zip code as Hero Cosmetics and Touchland in their pre-exit years. Year 6+ optionality stretches into Drunk Elephant or Aesop territory. The trajectory only works because each year's moves stack — retail proof unlocks licensing leverage unlocks hospitality channel unlocks corporate gifting recurrence unlocks paid-scale CAC discipline unlocks exit-grade margin.</p>
+
+  <div class="exit-grid">
+    <div class="exit-card">
+      <span class="label">Most likely lane · base case</span>
+      <div class="h">$500M-$880M to Church &amp; Dwight</div>
+      <div class="body-sm">Hero ($630M, 2022) and Touchland ($880M, 2025) both went to C&amp;D at ~5.5x sales. Same archetype: female-founded, design-led, scent-adjacent, EBITDA-positive, retail-proven. <strong>GESINE = the third in the series.</strong></div>
+    </div>
+    <div class="exit-card">
+      <span class="label">Upside · multi-year build</span>
+      <div class="h">$1.5-$2.5B to L'Oréal or Shiseido</div>
+      <div class="body-sm">Aesop $2.525B (4.7x on $537M) and Drunk Elephant $845M (8.5x on $120M) are the premium-multiple acquirers. Reachable if GESINE crosses $80-100M revenue post-2032 with refill discipline intact.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CADENCE PATTERN -->
+<div class="section">
+  <span class="eyebrow">The repeating cadence · what the deck sells</span>
+  <h2 class="h2">One brand. <em>Three rhythms.</em></h2>
+
+  <div class="cadence">
+    <h4>Quarterly</h4>
+    <div class="cadence-row"><strong>2 LE drops/yr → 8-10 by Year 4</strong><div>Calm · 1 Hotels · Sotheby's · Goop. Heinz × Absolut 9-mo brief-to-shelf cycle. 2 PR moments/yr investors cite.</div></div>
+  </div>
+
+  <div class="cadence">
+    <h4>Annual</h4>
+    <div class="cadence-row"><strong>Aug 1 corporate gifting lock</strong><div>Coresight $312B cycle. Q4 holiday inventory + co-brand specs. Recurring annual demand spike.</div></div>
+    <div class="cadence-row"><strong>2-year retail expansion cadence</strong><div>2027 C&amp;B → 2028 Hudson Grace → 2029 Sephora/Nordstrom → 2030 international → 2031 EU.</div></div>
+  </div>
+
+  <div class="cadence">
+    <h4>Always-on</h4>
+    <div class="cadence-row"><strong>Refill capsule + cloth restock</strong><div>4-8 week cadence per deck. Capsule reorders are the recurring layer none of the C&amp;D comps (Touchland · Hero) had at exit.</div></div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

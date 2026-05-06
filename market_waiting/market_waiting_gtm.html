@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){if(sessionStorage.getItem('gesine_unlock')==='1')return;var p=prompt('GESINE — enter password to view');if(p==='gesine2026'){sessionStorage.setItem('gesine_unlock','1');}else{document.documentElement.innerHTML='<body style="margin:0;padding:60px;font-family:sans-serif;text-align:center;background:#0F0E0C;color:#F5F1E8;font-size:18px;">Access required.</body>';}})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GESINE — Market Is Waiting + GTM Pattern Proof</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --ink:#0F0E0C; --cream:#F8FAF6; --off:#E8EFE3; --soft:#D6E4D0;
+  --amber:#4FA86A; --amber-deep:#2D5F3F;
+  --olive:#4A5240; --sage:#7C8470;
+  --muted:#6F665A; --light:#9C9285;
+  --bmd:rgba(15,14,12,0.14); --bstr:rgba(15,14,12,0.20);
+}
+body { background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-serif; font-size:15px; line-height:1.7; -webkit-font-smoothing:antialiased; }
+.page { max-width:920px; margin:0 auto; padding:56px 48px 80px; }
+
+.doc-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:48px; padding-bottom:24px; border-bottom:2px solid var(--ink); }
+.wordmark { display:flex; align-items:center; gap:12px; }
+.logo-box { width:36px; height:36px; background:var(--ink); border-radius:8px; display:grid; place-items:center; }
+.brand-name { font-family:'Instrument Serif',Georgia,serif; font-size:18px; }
+.doc-meta { text-align:right; font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); line-height:2; }
+
+.hero { background:var(--ink); border-radius:16px; padding:48px 52px; margin-bottom:48px; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg, var(--amber), var(--sage)); }
+.hero-eye { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:rgba(245,241,232,.40); display:block; margin-bottom:16px; }
+.hero-h { font-family:'Instrument Serif',serif; font-size:clamp(30px,4vw,42px); line-height:1.1; color:var(--cream); margin-bottom:18px; }
+.hero-h em { color:var(--amber); font-style:italic; }
+.hero-body { font-size:15.5px; color:rgba(245,241,232,.78); line-height:1.75; max-width:720px; }
+.hero-body strong { color:var(--cream); }
+
+.section { margin-bottom:56px; }
+.eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:12px; }
+.h2 { font-family:'Instrument Serif',serif; font-size:clamp(26px,3.2vw,34px); line-height:1.15; color:var(--ink); margin-bottom:14px; }
+.h2 em { color:var(--amber-deep); font-style:italic; }
+.intro { font-size:15px; line-height:1.8; color:#2A2620; max-width:760px; }
+.intro strong { color:var(--ink); }
+.intro em { color:var(--amber-deep); font-style:italic; }
+
+/* MARKET PROOF CARDS */
+.proof { background:var(--off); border:1px solid var(--bstr); border-radius:14px; padding:28px 32px; margin-bottom:18px; }
+.proof-num { font-family:'Instrument Serif',serif; font-style:italic; font-size:18px; color:var(--amber); margin-bottom:6px; display:block; }
+.proof-h { font-family:'Instrument Serif',serif; font-size:22px; line-height:1.25; margin-bottom:14px; }
+.proof-h em { color:var(--amber-deep); font-style:italic; }
+.proof-stat { background:var(--ink); color:var(--cream); border-radius:10px; padding:18px 22px; margin:14px 0; display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; }
+.proof-stat-num { font-family:'Instrument Serif',serif; font-style:italic; font-size:24px; color:var(--amber); }
+.proof-stat-text { font-size:13.5px; color:rgba(245,241,232,.85); line-height:1.55; }
+.proof-stat-text strong { color:var(--cream); }
+.proof-why { font-size:13.5px; line-height:1.7; color:#2A2620; padding:14px 0 8px; }
+.proof-why strong { color:var(--ink); }
+.proof-src { font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); padding-top:12px; border-top:1px dashed var(--bmd); }
+.proof-src a { color:var(--amber-deep); text-decoration:none; }
+.proof-src a:hover { text-decoration:underline; }
+
+/* ICP COLUMNS */
+.icp-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:24px; }
+.icp-col { background:var(--off); border:1px solid var(--bstr); border-radius:12px; padding:22px 24px; }
+.icp-col-tag { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.18em; color:var(--amber-deep); text-transform:uppercase; margin-bottom:8px; display:block; }
+.icp-col-name { font-family:'Instrument Serif',serif; font-size:18px; margin-bottom:10px; line-height:1.2; }
+.icp-col-body { font-size:13px; line-height:1.65; color:#2A2620; }
+.icp-col-body strong { color:var(--ink); }
+
+/* THESIS BAND */
+.thesis { background:linear-gradient(135deg,var(--amber-deep),var(--olive)); color:var(--cream); border-radius:14px; padding:32px 36px; margin:32px 0; }
+.thesis .eyebrow { color:rgba(245,241,232,.55); }
+.thesis h3 { font-family:'Instrument Serif',serif; font-size:24px; line-height:1.25; color:var(--cream); margin-bottom:14px; }
+.thesis h3 em { color:var(--cream); font-style:italic; }
+.thesis-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:18px; }
+.thesis-curve { background:rgba(245,241,232,.08); border-radius:10px; padding:18px 22px; }
+.thesis-curve-num { font-family:'Instrument Serif',serif; font-style:italic; color:var(--amber); font-size:24px; line-height:1; margin-bottom:6px; }
+.thesis-curve-text { font-size:13px; line-height:1.6; color:rgba(245,241,232,.88); }
+
+/* PATTERN CARD */
+.pattern { background:var(--cream); border:1px solid var(--bstr); border-radius:14px; padding:28px 32px; margin-bottom:18px; }
+.pattern-num { font-family:'Instrument Serif',serif; font-style:italic; font-size:18px; color:var(--amber); margin-bottom:4px; display:block; }
+.pattern-h { font-family:'Instrument Serif',serif; font-size:24px; line-height:1.2; margin-bottom:16px; }
+.pattern-h em { color:var(--amber-deep); font-style:italic; }
+.pattern-comps { background:var(--off); border-radius:10px; padding:18px 22px; margin-bottom:14px; }
+.pattern-comp-row { display:grid; grid-template-columns:140px 1fr; gap:14px; padding:6px 0; font-size:13px; line-height:1.6; }
+.pattern-comp-row + .pattern-comp-row { border-top:1px dashed var(--bmd); }
+.pattern-comp-row strong { font-family:'Instrument Serif',serif; font-size:14px; color:var(--ink); font-weight:500; }
+.pattern-impl { background:var(--ink); color:var(--cream); border-radius:10px; padding:18px 22px; }
+.pattern-impl-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; color:var(--amber); text-transform:uppercase; margin-bottom:8px; display:block; }
+.pattern-impl-body { font-size:13.5px; line-height:1.7; color:rgba(245,241,232,.92); }
+.pattern-impl-body strong { color:var(--cream); }
+.pattern-impl-body em { color:var(--amber); font-style:italic; }
+
+/* GTM STEPS */
+.step { background:var(--off); border:1px solid var(--bstr); border-radius:12px; padding:22px 26px; margin-bottom:14px; }
+.step-num { font-family:'Instrument Serif',serif; font-style:italic; font-size:32px; color:var(--amber); margin-right:14px; line-height:1; vertical-align:middle; }
+.step-h { font-family:'Instrument Serif',serif; font-size:20px; display:inline-block; vertical-align:middle; }
+.step-h em { color:var(--amber-deep); font-style:italic; }
+.step-out { font-size:13.5px; line-height:1.7; color:#2A2620; margin-top:14px; padding-top:12px; border-top:1px dashed var(--bmd); }
+.step-out strong { color:var(--ink); }
+.step-borrows { font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); margin-top:8px; letter-spacing:.04em; }
+.step-borrows em { color:var(--amber-deep); font-style:italic; }
+
+/* INVESTOR SEQ */
+.seq { background:var(--ink); color:var(--cream); border-radius:14px; padding:32px 36px; }
+.seq .eyebrow { color:rgba(245,241,232,.4); }
+.seq h2 { color:var(--cream); }
+.seq h2 em { color:var(--amber); }
+.seq-row { display:grid; grid-template-columns:40px 1fr; gap:14px; padding:14px 0; border-top:1px solid rgba(245,241,232,0.10); align-items:flex-start; font-size:14px; line-height:1.65; color:rgba(245,241,232,.88); }
+.seq-row:first-of-type { border-top:none; }
+.seq-row strong { color:var(--cream); }
+.seq-num { font-family:'Instrument Serif',serif; font-style:italic; color:var(--amber); font-size:22px; line-height:1; padding-top:2px; }
+
+.claim { background:linear-gradient(135deg,var(--amber-deep),var(--olive)); color:var(--cream); border-radius:14px; padding:36px 40px; margin-top:36px; }
+.claim .eyebrow { color:rgba(245,241,232,.55); }
+.claim h2 { font-family:'Instrument Serif',serif; font-size:26px; line-height:1.25; color:var(--cream); margin-bottom:14px; }
+.claim h2 em { color:var(--cream); font-style:italic; }
+.claim p { font-size:15px; line-height:1.75; color:rgba(245,241,232,.92); margin-bottom:14px; }
+.claim p strong { color:var(--cream); }
+.claim ul { margin-top:10px; padding-left:0; list-style:none; }
+.claim li { padding:6px 0 6px 24px; position:relative; font-size:13.5px; line-height:1.65; color:rgba(245,241,232,.85); }
+.claim li::before { content:'·'; position:absolute; left:8px; color:var(--amber); font-size:18px; line-height:1; top:6px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="doc-header">
+  <div class="wordmark">
+    <div class="logo-box">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <circle cx="9" cy="9" r="7" stroke="#4FA86A" stroke-width="1.5" fill="none"/>
+        <circle cx="9" cy="9" r="3" fill="#4FA86A"/>
+      </svg>
+    </div>
+    <span class="brand-name">GESINE</span>
+  </div>
+  <div class="doc-meta">
+    PHASE 2 · MARKET IS WAITING<br>
+    + GTM PATTERN PROOF<br>
+    MAY 2026
+  </div>
+</header>
+
+<section class="hero">
+  <span class="hero-eye">The bridge between strategy + investor story</span>
+  <h1 class="hero-h">The market is ready.<br>The buyer is ready.<br><em>The playbook already exists.</em></h1>
+  <p class="hero-body">GESINE is not "a cleaner with better ingredients." It is a <strong>premium home-wellness object arriving at the exact moment three forces are converging.</strong> Wellness is becoming a daily identity practice. Home objects are judged by beauty + scent + proof + shelf visibility. Design-led wellness brands have already shown the path: signature object · clear enemy · public proof · scarcity · creator validation · retail theater · strategic acquirer interest. <em>GESINE's job is to execute the right sequence with a more defensible object.</em></p>
+</section>
+
+<!-- MARKET PROOF -->
+<section class="section">
+  <span class="eyebrow">Market proof · 5 reasons wellness is not peaking</span>
+  <h2 class="h2">Wellness culture is <em>still expanding.</em></h2>
+  <p class="intro">Each market reason below is sourced. The "why this matters for GESINE" line connects each macro trend to a specific GESINE move.</p>
+
+  <div class="proof" style="margin-top:24px;">
+    <span class="proof-num">01</span>
+    <div class="proof-h">Wellness is now a <em>mainstream economic force</em></div>
+    <div class="proof-stat"><span class="proof-stat-num">$6.8T → $9.8T</span><span class="proof-stat-text">Global wellness economy <strong>2024 → projected 2029</strong> (Global Wellness Institute)</span></div>
+    <div class="proof-why"><strong>Why this matters for GESINE:</strong> the buyer does not experience wellness as a gym category. Wellness has spread into sleep, scent, home, cleaning, ritual, hospitality, gifting, and daily environment design.</div>
+    <div class="proof-src">SRC · <a href="https://globalwellnessinstitute.org/industry-research/2024-global-wellness-economy-monitor/">GWI · 2024 Wellness Economy Monitor</a> · <a href="https://globalwellnessinstitute.org/press-room/statistics-and-facts/">GWI · Statistics & Facts</a></div>
+  </div>
+
+  <div class="proof">
+    <span class="proof-num">02</span>
+    <div class="proof-h">Younger consumers turn wellness into <em>daily identity</em></div>
+    <div class="proof-stat"><span class="proof-stat-num">$2T global</span><span class="proof-stat-text">McKinsey 2025 · millennials + Gen Z treat wellness as <strong>daily personalized practice</strong> across health, sleep, nutrition, fitness, appearance, mindfulness</span></div>
+    <div class="proof-why"><strong>Why this matters for GESINE:</strong> a product touching the home, scent, safety, and ritual rides the same behavior shift as skincare, supplements, wearables, fitness recovery, fragrance. <em>The opportunity is not "cleaning." It is daily environment wellness.</em></div>
+    <div class="proof-src">SRC · <a href="https://www.mckinsey.com/industries/consumer-packaged-goods/our-insights/future-of-wellness-trends">McKinsey · Future of Wellness Trends 2025</a></div>
+  </div>
+
+  <div class="proof">
+    <span class="proof-num">03</span>
+    <div class="proof-h">Natural-cleaning market <em>nearly doubles by 2030</em></div>
+    <div class="proof-stat"><span class="proof-stat-num">$6.97B → $13.28B</span><span class="proof-stat-text">Global natural household cleaners <strong>2024 → 2030 · 11.3% CAGR</strong>. US market $1.25B → $2.45B · 11.8% CAGR (Grand View Research)</span></div>
+    <div class="proof-why"><strong>Why this matters for GESINE:</strong> the functional category has enough growth. The premium layer is the unlock — design, scent, EWG/clean credibility, refill, gifting, object-status.</div>
+    <div class="proof-src">SRC · <a href="https://www.grandviewresearch.com/industry-analysis/natural-household-cleaners-market">Grand View Research · global</a> · <a href="https://www.grandviewresearch.com/horizon/outlook/natural-household-cleaners-market/united-states">GVR · US outlook</a></div>
+  </div>
+
+  <div class="proof">
+    <span class="proof-num">04</span>
+    <div class="proof-h">Gen Z + millennial spending power <em>moving into this window</em></div>
+    <div class="proof-stat"><span class="proof-stat-num">$12T by 2030</span><span class="proof-stat-text">NielsenIQ Spend Z · projected <strong>Gen Z global spending power</strong></span></div>
+    <div class="proof-why"><strong>Why this matters for GESINE:</strong> the buyer treating scent, ingredients, packaging, home objects as identity is becoming the future spending base — not a niche sidebar.</div>
+    <div class="proof-src">SRC · <a href="https://nielseniq.com/global/en/landing-page/spend-z/">NielsenIQ · Spend Z</a></div>
+  </div>
+
+  <div class="proof">
+    <span class="proof-num">05</span>
+    <div class="proof-h">Premium homecare is already <em>beauty-adjacent</em></div>
+    <div class="proof-stat"><span class="proof-stat-num">$8M Series A</span><span class="proof-stat-text">Homecourt 2025 · led by Cult Capital · "doubled every year, built cult brand defining a new category" (BeautyMatter)</span></div>
+    <div class="proof-why"><strong>Why this matters for GESINE:</strong> Homecourt proves the consumer can understand luxury homecare. GESINE's advantage must be deeper defensibility — proprietary object, refill loop, EWG/clean proof, retail/gifting logic, less celebrity-dependent story.</div>
+    <div class="proof-src">SRC · <a href="https://homecourt.co/pages/about-us">Homecourt About</a> · <a href="https://beautymatter.com/articles/courteney-coxs-homecourt-lands-8-million-series-a">BeautyMatter Series A</a></div>
+  </div>
+</section>
+
+<!-- WHAT PEOPLE ARE SEARCHING FOR -->
+<section class="section">
+  <span class="eyebrow">What people are searching for · 2026 search data</span>
+  <h2 class="h2">The buyer is already <em>typing GESINE-shaped queries.</em></h2>
+  <p class="intro">Not theoretical demand. Real platform data from Pinterest Predicts 2026, TikTok hashtag trackers, and refillable-cleaning category research. Every figure cited.</p>
+
+  <div class="proof" style="margin-top:24px; background:linear-gradient(135deg, var(--ink), #1A1814); color:var(--cream); border-color:var(--ink);">
+    <span class="proof-num" style="color:var(--amber);">01</span>
+    <div class="proof-h" style="color:var(--cream);">Pinterest spring 2026 · "natural cleaning" <em style="color:var(--amber);">+545%</em></div>
+    <div class="proof-stat" style="background:rgba(79,168,106,0.12); border-left:3px solid var(--amber);"><span class="proof-stat-num" style="color:var(--amber);">+545%</span><span class="proof-stat-text" style="color:rgba(245,241,232,.88);">Pinterest Spring 2026 Trend Report · <strong style="color:var(--cream);">"natural cleaning" YoY search lift</strong> across 619M Pinterest users · 88% trend accuracy across 6 years</span></div>
+    <div class="proof-why" style="color:rgba(245,241,232,.88);"><strong style="color:var(--cream);">Why this matters for GESINE:</strong> Pinterest captures intent BEFORE purchase. "Spring cleaning as self-care" is named one of four official Spring 2026 trends. <em style="color:var(--amber);">The buyer is searching for natural cleaning right now</em> — not as a niche, as a category-level rising tide.</div>
+    <div class="proof-src" style="color:rgba(245,241,232,.5); border-color:rgba(245,241,232,.15);">SRC · <a href="https://newsroom.pinterest.com/en-gb/news/pinterest-predicts-nonconformity-self-preservation-and-escapism-drive-21-trends-for-2026/" style="color:var(--amber);">Pinterest Newsroom Predicts 2026</a> · <a href="https://almcorp.com/blog/pinterest-spring-2026-trend-report/" style="color:var(--amber);">ALM Corp Spring 2026</a></div>
+  </div>
+
+  <div class="proof">
+    <span class="proof-num">02</span>
+    <div class="proof-h">#CleanTok <em>37.6B → 150B+ views</em> in 3 years</div>
+    <div class="proof-stat"><span class="proof-stat-num">~4x growth</span><span class="proof-stat-text">May 2022 → 2026 · #CleanTok <strong>37.6B → 150B+ TikTok views.</strong> CORQ pegged 71.6B mid-2024. The behavior is compounding, not peaking.</span></div>
+    <div class="proof-why"><strong>Why this matters for GESINE:</strong> the cleaning ritual is now content. Users want to film cleaning, not hide it. <em>GESINE's bottle is engineered to be filmed in a creator's hand.</em> Adjacent: #sundayreset 937K posts · 620M+ views. #cleangirlaesthetic 870K posts · 3B+ views.</div>
+    <div class="proof-src">SRC · <a href="https://corq.studio/insights/cleantok-has-71-6-billion-views-heres-what-ads-and-posts-get-the-best-engagement-and-who-to-work-with-for-cleaning-campaigns/">CORQ analysis</a> · <a href="https://www.unilever.com/news/news-search/2023/cleantok-is-making-cleaning-fun-and-were-seizing-the-opportunity/">Unilever × #CleanTok</a> · <a href="https://www.tiktok.com/tag/sundayreset?lang=en">TikTok #sundayreset</a></div>
+  </div>
+
+  <div class="proof">
+    <span class="proof-num">03</span>
+    <div class="proof-h">Refillable cleaning <em>+47%</em> in 2 years</div>
+    <div class="proof-stat"><span class="proof-stat-num">62% want refill</span><span class="proof-stat-text">Refillable cleaning systems <strong>expanded 47% between 2023 and 2025.</strong> 62% of US consumers prefer products with refill options · 47% specifically choose refillable packaging · 54% prefer eco-friendly formulations.</span></div>
+    <div class="proof-why"><strong>Why this matters for GESINE:</strong> the refill mechanic is the consumer-preferred mechanic, not a sustainability nice-to-have. <em>62% of US buyers are pre-sold on the GESINE format.</em> Blueland and Branch Basics cleared the path; GESINE captures the premium tier.</div>
+    <div class="proof-src">SRC · <a href="https://growthmarketreports.com/report/refillable-cleaning-products-market">Growth Market Reports</a> · <a href="https://dataintelo.com/report/refillable-cleaning-products-market">Dataintelo</a></div>
+  </div>
+
+  <div class="proof">
+    <span class="proof-num">04</span>
+    <div class="proof-h">Gen Z searches social <em>before Google</em></div>
+    <div class="proof-stat"><span class="proof-stat-num">41%</span><span class="proof-stat-text">Sprout Social 2025 (2,280-respondent survey, Apr-May 2025): <strong>41% of Gen Z searches social platforms before Google.</strong> 90% of Gen Z + 84% of millennials say social content influenced a purchase in the last 6 months.</span></div>
+    <div class="proof-why"><strong>Why this matters for GESINE:</strong> SEO is not the launch channel. <em>TikTok + Pinterest are.</em> The launch object needs to be designed for the For You Page first, the search results page second. Touchland's TikTok-native bottle is the template.</div>
+    <div class="proof-src">SRC · <a href="https://sproutsocial.com/insights/press/new-research-from-sprout-social-finds-social-media-is-the-top-place-gen-z-turns-to-for-search-surpassing-traditional-search-engines/">Sprout Social 2025</a></div>
+  </div>
+
+  <div class="proof">
+    <span class="proof-num">05</span>
+    <div class="proof-h">73% pay more for sustainable · <em>80% want ingredient transparency</em></div>
+    <div class="proof-stat"><span class="proof-stat-num">9.7% premium</span><span class="proof-stat-text">Mordor Intelligence: average premium consumers will pay for premium household cleaning products. <strong>73% will pay more for sustainable products. 80% want brands to share how products are made.</strong></span></div>
+    <div class="proof-why"><strong>Why this matters for GESINE:</strong> EWG Verified + ingredient transparency + refill = the willingness-to-pay stack the consumer is already asking for. <em>Aesop's $537M was built without EWG Verified.</em> GESINE adds the cert Aesop refused to engage on.</div>
+    <div class="proof-src">SRC · <a href="https://www.mordorintelligence.com/industry-reports/global-cleaning-products-market">Mordor Intelligence</a> · <a href="https://www.accio.com/business/trending-home-cleaning-products-2026">Accio Trending 2026</a></div>
+  </div>
+
+  <div style="background:linear-gradient(135deg, var(--amber-deep), var(--olive)); color:var(--cream); border-radius:12px; padding:24px 28px; margin-top:20px;">
+    <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:rgba(245,241,232,.65); margin-bottom:10px;">Launch terms GESINE should target</div>
+    <div style="font-family:'Instrument Serif',serif; font-size:18px; line-height:1.4; color:var(--cream); margin-bottom:8px;"><em style="color:var(--cream);">"natural cleaning" · "non-toxic cleaner" · "refillable cleaner" · "EWG verified" · "Sunday reset" · "home reset" · "cleaning ritual"</em></div>
+    <div style="font-size:13px; line-height:1.65; color:rgba(245,241,232,.85);">Lead wedge: <strong style="color:var(--cream);">refillable + natural combined.</strong> Platform priority: <strong style="color:var(--cream);">Pinterest &gt; TikTok &gt; Instagram</strong>, Google deprioritized for the first 18 months.</div>
+  </div>
+</section>
+
+
+<!-- ICP -->
+<section class="section">
+  <span class="eyebrow">ICP proof · the woman is ready</span>
+  <h2 class="h2">One buyer · <em>three life expressions.</em></h2>
+  <p class="intro">The clearest ICP is not "all clean product buyers." It is the modern premium woman who already spends across beauty, home, wellness, scent, and self-optimization.</p>
+
+  <div class="icp-grid">
+    <div class="icp-col">
+      <span class="icp-col-tag">Primary</span>
+      <div class="icp-col-name">Wellness-led professional · DINK · design-aware</div>
+      <div class="icp-col-body">Buys Aesop · Le Labo · Diptyque · Goop · Homecourt · skincare · supplements · candles. <strong>Does not want products on her counter to look like panic-cleaning supplies.</strong> Pays for clean credibility only if the object earns its place visually.</div>
+    </div>
+    <div class="icp-col">
+      <span class="icp-col-tag">Secondary</span>
+      <div class="icp-col-name">Aesthetic-forward homemaker · premium-mom household</div>
+      <div class="icp-col-body">Already shops C&amp;B · Anthropologie Home · West Elm · McGee &amp; Co · Brooklinen · Boll &amp; Branch · Whole Foods. Researches before buying — uses social, Pinterest, retail credibility, reviews as trust filters. <strong>Wants clean AND child-safe AND designed.</strong></div>
+    </div>
+    <div class="icp-col">
+      <span class="icp-col-tag">Third</span>
+      <div class="icp-col-name">Boutique hospitality · amenity buyer</div>
+      <div class="icp-col-body">Buys for guest perception, consistency, replenishment, visual signal. Needs objects that make a bathroom or kitchen feel premium. <strong>The right product becomes guest experience + review signal + sometimes shoppable hospitality.</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2030 THESIS -->
+<div class="thesis">
+  <span class="eyebrow">The 2030 demand thesis</span>
+  <h3>GESINE is not betting on one category growing.<br>It is betting on <em>four growth curves intersecting.</em></h3>
+
+  <div class="thesis-grid">
+    <div class="thesis-curve">
+      <div class="thesis-curve-num">01</div>
+      <div class="thesis-curve-text"><strong>Wellness economy expansion</strong> — keeps outpacing GDP growth, spreads into daily life</div>
+    </div>
+    <div class="thesis-curve">
+      <div class="thesis-curve-num">02</div>
+      <div class="thesis-curve-text"><strong>Natural household cleaner growth</strong> — projected to nearly double globally by 2030</div>
+    </div>
+    <div class="thesis-curve">
+      <div class="thesis-curve-num">03</div>
+      <div class="thesis-curve-text"><strong>Gen Z + millennial purchasing power</strong> — younger consumers mature into higher-earning years while keeping wellness-as-identity behavior</div>
+    </div>
+    <div class="thesis-curve">
+      <div class="thesis-curve-num">04</div>
+      <div class="thesis-curve-text"><strong>Premium home-as-status behavior</strong> — beauty, scent, home design, cleaning rituals continue merging</div>
+    </div>
+  </div>
+
+  <p style="margin-top:20px; font-size:14.5px; line-height:1.75; color:rgba(245,241,232,.92);"><strong>Investor framing:</strong> GESINE is positioned at the overlap of natural homecare, premium home object, scent-led ritual, refill economics, and modern wellness identity. <em>Each market alone is interesting. The overlap is the wedge.</em></p>
+</div>
+
+<!-- 7 PATTERNS -->
+<section class="section">
+  <span class="eyebrow">How other brands did this · the 7 patterns</span>
+  <h2 class="h2">Goal: see the <em>repeatable sequence.</em></h2>
+  <p class="intro">Not copying any one brand. Each pattern below shows a tactic that worked across multiple comps + the specific GESINE implication.</p>
+
+  <div class="pattern" style="margin-top:24px;">
+    <span class="pattern-num">Pattern 01</span>
+    <div class="pattern-h">Create one object <em>people can describe</em></div>
+    <div class="pattern-comps">
+      <div class="pattern-comp-row"><strong>Method</strong><div>Karim Rashid bottle carried the idea before the category believed in it.</div></div>
+      <div class="pattern-comp-row"><strong>Touchland</strong><div>Slim, colorful mist bottle made sanitizer a pocket accessory.</div></div>
+      <div class="pattern-comp-row"><strong>Hero Cosmetics</strong><div>Pimple patches visible, peelable, content-native.</div></div>
+      <div class="pattern-comp-row"><strong>Homecourt</strong><div>Cleaning made to feel like beauty / fragrance.</div></div>
+    </div>
+    <div class="pattern-impl">
+      <span class="pattern-impl-label">GESINE implication</span>
+      <div class="pattern-impl-body">The bottle / refill system must be the first pitch. Product understandable in one image. <strong>Designed to be seen, held, gifted, filmed, and left out.</strong></div>
+    </div>
+  </div>
+
+  <div class="pattern">
+    <span class="pattern-num">Pattern 02</span>
+    <div class="pattern-h">Name <em>the enemy</em></div>
+    <div class="pattern-comps">
+      <div class="pattern-comp-row"><strong>Drunk Elephant</strong><div>"Suspicious 6" gave customers a reason to switch.</div></div>
+      <div class="pattern-comp-row"><strong>Method</strong><div>"People Against Dirty" made the old cleaning aisle feel outdated.</div></div>
+      <div class="pattern-comp-row"><strong>Branch Basics</strong><div>Toxic household exposure became the enemy.</div></div>
+      <div class="pattern-comp-row"><strong>Blueland</strong><div>Single-use plastic became the enemy.</div></div>
+    </div>
+    <div class="pattern-impl">
+      <span class="pattern-impl-label">GESINE implication</span>
+      <div class="pattern-impl-body">Short enemy list, easy to repeat. Possible territories: <em>harsh chemical theater · plastic-refill waste · fake-clean fragrance · ugly under-sink products · wellness claims without proof.</em> Becomes manifesto slide + PR + creator briefs + packaging copy + landing page.</div>
+    </div>
+  </div>
+
+  <div class="pattern">
+    <span class="pattern-num">Pattern 03</span>
+    <div class="pattern-h">Use scarcity to <em>prove desire,</em> not just drive sales</div>
+    <div class="pattern-comps">
+      <div class="pattern-comp-row"><strong>Touchland</strong><div>BLACKPINK collab sold out in 5 days, built 5,600+ waitlist (Glossy).</div></div>
+      <div class="pattern-comp-row"><strong>Our Place</strong><div>Waitlist + drop mechanics made cookware feel like a cultural object.</div></div>
+      <div class="pattern-comp-row"><strong>Hero Cosmetics</strong><div>Sellout behavior on Amazon created proof before broader retail.</div></div>
+    </div>
+    <div class="pattern-impl">
+      <span class="pattern-impl-label">GESINE implication</span>
+      <div class="pattern-impl-body">Do not launch every scent / refill / bundle at once. <strong>Launch with one hero scent · one hero object · one limited founder edition.</strong> Build waitlist proof before broad retail conversations. Scarcity = signal of desire, not artificial supply withholding.</div>
+    </div>
+  </div>
+
+  <div class="pattern">
+    <span class="pattern-num">Pattern 04</span>
+    <div class="pattern-h">Let trusted taste-makers <em>translate the object</em></div>
+    <div class="pattern-comps">
+      <div class="pattern-comp-row"><strong>Homecourt</strong><div>Courteney Cox made "homecare as beauty" instantly understandable.</div></div>
+      <div class="pattern-comp-row"><strong>Aesop</strong><div>Retail design + hospitality-like store experience made the product feel like culture.</div></div>
+      <div class="pattern-comp-row"><strong>Touchland</strong><div>Creators turned sanitizer into an accessory.</div></div>
+      <div class="pattern-comp-row"><strong>Branch Basics</strong><div>Wellness educators turned concentrate into a health practice.</div></div>
+    </div>
+    <div class="pattern-impl">
+      <span class="pattern-impl-label">GESINE implication</span>
+      <div class="pattern-impl-body">First creator class should NOT be generic beauty influencers. Prioritize <strong>home/design creators · wellness-mom voices · boutique hospitality hosts · low-tox educators · founder-home routine creators.</strong> Give them a story not a placement: <em>"what I leave out when guests come over" · "the reset object" · "the cleaner that does not look like cleaner."</em></div>
+    </div>
+  </div>
+
+  <div class="pattern">
+    <span class="pattern-num">Pattern 05</span>
+    <div class="pattern-h">Use retail as <em>validation,</em> not just distribution</div>
+    <div class="pattern-comps">
+      <div class="pattern-comp-row"><strong>Method</strong><div>Target made the brand national.</div></div>
+      <div class="pattern-comp-row"><strong>Hero Cosmetics</strong><div>Target SKU built specifically for retail proved mass viability.</div></div>
+      <div class="pattern-comp-row"><strong>Touchland</strong><div>Sephora / Ulta / Target reframed sanitizer as beauty-accessory retail.</div></div>
+      <div class="pattern-comp-row"><strong>Homecourt</strong><div>Sephora · Nordstrom · Bluemercury · Amazon · boutiques created premium legitimacy.</div></div>
+    </div>
+    <div class="pattern-impl">
+      <span class="pattern-impl-label">GESINE implication</span>
+      <div class="pattern-impl-body">Crate &amp; Barrel · Anthropologie · boutique hotel · wellness retail = <strong>credibility theaters.</strong> Retail is not "more units" — it tells the market where the product belongs. <em>Early retail story = selective, designed, premium.</em></div>
+    </div>
+  </div>
+
+  <div class="pattern">
+    <span class="pattern-num">Pattern 06</span>
+    <div class="pattern-h">Add collaborations <em>only after the core object is legible</em></div>
+    <div class="pattern-comps">
+      <div class="pattern-comp-row"><strong>Touchland</strong><div>Disney · Smiley · Hello Kitty · BLACKPINK worked because the base product was already recognizable.</div></div>
+      <div class="pattern-comp-row"><strong>Aesop</strong><div>Collaborations + placements work because the brand has a clear sensorial code.</div></div>
+      <div class="pattern-comp-row"><strong>Homecourt</strong><div>Scent expansions work because the founder + ritual are coherent.</div></div>
+    </div>
+    <div class="pattern-impl">
+      <span class="pattern-impl-label">GESINE implication</span>
+      <div class="pattern-impl-body">First establish the hero object. Then use collabs to extend audiences — <strong>interior designer edition · boutique hotel amenity edition · wellness app / meditation brand edition · artist-designed refill sleeve · seasonal scent drop.</strong> Do not use collaborations as a substitute for brand clarity.</div>
+    </div>
+  </div>
+
+  <div class="pattern">
+    <span class="pattern-num">Pattern 07</span>
+    <div class="pattern-h">Make the growth path <em>acquirer-legible</em></div>
+    <div class="pattern-comps">
+      <div class="pattern-comp-row"><strong>Touchland</strong><div>C&amp;D cited category position, growth, asset-light model, loyalty, repeat purchase.</div></div>
+      <div class="pattern-comp-row"><strong>Hero Cosmetics</strong><div>C&amp;D bought a category leader with high margins + Gen Z relevance.</div></div>
+      <div class="pattern-comp-row"><strong>Drunk Elephant</strong><div>Shiseido paid for clean-beauty prestige + cult loyalty + Sephora scale.</div></div>
+      <div class="pattern-comp-row"><strong>Aesop</strong><div>L'Oréal paid for global prestige + retail experience + sensorial luxury brand.</div></div>
+    </div>
+    <div class="pattern-impl">
+      <span class="pattern-impl-label">GESINE implication</span>
+      <div class="pattern-impl-body">Investor deck shows: <strong>hero SKU traction · repeat/refill behavior · premium margin potential · strong founder/object story · credible retail path · one or two likely acquirer categories.</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7-STEP GTM -->
+<section class="section">
+  <span class="eyebrow">Recommended GESINE GTM sequence · 7 steps</span>
+  <h2 class="h2">The order matters.<br><em>Do not skip steps.</em></h2>
+
+  <div class="step" style="margin-top:24px;">
+    <span class="step-num">01</span><span class="step-h">Lock the object thesis</span>
+    <div class="step-out"><strong>Goal:</strong> make the product instantly legible.<br><strong>Output:</strong> one hero bottle · one hero scent · one refill story · one line that explains why it belongs on the counter.</div>
+    <div class="step-borrows">BORROWS · <em>Method bottle · Touchland object-as-accessory · Aesop counter visibility</em></div>
+  </div>
+
+  <div class="step">
+    <span class="step-num">02</span><span class="step-h">Build the enemy list</span>
+    <div class="step-out"><strong>Goal:</strong> give the customer a reason to switch.<br><strong>Output:</strong> "The 5 things GESINE refuses" manifesto · claims-safe ingredient/fragrance/refill story · landing-page section + pitch-deck slide.</div>
+    <div class="step-borrows">BORROWS · <em>Drunk Elephant Suspicious 6 · Method category enemy · Branch Basics low-tox education</em></div>
+  </div>
+
+  <div class="step">
+    <span class="step-num">03</span><span class="step-h">Create proof-of-want with controlled scarcity</span>
+    <div class="step-out"><strong>Goal:</strong> show the market is not theoretical.<br><strong>Output:</strong> founder edition waitlist · limited first scent / first refill kit · small-batch drop with transparent cap · waitlist conversion metrics.</div>
+    <div class="step-borrows">BORROWS · <em>Touchland collab sellout · Our Place waitlist/drop · Hero Amazon sellout proof</em></div>
+  </div>
+
+  <div class="step">
+    <span class="step-num">04</span><span class="step-h">Seed the right taste-makers</span>
+    <div class="step-out"><strong>Goal:</strong> let credible women / homes / operators translate the value.<br><strong>Output:</strong> 25 design-home creators · 25 wellness-low-tox creators · 10 boutique hospitality / STR hosts · 10 founder/professional home-routine voices. Founder letter + visual brief + countertop ritual prompt.</div>
+    <div class="step-borrows">BORROWS · <em>Homecourt founder halo · Touchland creator/accessory behavior · Branch Basics education network</em></div>
+  </div>
+
+  <div class="step">
+    <span class="step-num">05</span><span class="step-h">Convert social proof into retail proof</span>
+    <div class="step-out"><strong>Goal:</strong> make retail buyers believe the shelf story.<br><strong>Output:</strong> top UGC images · waitlist conversion · refill repeat interest · 3 hero customer quotes · founder-led retail one-sheet · C&amp;B / Anthropologie / boutique-hotel buyer deck.</div>
+    <div class="step-borrows">BORROWS · <em>Method Target expansion · Hero Target channel-specific SKU · Touchland Sephora/Ulta retail theater</em></div>
+  </div>
+
+  <div class="step">
+    <span class="step-num">06</span><span class="step-h">Use collaboration as a second wave</span>
+    <div class="step-out"><strong>Goal:</strong> create newness without losing the core.<br><strong>Output:</strong> interior designer sleeve/drop · boutique hotel scent edition · wellness-app ritual partnership · holiday gifting edition · refill subscription bundle.</div>
+    <div class="step-borrows">BORROWS · <em>Touchland IP/culture drops · Homecourt scent expansions · Aesop hospitality logic</em></div>
+  </div>
+
+  <div class="step">
+    <span class="step-num">07</span><span class="step-h">Make the acquirer path visible early</span>
+    <div class="step-out"><strong>Goal:</strong> build toward strategic-buyer logic, not only DTC growth.<br><strong>Output:</strong> acquirer thesis slide · margin model · repeat/refill behavior · retail door quality · category rank goal · 2028-2030 target window.</div>
+    <div class="step-borrows">BORROWS · <em>Touchland + Hero to C&amp;D · Drunk Elephant to Shiseido · Aesop to L'Oréal</em></div>
+  </div>
+</section>
+
+<!-- PROOF TO COLLECT -->
+<section class="section">
+  <span class="eyebrow">Proof to collect · the metric per step</span>
+  <h2 class="h2">Every step <em>has a number</em> investors will ask for.</h2>
+  <p class="intro">For the GTM plan above to land in an investor pitch, each of the seven steps needs to ship with a measurable metric. The list below maps the metric GESINE collects at each step. <strong>If a step doesn't have a number attached, it's a story, not a stage.</strong></p>
+
+  <div style="background:var(--off); border:1px solid var(--bstr); border-radius:14px; padding:28px 32px; margin-top:20px;">
+    <div style="display:grid; grid-template-columns:48px 200px 1fr; gap:18px; padding:14px 0; border-bottom:1px dashed var(--bmd); align-items:flex-start; font-size:13px; line-height:1.65;">
+      <div style="font-family:'Instrument Serif',serif; font-style:italic; color:var(--amber); font-size:22px; line-height:1;">01</div>
+      <div><strong style="font-family:'Instrument Serif',serif; font-size:15px;">Lock object thesis</strong></div>
+      <div><strong>Pre-launch waitlist signups</strong> · Pinterest saves on hero image · 1-sentence stranger-describe test pass rate</div>
+    </div>
+    <div style="display:grid; grid-template-columns:48px 200px 1fr; gap:18px; padding:14px 0; border-bottom:1px dashed var(--bmd); align-items:flex-start; font-size:13px; line-height:1.65;">
+      <div style="font-family:'Instrument Serif',serif; font-style:italic; color:var(--amber); font-size:22px; line-height:1;">02</div>
+      <div><strong style="font-family:'Instrument Serif',serif; font-size:15px;">Build enemy list</strong></div>
+      <div><strong>Manifesto repeat rate</strong> (creators saying it back unprompted) · landing-page scroll depth past manifesto · share rate on enemy slide</div>
+    </div>
+    <div style="display:grid; grid-template-columns:48px 200px 1fr; gap:18px; padding:14px 0; border-bottom:1px dashed var(--bmd); align-items:flex-start; font-size:13px; line-height:1.65;">
+      <div style="font-family:'Instrument Serif',serif; font-style:italic; color:var(--amber); font-size:22px; line-height:1;">03</div>
+      <div><strong style="font-family:'Instrument Serif',serif; font-size:15px;">Scarcity / proof of want</strong></div>
+      <div><strong>Waitlist conversion to purchase</strong> · founder-edition sell-through % · time-to-sellout · secondary-market emergence (Touchland BLACKPINK pattern)</div>
+    </div>
+    <div style="display:grid; grid-template-columns:48px 200px 1fr; gap:18px; padding:14px 0; border-bottom:1px dashed var(--bmd); align-items:flex-start; font-size:13px; line-height:1.65;">
+      <div style="font-family:'Instrument Serif',serif; font-style:italic; color:var(--amber); font-size:22px; line-height:1;">04</div>
+      <div><strong style="font-family:'Instrument Serif',serif; font-size:15px;">Seed taste-makers</strong></div>
+      <div><strong>Creator acceptance rate</strong> · UGC volume + quality (organic posts per kit shipped) · earned media impressions · creator → follower-purchase attribution</div>
+    </div>
+    <div style="display:grid; grid-template-columns:48px 200px 1fr; gap:18px; padding:14px 0; border-bottom:1px dashed var(--bmd); align-items:flex-start; font-size:13px; line-height:1.65;">
+      <div style="font-family:'Instrument Serif',serif; font-style:italic; color:var(--amber); font-size:22px; line-height:1;">05</div>
+      <div><strong style="font-family:'Instrument Serif',serif; font-size:15px;">Convert social → retail</strong></div>
+      <div><strong>Retail buyer meetings booked</strong> · hospitality / amenity vendor inquiries · 30/60/90-day retail sell-through · gross margin per channel</div>
+    </div>
+    <div style="display:grid; grid-template-columns:48px 200px 1fr; gap:18px; padding:14px 0; border-bottom:1px dashed var(--bmd); align-items:flex-start; font-size:13px; line-height:1.65;">
+      <div style="font-family:'Instrument Serif',serif; font-style:italic; color:var(--amber); font-size:22px; line-height:1;">06</div>
+      <div><strong style="font-family:'Instrument Serif',serif; font-size:15px;">Collaboration second wave</strong></div>
+      <div><strong>Collab partner acceptance rate</strong> · LE drop sell-through % · press impressions per collab · uplift in baseline organic search interest post-collab</div>
+    </div>
+    <div style="display:grid; grid-template-columns:48px 200px 1fr; gap:18px; padding:14px 0; align-items:flex-start; font-size:13px; line-height:1.65;">
+      <div style="font-family:'Instrument Serif',serif; font-style:italic; color:var(--amber); font-size:22px; line-height:1;">07</div>
+      <div><strong style="font-family:'Instrument Serif',serif; font-size:15px;">Acquirer-legible scale</strong></div>
+      <div><strong>Repeat purchase / refill reorder rate</strong> · EBITDA margin · trailing twelve-month revenue growth % · category rank position · retail door count quality</div>
+    </div>
+  </div>
+
+  <div style="background:var(--ink); color:var(--cream); border-radius:12px; padding:22px 28px; margin-top:20px; border-left:4px solid var(--amber);">
+    <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--amber); margin-bottom:8px;">The discipline</div>
+    <div style="font-size:14px; line-height:1.7; color:rgba(245,241,232,.92);">No step ships without its metric attached. <strong style="color:var(--cream);">Every monthly investor update names the number that step is producing.</strong> When the numbers compound, the deck writes itself. When a number stalls, that's the conversation — not "we'll fix marketing."</div>
+  </div>
+</section>
+
+
+<!-- INVESTOR SLIDE SEQUENCE -->
+<div class="seq">
+  <span class="eyebrow">Investor slide sequence this enables</span>
+  <h2 class="h2">The deck writes itself <em>once these 7 land.</em></h2>
+
+  <div class="seq-row"><div class="seq-num">01</div><div><strong>The market is ready</strong> — wellness + natural homecare + premium object culture converging.</div></div>
+  <div class="seq-row"><div class="seq-num">02</div><div><strong>The buyer is ready</strong> — modern premium women already buy at the intersection of wellness, scent, home, identity.</div></div>
+  <div class="seq-row"><div class="seq-num">03</div><div><strong>The category is under-claimed</strong> — cleaning still looks functional, not ritualized.</div></div>
+  <div class="seq-row"><div class="seq-num">04</div><div><strong>The comps prove the path</strong> — Method · Touchland · Hero · Homecourt · Aesop · Branch Basics.</div></div>
+  <div class="seq-row"><div class="seq-num">05</div><div><strong>The tactics are known</strong> — signature object · enemy list · scarcity · creator translation · retail theater · collabs.</div></div>
+  <div class="seq-row"><div class="seq-num">06</div><div><strong>GESINE's wedge is stronger</strong> — design + clean proof + refill loop + patent/object defensibility.</div></div>
+  <div class="seq-row"><div class="seq-num">07</div><div><strong>The 2026-2030 plan</strong> — controlled launch · proof-of-want · retail validation · repeat economics · acquirer-legible scale.</div></div>
+</div>
+
+<!-- ONE-PAGE CLAIM -->
+<div class="claim">
+  <span class="eyebrow">The clean one-page claim</span>
+  <h2>The market is not waiting for another cleaner.<br><em>It is waiting for a premium home-wellness object</em><br>that makes cleaning feel like a visible ritual, not an under-sink chore.</h2>
+  <p>GESINE has the shape of that object. The proof still needed is not more brand language. It is:</p>
+  <ul>
+    <li>proof the buyer is already spending in adjacent rituals</li>
+    <li>proof wellness is expanding into the home</li>
+    <li>proof natural cleaning is growing through 2030</li>
+    <li>proof comparable brands used specific tactics to create demand</li>
+    <li>proof GESINE can sequence those tactics without becoming mass-market too early</li>
+  </ul>
+</div>
+
+</div>
+</body>
+</html>

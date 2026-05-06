@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){if(sessionStorage.getItem('gesine_unlock')==='1')return;var p=prompt('GESINE — enter password to view');if(p==='gesine2026'){sessionStorage.setItem('gesine_unlock','1');}else{document.documentElement.innerHTML='<body style="margin:0;padding:60px;font-family:sans-serif;text-align:center;background:#0F0E0C;color:#F5F1E8;font-size:18px;">Access required.</body>';}})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>GESINE — 10-Concept Corporate Gifting Board</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --ink:#0F0E0C; --dark:#1A1814;
+  --cream:#F8FAF6; --off:#E8EFE3; --soft:#D6E4D0;
+  --amber:#4FA86A; --amber-deep:#2D5F3F;
+  --olive:#4A5240; --sage:#7C8470;
+  --muted:#6F665A; --light:#9C9285;
+  --border:rgba(15,14,12,0.08); --bmd:rgba(15,14,12,0.14); --bstr:rgba(15,14,12,0.20);
+}
+body { background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-serif; font-size:15px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+.page { max-width:1040px; margin:0 auto; padding:56px 48px 80px; }
+
+.doc-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:48px; padding-bottom:24px; border-bottom:2px solid var(--ink); }
+.wordmark { display:flex; align-items:center; gap:12px; }
+.logo-box { width:36px; height:36px; background:var(--ink); border-radius:8px; display:grid; place-items:center; }
+.brand-name { font-family:'Instrument Serif',Georgia,serif; font-size:18px; letter-spacing:.02em; }
+.doc-meta { text-align:right; font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); line-height:2; }
+
+.hero { background:var(--ink); border-radius:16px; padding:44px 48px; margin-bottom:48px; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg, var(--amber), var(--sage)); }
+.hero-eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:rgba(245,241,232,.40); display:block; margin-bottom:16px; }
+.hero-headline { font-family:'Instrument Serif',Georgia,serif; font-size:clamp(28px,3.6vw,38px); line-height:1.15; letter-spacing:-.02em; color:var(--cream); margin-bottom:18px; }
+.hero-headline em { color:var(--amber); font-style:italic; }
+.hero-body { font-size:15px; color:rgba(245,241,232,.72); line-height:1.7; font-weight:300; max-width:680px; }
+.hero-body strong { color:var(--cream); font-weight:500; }
+
+.section { margin-bottom:56px; }
+.eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:12px; }
+.h2 { font-family:'Instrument Serif',Georgia,serif; font-size:clamp(24px,3vw,32px); line-height:1.15; letter-spacing:-.015em; color:var(--ink); margin-bottom:14px; }
+.h2 em { font-style:italic; }
+.body { font-size:14px; color:#2A2620; line-height:1.75; font-weight:300; max-width:720px; }
+.body strong { font-weight:600; color:var(--ink); }
+
+/* MARKET STATS */
+.stats { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:24px; }
+.stat-card { padding:24px 26px; background:var(--cream); border:1px solid var(--bstr); border-radius:14px; }
+.stat-num { font-family:'Instrument Serif',Georgia,serif; font-size:36px; line-height:1; color:var(--amber-deep); letter-spacing:-.02em; margin-bottom:10px; }
+.stat-num em { font-style:italic; }
+.stat-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; display:block; }
+.stat-source { font-size:12px; color:#2A2620; line-height:1.55; font-weight:300; }
+
+/* CONCEPT CARDS */
+.concept { background:var(--cream); border:1px solid var(--bstr); border-radius:18px; overflow:hidden; margin-bottom:18px; }
+.concept-head { padding:24px 32px; display:grid; grid-template-columns:1fr auto; gap:24px; align-items:center; border-bottom:1px solid var(--bmd); background:linear-gradient(135deg, rgba(79,168,106,0.05) 0%, rgba(124,132,112,0.02) 100%); }
+.concept-num { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; color:var(--amber-deep); margin-bottom:6px; display:block; }
+.concept-name { font-family:'Instrument Serif',Georgia,serif; font-size:26px; line-height:1.1; letter-spacing:-.015em; color:var(--ink); margin-bottom:6px; }
+.concept-desc { font-size:13.5px; color:var(--muted); line-height:1.55; font-weight:300; max-width:560px; }
+.concept-price { text-align:right; }
+.concept-price-num { font-family:'Instrument Serif',Georgia,serif; font-size:24px; line-height:1; color:var(--amber-deep); letter-spacing:-.01em; }
+.concept-price-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin-top:6px; }
+
+.concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:0; }
+.concept-cell { padding:20px 32px; border-right:1px solid var(--bmd); border-bottom:1px solid var(--bmd); }
+.concept-cell:nth-child(2n) { border-right:none; }
+.concept-cell:last-child { border-bottom:none; }
+.concept-cell:nth-last-child(2) { border-bottom:none; }
+.cc-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; display:block; }
+.cc-text { font-size:13px; color:#2A2620; line-height:1.55; font-weight:400; }
+.cc-text strong { color:var(--ink); font-weight:600; }
+.cc-text em { color:var(--amber-deep); font-style:italic; }
+
+.email-row { background:var(--ink); padding:22px 32px; color:var(--cream); }
+.email-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.22em; text-transform:uppercase; color:var(--amber); margin-bottom:10px; display:block; }
+.email-subject { font-family:'Instrument Serif',Georgia,serif; font-size:16px; line-height:1.3; color:var(--cream); margin-bottom:10px; font-style:italic; }
+.email-body { font-size:13px; line-height:1.6; color:rgba(245,241,232,0.78); font-weight:300; }
+.email-body strong { color:var(--cream); font-weight:500; }
+
+/* PLAYBOOK */
+.playbook { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-top:24px; }
+.play-card { padding:24px 26px; background:var(--cream); border:1px solid var(--bstr); border-radius:14px; }
+.play-num { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; color:var(--amber-deep); margin-bottom:10px; display:block; }
+.play-name { font-family:'Instrument Serif',Georgia,serif; font-size:20px; letter-spacing:-.01em; line-height:1.2; margin-bottom:10px; }
+.play-desc { font-size:13px; color:#2A2620; line-height:1.55; font-weight:300; margin-bottom:10px; }
+.play-list { display:flex; flex-direction:column; gap:5px; padding-top:10px; border-top:1px solid var(--bmd); }
+.play-item { font-size:12px; color:#2A2620; line-height:1.45; padding-left:12px; position:relative; font-weight:400; }
+.play-item::before { content:''; position:absolute; left:0; top:6px; width:5px; height:5px; border-radius:50%; background:var(--amber); }
+
+.icp-box { background:linear-gradient(135deg, rgba(79,168,106,.08) 0%, rgba(74,82,64,.08) 100%); border:1px solid rgba(79,168,106,.3); border-radius:14px; padding:30px 34px; margin-top:24px; }
+.icp-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--amber-deep); display:block; margin-bottom:14px; }
+.icp-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.icp-item { font-size:14px; color:#2A2620; line-height:1.6; font-weight:400; }
+.icp-item strong { color:var(--ink); font-weight:600; font-family:'Instrument Serif',Georgia,serif; font-size:18px; display:block; margin-bottom:4px; font-weight:500; letter-spacing:-.01em; }
+
+.doc-footer { margin-top:64px; padding-top:24px; border-top:2px solid var(--ink); display:flex; justify-content:space-between; align-items:center; }
+.ft-l { font-size:12px; color:var(--muted); }
+.ft-r { font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); }
+
+@media(max-width:760px) {
+  .page { padding:36px 20px 64px; }
+  .doc-header { flex-direction:column; align-items:flex-start; gap:14px; }
+  .hero { padding:30px 24px; }
+  .stats, .playbook, .icp-grid { grid-template-columns:1fr; }
+  .concept-head { grid-template-columns:1fr; padding:20px 22px; }
+  .concept-price { text-align:left; }
+  .concept-grid { grid-template-columns:1fr; }
+  .concept-cell { border-right:none; padding:18px 22px; }
+  .email-row { padding:18px 22px; }
+  .doc-footer { flex-direction:column; gap:12px; align-items:flex-start; }
+}
+@media print { body { background:#fff; } .page { padding:24px; } .hero, .email-row { -webkit-print-color-adjust:exact; print-color-adjust:exact; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="doc-header">
+  <div class="wordmark">
+    <div class="logo-box">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <circle cx="9" cy="9" r="7" stroke="#4FA86A" stroke-width="1.5" fill="none"/>
+        <circle cx="9" cy="9" r="3" fill="#4FA86A"/>
+      </svg>
+    </div>
+    <span class="brand-name">GESINE &times; Alex Lamb</span>
+  </div>
+  <div class="doc-meta">Deliverable 06 &middot; 10-Concept Corporate Gifting Board<br>Foundation Sprint &middot; May 2026</div>
+</header>
+
+<div class="hero">
+  <span class="hero-eyebrow">&#9670; A $312B market that hates the swag pile</span>
+  <div class="hero-headline">
+    A premium branded gift<br>
+    <em>people won't throw in a drawer.</em>
+  </div>
+  <div class="hero-body">
+    Corporate gifting is the fastest path from launch to scale. Hotels, agencies, real estate, HR &mdash; every one of them is buying gifts <strong>they already know are getting trashed</strong>. GESINE solves the only metric that matters: <em>does the gift stay on the desk?</em> This board defines ten concepts, the buyer behind each, and the inquiry email that closes them.
+  </div>
+</div>
+
+<!-- MARKET STATS -->
+<section class="section">
+  <span class="eyebrow">&#9670; The opening market</span>
+  <h2 class="h2">Why gifting <em>is the launch lane.</em></h2>
+  <p class="body">The US corporate gifting market grew from $258B in 2022 to a projected $312B by 2025 (Coresight Research). The pain is universal: <strong>buyers report 80% lift in retention and word-of-mouth when the gift is something the recipient actually keeps</strong> (Knack, 2024). GESINE is built to be the kept gift.</p>
+
+  <div class="stats">
+    <div class="stat-card">
+      <div class="stat-num">$258B<em> &rarr;</em> $312B</div>
+      <span class="stat-label">&#9670; US corporate gifting</span>
+      <div class="stat-source">2022 to projected 2025. Coresight Research.</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">80%</div>
+      <span class="stat-label">&#9670; Retention lift</span>
+      <div class="stat-source">When the gift is "kept" vs. swag-pile generic. Knack, 2024.</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">$140&plus;</div>
+      <span class="stat-label">&#9670; AOV target</span>
+      <div class="stat-source">Per-recipient AOV for premium gift bundles in our category.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 CONCEPTS -->
+<section class="section">
+  <span class="eyebrow">&#9670; The ten concepts</span>
+  <h2 class="h2">Ten gifts. <em>Ten buyers. Ten inquiry emails.</em></h2>
+  <p class="body">Each concept is a configurable bundle. MOQ scales with co-branding depth. Price band is per-recipient. <strong>Every concept ships with a sample inquiry email</strong> &mdash; copy, paste, send.</p>
+
+  <!-- CONCEPT 1 -->
+  <div class="concept">
+    <div class="concept-head">
+      <div>
+        <span class="concept-num">CONCEPT 01</span>
+        <div class="concept-name">New Home Reset</div>
+        <div class="concept-desc">A housewarming kit for real estate closings &mdash; bottle, signature scent refill, bamboo towels, handwritten card.</div>
+      </div>
+      <div class="concept-price">
+        <div class="concept-price-num">$95&ndash;$140</div>
+        <div class="concept-price-label">&#9670; Per recipient</div>
+      </div>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-cell">
+        <span class="cc-label">Target buyer</span>
+        <div class="cc-text"><strong>Real estate brokerages</strong> (Compass, Sotheby's, The Agency), individual top-producing agents, mortgage concierge teams.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">MOQ band</span>
+        <div class="cc-text">25 units (no co-brand) &middot; <strong>100 units</strong> (foil card) &middot; 500 units (custom bottle)</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Co-branding scope</span>
+        <div class="cc-text">Branded card insert &middot; agent signature on box &middot; <em>upgrade to brokerage-foiled bottle at 500 units</em></div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Why it lands</span>
+        <div class="cc-text">Closing gift budgets sit at $80&ndash;$200/client. The current default (wine, kitchen towels, Yeti cup) gets discarded. <em>This stays on their counter for a year.</em></div>
+      </div>
+    </div>
+    <div class="email-row">
+      <span class="email-label">&#9670; Sample inquiry email</span>
+      <div class="email-subject">"The closing gift your clients will keep"</div>
+      <div class="email-body">Hi [name] &mdash; saw your team closed [X] homes in [neighborhood] last quarter. We make a luxury cleaning ritual that lives on the counter, not under the sink &mdash; built specifically as a closing gift that survives the first month in a new home. <strong>$95/recipient at 100 units, foil-stamped with your brokerage</strong>. Can I send you a sample? &mdash; [you]</div>
+    </div>
+  </div>
+
+  <!-- CONCEPT 2 -->
+  <div class="concept">
+    <div class="concept-head">
+      <div>
+        <span class="concept-num">CONCEPT 02</span>
+        <div class="concept-name">Desk Reset</div>
+        <div class="concept-desc">An office-on-the-counter ritual for hybrid agencies &mdash; bottle, Studio Air refill, microfiber for screens.</div>
+      </div>
+      <div class="concept-price">
+        <div class="concept-price-num">$80&ndash;$110</div>
+        <div class="concept-price-label">&#9670; Per recipient</div>
+      </div>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-cell">
+        <span class="cc-label">Target buyer</span>
+        <div class="cc-text"><strong>Creative agency Heads of People</strong> (Wieden, Mother, Anomaly), VC firm operations, mid-market tech HR.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">MOQ band</span>
+        <div class="cc-text">50 units &middot; <strong>200 units</strong> (co-branded box) &middot; 500&plus; (signature scent)</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Co-branding scope</span>
+        <div class="cc-text">Wax-sealed box with company logo &middot; insert card &middot; <em>at 500&plus; units, custom scent named for the company</em></div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Why it lands</span>
+        <div class="cc-text">Hybrid teams are paying $400&plus; per "remote setup". The desk reset signals taste. <em>It also gets photographed.</em></div>
+      </div>
+    </div>
+    <div class="email-row">
+      <span class="email-label">&#9670; Sample inquiry email</span>
+      <div class="email-subject">"A hybrid-team gift that gets photographed, not pocketed"</div>
+      <div class="email-body">Hi [name] &mdash; for the [agency] team's [Q3 / new-hire] gifting moment, we ship a sculptural desk-reset ritual. <strong>Co-branded wax-sealed box, $80&ndash;$110/recipient at 200 units.</strong> Sit-com swag pile, this is not. Want a sample for the office? &mdash; [you]</div>
+    </div>
+  </div>
+
+  <!-- CONCEPT 3 -->
+  <div class="concept">
+    <div class="concept-head">
+      <div>
+        <span class="concept-num">CONCEPT 03</span>
+        <div class="concept-name">Hotel Room Ritual</div>
+        <div class="concept-desc">In-room turn-down scent program for boutique hotels &mdash; one bottle per room, refill subscription, signature property scent.</div>
+      </div>
+      <div class="concept-price">
+        <div class="concept-price-num">$45&ndash;$65</div>
+        <div class="concept-price-label">&#9670; Per room/quarter</div>
+      </div>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-cell">
+        <span class="cc-label">Target buyer</span>
+        <div class="cc-text"><strong>Boutique hotel groups</strong> (Ace, Standard, NoMad, Soho House), high-end Airbnb operators.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">MOQ band</span>
+        <div class="cc-text">25 rooms &middot; 100 rooms &middot; <strong>500&plus; rooms</strong> (full property co-brand)</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Co-branding scope</span>
+        <div class="cc-text">Property-foiled bottle &middot; <em>signature scent commissioned for the property</em> &middot; in-room amenity card</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Why it lands</span>
+        <div class="cc-text">Boutique hotels compete on memory. A signature scent is the cheapest moat in hospitality. <em>And it is repeat-revenue from refills.</em></div>
+      </div>
+    </div>
+    <div class="email-row">
+      <span class="email-label">&#9670; Sample inquiry email</span>
+      <div class="email-subject">"Your property's signature scent &mdash; on the turn-down tray"</div>
+      <div class="email-body">Hi [name] &mdash; we develop signature in-room scents for boutique hotels. The bottle is sculptural enough to leave on the dresser; the refill is a quarterly recurring program. <strong>$45&ndash;$65/room/quarter</strong>. Available at 100 rooms+. Free property-scent consultation included &mdash; want to discuss [property name]? &mdash; [you]</div>
+    </div>
+  </div>
+
+  <!-- CONCEPT 4 -->
+  <div class="concept">
+    <div class="concept-head">
+      <div>
+        <span class="concept-num">CONCEPT 04</span>
+        <div class="concept-name">Client Appreciation</div>
+        <div class="concept-desc">Year-end thank-you gift for high-touch agency &amp; consultancy client lists &mdash; signed founder card, gift box, personal scent match.</div>
+      </div>
+      <div class="concept-price">
+        <div class="concept-price-num">$120&ndash;$180</div>
+        <div class="concept-price-label">&#9670; Per recipient</div>
+      </div>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-cell">
+        <span class="cc-label">Target buyer</span>
+        <div class="cc-text"><strong>Boutique consulting firms</strong>, law firms, wealth managers, PR agencies. Anyone whose top 50 clients control 80% of revenue.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">MOQ band</span>
+        <div class="cc-text"><strong>50 units</strong> &middot; 100 units &middot; 250&plus;</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Co-branding scope</span>
+        <div class="cc-text">Hand-signed card from firm partner &middot; foil-stamped box &middot; <em>scent personalization quiz for top accounts</em></div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Why it lands</span>
+        <div class="cc-text">Premium service businesses already spend $200&plus;/year/client on retention gifts. The category is wine-and-cheese-board fatigue. <em>This is not.</em></div>
+      </div>
+    </div>
+    <div class="email-row">
+      <span class="email-label">&#9670; Sample inquiry email</span>
+      <div class="email-subject">"For your top 50 clients &mdash; not your top 50 leads"</div>
+      <div class="email-body">Hi [name] &mdash; the wine-and-cheese client gift is fatigued. We ship a sculptural cleaning ritual that sits on a client's counter all year &mdash; built for premium retention. <strong>$120&ndash;$180/recipient at 50 units, foil-stamped with your firm.</strong> Want a sample to send? &mdash; [you]</div>
+    </div>
+  </div>
+
+  <!-- CONCEPT 5 -->
+  <div class="concept">
+    <div class="concept-head">
+      <div>
+        <span class="concept-num">CONCEPT 05</span>
+        <div class="concept-name">Employee Wellness</div>
+        <div class="concept-desc">A "ritual at home" benefits add-on for People teams &mdash; new-hire welcome or quarterly wellness drop.</div>
+      </div>
+      <div class="concept-price">
+        <div class="concept-price-num">$70&ndash;$100</div>
+        <div class="concept-price-label">&#9670; Per employee</div>
+      </div>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-cell">
+        <span class="cc-label">Target buyer</span>
+        <div class="cc-text"><strong>People &amp; Culture leads</strong> at 50&ndash;500-person companies. Wellness program managers. Benefits brokers.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">MOQ band</span>
+        <div class="cc-text">100 units &middot; <strong>250 units</strong> &middot; 1,000&plus; (annual program)</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Co-branding scope</span>
+        <div class="cc-text">Co-branded box &middot; new-hire scroll/letter &middot; <em>quarterly refill program with company logo</em></div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Why it lands</span>
+        <div class="cc-text">Wellness budgets are shifting from gym credits to "felt" rituals at home. <em>This is the most photographable wellness benefit you can ship.</em></div>
+      </div>
+    </div>
+    <div class="email-row">
+      <span class="email-label">&#9670; Sample inquiry email</span>
+      <div class="email-subject">"The wellness benefit your team will actually post about"</div>
+      <div class="email-body">Hi [name] &mdash; we ship a home-ritual wellness drop for People teams. New-hire welcome or quarterly program. <strong>$70&ndash;$100/employee at 250 units, co-branded box and refill cadence</strong>. Worth a 15-minute call to scope your Q3? &mdash; [you]</div>
+    </div>
+  </div>
+
+  <!-- CONCEPT 6 -->
+  <div class="concept">
+    <div class="concept-head">
+      <div>
+        <span class="concept-num">CONCEPT 06</span>
+        <div class="concept-name">Airbnb Host</div>
+        <div class="concept-desc">Per-property starter kit for Airbnb superhosts &mdash; in-stay scent + cleaning ritual that becomes the listing's signature.</div>
+      </div>
+      <div class="concept-price">
+        <div class="concept-price-num">$60&ndash;$85</div>
+        <div class="concept-price-label">&#9670; Per property/quarter</div>
+      </div>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-cell">
+        <span class="cc-label">Target buyer</span>
+        <div class="cc-text"><strong>Multi-property Airbnb operators</strong>, short-term rental management firms, vacation rental concierge.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">MOQ band</span>
+        <div class="cc-text">10 properties &middot; <strong>50 properties</strong> &middot; 200&plus;</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Co-branding scope</span>
+        <div class="cc-text">Welcome card with host name/listing &middot; <em>signature scent associated with the property</em> &middot; refill subscription</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Why it lands</span>
+        <div class="cc-text">Superhost reviews live or die on first impressions. Scent is the strongest first-impression lever in hospitality. <em>And the bottle stays out for a year of guests.</em></div>
+      </div>
+    </div>
+    <div class="email-row">
+      <span class="email-label">&#9670; Sample inquiry email</span>
+      <div class="email-subject">"The 5-star review trick most hosts miss"</div>
+      <div class="email-body">Hi [name] &mdash; saw you operate [X] properties in [city]. We build signature-scent welcome rituals for short-term rentals &mdash; the bottle stays out for guests, the refill is on subscription. <strong>$60&ndash;$85/property/quarter at 50 properties</strong>. Sample available. &mdash; [you]</div>
+    </div>
+  </div>
+
+  <!-- CONCEPT 7 -->
+  <div class="concept">
+    <div class="concept-head">
+      <div>
+        <span class="concept-num">CONCEPT 07</span>
+        <div class="concept-name">Brand-Scented Office</div>
+        <div class="concept-desc">A custom signature scent for an office HQ &mdash; conference rooms, kitchens, bathrooms. The brand becomes the air.</div>
+      </div>
+      <div class="concept-price">
+        <div class="concept-price-num">$3K&ndash;$15K</div>
+        <div class="concept-price-label">&#9670; Year-one program</div>
+      </div>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-cell">
+        <span class="cc-label">Target buyer</span>
+        <div class="cc-text"><strong>Founder/CMO</strong> of design-forward Series B&plus; companies. Office Experience leads. Showroom directors at fashion/home brands.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">MOQ band</span>
+        <div class="cc-text">Custom scent dev &plus; 50 bottles &middot; <strong>quarterly refill program</strong></div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Co-branding scope</span>
+        <div class="cc-text">Scent commissioned with company brief &middot; bottle in brand colorway &middot; <em>scent extends to candles, sprays, gift sets</em></div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Why it lands</span>
+        <div class="cc-text">Design-led companies will pay for an office identity moat. <em>Scent is one of the few sensory channels still wide open.</em></div>
+      </div>
+    </div>
+    <div class="email-row">
+      <span class="email-label">&#9670; Sample inquiry email</span>
+      <div class="email-subject">"Your office, in scent"</div>
+      <div class="email-body">Hi [name] &mdash; we develop custom signature scents for design-forward HQs. Conference room rituals, kitchen sprays, bathroom amenities. <strong>From $3K for scent dev plus 50 bottles, with a refill program</strong>. Used by [reference]. Worth a tour briefing? &mdash; [you]</div>
+    </div>
+  </div>
+
+  <!-- CONCEPT 8 -->
+  <div class="concept">
+    <div class="concept-head">
+      <div>
+        <span class="concept-num">CONCEPT 08</span>
+        <div class="concept-name">Holiday Home Ritual</div>
+        <div class="concept-desc">Q4 corporate gifting bundle &mdash; bottle, holiday-edition scent ("Smoke Linen", "Fir Hearth"), gift wrap, card.</div>
+      </div>
+      <div class="concept-price">
+        <div class="concept-price-num">$95&ndash;$135</div>
+        <div class="concept-price-label">&#9670; Per recipient</div>
+      </div>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-cell">
+        <span class="cc-label">Target buyer</span>
+        <div class="cc-text"><strong>Concierge gifting platforms</strong> (Knack, Loop &amp; Tie, Sendoso), HR teams, BD/sales teams with named-account programs.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">MOQ band</span>
+        <div class="cc-text"><strong>250 units</strong> &middot; 1,000 units &middot; 5,000&plus;</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Co-branding scope</span>
+        <div class="cc-text">Limited-edition holiday scent &middot; foil card &middot; <em>company-branded gift wrap</em></div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Why it lands</span>
+        <div class="cc-text">Q4 is 35&plus;% of corporate gifting spend. Limited editions justify the premium and create urgency. <em>The holiday-edition scent retires Jan 1.</em></div>
+      </div>
+    </div>
+    <div class="email-row">
+      <span class="email-label">&#9670; Sample inquiry email</span>
+      <div class="email-subject">"Q4 holiday gift &mdash; limited-edition scent"</div>
+      <div class="email-body">Hi [name] &mdash; for Q4 holiday gifting, we ship a limited-edition Smoke Linen / Fir Hearth bottle in foil-wrapped boxes. <strong>$95&ndash;$135/recipient at 250 units</strong>. Production cap is December 1st &mdash; want to lock numbers? &mdash; [you]</div>
+    </div>
+  </div>
+
+  <!-- CONCEPT 9 -->
+  <div class="concept">
+    <div class="concept-head">
+      <div>
+        <span class="concept-num">CONCEPT 09</span>
+        <div class="concept-name">Founder Gift</div>
+        <div class="concept-desc">High-touch single-recipient gift for founder-led closings &mdash; personalized scent, founder-signed card, luxury packaging.</div>
+      </div>
+      <div class="concept-price">
+        <div class="concept-price-num">$220&ndash;$400</div>
+        <div class="concept-price-label">&#9670; Per recipient</div>
+      </div>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-cell">
+        <span class="cc-label">Target buyer</span>
+        <div class="cc-text"><strong>Founder-led startups</strong> closing six- and seven-figure deals. Investment bankers, M&amp;A firms, top-tier wealth managers.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">MOQ band</span>
+        <div class="cc-text"><strong>5 units</strong> (single deal) &middot; 50 units (quarter) &middot; on-demand</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Co-branding scope</span>
+        <div class="cc-text">Hand-signed founder note &middot; recipient-name engraving on bottle &middot; <em>scent quiz before delivery</em> &middot; concierge unboxing video</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Why it lands</span>
+        <div class="cc-text">Founder closings need a story-worthy gift. <em>This one comes with a custom scent and an unboxing the recipient films themselves.</em></div>
+      </div>
+    </div>
+    <div class="email-row">
+      <span class="email-label">&#9670; Sample inquiry email</span>
+      <div class="email-subject">"The closing gift the recipient films themselves"</div>
+      <div class="email-body">Hi [name] &mdash; for founder-led closings we ship a personalized scent ritual with a hand-signed note. Recipient takes a 60-second scent quiz, we ship in 5 days. <strong>$220&ndash;$400/recipient, MOQ 5</strong>. Worth a sample? &mdash; [you]</div>
+    </div>
+  </div>
+
+  <!-- CONCEPT 10 -->
+  <div class="concept">
+    <div class="concept-head">
+      <div>
+        <span class="concept-num">CONCEPT 10</span>
+        <div class="concept-name">Retail Launch Collab</div>
+        <div class="concept-desc">Limited-edition co-brand drop with retail partners &mdash; Goop, Apartamento, Pottery Barn, MoMA Store.</div>
+      </div>
+      <div class="concept-price">
+        <div class="concept-price-num">$95&ndash;$160</div>
+        <div class="concept-price-label">&#9670; Retail price</div>
+      </div>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-cell">
+        <span class="cc-label">Target buyer</span>
+        <div class="cc-text"><strong>Retail buyers</strong> at design retailers (Pottery Barn, MoMA Store, Goldune, Goop), flagship boutiques, museum stores.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">MOQ band</span>
+        <div class="cc-text"><strong>500 units</strong> (limited drop) &middot; 2,000 (national rollout) &middot; 10,000&plus; (annual)</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Co-branding scope</span>
+        <div class="cc-text">Limited-edition bottle in retail-partner colorway &middot; co-named scent &middot; <em>shared press launch</em> &middot; SKU drops every 90 days</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Why it lands</span>
+        <div class="cc-text">Retail buyers need newness. Limited drops force urgency, generate press, and lock GESINE on the shelf. <em>This is also the lane that builds investor narrative.</em></div>
+      </div>
+    </div>
+    <div class="email-row">
+      <span class="email-label">&#9670; Sample inquiry email</span>
+      <div class="email-subject">"A 90-day limited drop &mdash; built for [retailer]'s aesthetic"</div>
+      <div class="email-body">Hi [name] &mdash; pitching a limited-edition co-brand drop. GESINE bottle in [retailer] colorway, co-named scent, shared launch story. <strong>500 units MOQ, retail $95&ndash;$160</strong>. We've shipped with [reference]. Want the deck? &mdash; [you]</div>
+    </div>
+  </div>
+
+</section>
+
+<!-- SALES PLAYBOOK -->
+<section class="section">
+  <span class="eyebrow">&#9670; Sales playbook</span>
+  <h2 class="h2">Three channels. <em>One outbound motion.</em></h2>
+  <p class="body">Don't try to fight gifting concierges from day one. Win the buyer first, the platform second, the press third.</p>
+
+  <div class="playbook">
+    <div class="play-card">
+      <span class="play-num">CHANNEL 01</span>
+      <div class="play-name">Direct outbound</div>
+      <div class="play-desc">LinkedIn + warm-intro emails to People leads, brokerage owners, hotel ops, agency partners. <strong>Sample-first, deck-second.</strong></div>
+      <div class="play-list">
+        <div class="play-item">3 personalized opens / day</div>
+        <div class="play-item">Free sample shipped before the deck</div>
+        <div class="play-item">Track to first reorder, not first order</div>
+      </div>
+    </div>
+    <div class="play-card">
+      <span class="play-num">CHANNEL 02</span>
+      <div class="play-name">Concierge platforms</div>
+      <div class="play-desc">List on <strong>Knack</strong>, <strong>Loop &amp; Tie</strong>, <strong>Sendoso</strong>, <strong>Reachdesk</strong>. They have the buyers; we have the SKU.</div>
+      <div class="play-list">
+        <div class="play-item">Onboard with 4 bundle SKUs</div>
+        <div class="play-item">Run platform-exclusive holiday drop</div>
+        <div class="play-item">Negotiate co-branded bundle slots</div>
+      </div>
+    </div>
+    <div class="play-card">
+      <span class="play-num">CHANNEL 03</span>
+      <div class="play-name">Press &amp; collab</div>
+      <div class="play-desc">Trojan-horse the gifting category through Goldune, Goop's gift guide, Apartamento, Cereal. <strong>One named press hit per quarter.</strong></div>
+      <div class="play-list">
+        <div class="play-item">Q1: Apartamento or Cereal feature</div>
+        <div class="play-item">Q2: Goop holiday gift guide</div>
+        <div class="play-item">Q3: Goldune limited collab drop</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="icp-box">
+    <span class="icp-label">&#9670; ICP segments to prioritize day one</span>
+    <div class="icp-grid">
+      <div class="icp-item"><strong>Boutique hotels (50&ndash;200 rooms)</strong>Recurring revenue, lowest churn, signature-scent moat.</div>
+      <div class="icp-item"><strong>Real estate brokerages (top 10% agents)</strong>High-budget closing gifts, repeat seasonal flow, viral on agent IG.</div>
+      <div class="icp-item"><strong>Design-forward agencies (50&ndash;500 ppl)</strong>People budgets exist, gift gets photographed, lands on LinkedIn.</div>
+      <div class="icp-item"><strong>Concierge gifting platforms</strong>Plug into existing demand, win Q4 holiday rotation as proof.</div>
+    </div>
+  </div>
+</section>
+
+<footer class="doc-footer">
+  <div class="ft-l">Alex Lamb &middot; Creative Director, AI Architect</div>
+  <div class="ft-r">GESINE Foundation Sprint &middot; Deliverable 06</div>
+</footer>
+
+</div>
+</body>
+</html>

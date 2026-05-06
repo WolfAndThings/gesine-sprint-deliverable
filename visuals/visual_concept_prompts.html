@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){if(sessionStorage.getItem('gesine_unlock')==='1')return;var p=prompt('GESINE — enter password to view');if(p==='gesine2026'){sessionStorage.setItem('gesine_unlock','1');}else{document.documentElement.innerHTML='<body style="margin:0;padding:60px;font-family:sans-serif;text-align:center;background:#0F0E0C;color:#F5F1E8;font-size:18px;">Access required.</body>';}})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GESINE — 15 Visual Concept Prompts</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --ink:#0F0E0C; --dark:#1A1814;
+  --cream:#F8FAF6; --off:#E8EFE3; --soft:#D6E4D0;
+  --amber:#4FA86A; --amber-deep:#2D5F3F;
+  --olive:#4A5240; --sage:#7C8470;
+  --muted:#6F665A; --light:#9C9285;
+  --bmd:rgba(15,14,12,0.14); --bstr:rgba(15,14,12,0.20);
+}
+body { background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-serif; font-size:15px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+.page { max-width:1080px; margin:0 auto; padding:56px 48px 80px; }
+.doc-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:48px; padding-bottom:24px; border-bottom:2px solid var(--ink); }
+.wordmark { display:flex; align-items:center; gap:12px; }
+.logo-box { width:36px; height:36px; background:var(--ink); border-radius:8px; display:grid; place-items:center; }
+.brand-name { font-family:'Instrument Serif',Georgia,serif; font-size:18px; letter-spacing:.02em; }
+.doc-meta { text-align:right; font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); line-height:2; }
+
+.hero { background:var(--ink); border-radius:16px; padding:44px 48px; margin-bottom:48px; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg, var(--amber), var(--sage)); }
+.hero-eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:rgba(245,241,232,.40); display:block; margin-bottom:16px; }
+.hero-headline { font-family:'Instrument Serif',Georgia,serif; font-size:clamp(28px,3.6vw,40px); line-height:1.1; letter-spacing:-.02em; color:var(--cream); margin-bottom:18px; }
+.hero-headline em { color:var(--amber); font-style:italic; }
+.hero-body { font-size:15px; color:rgba(245,241,232,.72); line-height:1.7; font-weight:300; max-width:720px; }
+.hero-body strong { color:var(--cream); font-weight:500; }
+
+.section { margin-bottom:56px; }
+.eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:12px; }
+.h2 { font-family:'Instrument Serif',Georgia,serif; font-size:clamp(22px,2.8vw,28px); line-height:1.15; letter-spacing:-.015em; color:var(--ink); margin-bottom:14px; }
+.h2 em { font-style:italic; }
+.body { font-size:14px; color:#2A2620; line-height:1.75; font-weight:300; max-width:720px; }
+.body strong { font-weight:600; color:var(--ink); }
+
+.brand-world { background:var(--off); border:1px solid var(--bstr); border-radius:12px; padding:24px 28px; margin-top:18px; }
+.bw-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--amber-deep); display:block; margin-bottom:14px; }
+.bw-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; }
+.bw-item { font-size:13px; line-height:1.55; color:#2A2620; font-weight:300; }
+.bw-item strong { color:var(--ink); font-weight:600; display:block; margin-bottom:4px; font-size:11.5px; font-family:'DM Mono',monospace; letter-spacing:.04em; }
+
+.prompt { background:var(--cream); border:1px solid var(--bstr); border-radius:14px; overflow:hidden; margin-bottom:14px; }
+.prompt-head { padding:20px 28px; display:grid; grid-template-columns:auto 1fr auto; gap:18px; align-items:center; border-bottom:1px solid var(--bmd); background:var(--off); }
+.prompt-num { font-family:'Instrument Serif',Georgia,serif; font-size:30px; color:var(--amber); line-height:1; letter-spacing:-.02em; }
+.prompt-title { font-family:'Instrument Serif',Georgia,serif; font-size:20px; line-height:1.15; letter-spacing:-.005em; }
+.prompt-title em { color:var(--amber-deep); font-style:italic; }
+.prompt-meta { display:flex; gap:8px; flex-wrap:wrap; }
+.meta-tag { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.16em; text-transform:uppercase; padding:4px 9px; border-radius:5px; font-weight:500; }
+.meta-tag.gpt { background:rgba(79,168,106,0.18); color:var(--amber-deep); }
+.meta-tag.nb2 { background:rgba(74,82,64,0.18); color:#3A4234; }
+.meta-tag.aspect { background:rgba(15,14,12,0.10); color:var(--ink); }
+.meta-tag.use { background:var(--ink); color:var(--cream); }
+
+.prompt-body { padding:24px 28px; }
+.prompt-purpose { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin-bottom:10px; display:block; }
+.prompt-purpose strong { color:var(--ink); font-weight:600; }
+.prompt-text { font-family:'DM Sans',sans-serif; font-size:13.5px; line-height:1.75; color:#2A2620; font-weight:300; padding:16px 20px; background:var(--off); border-radius:10px; border-left:3px solid var(--amber); margin-top:6px; white-space:pre-wrap; }
+.prompt-text strong { color:var(--ink); font-weight:600; }
+.prompt-extras { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:14px; }
+.extra-cell { padding:14px 18px; background:var(--cream); border:1px solid var(--bmd); border-radius:8px; }
+.extra-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin-bottom:6px; display:block; }
+.extra-text { font-size:12.5px; line-height:1.55; color:#2A2620; font-weight:300; }
+
+.section-divider { padding:24px 28px; background:var(--ink); color:var(--cream); border-radius:14px; margin-bottom:18px; margin-top:8px; display:flex; align-items:center; justify-content:space-between; gap:14px; }
+.divider-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--amber); }
+.divider-title { font-family:'Instrument Serif',Georgia,serif; font-size:24px; line-height:1; letter-spacing:-.01em; }
+.divider-count { font-family:'Instrument Serif',Georgia,serif; font-size:36px; color:var(--amber); line-height:1; }
+
+.copy-instructions { background:rgba(79,168,106,0.06); border:1px solid rgba(79,168,106,0.25); border-radius:12px; padding:24px 28px; margin-top:24px; }
+.copy-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--amber-deep); margin-bottom:14px; display:block; }
+.copy-text { font-size:13.5px; line-height:1.7; color:#2A2620; font-weight:300; }
+.copy-text strong { font-weight:600; color:var(--ink); }
+.copy-text code { font-family:'DM Mono',monospace; font-size:12px; background:rgba(15,14,12,0.08); padding:2px 6px; border-radius:4px; }
+
+.doc-footer { margin-top:64px; padding-top:24px; border-top:2px solid var(--ink); display:flex; justify-content:space-between; align-items:center; }
+.ft-l { font-size:12px; color:var(--muted); }
+.ft-r { font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); }
+
+@media(max-width:760px) {
+  .page { padding:36px 20px 64px; }
+  .doc-header { flex-direction:column; align-items:flex-start; gap:14px; }
+  .hero { padding:30px 24px; }
+  .bw-grid { grid-template-columns:1fr; }
+  .prompt-head { grid-template-columns:auto 1fr; padding:18px 20px; }
+  .prompt-meta { grid-column:1 / -1; }
+  .prompt-body { padding:20px; }
+  .prompt-extras { grid-template-columns:1fr; }
+  .section-divider { flex-direction:column; align-items:flex-start; gap:8px; }
+  .doc-footer { flex-direction:column; gap:12px; align-items:flex-start; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="doc-header">
+  <div class="wordmark">
+    <div class="logo-box">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <circle cx="9" cy="9" r="7" stroke="#4FA86A" stroke-width="1.5" fill="none"/>
+        <circle cx="9" cy="9" r="3" fill="#4FA86A"/>
+      </svg>
+    </div>
+    <span class="brand-name">GESINE × Alex Lamb</span>
+  </div>
+  <div class="doc-meta">Deliverable 06 · 15 Visual Concept Prompts<br>Foundation Sprint · May 2026</div>
+</header>
+
+<div class="hero">
+  <span class="hero-eyebrow">5 hero · 5 product · 5 lifestyle — paste-ready</span>
+  <div class="hero-headline">
+    Fifteen prompts.<br>
+    <em>One brand world.</em>
+  </div>
+  <div class="hero-body">
+    Every prompt below is paste-ready for ChatGPT (Image Gen 4), with NanoBanana 2 fallback when ChatGPT moderation trips. The brand world stays locked across all fifteen — same bottle silhouette, same materials, same light, same color palette — so outputs feel like a single shoot rather than fifteen one-offs. <strong>Run them all in parallel, harvest the strongest 1 from each, animate the top 2–3 with Veo 3.1 for the short-form video tests.</strong>
+  </div>
+</div>
+
+
+<!-- BRAND WORLD -->
+<section class="section">
+  <span class="eyebrow">Locked brand world</span>
+  <h2 class="h2">Same world.<br><em>Fifteen rooms in it.</em></h2>
+  <p class="body">Every prompt inherits these rules. <strong>Don't let any single prompt drift</strong> — if a result looks off, the world reference is what to tighten before re-prompting.</p>
+
+  <div class="brand-world">
+    <span class="bw-label">GESINE world specification</span>
+    <div class="bw-grid">
+      <div class="bw-item"><strong>Bottle</strong>Sculptural sprayer in smoked-amber or frosted glass. Soft ergonomic curve. Matte soft-touch cap in deep olive or warm cream. ~6 inches tall. Looks designed, not branded — the silhouette carries the identity.</div>
+      <div class="bw-item"><strong>Materials in frame</strong>Travertine, honed marble, oak, walnut, brushed brass, raw linen, bamboo. Soft cotton, ceramic, weathered stone. Avoid plastic, neon, glossy white, anything cold or clinical.</div>
+      <div class="bw-item"><strong>Light</strong>Soft natural daylight from a window, late-afternoon golden, or warm interior lamp glow. Always one directional source, never overhead beauty light. Subtle film grain. Slight warm cast.</div>
+      <div class="bw-item"><strong>Palette</strong>Warm cream, soft amber, deep olive, sage, smoked black. Accents of grapefruit, tomato leaf green, lavender muted. Never pastel, never high-saturation.</div>
+      <div class="bw-item"><strong>Composition</strong>Editorial, asymmetric. Hands or partial human in frame on most shots. Off-center bottle. Negative space generous. Shot like a Kinfolk spread, not a product catalog.</div>
+      <div class="bw-item"><strong>Banned</strong>"Beautiful," "stunning," "perfect," "8K," "hyperrealistic," "luxury," "premium" — never in prompt text. Pristine product render energy. Floating-on-white commercial framing. AI tells (extra fingers, plastic skin).</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- HERO SHOTS -->
+<div class="section-divider">
+  <div>
+    <span class="divider-label">Block 01 / 03</span>
+    <div class="divider-title">Hero shots — landing page + investor deck</div>
+  </div>
+  <div class="divider-count">5</div>
+</div>
+
+<!-- 01 -->
+<div class="prompt">
+  <div class="prompt-head">
+    <div class="prompt-num">01</div>
+    <div class="prompt-title">Nightstand · 9PM Ritual</div>
+    <div class="prompt-meta">
+      <span class="meta-tag gpt">ChatGPT</span>
+      <span class="meta-tag aspect">3:2 horizontal</span>
+      <span class="meta-tag use">Hero — landing</span>
+    </div>
+  </div>
+  <div class="prompt-body">
+    <span class="prompt-purpose"><strong>Use:</strong> Top of Shopify homepage. Establishes the ritual frame in one frame.</span>
+    <div class="prompt-text">Editorial photograph of a quiet bedroom nightstand at 9pm. A sculptural amber-glass spray bottle with a matte olive cap stands center-left on warm walnut wood next to a clear water glass and a hardcover book with the spine facing camera. A woman's hand, mid-thirties, lightly tan skin, enters from the right edge of the frame holding a folded raw-linen cloth, just about to wipe the wood surface. Soft warm bedside lamp glow as the only light source, casting gentle shadow behind the bottle. Slightly out-of-focus rumpled cream linen sheets in the background. 35mm film grain, Kodak Portra 400 color cast, shot at f/2.8, slight imperfection in focus. Composition asymmetric, generous negative space top-right. No logos, no labels visible — the bottle's silhouette is the identity. Aspect ratio 3:2 horizontal.</div>
+    <div class="prompt-extras">
+      <div class="extra-cell"><span class="extra-label">If ChatGPT refuses</span><div class="extra-text">Drop "9pm" → "evening." Keep everything else.</div></div>
+      <div class="extra-cell"><span class="extra-label">Animate next</span><div class="extra-text">Veo 3.1 prompt: hand finishing wipe, lamp slight flicker, 4s loop. Use as homepage hero loop.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 02 -->
+<div class="prompt">
+  <div class="prompt-head">
+    <div class="prompt-num">02</div>
+    <div class="prompt-title">Marble Kitchen · After Dinner</div>
+    <div class="prompt-meta">
+      <span class="meta-tag gpt">ChatGPT</span>
+      <span class="meta-tag aspect">3:2 horizontal</span>
+      <span class="meta-tag use">Hero — landing</span>
+    </div>
+  </div>
+  <div class="prompt-body">
+    <span class="prompt-purpose"><strong>Use:</strong> Section header for "Cleaning as Ritual" pillar. Anchors the kitchen-reset SKU.</span>
+    <div class="prompt-text">Editorial overhead-angle photograph of a honed Carrara marble kitchen counter shot from a slight three-quarter angle, lit by warm late-afternoon window light from the upper left. A sculptural smoked-amber spray bottle with a soft-touch deep-olive cap sits center-right. Around it: a single curl of orange peel, a wooden cutting board with crumbs of fresh rosemary, a small ceramic bowl in a creamy off-white tone with traces of olive oil, a folded raw bamboo cloth in a warm beige tone. A man's hand, mid-thirties, wearing a vintage white linen shirt cuff, reaches in from the bottom right edge of the frame, holding the bottle's neck loosely between his thumb and index finger. Soft directional shadow stretches across the marble. 35mm film aesthetic, Kodak Portra 400 grain, slight warm cast. Asymmetric composition with generous negative space. No logos visible — sculptural silhouette only. Aspect ratio 3:2.</div>
+    <div class="prompt-extras">
+      <div class="extra-cell"><span class="extra-label">Why this works</span><div class="extra-text">Pulls from Flamingo Estate's tomato-leaf vocabulary + Caraway's countertop framing. Pure premium kitchen reference.</div></div>
+      <div class="extra-cell"><span class="extra-label">Animate next</span><div class="extra-text">Hand finishing wipe across marble, 4s, Veo 3.1.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 03 -->
+<div class="prompt">
+  <div class="prompt-head">
+    <div class="prompt-num">03</div>
+    <div class="prompt-title">Desk Reset · Between Meetings</div>
+    <div class="prompt-meta">
+      <span class="meta-tag gpt">ChatGPT</span>
+      <span class="meta-tag aspect">3:2 horizontal</span>
+      <span class="meta-tag use">Hero — corporate gifting page</span>
+    </div>
+  </div>
+  <div class="prompt-body">
+    <span class="prompt-purpose"><strong>Use:</strong> Hero of corporate gifting subpage. Anchors the Headspace / Canva / Shopify pitch.</span>
+    <div class="prompt-text">Editorial photograph of a creative professional's desk at 2pm, shot at eye level from a three-quarter angle. A sleek minimalist oak desk in warm honey tone holds: a closed silver MacBook Pro, an open hardcover notebook with cream pages and a black ink pen resting in the spine crease, a half-finished cup of coffee in a thick ceramic mug in muted clay color, a small terracotta planter with a single trailing pothos vine, and a sculptural smoked-amber spray bottle with a deep-olive matte cap standing slightly off-center. Soft directional window light from the left edge of the frame creates a long shadow stretching from the bottle across a matte cream desk pad. A man's hand in a navy linen sleeve, mid-action, mid-thirties, lightly tan skin, holds a small folded raw-cotton cloth, about to wipe the desk surface. Subtle film grain, late afternoon warmth, Kodak Portra 400 cast. Asymmetric composition. Aspect 3:2. No logos visible.</div>
+    <div class="prompt-extras">
+      <div class="extra-cell"><span class="extra-label">For B2B pitch decks</span><div class="extra-text">Re-roll with Headspace teal accent or Canva purple accent on the planter or notebook for client-specific mockups.</div></div>
+      <div class="extra-cell"><span class="extra-label">Animate next</span><div class="extra-text">Hand finishing wipe + spray mist diffusion at the bottle. Veo 3.1.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 04 -->
+<div class="prompt">
+  <div class="prompt-head">
+    <div class="prompt-num">04</div>
+    <div class="prompt-title">Bathroom Vanity · Coming Home</div>
+    <div class="prompt-meta">
+      <span class="meta-tag gpt">ChatGPT</span>
+      <span class="meta-tag aspect">3:2 horizontal</span>
+      <span class="meta-tag use">Hero — Aesop comparison frame</span>
+    </div>
+  </div>
+  <div class="prompt-body">
+    <span class="prompt-purpose"><strong>Use:</strong> Pillar page demonstrating "GESINE belongs next to Aesop, not Lysol." Sephora-tier framing.</span>
+    <div class="prompt-text">Editorial photograph of a high-end powder-room vanity, three-quarter angle, soft window light from the right edge. The vanity is a slab of warm travertine stone, brushed brass faucet visible at the back left of the frame. On the surface: a tall amber-glass apothecary hand-wash bottle with a black pump nozzle (visually similar to Aesop's Resurrection Aromatique line) on the back left, and a sculptural smoked-amber spray bottle with a soft-touch olive cap to its right, slightly forward in the frame to draw the eye. Between them: a small honed-stone tray with a folded raw-linen hand towel in oat color, a sprig of fresh eucalyptus, and a single wax candle in matte clay. The framing intentionally pairs the GESINE bottle next to the Aesop-style bottle as <strong>peers</strong>. Soft white wall in soft focus behind. Subtle film grain, warm cast, Kodak Portra 400 aesthetic. Aspect 3:2. No labels visible on either bottle.</div>
+    <div class="prompt-extras">
+      <div class="extra-cell"><span class="extra-label">Critical framing</span><div class="extra-text">Pairing with the Aesop-style bottle is the storytelling — the buyer reads "this belongs here" without copy.</div></div>
+      <div class="extra-cell"><span class="extra-label">Animate next</span><div class="extra-text">Hand entering frame, picking up GESINE bottle, mist spritz. Veo 3.1.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 05 -->
+<div class="prompt">
+  <div class="prompt-head">
+    <div class="prompt-num">05</div>
+    <div class="prompt-title">Boutique Hotel · Turn Down</div>
+    <div class="prompt-meta">
+      <span class="meta-tag gpt">ChatGPT</span>
+      <span class="meta-tag aspect">3:2 horizontal</span>
+      <span class="meta-tag use">Hero — hospitality gifting</span>
+    </div>
+  </div>
+  <div class="prompt-body">
+    <span class="prompt-purpose"><strong>Use:</strong> Hospitality / hotel gifting subpage. Pitches the Soho House / Standard Hotel / boutique GM channel.</span>
+    <div class="prompt-text">Editorial photograph of a luxury boutique hotel bedside scene at dusk. A walnut wood tray sits on a deep-olive linen-upholstered nightstand. On the tray: a sculptural smoked-amber spray bottle with a brushed-brass cap (custom hospitality colorway), a folded raw cotton cloth in oat tone, a small handwritten card in soft cream paper that reads "<em>For your room. From ours.</em>" in elegant typeset, and a single sprig of dried lavender. A bronze-finish bedside lamp at the upper left edge of the frame casts warm directional glow. Soft-focus rumpled cream-linen bedding fills the lower right of the frame. Subtle film grain, warm cinematic cast, Kodak Portra 800 night-shot aesthetic, slight gold tone. Asymmetric composition. Aspect 3:2.</div>
+    <div class="prompt-extras">
+      <div class="extra-cell"><span class="extra-label">Variants worth running</span><div class="extra-text">Swap brass for matte black cap → modernist hotel. Swap walnut tray for travertine → Mediterranean boutique. 3 colorways = 3 hospitality pitches.</div></div>
+      <div class="extra-cell"><span class="extra-label">Animate next</span><div class="extra-text">Subtle lamp glow shift + breath of curtain in background. Veo 3.1, 6s loop.</div></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- PRODUCT MOCKUPS -->
+<div class="section-divider">
+  <div>
+    <span class="divider-label">Block 02 / 03</span>
+    <div class="divider-title">Product mockups — investor deck + retail PDP</div>
+  </div>
+  <div class="divider-count">5</div>
+</div>
+
+<!-- 06 -->
+<div class="prompt">
+  <div class="prompt-head">
+    <div class="prompt-num">06</div>
+    <div class="prompt-title">Sculptural Hero — Bottle Silhouette</div>
+    <div class="prompt-meta">
+      <span class="meta-tag gpt">ChatGPT</span>
+      <span class="meta-tag aspect">2:3 vertical</span>
+      <span class="meta-tag use">PDP — main</span>
+    </div>
+  </div>
+  <div class="prompt-body">
+    <span class="prompt-purpose"><strong>Use:</strong> Primary product PDP image. Investor deck slide. The "this is the object" shot.</span>
+    <div class="prompt-text">Editorial product photograph of a single sculptural spray bottle, smoked-amber translucent glass, soft ergonomic curve, deep-olive matte soft-touch cap, no labels, ~6 inches tall, shot from a slight three-quarter angle on a honed travertine stone slab. Background: a soft cream warm-painted plaster wall in soft focus. Single directional window light from the upper left casting a long deep shadow behind and right of the bottle. A few specks of dust visible in the light beam. Composition asymmetric, bottle placed in the lower-third of the frame, generous negative space above. Subtle film grain, slight warm cast, shot on a 50mm lens at f/4. Aspect ratio 2:3 vertical. The bottle's silhouette must be readable from 10 feet away — that's the brand identity. No logos, no text.</div>
+    <div class="prompt-extras">
+      <div class="extra-cell"><span class="extra-label">Lock this first</span><div class="extra-text">Run this prompt 5–8 times. Pick the strongest silhouette before generating any other product shot — they all reference this bottle shape.</div></div>
+      <div class="extra-cell"><span class="extra-label">Variants</span><div class="extra-text">After locking: re-roll with frosted-cream glass, smoked-black glass, sage-tinted glass for limited-edition mockups.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 07 -->
+<div class="prompt">
+  <div class="prompt-head">
+    <div class="prompt-num">07</div>
+    <div class="prompt-title">Holder + Refill Vials Detail</div>
+    <div class="prompt-meta">
+      <span class="meta-tag gpt">ChatGPT</span>
+      <span class="meta-tag aspect">2:3 vertical</span>
+      <span class="meta-tag use">PDP — gallery</span>
+    </div>
+  </div>
+  <div class="prompt-body">
+    <span class="prompt-purpose"><strong>Use:</strong> "What's in the kit" gallery slot. Justifies the $80 by showing the system, not just the spray.</span>
+    <div class="prompt-text">Editorial close-up product photograph of a sculptural ceramic display holder in soft cream matte glaze, ~5 inches tall, holding two glass refill vials with screw caps. The refill vials are slim, ~3 inches tall each, smoked-amber glass, with simple muted oat-colored paper labels (no logo, just a single ritual name in small serif type — "9PM" on one, "Sunday" on the other). The main sculptural amber spray bottle stands beside the holder. Shot from a slight downward three-quarter angle on a brushed walnut wood surface. Soft directional window light from the right. Background: a cream linen drape in soft focus. Subtle film grain, warm cast, shot on a 50mm at f/2.8 with shallow depth of field — the front vial is sharp, the back of the holder soft. Aspect 2:3.</div>
+    <div class="prompt-extras">
+      <div class="extra-cell"><span class="extra-label">Why ceramic holder</span><div class="extra-text">Caraway's playbook: the accessory makes the case for keeping the system out. Ceramic earns shelf space in a way plastic or metal can't.</div></div>
+      <div class="extra-cell"><span class="extra-label">Variants</span><div class="extra-text">Re-roll with all 8 ritual names visible across multiple vials → "build your scent library" hero.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 08 -->
+<div class="prompt">
+  <div class="prompt-head">
+    <div class="prompt-num">08</div>
+    <div class="prompt-title">Bamboo Towel Texture</div>
+    <div class="prompt-meta">
+      <span class="meta-tag gpt">ChatGPT</span>
+      <span class="meta-tag aspect">1:1 square</span>
+      <span class="meta-tag use">PDP — detail</span>
+    </div>
+  </div>
+  <div class="prompt-body">
+    <span class="prompt-purpose"><strong>Use:</strong> Detail shot in PDP gallery. Sells the "bamboo towel feels spa-grade, not 'included rag.'"</span>
+    <div class="prompt-text">Editorial extreme close-up macro photograph of a folded bamboo cloth in a soft oat color, slightly textured weave visible, hand-stitched edge in matching thread. Shot from directly overhead at 90° on a honed travertine stone surface, soft warm directional light from the left edge casting subtle shadow into the folds. The folded cloth fills 60% of the frame, set asymmetrically lower-right. Negative space upper left. A single sprig of dried lavender lies along the upper edge of the cloth, partially out of focus. Subtle film grain, warm cinematic cast, shot on a 100mm macro at f/4. Aspect ratio 1:1 square. The texture must read as <strong>spa-grade hospitality towel</strong>, never gym-towel or kitchen rag.</div>
+    <div class="prompt-extras">
+      <div class="extra-cell"><span class="extra-label">Use case</span><div class="extra-text">PDP gallery slot 4. Also Pinterest pin (1:1 works on Pinterest discovery feed).</div></div>
+      <div class="extra-cell"><span class="extra-label">Variants</span><div class="extra-text">Same shot with 9PM Reset bottle in upper edge of frame instead of lavender — turns it into a lifestyle still life.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 09 -->
+<div class="prompt">
+  <div class="prompt-head">
+    <div class="prompt-num">09</div>
+    <div class="prompt-title">Cap Engineering · Top-Down Detail</div>
+    <div class="prompt-meta">
+      <span class="meta-tag gpt">ChatGPT</span>
+      <span class="meta-tag aspect">1:1 square</span>
+      <span class="meta-tag use">PDP — engineering</span>
+    </div>
+  </div>
+  <div class="prompt-body">
+    <span class="prompt-purpose"><strong>Use:</strong> Builds the "this is engineered, not commodity" trust signal. Show the design intent.</span>
+    <div class="prompt-text">Editorial top-down macro product photograph of the spray bottle's matte deep-olive soft-touch cap, removed from the bottle and placed precisely beside the open glass neck. The bottle stands upright on the right side of the frame, the cap rests upside-down on the left side showing its inner threading and a small machined nozzle detail. Surface: a honed black slate slab with a slight matte sheen. Soft directional window light from the upper right casts a controlled shadow across the slate. Subtle film grain, slight warm cast despite the dark surface, shot on a 100mm macro at f/5.6 with both cap and bottle neck in sharp focus. Composition split asymmetrically, weight on the right where the bottle stands. Aspect ratio 1:1. The image reads as <strong>engineering integrity</strong> — Apple-level product respect for a category that usually shows none.</div>
+    <div class="prompt-extras">
+      <div class="extra-cell"><span class="extra-label">Why this matters</span><div class="extra-text">Justifies a $9 cap on an $80 SKU. Buyers trust products that show the parts.</div></div>
+      <div class="extra-cell"><span class="extra-label">Variants</span><div class="extra-text">Same shot with cap in cream, sage, or smoked black — limited drop teasers.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 10 -->
+<div class="prompt">
+  <div class="prompt-head">
+    <div class="prompt-num">10</div>
+    <div class="prompt-title">Full Kit Unboxed · The Reveal</div>
+    <div class="prompt-meta">
+      <span class="meta-tag gpt">ChatGPT</span>
+      <span class="meta-tag aspect">3:2 horizontal</span>
+      <span class="meta-tag use">PDP / unboxing</span>
+    </div>
+  </div>
+  <div class="prompt-body">
+    <span class="prompt-purpose"><strong>Use:</strong> "What's inside" hero. The $80 reveal moment. Investor deck slide showing the full system.</span>
+    <div class="prompt-text">Editorial overhead photograph at 90° looking straight down, shot on a brushed walnut wood surface. An open rigid book-style gift box, lined inside with cream felt, lies open on the left side of the frame. The box's contents are arranged inside or next to the box: the sculptural smoked-amber spray bottle with deep-olive cap, two glass refill vials with oat-colored ritual labels ("9PM" and "Sunday"), one ceramic display holder in soft cream matte glaze, two folded bamboo cloths in oat color, and a small instruction card on cream paper printed with serif typography reading "<em>Clean the surface. Reset the feeling.</em>" Soft directional window light from the upper-left edge. Subtle warm cast, slight film grain. Asymmetric composition with the box on the left and components arranged in a loose grid to the right. Aspect 3:2. No logos visible — silhouette and ritual names are the brand identity.</div>
+    <div class="prompt-extras">
+      <div class="extra-cell"><span class="extra-label">Why book-style box</span><div class="extra-text">From the GESINE brief — the box is meant to look like a book on the shelf. Ties to "designed to be seen" positioning.</div></div>
+      <div class="extra-cell"><span class="extra-label">Variants</span><div class="extra-text">Same shot with branded mockup label for corporate gifting concepts (Headspace / Airbnb / IKEA versions).</div></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- LIFESTYLE -->
+<div class="section-divider">
+  <div>
+    <span class="divider-label">Block 03 / 03</span>
+    <div class="divider-title">Lifestyle scenes — social, ads, content engine</div>
+  </div>
+  <div class="divider-count">5</div>
+</div>
+
+<!-- 11 -->
+<div class="prompt">
+  <div class="prompt-head">
+    <div class="prompt-num">11</div>
+    <div class="prompt-title">Sunday Reset · Whole Home</div>
+    <div class="prompt-meta">
+      <span class="meta-tag gpt">ChatGPT</span>
+      <span class="meta-tag aspect">9:16 vertical</span>
+      <span class="meta-tag use">Reels / TikTok hero</span>
+    </div>
+  </div>
+  <div class="prompt-body">
+    <span class="prompt-purpose"><strong>Use:</strong> First reel hook for the Sunday Reset audience (Stephanie Ross orbit). Vertical format.</span>
+    <div class="prompt-text">Editorial vertical photograph of a Sunday morning home reset scene, shot at chest height. A woman, mid-thirties, in a soft cream linen robe and barefoot, stands center frame in a bright minimalist kitchen-living space with cream walls, oak floors, and a single trailing pothos in a terracotta planter. She holds the sculptural smoked-amber spray bottle in her right hand, mid-spray onto a marble counter, while her left hand holds a folded oat-colored bamboo cloth ready to wipe. A grapefruit half rests on a wooden cutting board to her left. Soft golden morning window light streams in from the right edge of the frame, casting a warm glow across her face and the counter. Subtle film grain, Kodak Portra 400 cast, shot on a 50mm at f/2.8 with shallow depth of field — she is sharp, the room behind her soft. Aspect ratio 9:16 vertical. The mood is <strong>quiet morning ritual</strong>, never aspirational-stage-managed.</div>
+    <div class="prompt-extras">
+      <div class="extra-cell"><span class="extra-label">Animate next</span><div class="extra-text">Veo 3.1: spray mist diffusion + slow wipe across counter, 6s loop. The sound design is "Sunday Reset trend" audio.</div></div>
+      <div class="extra-cell"><span class="extra-label">Variants</span><div class="extra-text">Same scene with man in linen shirt for the male-audience cut (per @nicktopher fit).</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 12 -->
+<div class="prompt">
+  <div class="prompt-head">
+    <div class="prompt-num">12</div>
+    <div class="prompt-title">Hosting Prep · Dining Sideboard</div>
+    <div class="prompt-meta">
+      <span class="meta-tag gpt">ChatGPT</span>
+      <span class="meta-tag aspect">3:2 horizontal</span>
+      <span class="meta-tag use">Lifestyle — gifting page</span>
+    </div>
+  </div>
+  <div class="prompt-body">
+    <span class="prompt-purpose"><strong>Use:</strong> Athena Calderone / Gohar World feed reference. Editorial table-styling moment.</span>
+    <div class="prompt-text">Editorial photograph of a dinner-prep moment at golden hour. A long oak dining table is set for six people: cream linen napkins, neutral stoneware in earth tones, brass flatware, two unlit beeswax taper candles in slim brass holders. A walnut sideboard runs along the back wall, lit by warm pendant light. On the sideboard: a sculptural smoked-amber GESINE spray bottle, a folded bamboo cloth, a small ceramic vase holding fig branches with green leaves, and a pair of brass scissors. A woman, late-thirties, in a soft sage linen dress, stands at the sideboard with her back partially to camera, picking up the bottle with her right hand to take to the table. Warm dusk light from a window at the far back. Soft film grain, Kodak Portra 800 evening cast, slight gold warmth. Composition asymmetric, the table lower-left, the woman + sideboard upper-right. Aspect 3:2. No logos.</div>
+    <div class="prompt-extras">
+      <div class="extra-cell"><span class="extra-label">Why this scene</span><div class="extra-text">Direct reference to @gohar.world + @eyeswoon visual language. Pre-positions GESINE for those creators' feeds.</div></div>
+      <div class="extra-cell"><span class="extra-label">Animate next</span><div class="extra-text">Candle flame ignite + woman's slow turn back toward table. Veo 3.1.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 13 -->
+<div class="prompt">
+  <div class="prompt-head">
+    <div class="prompt-num">13</div>
+    <div class="prompt-title">Coming Home · Entryway Threshold</div>
+    <div class="prompt-meta">
+      <span class="meta-tag gpt">ChatGPT</span>
+      <span class="meta-tag aspect">9:16 vertical</span>
+      <span class="meta-tag use">Reels / TikTok</span>
+    </div>
+  </div>
+  <div class="prompt-body">
+    <span class="prompt-purpose"><strong>Use:</strong> Entryway / arrival ritual hook. Plays well as TikTok 7–10 second story.</span>
+    <div class="prompt-text">Editorial vertical photograph from a low angle, three-quarter view. An entryway scene at the moment of returning home: a wide oak floor, a cream-painted entry wall, a built-in walnut shelf at chest height. On the shelf: a brass key bowl with car keys dropped in, a folded raw-canvas tote bag slumping over the edge, a single succulent in a terracotta planter, and a sculptural smoked-amber GESINE spray bottle with a deep-olive cap. A woman's hand, mid-thirties, just-removed leather sneaker visible at the lower edge of the frame, reaches up toward the bottle, fingers about to close around its neck. Soft late-afternoon light spills in from a window on the right edge. Subtle film grain, warm Kodak Portra 400 cast. Composition asymmetric, weight on the right. Aspect 9:16 vertical. The mood is <strong>the first ritual of coming home</strong>.</div>
+    <div class="prompt-extras">
+      <div class="extra-cell"><span class="extra-label">Reel script pairing</span><div class="extra-text">Voice-over: "First spray. Make coming home feel intentional." Beat with bottle in hand.</div></div>
+      <div class="extra-cell"><span class="extra-label">Animate next</span><div class="extra-text">Hand close around bottle + slow lift. 5s. Veo 3.1.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 14 -->
+<div class="prompt">
+  <div class="prompt-head">
+    <div class="prompt-num">14</div>
+    <div class="prompt-title">Corporate Gifting Unboxing · Custom Branded</div>
+    <div class="prompt-meta">
+      <span class="meta-tag gpt">ChatGPT</span>
+      <span class="meta-tag aspect">3:2 horizontal</span>
+      <span class="meta-tag use">B2B sales deck</span>
+    </div>
+  </div>
+  <div class="prompt-body">
+    <span class="prompt-purpose"><strong>Use:</strong> Hero of corporate gifting subpage. Demo image for HR / brand-partnerships pitches.</span>
+    <div class="prompt-text">Editorial overhead photograph at a slight tilt. A book-style rigid gift box in a deep-olive matte cardboard finish lies open on a brushed walnut conference-table surface. A custom embossed label on the inside of the lid reads in subtle pressed type "<em>Welcome to the team. Reset on us.</em>" — visually similar to a Soho House or Headspace insert. Inside the box: the sculptural smoked-amber GESINE spray bottle with a custom matte black cap (corporate colorway), a single oat bamboo cloth, two refill vials in a custom co-branded label tone (subtle, restrained, no loud logo), and a small printed insert card. Around the box on the table: a leather notebook in oxblood, a brass pen, and a porcelain coffee cup in soft white. Soft warm window light from the upper-left. Subtle film grain, warm cast, shot on 50mm at f/4. Aspect 3:2.</div>
+    <div class="prompt-extras">
+      <div class="extra-cell"><span class="extra-label">Critical for B2B</span><div class="extra-text">The "Welcome to the team" label is the placeholder — re-roll with 5 specific real-company variants (Headspace teal accent, Canva purple, IKEA blue) for each pitch.</div></div>
+      <div class="extra-cell"><span class="extra-label">Variants</span><div class="extra-text">Same composition with hospitality colorway (brass cap, kraft box) for hotel pitches.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 15 -->
+<div class="prompt">
+  <div class="prompt-head">
+    <div class="prompt-num">15</div>
+    <div class="prompt-title">Refill Ritual · Scent Library Still Life</div>
+    <div class="prompt-meta">
+      <span class="meta-tag gpt">ChatGPT</span>
+      <span class="meta-tag aspect">3:2 horizontal</span>
+      <span class="meta-tag use">Subscription / refill story</span>
+    </div>
+  </div>
+  <div class="prompt-body">
+    <span class="prompt-purpose"><strong>Use:</strong> Subscription page hero. Communicates that refills are objects, not consumables.</span>
+    <div class="prompt-text">Editorial product still-life photograph, three-quarter angle from slightly above eye level. Eight glass refill vials, smoked-amber, ~3 inches tall each, lined up in a soft asymmetric row on a honed travertine stone slab. Each vial has a simple oat-colored matte paper label printed in small serif typography with one ritual name visible: "9PM," "Clear Head," "After Dinner," "Coming Home," "Hosting," "Sunday," "Between Meetings," "Turn Down." A single sculptural smoked-amber spray bottle with a deep-olive cap stands behind and to the right of the row, slightly out of focus. Around the still life: a folded raw-linen napkin in oat tone (lower right), a single sprig of dried lavender (upper left), a brass apothecary's scoop. Soft single directional window light from upper-left, casting long parallel shadows from each vial across the travertine. Subtle film grain, warm cast, shot on 50mm at f/4. Aspect 3:2.</div>
+    <div class="prompt-extras">
+      <div class="extra-cell"><span class="extra-label">Why this works</span><div class="extra-text">Reframes refills as collectible scent library — Aesop fragrance discovery set logic, not Blueland refill cartridge logic. Pushes AOV.</div></div>
+      <div class="extra-cell"><span class="extra-label">Animate next</span><div class="extra-text">Slow camera pan along the row of vials. Veo 3.1, 8s, voice-over: "Build your scent library."</div></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- HOW TO RUN -->
+<section class="section">
+  <div class="copy-instructions">
+    <span class="copy-label">How to run all 15 in parallel</span>
+    <div class="copy-text">
+      <strong>1.</strong> Generate 06 (Sculptural Hero — Bottle Silhouette) <strong>first, alone, 5–8 times</strong>. Pick the strongest silhouette result. Save it as the master bottle reference.<br><br>
+      <strong>2.</strong> For prompts 01–05 and 07–15, append a final line: <code>"The bottle in this scene matches the silhouette in [reference image attached]."</code> Attach the master image. This locks bottle consistency across all 15 outputs.<br><br>
+      <strong>3.</strong> Run the remaining 14 in parallel batches of 5 in ChatGPT. Total time: ~25 minutes including re-rolls.<br><br>
+      <strong>4.</strong> Pick the strongest 1 from each prompt → 15 final web-ready images. Pick the top 2–3 → animate via Veo 3.1 with the per-prompt animation note for short-form video tests.<br><br>
+      <strong>5.</strong> If ChatGPT moderation refuses any prompt, fallback engine is NanoBanana 2 via kie.ai. Re-prompt by softening any time-of-day specifics ("9pm" → "evening") and removing brand-comparison cues ("similar to Aesop" → just "next to a tall apothecary bottle").
+    </div>
+  </div>
+</section>
+
+
+<footer class="doc-footer">
+  <div class="ft-l">Alex Lamb · Creative Director, AI Architect</div>
+  <div class="ft-r">GESINE Foundation Sprint · Deliverable 06</div>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){if(sessionStorage.getItem('gesine_unlock')==='1')return;var p=prompt('GESINE — enter password to view');if(p==='gesine2026'){sessionStorage.setItem('gesine_unlock','1');}else{document.documentElement.innerHTML='<body style="margin:0;padding:60px;font-family:sans-serif;text-align:center;background:#0F0E0C;color:#F5F1E8;font-size:18px;">Access required.</body>';}})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GESINE — Brand Teardowns</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --ink:#0F0E0C; --cream:#F8FAF6; --off:#E8EFE3; --soft:#D6E4D0;
+  --amber:#4FA86A; --amber-deep:#2D5F3F;
+  --olive:#4A5240; --sage:#7C8470;
+  --muted:#6F665A; --light:#9C9285;
+  --border:rgba(15,14,12,0.08); --bmd:rgba(15,14,12,0.14); --bstr:rgba(15,14,12,0.20);
+}
+body { background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-serif; font-size:15px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+.page { max-width:1240px; margin:0 auto; padding:56px 48px 80px; }
+.doc-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:48px; padding-bottom:24px; border-bottom:2px solid var(--ink); }
+.wordmark { display:flex; align-items:center; gap:12px; }
+.logo-box { width:36px; height:36px; background:var(--ink); border-radius:8px; display:grid; place-items:center; color:var(--amber); font-family:'Instrument Serif',serif; font-size:20px; }
+.brand-name { font-family:'Instrument Serif',Georgia,serif; font-size:18px; letter-spacing:.02em; }
+.doc-meta { text-align:right; font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); line-height:2; }
+
+.hero { background:var(--ink); border-radius:16px; padding:44px 48px; margin-bottom:48px; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg, var(--amber), var(--sage)); }
+.hero-eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:rgba(245,241,232,.40); display:block; margin-bottom:16px; }
+.hero-headline { font-family:'Instrument Serif',serif; font-size:clamp(28px,3.6vw,38px); line-height:1.15; letter-spacing:-.02em; color:var(--cream); margin-bottom:18px; }
+.hero-headline em { color:var(--amber); font-style:italic; }
+.hero-body { font-size:15px; color:rgba(245,241,232,.72); line-height:1.7; font-weight:300; max-width:780px; }
+.hero-body strong { color:var(--cream); font-weight:500; }
+
+.section { margin-bottom:48px; }
+.eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:12px; }
+.h2 { font-family:'Instrument Serif',serif; font-size:clamp(24px,3vw,32px); line-height:1.15; letter-spacing:-.015em; color:var(--ink); margin-bottom:14px; }
+.h2 em { font-style:italic; }
+.body { font-size:14px; color:#2A2620; line-height:1.75; font-weight:300; max-width:880px; }
+.body strong { font-weight:600; color:var(--ink); }
+
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(360px,1fr)); gap:18px; margin-top:24px; }
+.card { background:var(--off); border:1px solid var(--bstr); border-radius:14px; padding:24px 26px; display:flex; flex-direction:column; }
+.card.partner { background:linear-gradient(135deg,rgba(79,168,106,0.12),rgba(79,168,106,0.04)); border-color:var(--amber); }
+.card.exit { background:linear-gradient(135deg,rgba(74,82,64,0.12),rgba(74,82,64,0.04)); border-color:var(--olive); }
+.card-head { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:14px; gap:12px; }
+.card-name { font-family:'Instrument Serif',serif; font-size:22px; line-height:1.1; }
+.card-tag { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.16em; text-transform:uppercase; padding:4px 10px; border-radius:99px; background:var(--ink); color:var(--cream); white-space:nowrap; }
+.card.partner .card-tag { background:var(--amber-deep); }
+.card.exit .card-tag { background:var(--olive); }
+.card-pitch { font-size:13px; color:var(--muted); font-style:italic; line-height:1.55; margin-bottom:14px; }
+.card-row { display:flex; gap:10px; padding:6px 0; font-size:12.5px; }
+.card-row .k { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--amber-deep); width:88px; flex-shrink:0; padding-top:1px; }
+.card-row .v { color:#2A2620; line-height:1.55; }
+.card-row .v strong { color:var(--ink); }
+.card-lesson { margin-top:14px; padding-top:14px; border-top:1px dashed var(--bmd); font-size:12.5px; line-height:1.6; color:var(--olive); }
+.card-lesson strong { color:var(--ink); font-weight:600; }
+.card-src { margin-top:10px; font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); }
+.card-src a { color:var(--amber-deep); text-decoration:none; }
+.card-src a:hover { text-decoration:underline; }
+
+.synthesis { background:var(--ink); color:var(--cream); border-radius:14px; padding:36px 40px; margin:32px 0; }
+.synthesis .eyebrow { color:rgba(245,241,232,.4); }
+.synthesis .h2 { color:var(--cream); }
+.synthesis .h2 em { color:var(--amber); }
+.synthesis .body { color:rgba(245,241,232,.78); max-width:none; }
+.synthesis .body strong { color:var(--amber); }
+.versus { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:24px; }
+.vs { padding:18px 22px; background:rgba(245,241,232,.06); border-radius:10px; border-left:3px solid var(--amber); }
+.vs-vs { font-family:'DM Mono',monospace; font-size:9.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--amber); display:block; margin-bottom:6px; }
+.vs-text { font-size:13px; line-height:1.65; color:rgba(245,241,232,.85); }
+.vs-text strong { color:var(--cream); }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="doc-header">
+  <div class="wordmark">
+    <div class="logo-box">G</div>
+    <span class="brand-name">GESINE</span>
+  </div>
+  <div class="doc-meta">
+    PHASE 2 · INVESTOR<br>
+    BRAND TEARDOWNS · 12 COMPS<br>
+    MAY 2026
+  </div>
+</header>
+
+<section class="hero">
+  <span class="hero-eyebrow">Competitor + adjacent + partner brands</span>
+  <h1 class="hero-headline">12 brands, 4 dimensions, <em>one whitespace.</em></h1>
+  <p class="hero-body"><strong>None of the 12 incumbents combine all four:</strong> Touchland's design + scent + retail theater (drove $880M exit) · Aesop's scent-luxury price discipline · Blueland's refill mechanics · Caraway's design-firm operational pedigree. GESINE's patent-pending bottle is the proprietary moat none of them have. Every figure cited inline.</p>
+</section>
+
+<div class="section">
+  <span class="eyebrow">The 12-brand scan</span>
+  <h2 class="h2">Direct comp · adjacent · exit precedent.</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Homecourt</div><span class="card-tag">Direct comp</span></div>
+      <div class="card-pitch">Luxury fragrance-forward home + body care, scent-as-status. Courteney Cox + Sarah Jahnke, 2022.</div>
+      <div class="card-row"><div class="k">Revenue</div><div class="v">~<strong>$30M est.</strong> (BeautyMatter Oct 2025)</div></div>
+      <div class="card-row"><div class="k">Funding</div><div class="v">$8M Series A · CULT Capital lead</div></div>
+      <div class="card-row"><div class="k">Pricing</div><div class="v">$20 dish soap → $58 candle → $90+ gift sets</div></div>
+      <div class="card-row"><div class="k">Distribution</div><div class="v">DTC + Sephora 2024 + Nordstrom</div></div>
+      <div class="card-lesson"><strong>For GESINE:</strong> Founder fame opens retail doors fast — but no IP moat. GESINE outflanks with patent + refill mechanic.</div>
+      <div class="card-src">SRC · <a href="https://wwd.com/beauty-industry-news/beauty-features/courteney-cox-homecourt-secures-series-a-funding-1238327413/">WWD</a> · <a href="https://beautymatter.com/articles/courteney-coxs-homecourt-lands-8-million-series-a">BeautyMatter</a></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Blueland</div><span class="card-tag">Refill leader</span></div>
+      <div class="card-pitch">Reusable bottle + dissolving tablet refill, end single-use plastic. 2019.</div>
+      <div class="card-row"><div class="k">Revenue</div><div class="v"><strong>$100M+ (2022)</strong> · $300M lifetime by 2024</div></div>
+      <div class="card-row"><div class="k">Funding</div><div class="v">~$35M total · $220M+ valuation Jul 2024</div></div>
+      <div class="card-row"><div class="k">Pricing</div><div class="v">$2.25 tablet refill → $39 starter kit → $79+ bundles</div></div>
+      <div class="card-row"><div class="k">Distribution</div><div class="v">DTC + Target + Whole Foods + Costco + Walmart</div></div>
+      <div class="card-lesson"><strong>For GESINE:</strong> Cheerful primary aesthetic caps premium pricing. GESINE wins the luxury ceiling Blueland left on the table.</div>
+      <div class="card-src">SRC · <a href="https://www.entrepreneur.com/building-a-business/this-founders-unusual-strategy-led-her-business-to-profitability-and-300m-in-lifetime-sales">Entrepreneur</a></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Branch Basics</div><span class="card-tag">Concentrate refill</span></div>
+      <div class="card-pitch">One concentrate replaces every cleaner; tox-free for chemically-sensitive families. 2012/2017 relaunch.</div>
+      <div class="card-row"><div class="k">Revenue</div><div class="v">$2M (2015) → $34M (2023) → <strong>$40M+ (2024)</strong></div></div>
+      <div class="card-row"><div class="k">Funding</div><div class="v">$1M friends/family · bootstrapped after</div></div>
+      <div class="card-row"><div class="k">Pricing</div><div class="v">$19 refill concentrate → $99 Premium Starter Kit</div></div>
+      <div class="card-row"><div class="k">Distribution</div><div class="v">~85%+ DTC · limited Whole Foods</div></div>
+      <div class="card-lesson"><strong>For GESINE:</strong> Bootstrapped profitable, but single-SKU monotony. GESINE keeps refill economics + adds design, scent, shelf appeal.</div>
+      <div class="card-src">SRC · <a href="https://www.entrepreneur.com/growing-a-business/simple-health-focused-product-led-to-40m-in-revenue-in-2023/472859">Entrepreneur</a> · <a href="https://www.cnbc.com/2025/05/07/branch-basics-founders-how-we-rebuilt-lucrative-business-after-shutting-down.html">CNBC</a></div>
+    </div>
+
+    <div class="card exit">
+      <div class="card-head"><div class="card-name">Touchland</div><span class="card-tag">Closest exit comp</span></div>
+      <div class="card-pitch">Hand sanitizer reframed as carryable accessory, design + scent-led. Andrea Lisbona 2018.</div>
+      <div class="card-row"><div class="k">Revenue</div><div class="v"><strong>$130M TTM (Mar 2025) · ~$55M EBITDA / 42% margin</strong></div></div>
+      <div class="card-row"><div class="k">Exit</div><div class="v">C&amp;D May 2025 · $700M cash + $180M earnout = <strong>up to $880M</strong></div></div>
+      <div class="card-row"><div class="k">Pricing</div><div class="v">$10 Power Mist → $39 holiday sets · no refill mechanic</div></div>
+      <div class="card-row"><div class="k">Distribution</div><div class="v">~70% retail (Sephora · Ulta · Target · Aerie · Bloomingdale's)</div></div>
+      <div class="card-lesson"><strong>For GESINE:</strong> ~6.7x revenue exit on a single SKU proves design + scent + retail theater = strategic premium. <strong>42% EBITDA = the bar.</strong> GESINE adds the patent + refill loop Touchland never built.</div>
+      <div class="card-src">SRC · <a href="https://investor.churchdwight.com/Investors/news/news-details/2025/Church--Dwight-to-Acquire-the-Touchland-Brand-for-700-million-Plus-Earn-out/default.aspx">C&amp;D IR</a> · <a href="https://www.beautyindependent.com/touchland-brand-behind-status-symbol-hand-sanitizers-sells-church-dwight-700m/">Beauty Independent</a></div>
+    </div>
+
+    <div class="card partner">
+      <div class="card-head"><div class="card-name">Caraway</div><span class="card-tag">Design partner</span></div>
+      <div class="card-pitch">Non-toxic ceramic cookware that looks like furniture. Jordan Nathan 2019. <strong>Same design firm = GESINE's equity partner.</strong></div>
+      <div class="card-row"><div class="k">Revenue</div><div class="v"><strong>$50M-$100M range</strong> · 500% growth in 4 years</div></div>
+      <div class="card-row"><div class="k">Funding</div><div class="v">$70.3M total · $35M Series A Sep 2022</div></div>
+      <div class="card-row"><div class="k">Pricing</div><div class="v">$95 single pan → $545 7-piece set + $245 bakeware</div></div>
+      <div class="card-row"><div class="k">Distribution</div><div class="v">~800 doors · Target · C&amp;B · Nordstrom · West Elm · Williams Sonoma</div></div>
+      <div class="card-lesson"><strong>For GESINE:</strong> Same design firm muscle that turned commodity cookware into premium category. <strong>GESINE inherits the playbook + adds refill recurring revenue Caraway can't access.</strong></div>
+      <div class="card-src">SRC · <a href="https://tracxn.com/d/companies/caraway/">Tracxn</a> · <a href="https://www.modernretail.co/operations/cookware-brand-caraway-is-now-selling-all-its-products-at-the-container-store/">Modern Retail</a></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Our Place</div><span class="card-tag">Drop playbook</span></div>
+      <div class="card-pitch">Multi-functional cookware celebrating cross-cultural family meals. Shahid + Tehrani + Rosner 2019.</div>
+      <div class="card-row"><div class="k">Revenue</div><div class="v">$20M (2020) → est. <strong>$100M-$250M</strong> (Owler)</div></div>
+      <div class="card-row"><div class="k">Funding</div><div class="v">$7.55M total disclosed · Dreamers VC + FabFitFun</div></div>
+      <div class="card-row"><div class="k">Pricing</div><div class="v">$45 towels → $155 Always Pan → $565 Dream Cooker</div></div>
+      <div class="card-row"><div class="k">Distribution</div><div class="v">DTC dominant · Selfridges · Goop · Nordstrom curation</div></div>
+      <div class="card-lesson"><strong>For GESINE:</strong> Waitlist drops + SMS retention turned cookware into hype. GESINE inherits drop playbook for scent capsules — <strong>repeat is built-in</strong>.</div>
+      <div class="card-src">SRC · <a href="https://www.attentive.com/blog/our-place-marketing-strategy">Attentive</a> · <a href="https://gripsintelligence.com/insights/retailers/fromourplace.com">Grips</a></div>
+    </div>
+
+    <div class="card exit">
+      <div class="card-head"><div class="card-name">Aesop home line</div><span class="card-tag">Luxury benchmark</span></div>
+      <div class="card-pitch">Apothecary luxury where every SKU smells like a five-star hotel. Dennis Paphitis 1987.</div>
+      <div class="card-row"><div class="k">Revenue</div><div class="v"><strong>$537M total brand 2022</strong> (up from $28M in 2012)</div></div>
+      <div class="card-row"><div class="k">Exit</div><div class="v">L'Oréal April 2023 · <strong>$2.53B</strong> (L'Oréal's largest deal)</div></div>
+      <div class="card-row"><div class="k">Pricing</div><div class="v">$35 hand balm → $47 wash → $66 spray → $115+ candles</div></div>
+      <div class="card-row"><div class="k">Distribution</div><div class="v">~400 owned stores in 27 markets · select dept stores</div></div>
+      <div class="card-lesson"><strong>For GESINE:</strong> Disciplined refusal to discount; retail = the marketing. <strong>No refill loop — that's the gap GESINE closes.</strong> EWG Verified gives clinical-claim differentiation Aesop refuses to engage.</div>
+      <div class="card-src">SRC · <a href="https://beautymatter.com/articles/loreal-scoops-up-aesop-in-2-5-billion-deal">BeautyMatter</a> · <a href="https://www.businessoffashion.com/articles/beauty/why-loreal-paid-25-billion-for-aesop/">BoF</a></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">DedCool</div><span class="card-tag">Gen-Z scent</span></div>
+      <div class="card-pitch">Genderless scent that crosses fragrance, body, laundry, home. Carina Chaz 2016, $10K self-funded.</div>
+      <div class="card-row"><div class="k">Revenue</div><div class="v"><strong>$25M-$30M (2025)</strong> · 600% growth since 2022</div></div>
+      <div class="card-row"><div class="k">Funding</div><div class="v">Sandbridge minority stake 2022 · increased Apr 2025</div></div>
+      <div class="card-row"><div class="k">Pricing</div><div class="v">$25 hand soap → $30 detergent → $130 perfume → $180 candle</div></div>
+      <div class="card-row"><div class="k">Distribution</div><div class="v">Sephora US · Space NK · Mecca AU · DTC</div></div>
+      <div class="card-lesson"><strong>For GESINE:</strong> Scent that bridges fragrance + cleaning bridges Sephora into laundry. GESINE absorbs the playbook + adds patent + design firm + EWG legitimacy.</div>
+      <div class="card-src">SRC · <a href="https://www.glossy.co/beauty/dedcool-brand-founder-carina-chaz-on-the-brands-rise-from-dorm-room-project-to-30-million-fragrance-brand/">Glossy</a> · <a href="https://wwd.com/beauty-industry-news/fragrance/dedcool-sephora-fragrance-investment-sandbridge-capital-1237084358/">WWD</a></div>
+    </div>
+
+    <div class="card exit">
+      <div class="card-head"><div class="card-name">Method</div><span class="card-tag">Pre-acq playbook</span></div>
+      <div class="card-pitch">Cleaning that doesn't look like cleaning; design-first eco. Ryan + Lowry 2001.</div>
+      <div class="card-row"><div class="k">Revenue</div><div class="v">$0 → $100M in ~6 yrs · ~<strong>$200M combined w/ Ecover post-2012</strong></div></div>
+      <div class="card-row"><div class="k">Exit</div><div class="v">Ecover 2012 · combined SC Johnson 2017 (terms undisc.)</div></div>
+      <div class="card-row"><div class="k">Pricing</div><div class="v">$4 hand wash → $20 multipack · mass throughout</div></div>
+      <div class="card-row"><div class="k">Distribution</div><div class="v">Target launch 2003 · Whole Foods · Lowe's · grocery nationwide</div></div>
+      <div class="card-lesson"><strong>For GESINE:</strong> Target endcap turned eco from co-op to mass. <strong>Mass-priced from day one capped premium ceiling.</strong> GESINE deliberately starts above with C&amp;B exclusivity.</div>
+      <div class="card-src">SRC · <a href="https://fortune.com/2013/10/10/mopping-up-with-method/">Fortune</a></div>
+    </div>
+
+    <div class="card exit">
+      <div class="card-head"><div class="card-name">Mrs. Meyer's</div><span class="card-tag">Pre-acq playbook</span></div>
+      <div class="card-pitch">Garden-scented cleaning rooted in Iowa wholesomeness. Monica Nassif 1999.</div>
+      <div class="card-row"><div class="k">Revenue</div><div class="v">Doubled within 5 yrs post-acq (2008-2013)</div></div>
+      <div class="card-row"><div class="k">Exit</div><div class="v">SC Johnson 2008 · part of Caldrea acq · terms undisclosed</div></div>
+      <div class="card-row"><div class="k">Pricing</div><div class="v">$5 spray → $20 gift sets · mass-priced</div></div>
+      <div class="card-row"><div class="k">Distribution</div><div class="v">Target · grocery · Whole Foods · Amazon · mass national</div></div>
+      <div class="card-lesson"><strong>For GESINE:</strong> Scent storytelling at grocery scale. Mass packaging precludes luxury extension. <strong>GESINE positions as the Aesop to Mrs. Meyer's Method tier.</strong></div>
+      <div class="card-src">SRC · <a href="https://www.happi.com/contents/view_breaking-news/2008-04-30/sc-johnson-to-acquire-caldrea/">Happi</a></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Public Goods</div><span class="card-tag">Membership refill</span></div>
+      <div class="card-pitch">Costco-style $59/yr membership for clean unbranded household + personal care. Hirsh + Ferchak 2016.</div>
+      <div class="card-row"><div class="k">Revenue</div><div class="v">~50K members × $59 = <strong>~$3M membership floor</strong></div></div>
+      <div class="card-row"><div class="k">Funding</div><div class="v">~$20.8M total across 3 rounds</div></div>
+      <div class="card-row"><div class="k">Pricing</div><div class="v">$4 toothpaste → $20 olive oil · sub-retail by design</div></div>
+      <div class="card-row"><div class="k">Distribution</div><div class="v">100% DTC subscription</div></div>
+      <div class="card-lesson"><strong>For GESINE:</strong> Membership LTV beats Brandless's collapse, but price-floor positioning blocks margin. <strong>GESINE inverts: patent + design firm justifies premium membership cannot.</strong></div>
+      <div class="card-src">SRC · <a href="https://www.beautyindependent.com/why-public-goods-is-winning-where-brandless-failed/">Beauty Independent</a></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Grove Collaborative</div><span class="card-tag">Cautionary tale</span></div>
+      <div class="card-pitch">Subscription marketplace for non-toxic home + personal care. Landesberg + Clark + Savage 2016.</div>
+      <div class="card-row"><div class="k">Revenue</div><div class="v"><strong>~$185M FY 2024</strong> · EBITDA-positive · 700K active</div></div>
+      <div class="card-row"><div class="k">Exit</div><div class="v">SPAC Jun 2022 @ $1.5B → <strong>collapsed to ~$75M</strong> by 2025</div></div>
+      <div class="card-row"><div class="k">Pricing</div><div class="v">$3 dish soap refill → $25 dispenser → $80+ baskets</div></div>
+      <div class="card-row"><div class="k">Distribution</div><div class="v">DTC subscription primary · Target for owned brands</div></div>
+      <div class="card-lesson"><strong>For GESINE:</strong> 95% post-IPO drawdown shows mid-market eco subscription is fragile when CAC rises. <strong>GESINE avoids the trap by leading with a defensible patent + premium price + retail anchor.</strong></div>
+      <div class="card-src">SRC · <a href="https://stockanalysis.com/stocks/grov/">Stock Analysis</a> · <a href="https://www.cbinsights.com/company/grove-collaborative/financials">CB Insights</a></div>
+    </div>
+
+  </div>
+</div>
+
+<div class="synthesis">
+  <span class="eyebrow">Whitespace synthesis</span>
+  <h2 class="h2">No one combines <em>all four moats.</em></h2>
+  <p class="body">GESINE sits in the rare overlap of (1) Touchland's design + scent + retail theater that drove a $880M exit, (2) Aesop's scent-luxury price discipline, (3) Blueland's refill mechanics, and (4) Caraway's design-firm operational pedigree. <strong>None of the 12 incumbents combine all four.</strong> The patent-pending bottle is the proprietary moat none of them have.</p>
+
+  <div class="versus">
+    <div class="vs"><span class="vs-vs">vs Homecourt</span><div class="vs-text">GESINE owns a utility patent + recurring-revenue capsule mechanic Cox's brand never built. Scent + IP + economics &gt; scent + celebrity.</div></div>
+    <div class="vs"><span class="vs-vs">vs Blueland · Public Goods</span><div class="vs-text">Drop the cheerful-mass aesthetic that caps pricing at $39 starter kits. Anchor at $78 with C&amp;B exclusive 2027.</div></div>
+    <div class="vs"><span class="vs-vs">vs Branch Basics</span><div class="vs-text">Turn the wellness concentrate idea into a giftable, shelvable system. Branch wins on bootstrap profit; loses on shelf + registry appeal.</div></div>
+    <div class="vs"><span class="vs-vs">vs Touchland</span><div class="vs-text">Replicate the $880M formula with a stronger moat (patent vs brand-only IP) + add the recurring-refill loop Touchland never built.</div></div>
+    <div class="vs"><span class="vs-vs">vs Caraway · Our Place</span><div class="vs-text">Inherit the design-firm DNA, apply to a category (cleaning) where consumables drive repeat. Fixes the one-time-buy weakness both wrestle with.</div></div>
+    <div class="vs"><span class="vs-vs">vs Aesop</span><div class="vs-text">Match the apothecary scent-led luxury at a $18 refill. Solve the sustainability blind spot Aesop ignores. EWG Verified = clinical-claim differentiation.</div></div>
+    <div class="vs"><span class="vs-vs">vs DedCool</span><div class="vs-text">Add operational legitimacy (patent · design partner · EWG · C&amp;B exclusivity) one-founder DedCool can't yet underwrite.</div></div>
+    <div class="vs"><span class="vs-vs">vs Method · Mrs. Meyer's</span><div class="vs-text">Refuse the mass shelf trap that ceiling-capped both at undisclosed (likely modest) terms to SC Johnson. Protect pricing power from launch.</div></div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

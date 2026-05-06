@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){if(sessionStorage.getItem('gesine_unlock')==='1')return;var p=prompt('GESINE — enter password to view');if(p==='gesine2026'){sessionStorage.setItem('gesine_unlock','1');}else{document.documentElement.innerHTML='<body style="margin:0;padding:60px;font-family:sans-serif;text-align:center;background:#0F0E0C;color:#F5F1E8;font-size:18px;">Access required.</body>';}})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>GESINE — Claims + Copy Guardrails</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --ink:#0F0E0C; --dark:#1A1814;
+  --cream:#F8FAF6; --off:#E8EFE3; --soft:#D6E4D0;
+  --amber:#4FA86A; --amber-deep:#2D5F3F;
+  --olive:#4A5240; --sage:#7C8470;
+  --muted:#6F665A; --light:#9C9285;
+  --border:rgba(15,14,12,0.08); --bmd:rgba(15,14,12,0.14); --bstr:rgba(15,14,12,0.20);
+  --safe:#4A5240; --cond:#4FA86A; --bad:#8B3A2F;
+}
+body { background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-serif; font-size:15px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+.page { max-width:1040px; margin:0 auto; padding:56px 48px 80px; }
+
+.doc-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:48px; padding-bottom:24px; border-bottom:2px solid var(--ink); }
+.wordmark { display:flex; align-items:center; gap:12px; }
+.logo-box { width:36px; height:36px; background:var(--ink); border-radius:8px; display:grid; place-items:center; }
+.brand-name { font-family:'Instrument Serif',Georgia,serif; font-size:18px; letter-spacing:.02em; }
+.doc-meta { text-align:right; font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); line-height:2; }
+
+.hero { background:var(--ink); border-radius:16px; padding:44px 48px; margin-bottom:48px; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg, var(--amber), var(--sage)); }
+.hero-eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:rgba(245,241,232,.40); display:block; margin-bottom:16px; }
+.hero-headline { font-family:'Instrument Serif',Georgia,serif; font-size:clamp(28px,3.6vw,38px); line-height:1.15; letter-spacing:-.02em; color:var(--cream); margin-bottom:18px; }
+.hero-headline em { color:var(--amber); font-style:italic; }
+.hero-body { font-size:15px; color:rgba(245,241,232,.72); line-height:1.7; font-weight:300; max-width:680px; }
+.hero-body strong { color:var(--cream); font-weight:500; }
+
+.section { margin-bottom:56px; }
+.eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:12px; }
+.h2 { font-family:'Instrument Serif',Georgia,serif; font-size:clamp(24px,3vw,32px); line-height:1.15; letter-spacing:-.015em; color:var(--ink); margin-bottom:14px; }
+.h2 em { font-style:italic; }
+.body { font-size:14px; color:#2A2620; line-height:1.75; font-weight:300; max-width:720px; }
+.body strong { font-weight:600; color:var(--ink); }
+
+/* TIERS */
+.tiers { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-top:24px; }
+.tier { background:var(--cream); border:1px solid var(--bstr); border-radius:14px; overflow:hidden; }
+.tier-head { padding:22px 24px; color:var(--cream); position:relative; }
+.tier.safe .tier-head { background:var(--safe); }
+.tier.cond .tier-head { background:var(--amber-deep); }
+.tier.bad .tier-head { background:var(--bad); }
+.tier-tag { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.22em; text-transform:uppercase; color:rgba(245,241,232,0.55); display:block; margin-bottom:8px; }
+.tier-name { font-family:'Instrument Serif',Georgia,serif; font-size:24px; line-height:1.1; letter-spacing:-.01em; }
+.tier-rule { font-size:12px; color:rgba(245,241,232,0.85); margin-top:8px; line-height:1.45; font-weight:300; }
+.tier-list { padding:16px 18px; display:flex; flex-direction:column; gap:6px; }
+.tier-item { font-size:13px; padding:8px 12px; background:var(--off); border-radius:7px; color:#2A2620; line-height:1.45; font-weight:400; }
+.tier.bad .tier-item { background:rgba(139,58,47,0.06); color:#3a2620; text-decoration:line-through; text-decoration-color:rgba(139,58,47,0.4); }
+.tier.cond .tier-item { background:rgba(79,168,106,0.10); }
+.tier.safe .tier-item { background:rgba(74,82,64,0.08); }
+
+/* SUBSTANTIATION */
+.sub-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:24px; }
+.sub-card { background:var(--cream); border:1px solid var(--bstr); border-radius:14px; padding:24px 26px; }
+.sub-num { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; color:var(--amber-deep); margin-bottom:8px; display:block; }
+.sub-name { font-family:'Instrument Serif',Georgia,serif; font-size:22px; line-height:1.2; letter-spacing:-.01em; margin-bottom:8px; }
+.sub-desc { font-size:13px; color:#2A2620; line-height:1.6; font-weight:400; }
+.sub-desc strong { color:var(--ink); font-weight:600; }
+
+/* REWRITE TABLE */
+.rewrite { display:grid; grid-template-columns:1fr 1fr; gap:0; margin-top:14px; border:1px solid var(--bstr); border-radius:12px; overflow:hidden; }
+.rew-cell { padding:18px 22px; }
+.rew-before { background:rgba(139,58,47,0.05); border-right:1px solid var(--bmd); }
+.rew-after { background:rgba(74,82,64,0.06); }
+.rew-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.2em; text-transform:uppercase; margin-bottom:8px; display:block; }
+.rew-before .rew-label { color:var(--bad); }
+.rew-after .rew-label { color:var(--safe); }
+.rew-text { font-size:13.5px; line-height:1.55; font-weight:400; color:#2A2620; }
+.rew-text strong { font-weight:600; color:var(--ink); }
+.rew-num { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.16em; color:var(--amber-deep); margin-top:18px; margin-bottom:8px; display:block; }
+
+/* FTC FLAGS */
+.flag-list { display:flex; flex-direction:column; gap:10px; margin-top:20px; }
+.flag-item { display:grid; grid-template-columns:auto 1fr; gap:18px; align-items:flex-start; padding:18px 24px; background:var(--cream); border:1px solid var(--bstr); border-radius:10px; }
+.flag-item.fda { border-left:3px solid var(--bad); }
+.flag-item.ftc { border-left:3px solid var(--amber-deep); }
+.flag-tag { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; padding:5px 10px; border-radius:6px; text-transform:uppercase; }
+.flag-item.fda .flag-tag { background:rgba(139,58,47,0.12); color:var(--bad); }
+.flag-item.ftc .flag-tag { background:rgba(79,168,106,0.16); color:var(--amber-deep); }
+.flag-text { font-size:13.5px; color:#2A2620; line-height:1.6; font-weight:400; }
+.flag-text strong { color:var(--ink); font-weight:600; }
+
+.warn-box { background:linear-gradient(135deg, rgba(139,58,47,.08) 0%, rgba(79,168,106,.06) 100%); border:1px solid rgba(139,58,47,.25); border-radius:14px; padding:30px 34px; margin-top:24px; }
+.warn-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--bad); display:block; margin-bottom:14px; }
+.warn-text { font-family:'Instrument Serif',Georgia,serif; font-size:22px; line-height:1.4; color:var(--ink); letter-spacing:-.01em; font-style:italic; }
+.warn-text em { color:var(--bad); }
+
+.doc-footer { margin-top:64px; padding-top:24px; border-top:2px solid var(--ink); display:flex; justify-content:space-between; align-items:center; }
+.ft-l { font-size:12px; color:var(--muted); }
+.ft-r { font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); }
+
+@media(max-width:760px) {
+  .page { padding:36px 20px 64px; }
+  .doc-header { flex-direction:column; align-items:flex-start; gap:14px; }
+  .hero { padding:30px 24px; }
+  .tiers, .sub-grid, .rewrite { grid-template-columns:1fr; }
+  .rew-before { border-right:none; border-bottom:1px solid var(--bmd); }
+  .doc-footer { flex-direction:column; gap:12px; align-items:flex-start; }
+}
+@media print { body { background:#fff; } .page { padding:24px; } .hero, .tier-head { -webkit-print-color-adjust:exact; print-color-adjust:exact; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="doc-header">
+  <div class="wordmark">
+    <div class="logo-box">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <circle cx="9" cy="9" r="7" stroke="#4FA86A" stroke-width="1.5" fill="none"/>
+        <circle cx="9" cy="9" r="3" fill="#4FA86A"/>
+      </svg>
+    </div>
+    <span class="brand-name">GESINE &times; Alex Lamb</span>
+  </div>
+  <div class="doc-meta">Deliverable 08 &middot; Claims + Copy Guardrails<br>Foundation Sprint &middot; May 2026</div>
+</header>
+
+<div style="background:#2D5F3F; color:#F5F1E8; border-radius:14px; padding:22px 28px; margin-bottom:28px; border-left:4px solid #4FA86A;">
+  <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:#F5F1E8; opacity:.7; margin-bottom:8px;">&#9888; May 4 2026 Update &middot; Action Required</div>
+  <div style="font-family:'Instrument Serif',serif; font-size:18px; line-height:1.35; margin-bottom:8px;">Deck now claims <strong>EWG Verified</strong> &mdash; cert paperwork must be on file before deck circulates further.</div>
+  <div style="font-size:13px; line-height:1.6; opacity:.92;">May 2026 investor deck publicly claims "EWG Verified" + uses EWG Verified mark. Per FTC + EWG, that claim requires active certification on file. <strong>Confirm with Lee:</strong> EWG application status, certification number, and effective date. If cert not yet active, deck must roll back to "EWG-conscious" wording until it is.</div>
+</div>
+
+<div class="hero">
+  <span class="hero-eyebrow">&#9670; The legal &amp; brand line we never cross</span>
+  <div class="hero-headline">
+    What we can say.<br>
+    What we must prove.<br>
+    <em>What kills the brand.</em>
+  </div>
+  <div class="hero-body">
+    Premium home &amp; wellness brands collapse not from bad design but from <strong>one stray claim</strong> &mdash; "kills 99.9%", "non-toxic", "cures stress". The FTC and FDA Green Guides are the iceberg most challengers hit. This document is the rule book for every line of GESINE copy: three claim tiers, eight substantiation buckets, five before/after rewrites, and the regulatory flags Marketing must check before shipping any creative.
+  </div>
+</div>
+
+<!-- TIER SYSTEM -->
+<section class="section">
+  <span class="eyebrow">&#9670; Three-tier claim system</span>
+  <h2 class="h2">Safe. Conditional. <em>Off-limits.</em></h2>
+  <p class="body">Every claim falls into one of three buckets. Use the SAFE list anywhere. Use CONDITIONAL only when a substantiation file is on hand. <strong>Never use the OFF-LIMITS list, even by paraphrase.</strong></p>
+
+  <div class="tiers">
+    <!-- SAFE -->
+    <div class="tier safe">
+      <div class="tier-head">
+        <span class="tier-tag">&#9670; Tier 01</span>
+        <div class="tier-name">Safe</div>
+        <div class="tier-rule">Use anywhere. No substantiation required beyond ingredient list and basic factual accuracy.</div>
+      </div>
+      <div class="tier-list">
+        <div class="tier-item">Plastic-free packaging</div>
+        <div class="tier-item">Refillable</div>
+        <div class="tier-item">Designed in [country]</div>
+        <div class="tier-item">Made in [country]</div>
+        <div class="tier-item">Bamboo (where applicable)</div>
+        <div class="tier-item">Scent-led</div>
+        <div class="tier-item">Cruelty-free (Leaping Bunny certified)</div>
+        <div class="tier-item">Vegan formulation</div>
+        <div class="tier-item">Fragrance disclosure available</div>
+        <div class="tier-item">Recyclable refill cartridge</div>
+        <div class="tier-item">Concentrated formulation</div>
+        <div class="tier-item">Reduced water content</div>
+        <div class="tier-item">A ritual, not a chore</div>
+        <div class="tier-item">Formulated without parabens / phthalates / SLS</div>
+      </div>
+    </div>
+
+    <!-- CONDITIONAL -->
+    <div class="tier cond">
+      <div class="tier-head">
+        <span class="tier-tag">&#9670; Tier 02</span>
+        <div class="tier-name">Conditional</div>
+        <div class="tier-rule">Only with substantiation on file (third-party doc, EWG verification, lab report). Never in ad copy without legal sign-off.</div>
+      </div>
+      <div class="tier-list">
+        <div class="tier-item">EWG-conscious ingredients</div>
+        <div class="tier-item">EWG-verified (only after certification)</div>
+        <div class="tier-item">Biodegradable (with OECD 301B test)</div>
+        <div class="tier-item">Plant-derived ingredients (with %)</div>
+        <div class="tier-item">Non-toxic to humans / pets (with safety data)</div>
+        <div class="tier-item">Surface-safe on stone / wood / glass</div>
+        <div class="tier-item">Made with renewable energy</div>
+        <div class="tier-item">Reduces single-use plastic by [X]%</div>
+        <div class="tier-item">Carbon neutral shipping</div>
+        <div class="tier-item">Fragrance from [origin/source]</div>
+        <div class="tier-item">"Better than [competitor X]" with clear comparator</div>
+        <div class="tier-item">Designed for daily use</div>
+      </div>
+    </div>
+
+    <!-- OFF-LIMITS -->
+    <div class="tier bad">
+      <div class="tier-head">
+        <span class="tier-tag">&#9670; Tier 03</span>
+        <div class="tier-name">Off-limits</div>
+        <div class="tier-rule">Do not use in any context. These trigger FTC Green Guide enforcement, FDA jurisdiction, or platform-level ad rejection.</div>
+      </div>
+      <div class="tier-list">
+        <div class="tier-item">Chemical-free</div>
+        <div class="tier-item">100% non-toxic</div>
+        <div class="tier-item">All-natural</div>
+        <div class="tier-item">Cures / treats / heals (anything)</div>
+        <div class="tier-item">Medical-grade</div>
+        <div class="tier-item">Antibacterial / disinfectant / sanitizer</div>
+        <div class="tier-item">Kills 99.9% of germs</div>
+        <div class="tier-item">Lowers depression / anxiety</div>
+        <div class="tier-item">Aromatherapy benefits (without doc)</div>
+        <div class="tier-item">No toxins / toxin-free</div>
+        <div class="tier-item">Eco-friendly (without specific claim)</div>
+        <div class="tier-item">Sustainable (alone, no qualifier)</div>
+        <div class="tier-item">Safe for babies (without testing)</div>
+        <div class="tier-item">Hypoallergenic (without testing)</div>
+        <div class="tier-item">FDA-approved (FDA does not approve cosmetics)</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SUBSTANTIATION -->
+<section class="section">
+  <span class="eyebrow">&#9670; Substantiation files</span>
+  <h2 class="h2">Eight files, <em>one folder.</em></h2>
+  <p class="body">Before launch, GESINE legal/ops keeps a single "Claims Substantiation" folder &mdash; eight buckets below. Every claim copy uses must point to a doc in this folder. <strong>If the doc isn't there, the claim isn't ready.</strong></p>
+
+  <div class="sub-grid">
+    <div class="sub-card">
+      <span class="sub-num">FILE 01</span>
+      <div class="sub-name">Full ingredient disclosure (INCI)</div>
+      <div class="sub-desc">Complete <strong>INCI list per SKU</strong>, with %-by-weight where shareable. Required for D2C site footer + retail label compliance + EWG submission.</div>
+    </div>
+    <div class="sub-card">
+      <span class="sub-num">FILE 02</span>
+      <div class="sub-name">Fragrance disclosure</div>
+      <div class="sub-desc">Per-scent breakdown of <strong>IFRA-compliant fragrance components</strong>. Allergens called out per EU 1223/2009 even if shipping US-only. Backs every "scent-led" and "fragrance from X" claim.</div>
+    </div>
+    <div class="sub-card">
+      <span class="sub-num">FILE 03</span>
+      <div class="sub-name">EWG verification documents</div>
+      <div class="sub-desc">EWG application + supporting <strong>raw-material safety dossiers</strong>. Without "EWG VERIFIED" certification, only "EWG-conscious" or "screened against EWG" is permissible.</div>
+    </div>
+    <div class="sub-card">
+      <span class="sub-num">FILE 04</span>
+      <div class="sub-name">Safety Data Sheets (SDS)</div>
+      <div class="sub-desc">OSHA-compliant <strong>16-section SDS per SKU</strong>. Required for every B2B and hospitality customer. Hazard pictograms, transport class, first-aid responses.</div>
+    </div>
+    <div class="sub-card">
+      <span class="sub-num">FILE 05</span>
+      <div class="sub-name">Biodegradability substantiation</div>
+      <div class="sub-desc"><strong>OECD 301B / 310 test results</strong> from a third-party lab. Required before any "biodegradable" claim ships in copy or on label. Specifies time-to-degrade and conditions.</div>
+    </div>
+    <div class="sub-card">
+      <span class="sub-num">FILE 06</span>
+      <div class="sub-name">Packaging specifications</div>
+      <div class="sub-desc">Bottle &middot; refill cartridge &middot; outer carton material specs, % recycled content, recyclability path. Backs <strong>plastic-free, refillable, recyclable</strong> claims and FTC Green Guide compliance.</div>
+    </div>
+    <div class="sub-card">
+      <span class="sub-num">FILE 07</span>
+      <div class="sub-name">Surface compatibility testing</div>
+      <div class="sub-desc">Documented testing on <strong>marble, wood, lacquer, stainless, glass, ceramic</strong>. Without this file, do not claim "safe for [surface]". Required for retail buyer due-diligence.</div>
+    </div>
+    <div class="sub-card">
+      <span class="sub-num">FILE 08</span>
+      <div class="sub-name">Approved claims index</div>
+      <div class="sub-desc">A single <strong>master index of every approved claim</strong>, mapped to its substantiation file and last-reviewed date. Marketing must check this before any ad spend, organic post, or PR pitch ships.</div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="section">
+  <span class="eyebrow">&#9670; Legal-safe rewrite library</span>
+  <h2 class="h2">Five rewrites <em>that stay punchy.</em></h2>
+  <p class="body">Marketing wants the punchy version. Legal wants the safe version. <strong>The right answer keeps the rhythm and removes the risk.</strong> Use these as a template &mdash; never write the left column live.</p>
+
+  <span class="rew-num">REWRITE 01</span>
+  <div class="rewrite">
+    <div class="rew-cell rew-before">
+      <span class="rew-label">&#9670; Before (kills the brand)</span>
+      <div class="rew-text">"Kills 99.9% of germs without harsh chemicals. <strong>The non-toxic alternative</strong> to Lysol."</div>
+    </div>
+    <div class="rew-cell rew-after">
+      <span class="rew-label">&#9670; After (legal-safe, stays punchy)</span>
+      <div class="rew-text">"<strong>A scent-led ritual designed to stay on the counter.</strong> Plastic-free packaging, fragrance fully disclosed."</div>
+    </div>
+  </div>
+
+  <span class="rew-num">REWRITE 02</span>
+  <div class="rewrite">
+    <div class="rew-cell rew-before">
+      <span class="rew-label">&#9670; Before</span>
+      <div class="rew-text">"100% natural. Eco-friendly. Cures the chaos in your kitchen."</div>
+    </div>
+    <div class="rew-cell rew-after">
+      <span class="rew-label">&#9670; After</span>
+      <div class="rew-text">"Plant-derived. Refillable. <strong>Built for the kitchen reset, not the chore.</strong>"</div>
+    </div>
+  </div>
+
+  <span class="rew-num">REWRITE 03</span>
+  <div class="rewrite">
+    <div class="rew-cell rew-before">
+      <span class="rew-label">&#9670; Before</span>
+      <div class="rew-text">"Aromatherapy in a bottle &mdash; <strong>lowers anxiety</strong> while you clean."</div>
+    </div>
+    <div class="rew-cell rew-after">
+      <span class="rew-label">&#9670; After</span>
+      <div class="rew-text">"Eight scent rituals, designed for the moment after a long day. <strong>Cleaning becomes the byproduct of pleasure.</strong>"</div>
+    </div>
+  </div>
+
+  <span class="rew-num">REWRITE 04</span>
+  <div class="rewrite">
+    <div class="rew-cell rew-before">
+      <span class="rew-label">&#9670; Before</span>
+      <div class="rew-text">"<strong>Safe for babies, pets, and pregnant women.</strong> Toxin-free formula."</div>
+    </div>
+    <div class="rew-cell rew-after">
+      <span class="rew-label">&#9670; After</span>
+      <div class="rew-text">"Formulated without parabens, phthalates, or SLS. <strong>Full ingredient list at the bottom of every page.</strong>"</div>
+    </div>
+  </div>
+
+  <span class="rew-num">REWRITE 05</span>
+  <div class="rewrite">
+    <div class="rew-cell rew-before">
+      <span class="rew-label">&#9670; Before</span>
+      <div class="rew-text">"<strong>Medical-grade clean.</strong> Hospital-strength sanitization. The cleanest your home will ever be."</div>
+    </div>
+    <div class="rew-cell rew-after">
+      <span class="rew-label">&#9670; After</span>
+      <div class="rew-text">"<strong>Designed like fragrance. Engineered for the home.</strong> A ritual built to stay on the counter."</div>
+    </div>
+  </div>
+</section>
+
+<!-- FTC / FDA FLAGS -->
+<section class="section">
+  <span class="eyebrow">&#9670; FTC + FDA flag list</span>
+  <h2 class="h2">Where cosmetics meet cleaning. <em>Where brands collapse.</em></h2>
+  <p class="body">GESINE sits on a regulatory knife-edge: a cleaning product that smells, looks, and is sold like fragrance. The crossover invites scrutiny from <strong>both</strong> the FTC (advertising) and the FDA (cosmetic / drug crossover). Each flag below is a known landmine.</p>
+
+  <div class="flag-list">
+    <div class="flag-item ftc">
+      <span class="flag-tag">FTC</span>
+      <div class="flag-text"><strong>Green Guides &middot; vague environmental claims.</strong> "Eco-friendly" / "sustainable" without a specific qualifier triggers FTC Green Guide enforcement. Always pair with the specific claim ("plastic-free packaging", "concentrated formulation").</div>
+    </div>
+    <div class="flag-item ftc">
+      <span class="flag-tag">FTC</span>
+      <div class="flag-text"><strong>Comparative claims.</strong> "Better than [Lysol]" requires a documented test that supports the comparator on the same metric. Without it, the comparator must be removed or made qualitative ("designed differently").</div>
+    </div>
+    <div class="flag-item ftc">
+      <span class="flag-tag">FTC</span>
+      <div class="flag-text"><strong>Influencer / UGC compliance.</strong> Every paid creator must use #ad or "Paid partnership" tag. <em>Brand is liable for creator's claims</em> &mdash; brief them with the safe-tier list, not vague "say what you love."</div>
+    </div>
+    <div class="flag-item fda">
+      <span class="flag-tag">FDA</span>
+      <div class="flag-text"><strong>Antibacterial / disinfectant claims.</strong> Triggers FDA / EPA jurisdiction (depending on intended use) &mdash; the product would have to be registered as a pesticide. Avoid every word in this family: kills, sanitize, disinfect, antibacterial, antiviral.</div>
+    </div>
+    <div class="flag-item fda">
+      <span class="flag-tag">FDA</span>
+      <div class="flag-text"><strong>Drug claims via fragrance.</strong> Aromatherapy claims that imply mood or health effects ("relieves stress", "lowers anxiety", "helps you sleep") move the product into the drug category. Use sensory language only ("calming scent", "designed for end-of-day").</div>
+    </div>
+    <div class="flag-item fda">
+      <span class="flag-tag">FDA</span>
+      <div class="flag-text"><strong>"Hypoallergenic" / "for sensitive skin".</strong> No FDA standard exists, but consumer-facing dermatologic claims still require <em>independent skin-irritation testing</em> on file. Without it, do not claim.</div>
+    </div>
+    <div class="flag-item ftc">
+      <span class="flag-tag">FTC</span>
+      <div class="flag-text"><strong>"Made in USA".</strong> Strict FTC standard: "all or virtually all" parts &amp; processing must be domestic. If the bottle is imported, the claim must be qualified ("designed in USA, assembled in USA from imported components").</div>
+    </div>
+    <div class="flag-item ftc">
+      <span class="flag-tag">FTC</span>
+      <div class="flag-text"><strong>"Carbon neutral" / offsets.</strong> Must specify scope (Scope 1/2/3) and method (renewable energy, certified offsets). Vague carbon-neutral claims are now actively litigated as greenwashing.</div>
+    </div>
+  </div>
+
+  <div class="warn-box">
+    <span class="warn-label">&#9670; Pre-publish checklist</span>
+    <div class="warn-text">
+      Before any ad, post, label, or press line ships: <em>(1) Is every claim in tier SAFE or CONDITIONAL?</em> <em>(2) If conditional, is the substantiation doc on file and current?</em> <em>(3) Does the copy avoid every off-limits phrase verbatim and in paraphrase?</em><br><br>
+      Three yeses &mdash; ship it. Anything else &mdash; rewrite.
+    </div>
+  </div>
+</section>
+
+<footer class="doc-footer">
+  <div class="ft-l">Alex Lamb &middot; Creative Director, AI Architect</div>
+  <div class="ft-r">GESINE Foundation Sprint &middot; Deliverable 08</div>
+</footer>
+
+</div>
+</body>
+</html>

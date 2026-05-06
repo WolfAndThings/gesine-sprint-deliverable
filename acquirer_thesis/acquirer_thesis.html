@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){if(sessionStorage.getItem('gesine_unlock')==='1')return;var p=prompt('GESINE — enter password to view');if(p==='gesine2026'){sessionStorage.setItem('gesine_unlock','1');}else{document.documentElement.innerHTML='<body style="margin:0;padding:60px;font-family:sans-serif;text-align:center;background:#0F0E0C;color:#F5F1E8;font-size:18px;">Access required.</body>';}})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GESINE — Acquirer Thesis</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --ink:#0F0E0C; --cream:#F8FAF6; --off:#E8EFE3; --soft:#D6E4D0;
+  --amber:#4FA86A; --amber-deep:#2D5F3F;
+  --olive:#4A5240; --sage:#7C8470;
+  --muted:#6F665A; --light:#9C9285;
+  --bmd:rgba(15,14,12,0.14); --bstr:rgba(15,14,12,0.20);
+}
+body { background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-serif; font-size:15px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+.page { max-width:1240px; margin:0 auto; padding:56px 48px 80px; }
+.doc-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:48px; padding-bottom:24px; border-bottom:2px solid var(--ink); }
+.wordmark { display:flex; align-items:center; gap:12px; }
+.logo-box { width:36px; height:36px; background:var(--ink); border-radius:8px; display:grid; place-items:center; color:var(--amber); font-family:'Instrument Serif',serif; font-size:20px; }
+.brand-name { font-family:'Instrument Serif',Georgia,serif; font-size:18px; letter-spacing:.02em; }
+.doc-meta { text-align:right; font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); line-height:2; }
+
+.hero { background:var(--ink); border-radius:16px; padding:44px 48px; margin-bottom:32px; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg, var(--amber), var(--sage)); }
+.hero-eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:rgba(245,241,232,.40); display:block; margin-bottom:16px; }
+.hero-headline { font-family:'Instrument Serif',serif; font-size:clamp(28px,3.6vw,40px); line-height:1.12; letter-spacing:-.02em; color:var(--cream); margin-bottom:18px; }
+.hero-headline em { color:var(--amber); font-style:italic; }
+.hero-body { font-size:15px; color:rgba(245,241,232,.72); line-height:1.7; font-weight:300; max-width:820px; }
+.hero-body strong { color:var(--cream); font-weight:500; }
+
+.section { margin-bottom:48px; }
+.eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:12px; }
+.h2 { font-family:'Instrument Serif',serif; font-size:clamp(24px,3vw,32px); line-height:1.15; letter-spacing:-.015em; color:var(--ink); margin-bottom:14px; }
+.h2 em { font-style:italic; color:var(--amber-deep); }
+.body { font-size:14px; color:#2A2620; line-height:1.75; font-weight:300; max-width:920px; }
+.body strong { font-weight:600; color:var(--ink); }
+
+/* DECK CORRECTIONS ALERT */
+.alert { background:#2D5F3F; color:var(--cream); border-radius:14px; padding:24px 28px; margin-bottom:36px; border-left:4px solid var(--amber); }
+.alert .a-eye { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:rgba(245,241,232,.7); margin-bottom:8px; display:block; }
+.alert h3 { font-family:'Instrument Serif',serif; font-size:20px; line-height:1.3; margin-bottom:10px; }
+.alert .corr { font-size:13px; line-height:1.65; opacity:.92; padding:6px 0; }
+.alert .corr strong { color:var(--cream); }
+
+/* ACQUIRER GRID */
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(380px,1fr)); gap:18px; margin-top:20px; }
+.acq { background:var(--off); border:1px solid var(--bstr); border-radius:14px; padding:24px 26px; display:flex; flex-direction:column; }
+.acq.r5 { background:linear-gradient(135deg,rgba(79,168,106,0.16),rgba(79,168,106,0.04)); border-color:var(--amber); }
+.acq.r4 { background:linear-gradient(135deg,rgba(74,82,64,0.10),rgba(74,82,64,0.03)); border-color:var(--olive); }
+.acq.r3 { background:linear-gradient(135deg,rgba(124,132,112,0.10),rgba(124,132,112,0.03)); border-color:var(--sage); }
+.acq.r2 { background:var(--off); }
+.acq.r1 { background:rgba(15,14,12,0.04); border-style:dashed; opacity:.85; }
+
+.acq-head { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px; gap:12px; }
+.acq-name { font-family:'Instrument Serif',serif; font-size:22px; line-height:1.15; }
+.acq-rank { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.16em; padding:4px 10px; border-radius:99px; background:var(--ink); color:var(--cream); white-space:nowrap; }
+.acq.r5 .acq-rank { background:var(--amber-deep); color:var(--cream); }
+.acq.r4 .acq-rank { background:var(--olive); color:var(--cream); }
+.acq.r3 .acq-rank { background:var(--sage); color:var(--ink); }
+.acq.r2 .acq-rank { background:var(--muted); color:var(--cream); }
+.acq.r1 .acq-rank { background:var(--light); color:var(--ink); }
+
+.acq-thesis { font-size:13px; color:#2A2620; line-height:1.6; margin-bottom:14px; }
+.acq-thesis strong { color:var(--ink); }
+.acq-thesis em { color:var(--amber-deep); font-style:italic; }
+
+.acq-section { margin-top:14px; padding-top:14px; border-top:1px dashed var(--bmd); }
+.acq-label { font-family:'DM Mono',monospace; font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--amber-deep); margin-bottom:6px; display:block; }
+.acq-text { font-size:12.5px; line-height:1.6; color:#2A2620; }
+.acq-text strong { color:var(--ink); }
+
+/* COMPACT ACQ TABLE */
+.acq-tbl { width:100%; border-collapse:collapse; margin-top:8px; font-size:11.5px; }
+.acq-tbl td { padding:6px 8px 6px 0; vertical-align:top; }
+.acq-tbl tr { border-bottom:1px dotted var(--bmd); }
+.acq-tbl tr:last-child { border-bottom:none; }
+.acq-tbl .b { font-family:'Instrument Serif',serif; font-size:13px; color:var(--ink); font-weight:400; padding-right:10px; }
+.acq-tbl .y { font-family:'DM Mono',monospace; color:var(--muted); white-space:nowrap; }
+.acq-tbl .p { font-family:'DM Mono',monospace; color:var(--amber-deep); white-space:nowrap; }
+
+.acq-src { margin-top:14px; font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); }
+.acq-src a { color:var(--amber-deep); text-decoration:none; }
+.acq-src a:hover { text-decoration:underline; }
+
+/* RANKED TARGET STACK */
+.stack { background:var(--ink); color:var(--cream); border-radius:14px; padding:36px 40px; margin:32px 0; }
+.stack .eyebrow { color:rgba(245,241,232,.4); }
+.stack .h2 { color:var(--cream); }
+.stack .h2 em { color:var(--amber); }
+.stack .body { color:rgba(245,241,232,.85); max-width:none; }
+.stack .body strong { color:var(--amber); }
+
+.rank-grid { margin-top:20px; }
+.rank-row { display:grid; grid-template-columns:60px 200px 1fr 180px; gap:18px; align-items:flex-start; padding:18px 0; border-bottom:1px solid rgba(245,241,232,0.10); }
+.rank-row:last-child { border-bottom:none; }
+.rank-num { font-family:'Instrument Serif',serif; font-size:36px; line-height:1; color:var(--amber); font-style:italic; }
+.rank-name { font-family:'Instrument Serif',serif; font-size:20px; color:var(--cream); }
+.rank-name em { color:var(--amber); display:block; font-size:11px; font-family:'DM Mono',monospace; font-style:normal; letter-spacing:.16em; margin-top:4px; }
+.rank-text { font-size:13px; line-height:1.6; color:rgba(245,241,232,.78); }
+.rank-text strong { color:var(--cream); }
+.rank-window { font-family:'DM Mono',monospace; font-size:10px; padding:8px 14px; background:var(--amber-deep); color:var(--cream); border-radius:8px; letter-spacing:.14em; text-align:center; align-self:flex-start; }
+
+.timing { background:var(--off); border:1px solid var(--bstr); border-radius:12px; padding:24px 28px; margin-top:24px; }
+.timing h4 { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--amber-deep); margin-bottom:12px; }
+.timing p { font-size:13.5px; line-height:1.7; color:#2A2620; }
+.timing p strong { color:var(--ink); }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="doc-header">
+  <div class="wordmark">
+    <div class="logo-box">G</div>
+    <span class="brand-name">GESINE</span>
+  </div>
+  <div class="doc-meta">
+    PHASE 2 · INVESTOR<br>
+    ACQUIRER THESIS · 11 BUYERS<br>
+    MAY 2026
+  </div>
+</header>
+
+<section class="hero">
+  <span class="hero-eyebrow">Who buys what · why · what GESINE fits</span>
+  <h1 class="hero-headline">SC Johnson is overdue.<br>C&amp;D pattern-matches Touchland.<br><em>L Catterton is the bridge.</em></h1>
+  <p class="hero-body">11 strategic + PE acquirers analyzed against GESINE's profile. <strong>Two 5/5 fits</strong> (SC Johnson · Church &amp; Dwight) with different timing windows. <strong>Three 4/5 fits</strong> (Unilever · L Catterton · L'Oréal). Six lower-probability paths covered for completeness. Ranked target stack at bottom with timing windows tied to deck revenue curve.</p>
+</section>
+
+<div class="alert">
+  <span class="a-eye">⚠ Deck assertions to correct before next circulation</span>
+  <h3>Two numbers in deck need footnotes / corrections.</h3>
+  <div class="corr"><strong>1. Touchland $880M</strong> — accurate as ceiling, but actual signing was <strong>$700M cash/stock + up to $180M earn-out</strong> tied to 2025 net sales. Footnote in deck or pitch as "up to $880M."</div>
+  <div class="corr"><strong>2. Le Labo "$200-300M (2014)"</strong> — UNVERIFIED. ELC never officially disclosed. Reported figures range <strong>$60M-$80M</strong>. Recommend correcting in deck or removing the price.</div>
+</div>
+
+<div class="section">
+  <span class="eyebrow">11 acquirers · ranked by GESINE fit + timing</span>
+  <h2 class="h2">Who's collecting <em>what</em>.</h2>
+
+  <div class="grid">
+
+    <!-- 1 SC JOHNSON -->
+    <div class="acq r5">
+      <div class="acq-head"><div class="acq-name">SC Johnson</div><span class="acq-rank">5/5 · best fit</span></div>
+      <div class="acq-thesis"><strong>The category-correct buyer.</strong> Built Lifestyle Brands division to house eco-premium. Family-owned, low M&amp;A frequency — but when SCJ buys, they buy the category-defining premium brand. <em>The only acquirer where home-reset ritual IS the core thesis.</em></div>
+      <div class="acq-section">
+        <span class="acq-label">Recent acquisitions</span>
+        <table class="acq-tbl">
+          <tr><td class="b">Method + Ecover</td><td class="y">2018</td><td class="p">Not disc.</td></tr>
+          <tr><td class="b">Babyganics</td><td class="y">2016</td><td class="p">Not disc.</td></tr>
+          <tr><td class="b">Caldrea / Mrs. Meyer's</td><td class="y">2008</td><td class="p">Not disc.</td></tr>
+        </table>
+      </div>
+      <div class="acq-section">
+        <span class="acq-label">What they want next</span>
+        <div class="acq-text">No public roadmap (private). <strong>7-year gap since last LSB add (Method 2018) = overdue.</strong> Method's premium-cleaning thesis has run; Mrs. Meyer's has aged. SCJ needs the next-gen design-led home-care brand to refresh the LSB stack.</div>
+      </div>
+      <div class="acq-section">
+        <span class="acq-label">GESINE fit</span>
+        <div class="acq-text"><strong>Closest single-brand fit in the universe.</strong> GESINE = Method's evolution. Refillable platform replaces refill pouches, ritual replaces utility, capsule = product innovation Method never had. Caraway-firm design language is peer to Method's Karim Rashid bottle work.</div>
+      </div>
+      <div class="acq-src">SRC · <a href="https://www.scjohnson.com/en/newsroom/fact-sheets/sc-johnson-acquisitions-bring-quality-brands">SCJ acquisitions</a> · <a href="https://digitaledition.massmarketretailers.com/articles/sc-johnson-lifestyle-brands-benefit-people-and-the-planet">MMR LSB</a></div>
+    </div>
+
+    <!-- 2 CHURCH & DWIGHT -->
+    <div class="acq r5">
+      <div class="acq-head"><div class="acq-name">Church &amp; Dwight</div><span class="acq-rank">5/5 · pattern-match</span></div>
+      <div class="acq-thesis"><strong>Most disciplined strategic buyer in mid-cap CPG.</strong> Public criteria: #1 or #2 brand in category, asset-light, growing, gross-margin accretive. Has executed twice on this exact playbook in 5 years (Hero $630M · Touchland $880M). CEO Rick Dierker (Apr 2025) + CFO Lee McChesney named M&amp;A primary cash-use Q3 2025.</div>
+      <div class="acq-section">
+        <span class="acq-label">Recent acquisitions</span>
+        <table class="acq-tbl">
+          <tr><td class="b">Touchland</td><td class="y">2025</td><td class="p">$700M+$180M earn</td></tr>
+          <tr><td class="b">Hero Cosmetics</td><td class="y">2022</td><td class="p">$630M</td></tr>
+          <tr><td class="b">Therabreath</td><td class="y">2021</td><td class="p">$580M</td></tr>
+          <tr><td class="b">Zicam</td><td class="y">2020</td><td class="p">$530M</td></tr>
+          <tr><td class="b">Drybar consumer</td><td class="y">2020</td><td class="p">$255M</td></tr>
+          <tr><td class="b">Waterpik</td><td class="y">2017</td><td class="p">$1.0B</td></tr>
+        </table>
+      </div>
+      <div class="acq-section">
+        <span class="acq-label">What they want next</span>
+        <div class="acq-text">Q3 2025 call: M&amp;A remains primary cash use. Active divestiture of VitaFusion / L'il Critters signals concentration on power brands. <strong>Pattern points to next bolt-on at $100M-$300M revenue scale.</strong></div>
+      </div>
+      <div class="acq-section">
+        <span class="acq-label">GESINE fit</span>
+        <div class="acq-text">Structurally identical to 2022-vintage Touchland or Hero: founder-led, premium up-trade, refill platform. Home-reset ritual is open white space (no #1 incumbent). Caraway-firm design + EWG Verified mirror Touchland aesthetic-meets-clean playbook C&amp;D paid <strong>16x EBITDA</strong> for.</div>
+      </div>
+      <div class="acq-section">
+        <span class="acq-label">Timing friction</span>
+        <div class="acq-text"><strong>C&amp;D needs to digest Touchland integration through 2026-2027</strong> before opening another $500M+ ticket. Target window 2028-2030.</div>
+      </div>
+      <div class="acq-src">SRC · <a href="https://www.businesswire.com/news/home/20250512684279/en/">Touchland release</a> · <a href="https://beautymatter.com/articles/church-dwight-acquires-hero-cosmetics-in-630-million-deal">BeautyMatter Hero</a> · <a href="https://www.investing.com/news/transcripts/earnings-call-transcript-church--dwight-q3-2025-beats-forecasts-stock-surges-93CH-4324575">Q3 2025 call</a></div>
+    </div>
+
+    <!-- 3 UNILEVER -->
+    <div class="acq r4">
+      <div class="acq-head"><div class="acq-name">Unilever</div><span class="acq-rank">4/5 · thesis fit</span></div>
+      <div class="acq-thesis"><strong>Aggressive premium-and-purpose acquirer.</strong> Bought Seventh Generation 2016 to lock eco-cleaning halo. CEO Fernando Fernandez (2025) reshuffling Prestige but doubling down on Personal Care premium: Dr. Squatch ($1.5B 2025) + Wild (plastic-free). <em>"Bolt-on acquisitions in premium segments."</em></div>
+      <div class="acq-section">
+        <span class="acq-label">Recent acquisitions</span>
+        <table class="acq-tbl">
+          <tr><td class="b">Dr. Squatch</td><td class="y">2025</td><td class="p">$1.5B</td></tr>
+          <tr><td class="b">Wild</td><td class="y">2024</td><td class="p">Not disc.</td></tr>
+          <tr><td class="b">Tatcha</td><td class="y">2019</td><td class="p">~$500M</td></tr>
+          <tr><td class="b">DSC</td><td class="y">2016</td><td class="p">$1B</td></tr>
+          <tr><td class="b">Seventh Generation</td><td class="y">2016</td><td class="p">~$700M</td></tr>
+          <tr><td class="b">Liquid I.V. · Olly · Schmidt's · Dermalogica</td><td class="y">'15-'21</td><td class="p">Various</td></tr>
+        </table>
+      </div>
+      <div class="acq-section">
+        <span class="acq-label">GESINE fit</span>
+        <div class="acq-text">Sits at literal intersection of <strong>Seventh Gen (eco home) + Wild (refillable platform) + Tatcha (prestige clean ritual)</strong>. Refillable spray + scent capsules = exactly Wild architecture extended into home. C&amp;B 2027 = prestige-channel proof Unilever requires.</div>
+      </div>
+      <div class="acq-section">
+        <span class="acq-label">Timing</span>
+        <div class="acq-text">In active portfolio surgery. Tends to stay above $300M revenue for new platform plays. <strong>Target window 2029-2031</strong> once GESINE crosses $50M+.</div>
+      </div>
+      <div class="acq-src">SRC · <a href="https://www.unilever.com/news/press-and-media/press-releases/2025/unilever-to-acquire-mens-personal-care-brand-dr-squatch/">Dr. Squatch</a> · <a href="https://www.unilever.com/news/press-and-media/press-releases/2019/unilever-to-acquire-tatcha/">Tatcha</a> · <a href="https://fortune.com/2016/09/20/seventh-generation-unilever-deal/">Seventh Gen</a></div>
+    </div>
+
+    <!-- 4 L'OREAL -->
+    <div class="acq r4">
+      <div class="acq-head"><div class="acq-name">L'Oréal</div><span class="acq-rank">4/5 · premium-priced</span></div>
+      <div class="acq-thesis"><strong>Largest global beauty acquirer.</strong> Aesop $2.525B 2023 = largest deal ever. Just announced Oct 2025 Kering Beauty / Creed ~€4B. <em>L'Oréal pays for prestige sensorial ritual with global scale.</em> CEO Hieronimus: "premiumisation" core thesis.</div>
+      <div class="acq-section">
+        <span class="acq-label">Recent acquisitions</span>
+        <table class="acq-tbl">
+          <tr><td class="b">Creed / Kering Beauty</td><td class="y">2025</td><td class="p">~€4B</td></tr>
+          <tr><td class="b">Color Wow</td><td class="y">2025</td><td class="p">Not disc.</td></tr>
+          <tr><td class="b">Aesop</td><td class="y">2023</td><td class="p">$2.525B</td></tr>
+          <tr><td class="b">Youth To The People</td><td class="y">2021</td><td class="p">Not disc.</td></tr>
+          <tr><td class="b">Mugler / Azzaro</td><td class="y">2020</td><td class="p">Not disc.</td></tr>
+        </table>
+      </div>
+      <div class="acq-section">
+        <span class="acq-label">GESINE fit</span>
+        <div class="acq-text">Structurally an <strong>Aesop adjacency</strong>: ritual home reset, refillable design, scent-led, premium-priced. Aesop comp is exact. <strong>L'Oréal does not currently own a home-care brand</strong> — Aesop home line is small. GESINE plugs into Aesop distribution architecture.</div>
+      </div>
+      <div class="acq-section">
+        <span class="acq-label">Timing</span>
+        <div class="acq-text">L'Oréal typically waits until $100M+ revenue and multi-country presence. Likely outbids most others if interested. <strong>Target window 2031-2033.</strong></div>
+      </div>
+      <div class="acq-src">SRC · <a href="https://www.loreal.com/en/press-release/group/l-oreal-completes-acquisition-of-aesop/">Aesop</a> · <a href="https://www.loreal-finance.com/eng/news-event/loreal-signs-agreement-acquire-color-wow-one-worlds-fastest-growing-and-most-innovative">Color Wow</a></div>
+    </div>
+
+    <!-- 5 L CATTERTON -->
+    <div class="acq r4">
+      <div class="acq-head"><div class="acq-name">L Catterton (PE)</div><span class="acq-rank">4/5 · bridge buyer</span></div>
+      <div class="acq-thesis"><strong>Largest consumer-focused PE globally.</strong> $37B+ AUM. Treats premium clean / beauty / wellness as core thesis. Honest Company $200M PIPE · Kopari · TULA · Stripes · Kiko Milano · Sweaty Betty · Rhone · Peloton. <em>Bridge buyer: acquire at $25M-$100M revenue, scale, sell to strategic at $250M-$500M.</em></div>
+      <div class="acq-section">
+        <span class="acq-label">Recent investments</span>
+        <table class="acq-tbl">
+          <tr><td class="b">Stripes (Naomi Watts menopause)</td><td class="y">2024</td><td class="p">Not disc.</td></tr>
+          <tr><td class="b">Kiko Milano (majority)</td><td class="y">2024</td><td class="p">Not disc.</td></tr>
+          <tr><td class="b">Honest Co PIPE</td><td class="y">2022</td><td class="p">$200M</td></tr>
+          <tr><td class="b">Kopari</td><td class="y">2018</td><td class="p">Not disc.</td></tr>
+          <tr><td class="b">TULA → P&amp;G</td><td class="y">2017</td><td class="p">Not disc.</td></tr>
+        </table>
+      </div>
+      <div class="acq-section">
+        <span class="acq-label">GESINE fit</span>
+        <div class="acq-text"><strong>Strongest near-term path.</strong> PE underwrites GESINE's growth ($25M+ revenue) + provides capital to scale to strategic-acquirer threshold. Honest Company-style PIPE structure plausible. <strong>Less likely as terminal buyer.</strong></div>
+      </div>
+      <div class="acq-section">
+        <span class="acq-label">Timing</span>
+        <div class="acq-text"><strong>Target window 2026-2028</strong> for minority PIPE or majority growth round. Faster decision cycle than strategics.</div>
+      </div>
+      <div class="acq-src">SRC · <a href="https://beautymatter.com/articles/l-catterton-makes-200-million-investment-in-honest-co">Honest PIPE</a> · <a href="https://2025-year-in-review.lcatterton.com/">2025 review</a></div>
+    </div>
+
+    <!-- 6 P&G -->
+    <div class="acq r3">
+      <div class="acq-head"><div class="acq-name">Procter &amp; Gamble</div><span class="acq-rank">3/5 · slow / selective</span></div>
+      <div class="acq-thesis">Slower than C&amp;D or Unilever. Consistently buys design-led DTC clean brands at $100M-$500M scale. Native $100M (2017) is canonical. Wonderbelly (Jan 2026) signals continued appetite for clean-label modern brands.</div>
+      <div class="acq-section">
+        <span class="acq-label">Recent acquisitions</span>
+        <table class="acq-tbl">
+          <tr><td class="b">Wonderbelly</td><td class="y">2026</td><td class="p">Not disc.</td></tr>
+          <tr><td class="b">Tula · Ouai · Farmacy</td><td class="y">2021-22</td><td class="p">Various</td></tr>
+          <tr><td class="b">Native</td><td class="y">2017</td><td class="p">$100M</td></tr>
+        </table>
+      </div>
+      <div class="acq-section">
+        <span class="acq-label">GESINE fit</span>
+        <div class="acq-text">Strong on design-led clean. Refillable spray architecture would be P&amp;G's <strong>first true premium home-care entry</strong> (Mr. Clean / Febreze / Swiffer are mass). Risk: P&amp;G prefers bigger retail footprint at acquisition.</div>
+      </div>
+      <div class="acq-section">
+        <span class="acq-label">Timing</span>
+        <div class="acq-text">Moves slowly; rarely opens new categories. <strong>Target window 2030+</strong> contingent on $80M+ revenue + multi-retailer presence.</div>
+      </div>
+      <div class="acq-src">SRC · <a href="https://beautymatter.com/articles/pg-buys-clean-health-startup-wonderbelly">Wonderbelly</a> · <a href="https://www.bloomberg.com/news/articles/2025-07-29/p-g-open-to-acquisitions-in-consumer-health-care-ceo-says">Bloomberg M&amp;A</a></div>
+    </div>
+
+    <!-- 7 ESTÉE LAUDER -->
+    <div class="acq r2">
+      <div class="acq-head"><div class="acq-name">Estée Lauder</div><span class="acq-rank">2/5 · aspirational</span></div>
+      <div class="acq-thesis">Most prolific prestige collector. Le Labo (2014, ~$60-80M reported NOT $200-300M) · Frédéric Malle · By Kilian · Too Faced $1.45B · Dr. Jart+ $1.7B · Deciem ~$1.7B. <strong>Active turnaround mode (CEO La Faverie since Jan 2025).</strong> M&amp;A appetite muted near-term.</div>
+      <div class="acq-section">
+        <span class="acq-label">Recent acquisitions</span>
+        <table class="acq-tbl">
+          <tr><td class="b">Deciem (full)</td><td class="y">2024</td><td class="p">~$1.7B</td></tr>
+          <tr><td class="b">Dr. Jart+</td><td class="y">2019</td><td class="p">$1.7B</td></tr>
+          <tr><td class="b">Too Faced</td><td class="y">2016</td><td class="p">$1.45B</td></tr>
+          <tr><td class="b">Le Labo</td><td class="y">2014</td><td class="p">~$60-80M</td></tr>
+        </table>
+      </div>
+      <div class="acq-section">
+        <span class="acq-label">GESINE fit</span>
+        <div class="acq-text">Strong on aesthetic + sensorial fit (Le Labo = closest thematic comp in beauty). Weak on category fit — <strong>ELC has no home line.</strong> Watch for Le Labo home extensions = signal.</div>
+      </div>
+      <div class="acq-src">SRC · <a href="https://www.elcompanies.com/en/news-and-media/newsroom/press-releases/2024/06-03-2024-114511824">Deciem</a> · <a href="https://wwd.com/business-news/financial/lauder-in-deal-with-frederic-malle-8024706/">Le Labo / Malle</a></div>
+    </div>
+
+    <!-- 8 SHISEIDO -->
+    <div class="acq r2">
+      <div class="acq-head"><div class="acq-name">Shiseido</div><span class="acq-rank">2/5 · indirect</span></div>
+      <div class="acq-thesis">Drunk Elephant 2019 for $845M (8.5x sales) to capture US "Clean" prestige. Pattern: pay premium multiples for category-defining clean prestige brands with US runway. <strong>Drunk Elephant struggles since 2023</strong> may slow appetite.</div>
+      <div class="acq-section">
+        <span class="acq-label">Recent acquisitions</span>
+        <table class="acq-tbl">
+          <tr><td class="b">Dr. Dennis Gross stake</td><td class="y">2022</td><td class="p">Not disc.</td></tr>
+          <tr><td class="b">Drunk Elephant</td><td class="y">2019</td><td class="p">$845M (8.5x)</td></tr>
+        </table>
+      </div>
+      <div class="acq-section">
+        <span class="acq-label">GESINE fit</span>
+        <div class="acq-text">Theme-fit (clean + premium + ritual). Shiseido playbook is skincare-on-skin not home. <strong>GESINE = genuine category extension, not category fill.</strong> Lower fit. Possible 2032+.</div>
+      </div>
+      <div class="acq-src">SRC · <a href="https://corp.shiseido.com/en/news/detail.html?n=00000000002773">Shiseido DE</a> · <a href="https://wwd.com/beauty-industry-news/skin-care/feature/what-the-drunk-elephant-deal-means-for-beauty-ma-1203338988/">WWD</a></div>
+    </div>
+
+    <!-- 9 COLGATE -->
+    <div class="acq r2">
+      <div class="acq-head"><div class="acq-name">Colgate-Palmolive</div><span class="acq-rank">2/5 · category drift</span></div>
+      <div class="acq-thesis">Building skincare premium aggressively since 2018. Filorga $1.69B · EltaMD+PCA $730M combined · Hello $350M. CEO Wallace: skincare = differentiation + premiumization. <strong>No public signal toward home care</strong>, but Hello shows clean-design appetite.</div>
+      <div class="acq-section">
+        <span class="acq-label">Recent acquisitions</span>
+        <table class="acq-tbl">
+          <tr><td class="b">Filorga</td><td class="y">2019</td><td class="p">$1.69B</td></tr>
+          <tr><td class="b">Hello Products</td><td class="y">2020</td><td class="p">$350M</td></tr>
+          <tr><td class="b">EltaMD + PCA Skin</td><td class="y">2018</td><td class="p">$730M</td></tr>
+          <tr><td class="b">Tom's of Maine</td><td class="y">2006</td><td class="p">$100M</td></tr>
+        </table>
+      </div>
+      <div class="acq-section">
+        <span class="acq-label">GESINE fit</span>
+        <div class="acq-text">Lower category fit (skin/oral, not home). Hello playbook (design + clean) = exactly GESINE's. <strong>Requires category-thesis shift Colgate hasn't yet signaled.</strong></div>
+      </div>
+      <div class="acq-src">SRC · <a href="https://beautymatter.com/articles/colgate-acquires-laboratoires-filorga-for-1-69-billion">Filorga</a></div>
+    </div>
+
+    <!-- 10 HENKEL -->
+    <div class="acq r1">
+      <div class="acq-head"><div class="acq-name">Henkel</div><span class="acq-rank">1/5 · de-prioritize</span></div>
+      <div class="acq-thesis">German consumer-care conglomerate. Recent activity is all hair: Olaplex $1.4B March 2026 · Not Your Mother's ~$221M sales 2026 close. Merged Beauty Care into LHC division. Mass laundry/home portfolio (Persil · Purex) — no premium home anchor.</div>
+      <div class="acq-section">
+        <span class="acq-label">Recent acquisitions</span>
+        <table class="acq-tbl">
+          <tr><td class="b">Olaplex</td><td class="y">2026</td><td class="p">$1.4B</td></tr>
+          <tr><td class="b">Not Your Mother's</td><td class="y">2026</td><td class="p">Not disc.</td></tr>
+          <tr><td class="b">Sun Products</td><td class="y">2016</td><td class="p">$3.6B</td></tr>
+        </table>
+      </div>
+      <div class="acq-section">
+        <span class="acq-label">GESINE fit</span>
+        <div class="acq-text">Currently a hair-care buyer, not home-care. <strong>Would require Henkel CEO to articulate new thesis publicly.</strong> Watch only.</div>
+      </div>
+      <div class="acq-src">SRC · <a href="https://beautymatter.com/articles/olaplexs-ipo-undoing-and-henkels-second-chance-at-a-turnaround">Olaplex</a></div>
+    </div>
+
+    <!-- 11 RECKITT -->
+    <div class="acq r1">
+      <div class="acq-head"><div class="acq-name">Reckitt Benckiser</div><span class="acq-rank">1/5 · divesting</span></div>
+      <div class="acq-thesis"><strong>Currently in active portfolio shrink, not expansion.</strong> July 2024 strategy: focus on 11 high-margin Powerbrands (Dettol · Finish · Lysol · Durex · Nurofen). Sold Essential Home (90+ tail brands) to Advent for up to $4.8B in 2025. Mead Johnson exit ongoing.</div>
+      <div class="acq-section">
+        <span class="acq-label">GESINE fit</span>
+        <div class="acq-text"><strong>None near-term.</strong> Reckitt is selling, not buying. Earliest plausible reset 2027-2028. Long-term, premium home-reset would conflict with Lysol — even future Reckitt unlikely to want GESINE.</div>
+      </div>
+      <div class="acq-src">SRC · <a href="https://www.reckitt.com/media-landing/press-releases/2025/reckitt-agrees-to-divest-essential-home/">Essential Home divest</a></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- EXIT MATH -->
+<div class="section">
+  <span class="eyebrow">Exit math · revenue × multiple = price</span>
+  <h2 class="h2">How GESINE exits · <em>at what cost.</em></h2>
+  <p class="body">Multiples pulled from real comps. Revenue thresholds tied to deck curve ($41M by 2031) plus extrapolation to acquirer-required scale. Single-line answer: <strong>most likely exit $500M-$880M to Church &amp; Dwight or SC Johnson, 2029-2032, at $80-130M revenue.</strong> Upside $1.5-2.5B to L'Oréal post-2031 if GESINE hits Aesop trajectory.</p>
+
+  <table style="width:100%; border-collapse:collapse; margin-top:24px; font-size:13px; border:1px solid var(--bstr); border-radius:14px; overflow:hidden;">
+    <thead>
+      <tr>
+        <th style="background:var(--ink); color:var(--cream); text-align:left; padding:14px 14px; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; font-weight:500;">Path</th>
+        <th style="background:var(--ink); color:var(--cream); text-align:left; padding:14px 14px; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; font-weight:500;">Window</th>
+        <th style="background:var(--ink); color:var(--cream); text-align:left; padding:14px 14px; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; font-weight:500;">Revenue band</th>
+        <th style="background:var(--ink); color:var(--cream); text-align:left; padding:14px 14px; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; font-weight:500;">Multiple anchor</th>
+        <th style="background:var(--ink); color:var(--cream); text-align:left; padding:14px 14px; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; font-weight:500;">Exit price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:14px 14px; border-bottom:1px solid var(--bmd); vertical-align:top;"><strong style="font-family:'Instrument Serif',serif; font-size:16px; font-weight:500;">L Catterton bridge</strong><br><span style="font-size:11px; color:var(--muted);">PE · minority / PIPE · not terminal</span></td>
+        <td style="padding:14px 14px; border-bottom:1px solid var(--bmd); font-family:'DM Mono',monospace; font-size:11px; color:var(--amber-deep); white-space:nowrap;">2026-2028</td>
+        <td style="padding:14px 14px; border-bottom:1px solid var(--bmd); font-family:'DM Mono',monospace; color:var(--olive);">$25-50M</td>
+        <td style="padding:14px 14px; border-bottom:1px solid var(--bmd); font-size:12.5px;">Honest Co PIPE · $200M for 12% (~6x sales implied at growth round)</td>
+        <td style="padding:14px 14px; border-bottom:1px solid var(--bmd); font-family:'Instrument Serif',serif; font-size:18px; color:var(--amber-deep);">$100-300M valuation</td>
+      </tr>
+      <tr style="background:rgba(79,168,106,0.06);">
+        <td style="padding:14px 14px; border-bottom:1px solid var(--bmd); vertical-align:top;"><strong style="font-family:'Instrument Serif',serif; font-size:16px; font-weight:500;">C&amp;D base case</strong><br><span style="font-size:11px; color:var(--muted);">Hero $630M (5.5x) / Touchland $880M (6.7x)</span></td>
+        <td style="padding:14px 14px; border-bottom:1px solid var(--bmd); font-family:'DM Mono',monospace; font-size:11px; color:var(--amber-deep); white-space:nowrap;">2028-2030</td>
+        <td style="padding:14px 14px; border-bottom:1px solid var(--bmd); font-family:'DM Mono',monospace; color:var(--olive);">$80-130M TTM</td>
+        <td style="padding:14px 14px; border-bottom:1px solid var(--bmd); font-size:12.5px;"><strong>5.4-6.7x sales</strong> · 16x EBITDA · 35%+ EBITDA margin gate</td>
+        <td style="padding:14px 14px; border-bottom:1px solid var(--bmd); font-family:'Instrument Serif',serif; font-size:18px; color:var(--amber-deep);">$430M-$870M</td>
+      </tr>
+      <tr style="background:rgba(79,168,106,0.06);">
+        <td style="padding:14px 14px; border-bottom:1px solid var(--bmd); vertical-align:top;"><strong style="font-family:'Instrument Serif',serif; font-size:16px; font-weight:500;">SC Johnson</strong><br><span style="font-size:11px; color:var(--muted);">Method/Mrs. Meyer's category fit · undisclosed comps</span></td>
+        <td style="padding:14px 14px; border-bottom:1px solid var(--bmd); font-family:'DM Mono',monospace; font-size:11px; color:var(--amber-deep); white-space:nowrap;">2029-2032</td>
+        <td style="padding:14px 14px; border-bottom:1px solid var(--bmd); font-family:'DM Mono',monospace; color:var(--olive);">$80-130M TTM</td>
+        <td style="padding:14px 14px; border-bottom:1px solid var(--bmd); font-size:12.5px;">Estimated <strong>5-6x sales</strong> band based on category-leader premium · no public comp</td>
+        <td style="padding:14px 14px; border-bottom:1px solid var(--bmd); font-family:'Instrument Serif',serif; font-size:18px; color:var(--amber-deep);">$400-780M est.</td>
+      </tr>
+      <tr>
+        <td style="padding:14px 14px; border-bottom:1px solid var(--bmd); vertical-align:top;"><strong style="font-family:'Instrument Serif',serif; font-size:16px; font-weight:500;">Unilever</strong><br><span style="font-size:11px; color:var(--muted);">Dr. Squatch $1.5B · Tatcha ~$500M · Seventh Gen ~$700M</span></td>
+        <td style="padding:14px 14px; border-bottom:1px solid var(--bmd); font-family:'DM Mono',monospace; font-size:11px; color:var(--amber-deep); white-space:nowrap;">2030-2032</td>
+        <td style="padding:14px 14px; border-bottom:1px solid var(--bmd); font-family:'DM Mono',monospace; color:var(--olive);">$50-100M+</td>
+        <td style="padding:14px 14px; border-bottom:1px solid var(--bmd); font-size:12.5px;"><strong>5-7x sales</strong> band · premium-segment platform plays</td>
+        <td style="padding:14px 14px; border-bottom:1px solid var(--bmd); font-family:'Instrument Serif',serif; font-size:18px; color:var(--amber-deep);">$250M-$700M</td>
+      </tr>
+      <tr style="background:linear-gradient(135deg,rgba(79,168,106,0.10),rgba(74,82,64,0.08));">
+        <td style="padding:14px 14px; border-bottom:1px solid var(--bmd); vertical-align:top;"><strong style="font-family:'Instrument Serif',serif; font-size:16px; font-weight:500;">L'Oréal upside</strong><br><span style="font-size:11px; color:var(--muted);">Aesop $2.525B (4.7x on $537M)</span></td>
+        <td style="padding:14px 14px; border-bottom:1px solid var(--bmd); font-family:'DM Mono',monospace; font-size:11px; color:var(--amber-deep); white-space:nowrap;">2031-2033+</td>
+        <td style="padding:14px 14px; border-bottom:1px solid var(--bmd); font-family:'DM Mono',monospace; color:var(--olive);">$100M+ multi-country</td>
+        <td style="padding:14px 14px; border-bottom:1px solid var(--bmd); font-size:12.5px;"><strong>4.7x sales</strong> at scale · Aesop benchmark</td>
+        <td style="padding:14px 14px; border-bottom:1px solid var(--bmd); font-family:'Instrument Serif',serif; font-size:18px; color:var(--amber-deep);">$470M-$2.5B</td>
+      </tr>
+      <tr style="background:linear-gradient(135deg,rgba(79,168,106,0.10),rgba(74,82,64,0.08));">
+        <td style="padding:14px 14px; vertical-align:top;"><strong style="font-family:'Instrument Serif',serif; font-size:16px; font-weight:500;">Shiseido / Drunk Elephant</strong><br><span style="font-size:11px; color:var(--muted);">$845M on $120M = 8.5x</span></td>
+        <td style="padding:14px 14px; font-family:'DM Mono',monospace; font-size:11px; color:var(--amber-deep); white-space:nowrap;">2032+</td>
+        <td style="padding:14px 14px; font-family:'DM Mono',monospace; color:var(--olive);">$100M+</td>
+        <td style="padding:14px 14px; font-size:12.5px;"><strong>8.5x sales</strong> ceiling · clean prestige multiple</td>
+        <td style="padding:14px 14px; font-family:'Instrument Serif',serif; font-size:18px; color:var(--amber-deep);">$680M-$1.1B+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top:24px; padding:22px 28px; background:var(--ink); color:var(--cream); border-radius:12px; border-left:4px solid var(--amber);">
+    <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--amber); margin-bottom:10px;">Multiple drivers · what moves price up or down</div>
+    <div style="font-size:13.5px; line-height:1.7; color:rgba(245,241,232,.88);">1. <strong style="color:var(--amber);">EBITDA margin</strong> — Touchland exited at 42%. Below 25% kills the multiple. &nbsp;·&nbsp; 2. <strong style="color:var(--amber);">Refill % of revenue</strong> — recurring layer Touchland never had, justifies multiple expansion. &nbsp;·&nbsp; 3. <strong style="color:var(--amber);">Channel breadth</strong> — C&amp;B + Calm + 1-2 hospitality + 2nd retailer = the proof stack. &nbsp;·&nbsp; 4. <strong style="color:var(--amber);">Founder retained</strong> — C&amp;D pattern: Andrea Lisbona stayed. Lee retained = upside.</div>
+  </div>
+</div>
+
+
+<!-- RANKED TARGET STACK -->
+<div class="stack">
+  <span class="eyebrow">Ranked target stack · 5 acquirers · timing windows</span>
+  <h2 class="h2">Two-axis math.<br><em>Brand fit × timing readiness.</em></h2>
+
+  <div class="rank-grid">
+
+    <div class="rank-row">
+      <div class="rank-num">01</div>
+      <div class="rank-name">SC Johnson<em>5/5 · single-best fit</em></div>
+      <div class="rank-text">Method's evolution thesis lands directly. Refresh-cycle math says SCJ is overdue for an LSB addition (last 2018). Risk: private, opaque, deliberate. <strong>First contact via Method/Mrs. Meyer's BD network + SCJ Lifestyle Brands SF office.</strong></div>
+      <div class="rank-window">2029-2032</div>
+    </div>
+
+    <div class="rank-row">
+      <div class="rank-num">02</div>
+      <div class="rank-name">Church &amp; Dwight<em>5/5 · pattern-match</em></div>
+      <div class="rank-text">Most disciplined buyer in CPG. GESINE will satisfy public criteria by 2028 (#1 or #2 in premium home reset, 35%+ EBITDA, growing). <strong>C&amp;D needs to digest Touchland integration first.</strong> First contact via C&amp;D corporate dev post-Touchland-integration milestone (2027 earnings).</div>
+      <div class="rank-window">2028-2030</div>
+    </div>
+
+    <div class="rank-row">
+      <div class="rank-num">03</div>
+      <div class="rank-name">Unilever<em>4/5 · thesis convergence</em></div>
+      <div class="rank-text">Wild + Dr. Squatch + Seventh Generation playbook converges directly on GESINE. Brand fit very high; <strong>revenue threshold ($300M+ for new platform plays) higher.</strong> First contact via Unilever Prestige BD (Mary Carmen Gasco-Buisson) + Personal Care.</div>
+      <div class="rank-window">2030-2032</div>
+    </div>
+
+    <div class="rank-row">
+      <div class="rank-num">04</div>
+      <div class="rank-name">L Catterton<em>4/5 · BRIDGE</em></div>
+      <div class="rank-text">PE bridge to strategic. Provides growth capital at $25M-$50M revenue + runway to strategic-buyer threshold. <strong>Best near-term strategic option.</strong> Honest Co PIPE structure plausible. Faster decision cycle than strategics.</div>
+      <div class="rank-window">2026-2028</div>
+    </div>
+
+    <div class="rank-row">
+      <div class="rank-num">05</div>
+      <div class="rank-name">L'Oréal<em>4/5 · premium ceiling</em></div>
+      <div class="rank-text">Aesop comp is exact + L'Oréal pays highest multiples in beauty. Lower-probability path because L'Oréal currently focused on fragrance (Creed) + clinical (Galderma). <strong>Door reopens once next prestige body / home cycle starts.</strong></div>
+      <div class="rank-window">2031-2033</div>
+    </div>
+
+  </div>
+
+  <div class="timing">
+    <h4>Timing logic</h4>
+    <p>GESINE's Aug/Sept 2026 D2C launch + C&amp;B 2027 distribution implies <strong>2028 trailing twelve months</strong> = first acquirable data point. Strategic acquirer LOIs realistically arrive <strong>2029-2032</strong> depending on revenue trajectory. The PE bridge (L Catterton) sits earlier (<strong>2026-2028</strong>) and is the most actionable near-term path. C&amp;D and SCJ are the highest-conviction strategic targets and should be cultivated <strong>24+ months before anticipated transaction window.</strong></p>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

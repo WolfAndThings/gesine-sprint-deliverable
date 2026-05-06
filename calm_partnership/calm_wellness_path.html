@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){if(sessionStorage.getItem('gesine_unlock')==='1')return;var p=prompt('GESINE — enter password to view');if(p==='gesine2026'){sessionStorage.setItem('gesine_unlock','1');}else{document.documentElement.innerHTML='<body style="margin:0;padding:60px;font-family:sans-serif;text-align:center;background:#0F0E0C;color:#F5F1E8;font-size:18px;">Access required.</body>';}})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GESINE — Calm + Wellness Partnership Path</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --ink:#0F0E0C; --cream:#F8FAF6; --off:#E8EFE3; --soft:#D6E4D0;
+  --amber:#4FA86A; --amber-deep:#2D5F3F;
+  --olive:#4A5240; --sage:#7C8470;
+  --muted:#6F665A; --light:#9C9285;
+  --bmd:rgba(15,14,12,0.14); --bstr:rgba(15,14,12,0.20);
+}
+body { background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-serif; font-size:15px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+.page { max-width:1100px; margin:0 auto; padding:56px 48px 80px; }
+.doc-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:48px; padding-bottom:24px; border-bottom:2px solid var(--ink); }
+.wordmark { display:flex; align-items:center; gap:12px; }
+.logo-box { width:36px; height:36px; background:var(--ink); border-radius:8px; display:grid; place-items:center; color:var(--amber); font-family:'Instrument Serif',serif; font-size:20px; }
+.brand-name { font-family:'Instrument Serif',Georgia,serif; font-size:18px; letter-spacing:.02em; }
+.doc-meta { text-align:right; font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); line-height:2; }
+
+.hero { background:var(--ink); border-radius:16px; padding:44px 48px; margin-bottom:48px; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg, var(--amber), var(--sage)); }
+.hero-eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:rgba(245,241,232,.40); display:block; margin-bottom:16px; }
+.hero-headline { font-family:'Instrument Serif',serif; font-size:clamp(28px,3.6vw,38px); line-height:1.15; letter-spacing:-.02em; color:var(--cream); margin-bottom:18px; }
+.hero-headline em { color:var(--amber); font-style:italic; }
+.hero-body { font-size:15px; color:rgba(245,241,232,.72); line-height:1.7; font-weight:300; max-width:780px; }
+.hero-body strong { color:var(--cream); font-weight:500; }
+
+.section { margin-bottom:48px; }
+.eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:12px; }
+.h2 { font-family:'Instrument Serif',serif; font-size:clamp(24px,3vw,32px); line-height:1.15; letter-spacing:-.015em; color:var(--ink); margin-bottom:14px; }
+.h2 em { font-style:italic; }
+.body { font-size:14px; color:#2A2620; line-height:1.75; font-weight:300; max-width:880px; }
+.body strong { font-weight:600; color:var(--ink); }
+
+.alert { background:#2D5F3F; color:var(--cream); border-radius:14px; padding:24px 28px; margin-bottom:32px; border-left:4px solid var(--amber); }
+.alert .eyebrow-a { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:rgba(245,241,232,.7); margin-bottom:8px; display:block; }
+.alert h3 { font-family:'Instrument Serif',serif; font-size:18px; line-height:1.35; margin-bottom:8px; }
+.alert h3 strong { color:var(--cream); }
+.alert p { font-size:13px; line-height:1.65; opacity:.92; }
+
+.deal-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(360px,1fr)); gap:16px; margin-top:24px; }
+.deal { background:var(--off); border:1px solid var(--bstr); border-radius:12px; padding:22px 24px; }
+.deal.hot { background:linear-gradient(135deg,rgba(79,168,106,0.14),rgba(79,168,106,0.04)); border-color:var(--amber); }
+.deal.dead { background:rgba(15,14,12,0.04); border-style:dashed; opacity:.75; }
+.deal-head { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px; gap:10px; }
+.deal-name { font-family:'Instrument Serif',serif; font-size:18px; line-height:1.2; }
+.deal-when { font-family:'DM Mono',monospace; font-size:9.5px; color:var(--amber-deep); white-space:nowrap; padding-top:4px; }
+.deal-tag { font-family:'DM Mono',monospace; font-size:9.5px; padding:3px 9px; background:var(--ink); color:var(--cream); border-radius:99px; letter-spacing:.1em; text-transform:uppercase; }
+.deal-tag.live { background:var(--olive); }
+.deal-tag.exp { background:var(--muted); }
+.deal-tag.fake { background:#C03E2C; }
+.deal-body { font-size:13px; line-height:1.6; color:#2A2620; }
+.deal-body strong { color:var(--ink); }
+.deal-src { font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); margin-top:8px; }
+.deal-src a { color:var(--amber-deep); text-decoration:none; }
+.deal-src a:hover { text-decoration:underline; }
+
+.callout { background:linear-gradient(135deg, var(--amber-deep) 0%, var(--olive) 100%); color:var(--cream); border-radius:14px; padding:32px 36px; margin:32px 0; }
+.callout .eyebrow { color:rgba(245,241,232,.5); }
+.callout .h2 { color:var(--cream); }
+.callout .h2 em { color:var(--cream); }
+.callout .body { color:rgba(245,241,232,.85); max-width:none; }
+.callout .body strong { color:var(--cream); }
+
+.timeline-grid { display:grid; grid-template-columns:140px 1fr; gap:14px; margin-bottom:14px; }
+.tl-col { background:var(--ink); color:var(--cream); padding:20px 22px; border-radius:12px; }
+.tl-eye { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; color:var(--amber); margin-bottom:6px; display:block; }
+.tl-when { font-family:'Instrument Serif',serif; font-size:22px; line-height:1.1; margin-bottom:4px; color:var(--cream); }
+.tl-month { font-family:'DM Mono',monospace; font-size:11px; color:rgba(245,241,232,.6); }
+.tl-list { background:var(--off); border:1px solid var(--bstr); border-radius:12px; padding:20px 24px; font-size:13.5px; line-height:1.65; color:#2A2620; }
+.tl-list strong { color:var(--ink); }
+
+.path-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px; margin-top:20px; }
+.path { background:var(--off); border:1px solid var(--bstr); border-radius:12px; padding:20px 22px; }
+.path-num { font-family:'DM Mono',monospace; font-size:10px; color:var(--amber-deep); letter-spacing:.16em; margin-bottom:8px; display:block; }
+.path-name { font-family:'Instrument Serif',serif; font-size:17px; margin-bottom:6px; }
+.path-body { font-size:12.5px; line-height:1.6; color:#2A2620; }
+.path-body strong { color:var(--ink); }
+
+.risk { background:rgba(192,62,44,0.08); border-left:4px solid #C03E2C; padding:20px 24px; border-radius:0 12px 12px 0; margin-top:24px; }
+.risk h4 { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.16em; color:#C03E2C; text-transform:uppercase; margin-bottom:8px; }
+.risk p { font-size:13px; line-height:1.65; color:#2A2620; }
+.risk p strong { color:var(--ink); }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="doc-header">
+  <div class="wordmark">
+    <div class="logo-box">G</div>
+    <span class="brand-name">GESINE</span>
+  </div>
+  <div class="doc-meta">
+    PHASE 2 · INVESTOR<br>
+    CALM + WELLNESS PATH<br>
+    MAY 2026
+  </div>
+</header>
+
+<section class="hero">
+  <span class="hero-eyebrow">Wellness partnership precedent · co-positioning roadmap</span>
+  <h1 class="hero-headline">Calm has never done a retail CPG SKU.<br><em>GESINE arrives at the right moment.</em></h1>
+  <p class="hero-body"><strong>Calm hired Joe Lawson (ex-Netflix / DreamWorks / 21CF) as Head of Licensing in 2025</strong> and explicitly debuted at Licensing Expo 2025 with a wellness-licensing pitch. The door is open for co-branded SKUs <strong>for the first time</strong>. Calm's existing partnerships — Amex, Lincoln, Hilton, Xbox, AA — are content licensing + cardmember perks, not retail CPG. <strong>GESINE could be the test case.</strong> Realistic intro-to-launch: 9-14 months. Treat as upside, not gating — build the brand to stand alone.</p>
+</section>
+
+<div class="alert">
+  <span class="eyebrow-a">Deck correction · Lululemon NOT a Calm partner</span>
+  <h3>The "Lululemon x Calm" deck reference is wrong.</h3>
+  <p>Lululemon's "CALM" partnership refers to the UK suicide-prevention charity <strong>Campaign Against Living Miserably</strong>, not Calm-the-app. Source: <a style="color:#F5F1E8; border-bottom:1px dotted rgba(245,241,232,.5); text-decoration:none;" href="https://corporate.lululemon.com/~/media/Files/L/Lululemon/our-impact/gwb-partnerships-list-en-2024.pdf">Lululemon GWB Partnerships PDF</a>. Strike from any future deck mention.</p>
+</div>
+
+<div class="section">
+  <span class="eyebrow">Calm partnership history · 2018-2026</span>
+  <h2 class="h2">Every major deal Calm has signed.</h2>
+
+  <div class="deal-grid">
+
+    <div class="deal hot">
+      <div class="deal-head"><div><div class="deal-name">Lincoln Motor Co.</div><div class="deal-when">Aug 2020 - present · 5+ yrs</div></div><span class="deal-tag live">Co-brand SKU</span></div>
+      <div class="deal-body">Started "Lincoln Retreat" content series → expanded to "Rejuvenate" in-vehicle theme → June 2025 launched <strong>"Elevated Journey"</strong> Lincoln-exclusive in-vehicle Calm app on Lincoln Digital Experience. Owners get complimentary 1-yr Calm Premium. Multi-renewal. <strong>Closest GESINE template.</strong></div>
+      <div class="deal-src">SRC · <a href="https://media.lincoln.com/content/lincolnmedia/lna/us/en/news/2025/06/26/lincoln-and-calm-bring-mindfulness-to-the-road.html">Lincoln 2025</a> · <a href="https://www.mediapost.com/publications/article/406981/lincoln-partners-with-calm-for-in-vehicle-meditati.html">MediaPost</a></div>
+    </div>
+
+    <div class="deal">
+      <div class="deal-head"><div><div class="deal-name">American Express</div><div class="deal-when">2020 - present</div></div><span class="deal-tag live">Cardmember perk</span></div>
+      <div class="deal-body">1-yr free Calm Premium for new cardmembers + discounted renewal. Plus physical <strong>Centurion Lounge wellness areas (Houston)</strong> co-branded — closest physical-space precedent. Initiator: Amex (vs Chase Sapphire arms race).</div>
+      <div class="deal-src">SRC · <a href="https://about.americanexpress.com/all-news/news-details/2022/American-Express-x-Calm-Share-Wellness-Tips-for-a-Mindful-Travel-Journey/default.aspx">Amex News</a></div>
+    </div>
+
+    <div class="deal hot">
+      <div class="deal-head"><div><div class="deal-name">Hilton</div><div class="deal-when">March 2025</div></div><span class="deal-tag live">Hospitality at scale</span></div>
+      <div class="deal-body">Calm content integrated into Hilton's <strong>Connected Room TV/IoT system</strong> across portfolio. Closest analog to a CPG-style placement at scale. <em>Proves hospitality vertical is hot for Calm right now.</em></div>
+      <div class="deal-src">SRC · <a href="https://stories.hilton.com/releases/hilton-and-calm-partner-to-address-wellness-demand">Hilton Newsroom</a></div>
+    </div>
+
+    <div class="deal">
+      <div class="deal-head"><div><div class="deal-name">American Airlines</div><div class="deal-when">Sept 2018</div></div><span class="deal-tag live">Content licensing</span></div>
+      <div class="deal-body">FIRST airline partner for Calm. Three sessions custom-built for AA seatback + personal device viewing. Calm soothing-nature scenes integrated into boarding videos. AA approached Calm post-Apple App of the Year 2017.</div>
+      <div class="deal-src">SRC · <a href="https://www.cnbc.com/2018/09/25/american-airlines-offers-meditation-app-calm-to-stressed-out-passengers.html">CNBC</a></div>
+    </div>
+
+    <div class="deal dead">
+      <div class="deal-head"><div><div class="deal-name">Xbox / Microsoft</div><div class="deal-when">Dec 2022 · expired May 2024</div></div><span class="deal-tag exp">Expired</span></div>
+      <div class="deal-body">Content swap + bundled subscription. Calm built first-ever video-game-soundscape meditations using Halo Infinite + Sea of Thieves audio. Game Pass Ultimate subs got 3 mo free + 50% off. <em>No co-branded controller.</em></div>
+      <div class="deal-src">SRC · <a href="https://www.geekwire.com/2022/video-game-fans-be-calm-xbox-partners-with-relaxation-app-to-offer-immersive-soundscapes/">GeekWire</a></div>
+    </div>
+
+    <div class="deal">
+      <div class="deal-head"><div><div class="deal-name">Adidas · Paramount</div><div class="deal-when">Ongoing</div></div><span class="deal-tag live">Flagship deals</span></div>
+      <div class="deal-body">Cited by Calm's new Head of Licensing Joe Lawson as flagship deals; details not public. Adidas partnership = potential warm-intro path if GESINE design firm has overlap.</div>
+      <div class="deal-src">SRC · <a href="https://www.licenseglobal.com/lifestyle/10-minutes-with-calm-as-it-charts-a-licensing-driven-path-to-brand-expansion">License Global</a></div>
+    </div>
+
+    <div class="deal dead">
+      <div class="deal-head"><div><div class="deal-name">Lululemon</div><div class="deal-when">N/A</div></div><span class="deal-tag fake">FALSE</span></div>
+      <div class="deal-body">Not a partner. The Lululemon "CALM" reference points to UK charity <strong>Campaign Against Living Miserably</strong>. Different org. Strike from any deck.</div>
+      <div class="deal-src">SRC · <a href="https://corporate.lululemon.com/~/media/Files/L/Lululemon/our-impact/gwb-partnerships-list-en-2024.pdf">Lululemon GWB PDF</a></div>
+    </div>
+
+  </div>
+</div>
+
+<div class="callout">
+  <span class="eyebrow">The unlock · May 2025 hire</span>
+  <h2 class="h2">Joe Lawson, Head of Licensing.</h2>
+  <p class="body"><strong>Calm hired Joe Lawson (ex-Netflix / DreamWorks / 21CF) in 2025 specifically to build a wellness-licensing program.</strong> Calm debuted at Licensing Expo 2025 with the explicit pitch: physical co-branded SKUs are open for the first time. He needs proof points for his new role. <strong>GESINE arrives at the right moment.</strong> Direct LinkedIn outreach is the play — not the partnerships@calm.com inbox.</p>
+</div>
+
+<div class="section">
+  <span class="eyebrow">Calm vs Headspace style</span>
+  <h2 class="h2">Two playbooks.</h2>
+
+  <div class="deal-grid">
+    <div class="deal">
+      <div class="deal-head"><div class="deal-name">Calm</div><span class="deal-tag">Cardmember + lifestyle</span></div>
+      <div class="deal-body">Cardmember/benefit perks (Amex) + lifestyle integrations (Lincoln · Hilton · Amex). Just hired licensing exec to push toward physical co-branded SKUs. <strong>No retail CPG SKU yet.</strong></div>
+    </div>
+    <div class="deal">
+      <div class="deal-head"><div class="deal-name">Headspace</div><span class="deal-tag">Content embed + physical</span></div>
+      <div class="deal-body">Embedded content inside partner apps (Nike, Spotify) + physical product (<strong>Random House × Sesame Workshop</strong>: 6 books, 45M YouTube views, Emmy-nominated podcast). Best precedent for app-to-physical-product expansion.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <span class="eyebrow">Hospitality scent precedent · the gold standard</span>
+  <h2 class="h2">Le Labo × EDITION = the model.</h2>
+
+  <div class="deal-grid">
+    <div class="deal hot">
+      <div class="deal-head"><div><div class="deal-name">Le Labo × EDITION</div><div class="deal-when">2008 - present</div></div><span class="deal-tag live">Gold standard</span></div>
+      <div class="deal-body">Custom signature scent: <strong>black tea + bergamot</strong>. Bath line (shampoo · conditioner · gel · lotion) + candle + diffuser. Sold on shop.editionhotels.com + shop.marriott.com. Sourced via Schrager's direct relationship with Le Labo founders Roschi + Penot.</div>
+      <div class="deal-src">SRC · <a href="https://www.editionhotels.com/collaborations/">EDITION Collaborations</a></div>
+    </div>
+    <div class="deal">
+      <div class="deal-head"><div><div class="deal-name">Diptyque × Ritz-Carlton</div><div class="deal-when">Global</div></div><span class="deal-tag live">Hospitality</span></div>
+      <div class="deal-body">Philosykos signature. Diptyque became global bath amenity partner. <strong>Co-branded gift sets sold at ritzcarltonshops.com.</strong></div>
+      <div class="deal-src">SRC · <a href="https://www.ritzcarltonshops.com/category.aspx?Diptyque-Collection=">Ritz-Carlton Shops</a></div>
+    </div>
+    <div class="deal">
+      <div class="deal-head"><div><div class="deal-name">Diptyque × The Dominick (NYC)</div><span class="deal-tag live">Full sensory</span></div></div>
+      <div class="deal-body">Lobby diffusion + in-room amenities + penthouse gifts + minibar SKUs. Full sensory program, retail-attached.</div>
+      <div class="deal-src">SRC · <a href="https://www.thedominickhotel.com/diptyque">The Dominick</a></div>
+    </div>
+    <div class="deal">
+      <div class="deal-head"><div><div class="deal-name">Aesop Amenity Partners</div><span class="deal-tag live">Channel only</span></div></div>
+      <div class="deal-body">Confirmed: Park Hyatt Tokyo · Seoul · Sydney · Melbourne · Waldorf Astoria global program. <strong>Aesop almost never co-brands consumer SKUs.</strong> Hotel program only. Per-room pricing not public.</div>
+      <div class="deal-src">SRC · <a href="https://www.aesop.com/amenity-partners.html">Aesop</a></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <span class="eyebrow">Co-branded CPG comp · what works</span>
+  <h2 class="h2">Heinz × Absolut · the playbook.</h2>
+
+  <div class="deal hot" style="max-width:720px;">
+    <div class="deal-head"><div><div class="deal-name">Heinz × Absolut "Tomato Vodka Pasta Sauce"</div><div class="deal-when">April 2023</div></div><span class="deal-tag live">Limited edition</span></div>
+    <div class="deal-body">£2.50/350g jar · Waitrose + heinztohome.co.uk only. <strong>Result: 55 units/store/week vs 7-unit category avg. +52% sales bump in 2 months. Range overtook ketchup as Heinz #1.</strong> Both brands kept identity · co-typography on jar · #AbsolutelyHeinz OOH in London. Limited-edition framing drove urgency. <strong>Brief-to-shelf: ~9 months.</strong></div>
+    <div class="deal-src">SRC · <a href="https://www.marketingweek.com/heinz-absolut-turbocharge-sales/">Marketing Week</a> · <a href="https://www.thedrum.com/news/2023/05/31/inside-the-viral-heinz-x-absolut-tie-up-sent-pasta-sauces-sales-soaring">The Drum</a></div>
+  </div>
+
+  <div class="deal dead" style="max-width:720px; margin-top:14px;">
+    <div class="deal-head"><div class="deal-name">DedCool × Crocs · Glossier × Olive Garden</div><span class="deal-tag fake">No public source</span></div>
+    <div class="deal-body">Both flagged unverifiable. Likely confused with: DedCool × Stoney Clover Lane / Glossier "You Soie" + "You Doux" in-house expansions. Strike both from any future deck mention.</div>
+  </div>
+</div>
+
+<div class="section">
+  <span class="eyebrow">5 warm-intro paths to Calm</span>
+  <h2 class="h2">Routes Lee can work this week.</h2>
+
+  <div class="path-grid">
+    <div class="path">
+      <span class="path-num">PATH 01 · BEST</span>
+      <div class="path-name">Joe Lawson · direct LinkedIn</div>
+      <div class="path-body">Crate &amp; Barrel POS commitment letter as the hook. <strong>He needs proof points for his new role.</strong> Specific ask: 20-min discovery on whether wellness physical-ritual SKU fits Calm's licensing roadmap.</div>
+    </div>
+    <div class="path">
+      <span class="path-num">PATH 02</span>
+      <div class="path-name">C&amp;B brand-partnerships team</div>
+      <div class="path-body">If C&amp;B sponsors GESINE shelf placement, they become warm intro to Calm via their own brand-partnerships team.</div>
+    </div>
+    <div class="path">
+      <span class="path-num">PATH 03</span>
+      <div class="path-name">Shared-investor mapping</div>
+      <div class="path-body">Calm is backed by <strong>Lightspeed · Insight · TPG.</strong> Cross-check GESINE's Q4 cap-table targets against their portfolios.</div>
+    </div>
+    <div class="path">
+      <span class="path-num">PATH 04</span>
+      <div class="path-name">Hilton path</div>
+      <div class="path-body">Calm's 2025 Hilton deal proves hospitality is hot. A GESINE-Hilton in-room placement pitch would interest Calm directly.</div>
+    </div>
+    <div class="path">
+      <span class="path-num">PATH 05</span>
+      <div class="path-name">Adidas overlap</div>
+      <div class="path-body">Calm's adidas partner contact may know GESINE's industrial designer if there's overlap.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <span class="eyebrow">12-month roadmap · realistic</span>
+  <h2 class="h2">May 2026 → April 2027.</h2>
+
+  <div class="timeline-grid">
+    <div class="tl-col"><span class="tl-eye">Mo 1-2</span><div class="tl-when">Lock proof</div><div class="tl-month">May-Jun 2026</div></div>
+    <div class="tl-list">Lock proof points before any outreach. <strong>C&amp;B LOI · 2 hospitality LOIs (Sydell · Standard · Auberge)</strong> · founder narrative deck (250 words, no slides) · internal product photography of refillable bottle + scent capsule on real bathroom counters.</div>
+  </div>
+
+  <div class="timeline-grid">
+    <div class="tl-col" style="background:var(--olive);"><span class="tl-eye">Mo 3-4</span><div class="tl-when">Warm intro</div><div class="tl-month">Jul-Aug 2026</div></div>
+    <div class="tl-list">Map Calm cap table vs GESINE's. Identify 3 mutual-investor routes. <strong>Cold-warm Joe Lawson via LinkedIn.</strong> Parallel: get C&amp;B buyer to host a Calm intro lunch.</div>
+  </div>
+
+  <div class="timeline-grid">
+    <div class="tl-col" style="background:var(--amber-deep);"><span class="tl-eye">Mo 5-6</span><div class="tl-when">Discovery</div><div class="tl-month">Sept-Oct 2026</div></div>
+    <div class="tl-list">Joint-creative session with Calm content team (modeled on Lincoln "Recharge on the Road" workshop). Define what a Calm-branded GESINE Organizer Set looks like. <strong>Which scent · which Calm session ID lives on the bottle (QR-linked Daily Reset, 5 min)</strong> · what's on shelf vs Calm-app exclusive.</div>
+  </div>
+
+  <div class="timeline-grid">
+    <div class="tl-col" style="background:var(--ink);"><span class="tl-eye">Mo 7-9</span><div class="tl-when">Term sheet</div><div class="tl-month">Nov 2026 - Jan 2027</div></div>
+    <div class="tl-list">Term sheet. Standard licensing royalty <strong>5-12% wholesale</strong> + co-marketing minimum + content rights for one Calm session. GESINE owns SKU + manufacturing + distribution. Calm provides session + name + marks + one in-app feature window.</div>
+  </div>
+
+  <div class="timeline-grid">
+    <div class="tl-col" style="background:var(--sage);"><span class="tl-eye">Mo 10-12</span><div class="tl-when">Build + launch</div><div class="tl-month">Feb-Apr 2027</div></div>
+    <div class="tl-list">Q1 2027 production run sized to C&amp;B forecast + 1 hospitality channel. <strong>Soft launch via Calm's email list (target subset) + C&amp;B endcap.</strong> Full retail Q2 2027.</div>
+  </div>
+</div>
+
+<div class="risk">
+  <h4>Investor risk · flag explicitly</h4>
+  <p><strong>Calm has never done a retail-CPG co-branded SKU.</strong> GESINE may be the test case. Treat the deal as upside, not gating. <strong>Build the brand to stand alone.</strong> Cost of entry is bespoke — no public rate card. Industry comps: app-bundle/perk deals (Amex, Xbox) typically rev-share + co-marketing minimum (no public dollar figures); co-branded content series (Lincoln) low-six to low-seven-figure annual content fee + co-marketing commitment (estimated, no public source); physical co-branded SKU (Headspace × Random House model) standard licensing royalty 5-12% wholesale + advance (estimated, no Calm-specific source).</p>
+</div>
+
+</div>
+</body>
+</html>

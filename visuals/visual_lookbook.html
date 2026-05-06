@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){if(sessionStorage.getItem('gesine_unlock')==='1')return;var p=prompt('GESINE — enter password to view');if(p==='gesine2026'){sessionStorage.setItem('gesine_unlock','1');}else{document.documentElement.innerHTML='<body style="margin:0;padding:60px;font-family:sans-serif;text-align:center;background:#0F0E0C;color:#F5F1E8;font-size:18px;">Access required.</body>';}})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>GESINE — 10 AI Visual Lookbook Concepts</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --ink:#0F0E0C; --dark:#1A1814;
+  --cream:#F8FAF6; --off:#E8EFE3; --soft:#D6E4D0;
+  --amber:#4FA86A; --amber-deep:#2D5F3F;
+  --olive:#4A5240; --sage:#7C8470;
+  --muted:#6F665A; --light:#9C9285;
+  --border:rgba(15,14,12,0.08); --bmd:rgba(15,14,12,0.14); --bstr:rgba(15,14,12,0.20);
+}
+body { background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-serif; font-size:15px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+.page { max-width:1040px; margin:0 auto; padding:56px 48px 80px; }
+
+.doc-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:48px; padding-bottom:24px; border-bottom:2px solid var(--ink); }
+.wordmark { display:flex; align-items:center; gap:12px; }
+.logo-box { width:36px; height:36px; background:var(--ink); border-radius:8px; display:grid; place-items:center; }
+.brand-name { font-family:'Instrument Serif',Georgia,serif; font-size:18px; letter-spacing:.02em; }
+.doc-meta { text-align:right; font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); line-height:2; }
+
+.hero { background:var(--ink); border-radius:16px; padding:44px 48px; margin-bottom:48px; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg, var(--amber), var(--sage)); }
+.hero-eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:rgba(245,241,232,.40); display:block; margin-bottom:16px; }
+.hero-headline { font-family:'Instrument Serif',Georgia,serif; font-size:clamp(28px,3.6vw,38px); line-height:1.15; letter-spacing:-.02em; color:var(--cream); margin-bottom:18px; }
+.hero-headline em { color:var(--amber); font-style:italic; }
+.hero-body { font-size:15px; color:rgba(245,241,232,.72); line-height:1.7; font-weight:300; max-width:680px; }
+.hero-body strong { color:var(--cream); font-weight:500; }
+
+.section { margin-bottom:56px; }
+.eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:12px; }
+.h2 { font-family:'Instrument Serif',Georgia,serif; font-size:clamp(24px,3vw,32px); line-height:1.15; letter-spacing:-.015em; color:var(--ink); margin-bottom:14px; }
+.h2 em { font-style:italic; }
+.body { font-size:14px; color:#2A2620; line-height:1.75; font-weight:300; max-width:720px; }
+.body strong { font-weight:600; color:var(--ink); }
+
+/* CONCEPT */
+.concept { background:var(--cream); border:1px solid var(--bstr); border-radius:18px; overflow:hidden; margin-bottom:18px; }
+.concept-head { padding:24px 32px; display:grid; grid-template-columns:1fr auto; gap:24px; align-items:center; border-bottom:1px solid var(--bmd); background:linear-gradient(135deg, rgba(79,168,106,0.05) 0%, rgba(124,132,112,0.02) 100%); }
+.concept-num { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; color:var(--amber-deep); margin-bottom:6px; display:block; }
+.concept-name { font-family:'Instrument Serif',Georgia,serif; font-size:26px; line-height:1.1; letter-spacing:-.015em; color:var(--ink); margin-bottom:6px; }
+.concept-name em { font-style:italic; color:var(--amber-deep); }
+.concept-tag { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); padding:5px 10px; background:rgba(15,14,12,0.06); border-radius:6px; display:inline-block; }
+
+.swatch-row { display:flex; gap:6px; align-items:center; }
+.swatch-mini { width:32px; height:32px; border-radius:6px; border:1px solid rgba(15,14,12,0.08); }
+
+.concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:0; }
+.concept-cell { padding:20px 32px; border-right:1px solid var(--bmd); border-bottom:1px solid var(--bmd); }
+.concept-cell:nth-child(2n) { border-right:none; }
+.concept-cell.full { grid-column:1 / -1; border-right:none; border-bottom:none; }
+.concept-cell:nth-last-child(2):not(.full) { border-bottom:none; }
+.cc-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; display:block; }
+.cc-text { font-size:13px; color:#2A2620; line-height:1.55; font-weight:400; }
+.cc-text strong { color:var(--ink); font-weight:600; }
+.cc-text em { color:var(--amber-deep); font-style:italic; }
+
+.prompt-box { background:var(--ink); padding:24px 32px; color:var(--cream); }
+.prompt-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.22em; text-transform:uppercase; color:var(--amber); margin-bottom:12px; display:block; }
+.prompt-engine { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.16em; color:var(--amber); padding:3px 8px; background:rgba(79,168,106,0.18); border-radius:5px; display:inline-block; margin-bottom:10px; }
+.prompt-text { font-family:'DM Mono',monospace; font-size:12px; color:rgba(245,241,232,0.92); line-height:1.65; font-weight:400; white-space:pre-wrap; }
+
+.doc-footer { margin-top:64px; padding-top:24px; border-top:2px solid var(--ink); display:flex; justify-content:space-between; align-items:center; }
+.ft-l { font-size:12px; color:var(--muted); }
+.ft-r { font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); }
+
+@media(max-width:760px) {
+  .page { padding:36px 20px 64px; }
+  .doc-header { flex-direction:column; align-items:flex-start; gap:14px; }
+  .hero { padding:30px 24px; }
+  .concept-head { grid-template-columns:1fr; padding:20px 22px; }
+  .concept-grid { grid-template-columns:1fr; }
+  .concept-cell { border-right:none; padding:18px 22px; }
+  .prompt-box { padding:18px 22px; }
+  .doc-footer { flex-direction:column; gap:12px; align-items:flex-start; }
+}
+@media print { body { background:#fff; } .page { padding:24px; } .hero, .prompt-box { -webkit-print-color-adjust:exact; print-color-adjust:exact; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="doc-header">
+  <div class="wordmark">
+    <div class="logo-box">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <circle cx="9" cy="9" r="7" stroke="#4FA86A" stroke-width="1.5" fill="none"/>
+        <circle cx="9" cy="9" r="3" fill="#4FA86A"/>
+      </svg>
+    </div>
+    <span class="brand-name">GESINE &times; Alex Lamb</span>
+  </div>
+  <div class="doc-meta">Deliverable 07 &middot; AI Visual Lookbook Concepts<br>Foundation Sprint &middot; May 2026</div>
+</header>
+
+<div class="hero">
+  <span class="hero-eyebrow">&#9670; Ten visual concepts ready for AI generation at scale</span>
+  <div class="hero-headline">
+    The image library<br>
+    <em>that builds the brand.</em>
+  </div>
+  <div class="hero-body">
+    Every concept below is engineered to be reproduced by NanoBanana 2 or ChatGPT Images at full resolution, on demand, in a consistent visual language. Each entry includes the use case, a mood swatch row, camera notes, and a <strong>drop-in prompt brief</strong> ready for the generator. Output target: a 100&plus;-image library spanning paid ads, hero shots, packaging mocks, gifting renders, and retail mockups &mdash; <em>all without a single photo shoot.</em>
+  </div>
+</div>
+
+<!-- CONCEPT 1 -->
+<section class="section">
+  <span class="eyebrow">&#9670; Concept 01 / 10</span>
+  <div class="concept">
+    <div class="concept-head">
+      <div>
+        <span class="concept-num">CONCEPT 01</span>
+        <div class="concept-name">Bedside Table <em>Reset</em></div>
+        <span class="concept-tag">Hero shot &middot; D2C web</span>
+      </div>
+      <div class="swatch-row">
+        <div class="swatch-mini" style="background:#1A1814;" title="Charcoal linen"></div>
+        <div class="swatch-mini" style="background:#4FA86A;" title="Amber"></div>
+        <div class="swatch-mini" style="background:#E0D8C7;" title="Soft cream"></div>
+      </div>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-cell">
+        <span class="cc-label">Setting</span>
+        <div class="cc-text">Walnut nightstand, charcoal linen sheet edge in frame, single brass-pull lamp with warm 2700K glow. Brooklyn loft window light bouncing off the wall.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Mood</span>
+        <div class="cc-text"><em>End-of-day exhale.</em> Quiet, slow, expensive but lived-in. The exact second before the lamp clicks off.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Surface palette</span>
+        <div class="cc-text">Walnut grain &middot; charcoal linen &middot; cream wall paint &middot; brass detail.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Camera notes</span>
+        <div class="cc-text">85mm equivalent, eye-level with the bottle, shallow f/2.0 with falloff to the lamp. Real grain, slight haze from a 2700K source.</div>
+      </div>
+      <div class="concept-cell full">
+        <span class="cc-label">Use case</span>
+        <div class="cc-text"><strong>Hero shot for D2C nightstand SKU page</strong> &middot; paid social static &middot; Sunday Reset newsletter.</div>
+      </div>
+    </div>
+    <div class="prompt-box">
+      <span class="prompt-label">&#9670; Prompt-ready brief</span>
+      <span class="prompt-engine">NanoBanana 2 &middot; 2:3</span>
+      <div class="prompt-text">Editorial still life. Sculptural matte ceramic spray bottle in bone color sitting on a walnut nightstand. Beside it: a single brass-pull lamp casting warm 2700K light, a folded charcoal linen sheet edge in frame. Cream wall in soft falloff behind. Brooklyn loft, late evening, window dark. Shot on 85mm equivalent at f/2.0, slight grain, real Kodak Portra texture, no AI-perfect surfaces. The bottle is the hero, the lamp is the cue. End-of-day exhale. No logos. Vertical composition.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPT 2 -->
+<section class="section">
+  <span class="eyebrow">&#9670; Concept 02 / 10</span>
+  <div class="concept">
+    <div class="concept-head">
+      <div>
+        <span class="concept-num">CONCEPT 02</span>
+        <div class="concept-name">Hotel <em>Turndown Ritual</em></div>
+        <span class="concept-tag">Paid ad &middot; B2B hospitality</span>
+      </div>
+      <div class="swatch-row">
+        <div class="swatch-mini" style="background:#F5F1E8;"></div>
+        <div class="swatch-mini" style="background:#7C8470;"></div>
+        <div class="swatch-mini" style="background:#2C2520;"></div>
+      </div>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-cell">
+        <span class="cc-label">Setting</span>
+        <div class="cc-text">Boutique hotel suite, white linen turn-down. Spray bottle and a folded note on the dresser. View of city dusk through sheer curtain.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Mood</span>
+        <div class="cc-text"><em>Quiet hospitality.</em> Performed without speaking. Standard Hotel meets Aman.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Surface palette</span>
+        <div class="cc-text">White linen &middot; sage green wall &middot; dark walnut dresser &middot; brass tray detail.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Camera notes</span>
+        <div class="cc-text">35mm wide, eye-level with the dresser, deep depth of field. Subtle lens flare from window. Slow motion video-still vibe.</div>
+      </div>
+      <div class="concept-cell full">
+        <span class="cc-label">Use case</span>
+        <div class="cc-text"><strong>B2B sales deck hero</strong> &middot; hotel ops outbound emails &middot; concept 03 reference (Hotel Room Ritual gifting).</div>
+      </div>
+    </div>
+    <div class="prompt-box">
+      <span class="prompt-label">&#9670; Prompt-ready brief</span>
+      <span class="prompt-engine">NanoBanana 2 &middot; 2:3</span>
+      <div class="prompt-text">Boutique hotel suite at dusk. White linen turn-down with corners pulled back. On the walnut dresser: a sculptural matte ceramic spray bottle next to a hand-folded note card and a brass tray. Sage green wall behind. Sheer curtain catches city lights through the window. Shot on 35mm at f/4, real grain, Aman x Standard Hotel quietness. Hand of housekeeper exiting frame at right edge. No logos. Editorial.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPT 3 -->
+<section class="section">
+  <span class="eyebrow">&#9670; Concept 03 / 10</span>
+  <div class="concept">
+    <div class="concept-head">
+      <div>
+        <span class="concept-num">CONCEPT 03</span>
+        <div class="concept-name">Empty Office <em>Pre-Meeting</em></div>
+        <span class="concept-tag">Paid ad &middot; Desk Reset</span>
+      </div>
+      <div class="swatch-row">
+        <div class="swatch-mini" style="background:#9C9285;"></div>
+        <div class="swatch-mini" style="background:#0F0E0C;"></div>
+        <div class="swatch-mini" style="background:#4FA86A;"></div>
+      </div>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-cell">
+        <span class="cc-label">Setting</span>
+        <div class="cc-text">Empty boutique conference room. Long oak table. One spray bottle, one matte black notebook, one ceramic mug. Glass walls behind.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Mood</span>
+        <div class="cc-text"><em>The 9am reset.</em> Anticipation. Calm before the meeting fills the room.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Surface palette</span>
+        <div class="cc-text">Light oak &middot; matte black &middot; cool concrete floor &middot; warm brass accent.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Camera notes</span>
+        <div class="cc-text">24mm wide, slight low angle to elongate the table, deep DoF. Cold morning light from oversized window left.</div>
+      </div>
+      <div class="concept-cell full">
+        <span class="cc-label">Use case</span>
+        <div class="cc-text"><strong>B2B agency outbound static ad</strong> &middot; Desk Reset gifting concept hero &middot; "ad 02 cleaning as ritual" 9am beat.</div>
+      </div>
+    </div>
+    <div class="prompt-box">
+      <span class="prompt-label">&#9670; Prompt-ready brief</span>
+      <span class="prompt-engine">NanoBanana 2 &middot; 16:9</span>
+      <div class="prompt-text">Empty boutique conference room. Long light oak table runs camera-left to camera-right. On the table: a sculptural matte black spray bottle, a closed black notebook, a ceramic mug with steam. Cool morning light from a left window. Glass partition behind, slightly out of focus. Concrete floor. Shot on 24mm at f/4, slight low angle, real grain. Pre-meeting calm. No logos. Vertical empty space above for ad copy overlay.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPT 4 -->
+<section class="section">
+  <span class="eyebrow">&#9670; Concept 04 / 10</span>
+  <div class="concept">
+    <div class="concept-head">
+      <div>
+        <span class="concept-num">CONCEPT 04</span>
+        <div class="concept-name">Aesop-Adjacent <em>Bath Shelf</em></div>
+        <span class="concept-tag">Hero shot &middot; status object</span>
+      </div>
+      <div class="swatch-row">
+        <div class="swatch-mini" style="background:#7A4F32;"></div>
+        <div class="swatch-mini" style="background:#EDE6D6;"></div>
+        <div class="swatch-mini" style="background:#1A1612;"></div>
+      </div>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-cell">
+        <span class="cc-label">Setting</span>
+        <div class="cc-text">Ceramic bath shelf with three objects: an Aesop hand wash, a Diptyque candle, and the GESINE bottle. The composition reads as "of one family."</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Mood</span>
+        <div class="cc-text"><em>Belongs.</em> Earned shelf real estate. The viewer's brain stops asking "what is that?"</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Surface palette</span>
+        <div class="cc-text">Apothecary amber &middot; cream tile &middot; black stoneware &middot; brushed brass faucet edge.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Camera notes</span>
+        <div class="cc-text">50mm equivalent, eye level, very shallow f/1.8 to keep middle bottle in tack focus. Bathroom diffuse skylight.</div>
+      </div>
+      <div class="concept-cell full">
+        <span class="cc-label">Use case</span>
+        <div class="cc-text"><strong>Status-object proof</strong> &middot; D2C hero on "Designed to be seen" landing page &middot; press kit visual.</div>
+      </div>
+    </div>
+    <div class="prompt-box">
+      <span class="prompt-label">&#9670; Prompt-ready brief</span>
+      <span class="prompt-engine">ChatGPT Images &middot; 2:3</span>
+      <div class="prompt-text">Editorial bath shelf composition, eye-level perspective. Three objects in line: an apothecary amber glass hand wash bottle (left), a sculptural matte ceramic spray bottle in bone color with subtle texture (center, in focus), a deep black ceramic candle vessel (right). Cream subway tile background, slight grout, brushed brass faucet just out of frame top-right. Soft skylight. 50mm at f/1.8. Real grain, no AI gloss. The three objects read as siblings. No labels visible.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPT 5 -->
+<section class="section">
+  <span class="eyebrow">&#9670; Concept 05 / 10</span>
+  <div class="concept">
+    <div class="concept-head">
+      <div>
+        <span class="concept-num">CONCEPT 05</span>
+        <div class="concept-name">Corporate <em>Gift Unboxing</em></div>
+        <span class="concept-tag">B2B render &middot; gifting deck</span>
+      </div>
+      <div class="swatch-row">
+        <div class="swatch-mini" style="background:#0F0E0C;"></div>
+        <div class="swatch-mini" style="background:#4FA86A;"></div>
+        <div class="swatch-mini" style="background:#F5F1E8;"></div>
+      </div>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-cell">
+        <span class="cc-label">Setting</span>
+        <div class="cc-text">Wax-sealed gift box on a designer desk. Box partly opened. Inside: bottle nested in cream tissue, hand-signed card visible, refill cartridge tucked beside. Co-branded foil on box lid.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Mood</span>
+        <div class="cc-text"><em>Worth the unbox.</em> Slow, intentional, photographable. The recipient is filming this.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Surface palette</span>
+        <div class="cc-text">Charcoal box &middot; cream tissue &middot; gold foil &middot; warm wood desk.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Camera notes</span>
+        <div class="cc-text">Top-down 90&deg;, slightly off-axis to show depth in box. Real ASMR unboxing energy. Daylight from above.</div>
+      </div>
+      <div class="concept-cell full">
+        <span class="cc-label">Use case</span>
+        <div class="cc-text"><strong>Gifting deck cover</strong> &middot; concierge platform listing &middot; LinkedIn outbound visual.</div>
+      </div>
+    </div>
+    <div class="prompt-box">
+      <span class="prompt-label">&#9670; Prompt-ready brief</span>
+      <span class="prompt-engine">NanoBanana 2 &middot; 4:5</span>
+      <div class="prompt-text">Top-down editorial flat lay. Charcoal wax-sealed gift box, lid open at 70 degrees. Inside, nested in cream tissue paper: a sculptural matte ceramic spray bottle, a folded hand-signed card, a small refill cartridge. Subtle gold foil monogram on the lid. Sitting on a warm walnut desk. Diffused daylight from above-left. Shot on 50mm equivalent at f/4, real grain, slight lift on shadows. ASMR unboxing tension. No brand name visible.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPT 6 -->
+<section class="section">
+  <span class="eyebrow">&#9670; Concept 06 / 10</span>
+  <div class="concept">
+    <div class="concept-head">
+      <div>
+        <span class="concept-num">CONCEPT 06</span>
+        <div class="concept-name">Sunday Reset <em>Aesthetic</em></div>
+        <span class="concept-tag">Reels still &middot; UGC</span>
+      </div>
+      <div class="swatch-row">
+        <div class="swatch-mini" style="background:#ECE6D9;"></div>
+        <div class="swatch-mini" style="background:#7C8470;"></div>
+        <div class="swatch-mini" style="background:#0F0E0C;"></div>
+      </div>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-cell">
+        <span class="cc-label">Setting</span>
+        <div class="cc-text">Sunday morning kitchen. Woman's hand holding the bottle mid-spray onto a marble counter. Sunlight streaks through window slats. Coffee cup steaming in soft focus background.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Mood</span>
+        <div class="cc-text"><em>Caught moment.</em> Real, unposed, "girl who actually cleans on Sunday." TikTok-native energy.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Surface palette</span>
+        <div class="cc-text">Marble &middot; sage tile &middot; cream linen &middot; oak cabinet edge.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Camera notes</span>
+        <div class="cc-text">35mm, slight tilt, low f/2.8. Lens flare from morning light. Reels-vertical composition.</div>
+      </div>
+      <div class="concept-cell full">
+        <span class="cc-label">Use case</span>
+        <div class="cc-text"><strong>Reels &amp; TikTok thumbnail</strong> &middot; UGC creator brief reference &middot; D2C "Sunday Reset" landing page.</div>
+      </div>
+    </div>
+    <div class="prompt-box">
+      <span class="prompt-label">&#9670; Prompt-ready brief</span>
+      <span class="prompt-engine">NanoBanana 2 &middot; 9:16</span>
+      <div class="prompt-text">Vertical 9:16 lifestyle still. Sunday morning kitchen. A woman's left hand mid-spray of a sculptural matte ceramic spray bottle, fine mist visible against backlight. Marble counter, sage subway tile backsplash, soft focus coffee cup steaming in background. Morning sunlight through window slats casting striped shadow on the counter. Shot on 35mm at f/2.8, real Portra grain, candid energy, no posed-influencer feel. Caught moment. No brand name visible.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPT 7 -->
+<section class="section">
+  <span class="eyebrow">&#9670; Concept 07 / 10</span>
+  <div class="concept">
+    <div class="concept-head">
+      <div>
+        <span class="concept-num">CONCEPT 07</span>
+        <div class="concept-name">Refill <em>Subscription Box</em></div>
+        <span class="concept-tag">Packaging &middot; e-commerce</span>
+      </div>
+      <div class="swatch-row">
+        <div class="swatch-mini" style="background:#E0D8C7;"></div>
+        <div class="swatch-mini" style="background:#2D5F3F;"></div>
+        <div class="swatch-mini" style="background:#4A5240;"></div>
+      </div>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-cell">
+        <span class="cc-label">Setting</span>
+        <div class="cc-text">Recycled molded-pulp shipping tray. Three refill cartridges visible &mdash; each labeled by scent, color-coded. Tucked card with the month's ritual note.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Mood</span>
+        <div class="cc-text"><em>Considered logistics.</em> The unboxing moment of a subscription &mdash; should rival Apple, not Amazon.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Surface palette</span>
+        <div class="cc-text">Cream pulp &middot; muted olive labels &middot; sage tabs &middot; warm amber detail.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Camera notes</span>
+        <div class="cc-text">Top-down, neutral diffused light, true colors. Light shadow detail to read "real packaging".</div>
+      </div>
+      <div class="concept-cell full">
+        <span class="cc-label">Use case</span>
+        <div class="cc-text"><strong>D2C subscription page hero</strong> &middot; investor deck unit-economics slide &middot; press packaging story.</div>
+      </div>
+    </div>
+    <div class="prompt-box">
+      <span class="prompt-label">&#9670; Prompt-ready brief</span>
+      <span class="prompt-engine">ChatGPT Images &middot; 1:1</span>
+      <div class="prompt-text">Top-down product photography. Cream molded-pulp recyclable shipping tray, opened. Three refill cartridges inside, each in a different muted scent color (cedar brown, citrus yellow, sage green) with minimalist label. A folded card slipped into the side reading the month's ritual note. Slight brand foil detail on cartridge tops. Diffused even light. Shot at f/8, real grain, true neutral color balance. Looks like a real product photo, not a render. No brand name visible.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPT 8 -->
+<section class="section">
+  <span class="eyebrow">&#9670; Concept 08 / 10</span>
+  <div class="concept">
+    <div class="concept-head">
+      <div>
+        <span class="concept-num">CONCEPT 08</span>
+        <div class="concept-name">Plastic-Free <em>Pantry Reveal</em></div>
+        <span class="concept-tag">Static ad &middot; Clean Home</span>
+      </div>
+      <div class="swatch-row">
+        <div class="swatch-mini" style="background:#F5EFE2;"></div>
+        <div class="swatch-mini" style="background:#7A8B3F;"></div>
+        <div class="swatch-mini" style="background:#3A3835;"></div>
+      </div>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-cell">
+        <span class="cc-label">Setting</span>
+        <div class="cc-text">Open pantry shelf, nothing in plastic. Glass jars, ceramic canisters. The GESINE bottle sits at eye level next to a refill cartridge. A plastic Clorox bottle is in the trash bin in foreground.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Mood</span>
+        <div class="cc-text"><em>Quiet upgrade.</em> No moralizing. Just the facts.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Surface palette</span>
+        <div class="cc-text">Cream wood shelf &middot; clear glass &middot; olive accent &middot; charcoal trash bin.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Camera notes</span>
+        <div class="cc-text">35mm, slightly elevated, balanced exposure. Daylight from kitchen window left.</div>
+      </div>
+      <div class="concept-cell full">
+        <span class="cc-label">Use case</span>
+        <div class="cc-text"><strong>"Safer home" ad 03 visual</strong> &middot; Clean Home Buyer landing page &middot; SEO meta image for "non-toxic cleaner".</div>
+      </div>
+    </div>
+    <div class="prompt-box">
+      <span class="prompt-label">&#9670; Prompt-ready brief</span>
+      <span class="prompt-engine">NanoBanana 2 &middot; 4:5</span>
+      <div class="prompt-text">Open pantry shelf in a quiet modern kitchen. Glass jars and ceramic canisters fill the shelf, no plastic visible. At eye level: a sculptural matte ceramic spray bottle and a refill cartridge sitting beside it. In the lower foreground, partly visible: a charcoal trash bin with a single plastic Clorox-style bottle inside. Daylight from a left window. 35mm at f/4, real grain. Quiet, factual mood. No moralizing text overlays. No brand names visible.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPT 9 -->
+<section class="section">
+  <span class="eyebrow">&#9670; Concept 09 / 10</span>
+  <div class="concept">
+    <div class="concept-head">
+      <div>
+        <span class="concept-num">CONCEPT 09</span>
+        <div class="concept-name">Founder <em>Hand-Holding Bottle</em></div>
+        <span class="concept-tag">Press &middot; founder narrative</span>
+      </div>
+      <div class="swatch-row">
+        <div class="swatch-mini" style="background:#1A1814;"></div>
+        <div class="swatch-mini" style="background:#9C9285;"></div>
+        <div class="swatch-mini" style="background:#4FA86A;"></div>
+      </div>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-cell">
+        <span class="cc-label">Setting</span>
+        <div class="cc-text">Founder portrait. Mid-shot, holding the bottle with both hands at chest level. Charcoal sweater, warm side window light, natural concrete-loft background.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Mood</span>
+        <div class="cc-text"><em>Quiet authority.</em> Believer holding artifact. Not selling, presenting.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Surface palette</span>
+        <div class="cc-text">Charcoal knit &middot; concrete loft &middot; warm window light &middot; ceramic neutral.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Camera notes</span>
+        <div class="cc-text">85mm portrait, f/2.0, eye-level, slight Rembrandt light. Real skin texture, real fabric.</div>
+      </div>
+      <div class="concept-cell full">
+        <span class="cc-label">Use case</span>
+        <div class="cc-text"><strong>Press headshot &middot; founder LinkedIn header &middot; "About" page hero.</strong></div>
+      </div>
+    </div>
+    <div class="prompt-box">
+      <span class="prompt-label">&#9670; Prompt-ready brief</span>
+      <span class="prompt-engine">ChatGPT Images &middot; 4:5</span>
+      <div class="prompt-text">Founder portrait, mid-shot, eye-level. A real-skin-texture woman in her late 30s, charcoal cashmere sweater, holding a sculptural matte ceramic spray bottle with both hands at chest level. Natural Rembrandt-style window light from camera-left. Concrete loft wall behind, slight texture. Shot on 85mm at f/2.0, real grain, no skin smoothing. Quiet, considered, believer-holding-artifact mood. Editorial press portrait energy. No brand name visible.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPT 10 -->
+<section class="section">
+  <span class="eyebrow">&#9670; Concept 10 / 10</span>
+  <div class="concept">
+    <div class="concept-head">
+      <div>
+        <span class="concept-num">CONCEPT 10</span>
+        <div class="concept-name">Retail Shelf <em>at Pottery Barn</em></div>
+        <span class="concept-tag">Mockup &middot; investor deck</span>
+      </div>
+      <div class="swatch-row">
+        <div class="swatch-mini" style="background:#D4A574;"></div>
+        <div class="swatch-mini" style="background:#F5EFE2;"></div>
+        <div class="swatch-mini" style="background:#3A3835;"></div>
+      </div>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-cell">
+        <span class="cc-label">Setting</span>
+        <div class="cc-text">Pottery Barn-style retail shelf. GESINE bottle line-up across three scents and three finishes. Stacked refill cartridges below, holder display in front. Curated home objects flanking.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Mood</span>
+        <div class="cc-text"><em>Belongs on this shelf.</em> The category's most credible visual proof.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Surface palette</span>
+        <div class="cc-text">Light oak shelf &middot; cream wall &middot; muted earth tones &middot; warm gallery lighting.</div>
+      </div>
+      <div class="concept-cell">
+        <span class="cc-label">Camera notes</span>
+        <div class="cc-text">35mm wide, eye-level shopper POV, balanced exposure for retail-realistic feel.</div>
+      </div>
+      <div class="concept-cell full">
+        <span class="cc-label">Use case</span>
+        <div class="cc-text"><strong>Investor deck retail-readiness slide</strong> &middot; retail buyer outbound &middot; press "future of category" piece.</div>
+      </div>
+    </div>
+    <div class="prompt-box">
+      <span class="prompt-label">&#9670; Prompt-ready brief</span>
+      <span class="prompt-engine">NanoBanana 2 &middot; 16:9</span>
+      <div class="prompt-text">Retail shelf mockup, shopper POV, 35mm wide. Light oak floating shelf against a warm cream wall, soft gallery spotlight. Center of shelf: a lineup of nine sculptural matte spray bottles in three finishes (bone ceramic, brushed chrome, matte black) and three scent colorways. Below: stacked recyclable refill cartridges. To the right: a small display holder mock. Flanked by a single Caraway-style ceramic vase and a folded bamboo towel. Pottery Barn / Goldune retail energy. Real grain, real shelf shadows. No brand text visible on bottles.</div>
+    </div>
+  </div>
+</section>
+
+<footer class="doc-footer">
+  <div class="ft-l">Alex Lamb &middot; Creative Director, AI Architect</div>
+  <div class="ft-r">GESINE Foundation Sprint &middot; Deliverable 07</div>
+</footer>
+
+</div>
+</body>
+</html>

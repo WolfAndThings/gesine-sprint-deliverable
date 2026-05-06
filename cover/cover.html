@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){if(sessionStorage.getItem('gesine_unlock')==='1')return;var p=prompt('GESINE — enter password to view');if(p==='gesine2026'){sessionStorage.setItem('gesine_unlock','1');}else{document.documentElement.innerHTML='<body style="margin:0;padding:60px;font-family:sans-serif;text-align:center;background:#0F0E0C;color:#F5F1E8;font-size:18px;">Access required.</body>';}})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GESINE — Phase 2 Sprint Cover</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --ink:#0F0E0C; --cream:#F8FAF6; --off:#E8EFE3; --soft:#D6E4D0;
+  --amber:#4FA86A; --amber-deep:#2D5F3F;
+  --olive:#4A5240; --sage:#7C8470;
+  --muted:#6F665A; --light:#9C9285;
+  --bmd:rgba(15,14,12,0.14); --bstr:rgba(15,14,12,0.20);
+}
+body { background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-serif; font-size:15px; line-height:1.7; -webkit-font-smoothing:antialiased; }
+.page { max-width:1100px; margin:0 auto; padding:48px 40px 80px; }
+
+.doc-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:36px; padding-bottom:18px; border-bottom:2px solid var(--ink); }
+.wordmark { display:flex; align-items:center; gap:12px; }
+.logo-box { width:36px; height:36px; background:var(--ink); border-radius:8px; display:grid; place-items:center; }
+.brand-name { font-family:'Instrument Serif',Georgia,serif; font-size:18px; }
+.doc-meta { text-align:right; font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); line-height:2; }
+
+/* HERO with cover photo feel */
+.hero { background:var(--ink); border-radius:20px; padding:80px 64px; margin-bottom:48px; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; top:0; left:0; right:0; height:6px; background:linear-gradient(90deg, var(--amber) 0%, var(--sage) 50%, var(--amber-deep) 100%); }
+.hero::after { content:''; position:absolute; bottom:-100px; right:-50px; width:340px; height:340px; border-radius:50%; background:radial-gradient(circle, rgba(79,168,106,.18) 0%, transparent 70%); pointer-events:none; }
+.hero-eye { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:rgba(245,241,232,.45); display:block; margin-bottom:32px; }
+.hero-h { font-family:'Instrument Serif',serif; font-size:clamp(40px,6vw,76px); line-height:0.98; letter-spacing:-.028em; color:var(--cream); margin-bottom:32px; }
+.hero-h em { color:var(--amber); font-style:italic; }
+.hero-sub { font-size:17px; color:rgba(245,241,232,.78); line-height:1.7; max-width:620px; font-weight:300; }
+.hero-sub strong { color:var(--cream); font-weight:500; }
+.hero-meta { display:flex; gap:32px; margin-top:36px; flex-wrap:wrap; padding-top:28px; border-top:1px solid rgba(245,241,232,.12); }
+.hero-meta-item { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:rgba(245,241,232,.5); }
+.hero-meta-item strong { color:var(--amber); display:block; font-family:'Instrument Serif',serif; font-style:italic; font-size:28px; letter-spacing:-.015em; text-transform:none; margin-top:6px; line-height:1; }
+
+/* HEADLINE STAT TRIO */
+.stat-trio { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-bottom:48px; }
+.stat-card { background:var(--off); border:1px solid var(--bstr); border-radius:14px; padding:32px 30px; }
+.stat-card.amber { background:linear-gradient(135deg, var(--amber-deep), var(--olive)); color:var(--cream); border-color:var(--amber-deep); }
+.stat-card.ink { background:var(--ink); color:var(--cream); border-color:var(--ink); }
+.stat-card-eye { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--amber-deep); margin-bottom:10px; display:block; }
+.stat-card.amber .stat-card-eye { color:rgba(245,241,232,.6); }
+.stat-card.ink .stat-card-eye { color:var(--amber); }
+.stat-card-num { font-family:'Instrument Serif',serif; font-size:clamp(48px,5.6vw,76px); line-height:0.95; letter-spacing:-.025em; color:var(--ink); margin-bottom:14px; }
+.stat-card-num em { color:var(--amber-deep); font-style:italic; }
+.stat-card.amber .stat-card-num { color:var(--cream); }
+.stat-card.amber .stat-card-num em { color:var(--amber); }
+.stat-card.ink .stat-card-num { color:var(--cream); }
+.stat-card.ink .stat-card-num em { color:var(--amber); }
+.stat-card-text { font-size:13.5px; line-height:1.65; color:#2A2620; }
+.stat-card.amber .stat-card-text, .stat-card.ink .stat-card-text { color:rgba(245,241,232,.85); }
+.stat-card-text strong { color:var(--ink); }
+.stat-card.amber .stat-card-text strong, .stat-card.ink .stat-card-text strong { color:var(--cream); }
+
+.section { margin-bottom:56px; }
+.section-eye { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--amber-deep); display:block; margin-bottom:10px; }
+.section-h { font-family:'Instrument Serif',serif; font-size:clamp(28px,3.4vw,38px); line-height:1.1; color:var(--ink); letter-spacing:-.018em; margin-bottom:14px; }
+.section-h em { color:var(--amber-deep); font-style:italic; }
+.section-intro { font-size:15px; line-height:1.75; color:#2A2620; max-width:780px; margin-bottom:24px; }
+.section-intro strong { color:var(--ink); }
+.section-intro em { color:var(--amber-deep); font-style:italic; }
+
+/* RECOMMENDED READING ORDER */
+.reading-list { background:var(--off); border:1px solid var(--bstr); border-radius:16px; padding:36px 40px; }
+.reading-row { display:grid; grid-template-columns:48px 1fr auto; gap:20px; padding:20px 0; border-top:1px solid var(--bmd); align-items:center; text-decoration:none; color:inherit; transition:background .15s, padding .15s; }
+.reading-row:first-of-type { border-top:none; padding-top:0; }
+.reading-row:hover { background:rgba(79,168,106,.06); padding-left:8px; }
+.reading-num { font-family:'Instrument Serif',serif; font-style:italic; color:var(--amber); font-size:48px; line-height:1; }
+.reading-content { }
+.reading-name { font-family:'Instrument Serif',serif; font-size:22px; line-height:1.2; color:var(--ink); margin-bottom:4px; }
+.reading-name em { color:var(--amber-deep); font-style:italic; }
+.reading-desc { font-size:13.5px; color:var(--muted); line-height:1.55; }
+.reading-arrow { font-family:'DM Mono',monospace; font-size:14px; color:var(--amber-deep); }
+
+/* QUOTE BLOCK */
+.quote { padding:48px 0 40px; margin:48px 0; border-top:1px solid var(--bmd); border-bottom:1px solid var(--bmd); position:relative; text-align:center; }
+.quote::before { content:'"'; font-family:'Instrument Serif',serif; font-size:96px; color:var(--amber); position:absolute; top:-26px; left:50%; transform:translateX(-50%); line-height:1; background:var(--cream); padding:0 24px; }
+.quote q { font-family:'Instrument Serif',serif; font-style:italic; font-size:clamp(24px,3vw,32px); line-height:1.3; color:var(--ink); display:block; max-width:760px; margin:0 auto; quotes:none; }
+.quote q::before, .quote q::after { content:''; }
+.quote q em { color:var(--amber-deep); }
+
+/* DEEP DIVE GRID */
+.deep-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:24px; }
+.deep-card { background:var(--off); border:1px solid var(--bstr); border-radius:12px; padding:20px 22px; text-decoration:none; color:inherit; transition:border-color .15s, transform .15s; }
+.deep-card:hover { border-color:var(--amber); transform:translateY(-1px); }
+.deep-card-num { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.16em; color:var(--amber-deep); margin-bottom:6px; display:block; }
+.deep-card-name { font-family:'Instrument Serif',serif; font-size:18px; margin-bottom:4px; }
+.deep-card-desc { font-size:12.5px; color:var(--muted); line-height:1.5; }
+
+/* CORRECTIONS / WARNINGS */
+.corrections { background:#2D5F3F; color:var(--cream); border-radius:14px; padding:28px 32px; margin-top:36px; }
+.corrections-h { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:rgba(245,241,232,.65); margin-bottom:16px; }
+.corrections-list { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+.corr-item { font-size:13px; line-height:1.6; padding-left:20px; position:relative; color:rgba(245,241,232,.92); }
+.corr-item::before { content:'⚠'; position:absolute; left:0; top:0; color:var(--amber); }
+.corr-item strong { color:var(--cream); display:block; margin-bottom:2px; }
+
+/* CLOSING */
+.closing { background:linear-gradient(135deg, var(--amber-deep) 0%, var(--olive) 100%); color:var(--cream); border-radius:18px; padding:48px 52px; margin-top:48px; text-align:center; }
+.closing-eye { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.24em; text-transform:uppercase; color:rgba(245,241,232,.55); display:block; margin-bottom:18px; }
+.closing-h { font-family:'Instrument Serif',serif; font-size:clamp(28px,3.6vw,40px); line-height:1.15; color:var(--cream); margin-bottom:18px; }
+.closing-h em { color:var(--cream); font-style:italic; }
+.closing-body { font-size:15px; line-height:1.7; color:rgba(245,241,232,.88); max-width:680px; margin:0 auto; }
+.closing-body strong { color:var(--cream); }
+
+/* FOOTER */
+.footer { padding:24px 0; margin-top:36px; border-top:1px solid var(--bmd); text-align:center; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; color:var(--muted); text-transform:uppercase; }
+
+@media(max-width:760px) {
+  .stat-trio, .reading-list, .deep-grid, .corrections-list { grid-template-columns:1fr; }
+  .hero { padding:48px 28px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="doc-header">
+  <div class="wordmark">
+    <div class="logo-box">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <circle cx="9" cy="9" r="7" stroke="#4FA86A" stroke-width="1.5" fill="none"/>
+        <circle cx="9" cy="9" r="3" fill="#4FA86A"/>
+      </svg>
+    </div>
+    <span class="brand-name">GESINE</span>
+  </div>
+  <div class="doc-meta">
+    PHASE 2 · COVER + READING MAP<br>
+    AUG / SEPT 2026 LAUNCH<br>
+    MAY 2026 · DRAFT V1
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-eye">Phase 2 sprint · the entire delivery in one place</span>
+  <h1 class="hero-h">The market is ready.<br>The buyer is ready.<br><em>The playbook already exists.</em></h1>
+  <p class="hero-sub">Five brands took $50K–$1M in starting capital and turned it into $630M–$1B exits. <strong>Method, Touchland, Hero Cosmetics, Drunk Elephant, and Dollar Shave Club</strong> all did it with the same five-step pattern. This sprint maps that pattern onto GESINE's specific moves — the August/September 2026 D2C launch, the 2027 Crate &amp; Barrel exclusive, the corporate-gifting cycle, the Calm partnership window, the 2029-2032 exit conversation. Every number cited. Every tactic real.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">Deliverables<strong>10 HTMLs</strong></div>
+    <div class="hero-meta-item">Cited tactics<strong>40+ moves</strong></div>
+    <div class="hero-meta-item">Comps mapped<strong>14 brands</strong></div>
+    <div class="hero-meta-item">Acquirers ranked<strong>11 buyers</strong></div>
+  </div>
+</section>
+
+<!-- 3 BIG STATS -->
+<div class="stat-trio">
+  <div class="stat-card amber">
+    <span class="stat-card-eye">Most likely exit · 2029-2032</span>
+    <div class="stat-card-num"><em>$500M-$880M</em></div>
+    <div class="stat-card-text"><strong>Sale to Church &amp; Dwight or SC Johnson</strong> at $80-130M revenue and 25%+ EBITDA. Same lane Hero ($630M) and Touchland ($880M) cleared.</div>
+  </div>
+  <div class="stat-card">
+    <span class="stat-card-eye">The bar to clear · Spring 2027</span>
+    <div class="stat-card-num"><em>5 hrs</em></div>
+    <div class="stat-card-text">Caraway sold three months of Crate &amp; Barrel inventory in five hours when Silt Green dropped in 2023. <strong>That's GESINE's Smoked Sage launch bar.</strong></div>
+  </div>
+  <div class="stat-card ink">
+    <span class="stat-card-eye">Non-negotiable date</span>
+    <div class="stat-card-num"><em>Aug 1</em></div>
+    <div class="stat-card-text"><strong>Inventory + co-brand specs locked.</strong> Industry-standard cutoff for Q4 2026 corporate gifting season. Snappy + Goody + Caroo onboarding starts now.</div>
+  </div>
+</div>
+
+<!-- BY THE NUMBERS · VISUAL STRIP -->
+<section class="section">
+  <span class="section-eye">By the numbers · what the market looks like</span>
+  <h2 class="section-h">Six numbers that size the whole opportunity.</h2>
+  <p class="section-intro">If you remember nothing else, remember these. <strong>Each is sourced inside the deliverables below.</strong> Together they explain why this category is moving NOW.</p>
+
+  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:24px;">
+    <div style="background:linear-gradient(135deg, #4FA86A 0%, #2D5F3F 100%); color:var(--cream); border-radius:14px; padding:28px 28px;">
+      <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.2em; color:rgba(245,241,232,.7); text-transform:uppercase; margin-bottom:10px;">Wellness economy</div>
+      <div style="font-family:'Instrument Serif',serif; font-size:48px; line-height:0.95; color:var(--cream); font-style:italic; letter-spacing:-.02em; margin-bottom:8px;">$9.8T</div>
+      <div style="font-size:12.5px; line-height:1.55; color:rgba(245,241,232,.85);">Global wellness economy projected by 2029 (GWI). <strong style="color:var(--cream);">+$3T from 2024.</strong></div>
+    </div>
+    <div style="background:var(--ink); color:var(--cream); border-radius:14px; padding:28px 28px;">
+      <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.2em; color:var(--amber); text-transform:uppercase; margin-bottom:10px;">Pinterest spring 2026</div>
+      <div style="font-family:'Instrument Serif',serif; font-size:48px; line-height:0.95; color:var(--amber); font-style:italic; letter-spacing:-.02em; margin-bottom:8px;">+545%</div>
+      <div style="font-size:12.5px; line-height:1.55; color:rgba(245,241,232,.85);">"Natural cleaning" YoY search lift. <strong style="color:var(--cream);">619M Pinterest users.</strong> 88% trend accuracy.</div>
+    </div>
+    <div style="background:var(--off); border:1px solid var(--bstr); border-radius:14px; padding:28px 28px;">
+      <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.2em; color:var(--amber-deep); text-transform:uppercase; margin-bottom:10px;">#CleanTok</div>
+      <div style="font-family:'Instrument Serif',serif; font-size:48px; line-height:0.95; color:var(--ink); font-style:italic; letter-spacing:-.02em; margin-bottom:8px;">150B+</div>
+      <div style="font-size:12.5px; line-height:1.55; color:#2A2620;">TikTok views as of 2026. <strong style="color:var(--ink);">Up from 37.6B in 2022 — ~4x growth.</strong></div>
+    </div>
+    <div style="background:var(--off); border:1px solid var(--bstr); border-radius:14px; padding:28px 28px;">
+      <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.2em; color:var(--amber-deep); text-transform:uppercase; margin-bottom:10px;">Refill mechanic</div>
+      <div style="font-family:'Instrument Serif',serif; font-size:48px; line-height:0.95; color:var(--ink); font-style:italic; letter-spacing:-.02em; margin-bottom:8px;">62%</div>
+      <div style="font-size:12.5px; line-height:1.55; color:#2A2620;">Of US consumers prefer refillable products. <strong style="color:var(--ink);">Pre-sold on the GESINE format.</strong></div>
+    </div>
+    <div style="background:linear-gradient(135deg, #4FA86A 0%, #2D5F3F 100%); color:var(--cream); border-radius:14px; padding:28px 28px;">
+      <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.2em; color:rgba(245,241,232,.7); text-transform:uppercase; margin-bottom:10px;">Corporate gifting</div>
+      <div style="font-family:'Instrument Serif',serif; font-size:48px; line-height:0.95; color:var(--cream); font-style:italic; letter-spacing:-.02em; margin-bottom:8px;">$312B</div>
+      <div style="font-size:12.5px; line-height:1.55; color:rgba(245,241,232,.85);">US corporate gifting market 2025 (Coresight). <strong style="color:var(--cream);">77% of B2B gifts cluster $50-$125.</strong></div>
+    </div>
+    <div style="background:var(--ink); color:var(--cream); border-radius:14px; padding:28px 28px;">
+      <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.2em; color:var(--amber); text-transform:uppercase; margin-bottom:10px;">Touchland exit · 2025</div>
+      <div style="font-family:'Instrument Serif',serif; font-size:48px; line-height:0.95; color:var(--amber); font-style:italic; letter-spacing:-.02em; margin-bottom:8px;">~5.5x</div>
+      <div style="font-size:12.5px; line-height:1.55; color:rgba(245,241,232,.85);">Sales multiple paid by C&amp;D. <strong style="color:var(--cream);">$700M + $180M earnout on $130M TTM.</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- MINI EXIT-SCALE BAR CHART -->
+<section class="section">
+  <span class="section-eye">Exit scale · visual</span>
+  <h2 class="section-h">Where GESINE's exit lane sits.</h2>
+  <p class="section-intro">Each bar is a real recent acquisition. Length = exit price relative to Aesop's $2.525B max. Color = acquirer type.</p>
+  <div style="background:var(--off); border:1px solid var(--bstr); border-radius:14px; padding:32px 36px; margin-top:20px;">
+    <div style="display:grid; grid-template-columns:160px 1fr 100px; gap:18px; align-items:center; padding:8px 0; border-bottom:1px dashed var(--bmd);">
+      <div><strong style="font-family:'Instrument Serif',serif; font-size:15px;">Aesop</strong><div style="font-family:'DM Mono',monospace; font-size:9px; color:var(--muted); letter-spacing:.1em; margin-top:2px;">L'ORÉAL · 2023 · 4.7x</div></div>
+      <div style="height:32px; background:var(--soft); border-radius:6px; position:relative; overflow:hidden;"><div style="position:absolute; top:0; left:0; bottom:0; width:100%; background:linear-gradient(90deg, #2D5F3F, #4A5240); border-radius:6px;"></div></div>
+      <div style="font-family:'Instrument Serif',serif; font-size:18px; color:var(--amber-deep); text-align:right;">$2.525B</div>
+    </div>
+    <div style="display:grid; grid-template-columns:160px 1fr 100px; gap:18px; align-items:center; padding:8px 0; border-bottom:1px dashed var(--bmd);">
+      <div><strong style="font-family:'Instrument Serif',serif; font-size:15px;">Dollar Shave Club</strong><div style="font-family:'DM Mono',monospace; font-size:9px; color:var(--muted); letter-spacing:.1em; margin-top:2px;">UNILEVER · 2016 · 5x</div></div>
+      <div style="height:32px; background:var(--soft); border-radius:6px; position:relative; overflow:hidden;"><div style="position:absolute; top:0; left:0; bottom:0; width:39.6%; background:linear-gradient(90deg, #7C8470, #4A5240); border-radius:6px;"></div></div>
+      <div style="font-family:'Instrument Serif',serif; font-size:18px; color:var(--amber-deep); text-align:right;">$1.0B</div>
+    </div>
+    <div style="display:grid; grid-template-columns:160px 1fr 100px; gap:18px; align-items:center; padding:8px 0; border-bottom:1px dashed var(--bmd); background:rgba(79,168,106,0.06);">
+      <div><strong style="font-family:'Instrument Serif',serif; font-size:15px;">Touchland</strong><div style="font-family:'DM Mono',monospace; font-size:9px; color:var(--amber-deep); letter-spacing:.1em; margin-top:2px;">C&amp;D · 2025 · 5.4-6.7x</div></div>
+      <div style="height:32px; background:var(--soft); border-radius:6px; position:relative; overflow:hidden;"><div style="position:absolute; top:0; left:0; bottom:0; width:34.85%; background:linear-gradient(90deg, #4FA86A, #2D5F3F); border-radius:6px;"></div></div>
+      <div style="font-family:'Instrument Serif',serif; font-size:18px; color:var(--amber-deep); text-align:right;">$880M</div>
+    </div>
+    <div style="display:grid; grid-template-columns:160px 1fr 100px; gap:18px; align-items:center; padding:8px 0; border-bottom:1px dashed var(--bmd);">
+      <div><strong style="font-family:'Instrument Serif',serif; font-size:15px;">Drunk Elephant</strong><div style="font-family:'DM Mono',monospace; font-size:9px; color:var(--muted); letter-spacing:.1em; margin-top:2px;">SHISEIDO · 2019 · 8.5x</div></div>
+      <div style="height:32px; background:var(--soft); border-radius:6px; position:relative; overflow:hidden;"><div style="position:absolute; top:0; left:0; bottom:0; width:33.46%; background:linear-gradient(90deg, #4FA86A, #2D5F3F); border-radius:6px;"></div></div>
+      <div style="font-family:'Instrument Serif',serif; font-size:18px; color:var(--amber-deep); text-align:right;">$845M</div>
+    </div>
+    <div style="display:grid; grid-template-columns:160px 1fr 100px; gap:18px; align-items:center; padding:8px 0; border-bottom:1px dashed var(--bmd); background:rgba(79,168,106,0.06);">
+      <div><strong style="font-family:'Instrument Serif',serif; font-size:15px;">Hero Cosmetics</strong><div style="font-family:'DM Mono',monospace; font-size:9px; color:var(--amber-deep); letter-spacing:.1em; margin-top:2px;">C&amp;D · 2022 · 5.5x</div></div>
+      <div style="height:32px; background:var(--soft); border-radius:6px; position:relative; overflow:hidden;"><div style="position:absolute; top:0; left:0; bottom:0; width:24.95%; background:linear-gradient(90deg, #4FA86A, #2D5F3F); border-radius:6px;"></div></div>
+      <div style="font-family:'Instrument Serif',serif; font-size:18px; color:var(--amber-deep); text-align:right;">$630M</div>
+    </div>
+    <div style="display:grid; grid-template-columns:160px 1fr 100px; gap:18px; align-items:center; padding:8px 0;">
+      <div><strong style="font-family:'Instrument Serif',serif; font-size:15px;">Native</strong><div style="font-family:'DM Mono',monospace; font-size:9px; color:var(--muted); letter-spacing:.1em; margin-top:2px;">P&amp;G · 2017 · 3.3-4x</div></div>
+      <div style="height:32px; background:var(--soft); border-radius:6px; position:relative; overflow:hidden;"><div style="position:absolute; top:0; left:0; bottom:0; width:3.96%; background:linear-gradient(90deg, var(--muted), var(--olive)); border-radius:6px;"></div></div>
+      <div style="font-family:'Instrument Serif',serif; font-size:18px; color:var(--amber-deep); text-align:right;">$100M</div>
+    </div>
+    <div style="font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); margin-top:14px; padding-top:12px; border-top:1px solid var(--bmd);">GREEN ROWS = the GESINE lane (Church &amp; Dwight pattern · ~5.5x sales · female-founded · design-led). <strong style="color:var(--ink);">Aesop is the upside ceiling.</strong></div>
+  </div>
+</section>
+
+<!-- KILLER QUOTE -->
+<div class="quote">
+  <q>None of the comp brands had all four moats.<br>GESINE inherits each of them <em>from a different brand</em> at a different beat.</q>
+</div>
+
+<!-- STORY ARCHITECTURE -->
+<section class="section">
+  <span class="section-eye">The 5-step story · A → E</span>
+  <h2 class="section-h">Every doc in this folder <em>tells one of these.</em></h2>
+  <div style="background:var(--off); border:1px solid var(--bstr); border-radius:14px; padding:28px 32px; margin-top:20px;">
+    <div style="display:grid; grid-template-columns:50px 1fr; gap:20px; padding:14px 0; border-bottom:1px dashed var(--bmd); align-items:flex-start;">
+      <div style="font-family:'Instrument Serif',serif; font-style:italic; color:var(--amber); font-size:36px; line-height:1;">A</div>
+      <div><strong style="font-family:'Instrument Serif',serif; font-size:18px; display:block; margin-bottom:4px;">Why now</strong><span style="font-size:13.5px; color:#2A2620; line-height:1.6;">Wellness + natural homecare + premium home object behavior are all converging. <em style="color:var(--amber-deep); font-style:italic;">Read: market_waiting_gtm.html</em></span></div>
+    </div>
+    <div style="display:grid; grid-template-columns:50px 1fr; gap:20px; padding:14px 0; border-bottom:1px dashed var(--bmd); align-items:flex-start;">
+      <div style="font-family:'Instrument Serif',serif; font-style:italic; color:var(--amber); font-size:36px; line-height:1;">B</div>
+      <div><strong style="font-family:'Instrument Serif',serif; font-size:18px; display:block; margin-bottom:4px;">Why her</strong><span style="font-size:13.5px; color:#2A2620; line-height:1.6;">The modern premium woman already buys adjacent rituals (Aesop · Le Labo · Diptyque · Homecourt · clean beauty). <em style="color:var(--amber-deep); font-style:italic;">Read: icp_modern_premium.html</em></span></div>
+    </div>
+    <div style="display:grid; grid-template-columns:50px 1fr; gap:20px; padding:14px 0; border-bottom:1px dashed var(--bmd); align-items:flex-start;">
+      <div style="font-family:'Instrument Serif',serif; font-style:italic; color:var(--amber); font-size:36px; line-height:1;">C</div>
+      <div><strong style="font-family:'Instrument Serif',serif; font-size:18px; display:block; margin-bottom:4px;">Why this object</strong><span style="font-size:13.5px; color:#2A2620; line-height:1.6;">Cleaning is still hidden, ugly, utility-driven. The category has never had a premium home-wellness object. <em style="color:var(--amber-deep); font-style:italic;">Read: status_object_audit.html · brand_teardowns.html</em></span></div>
+    </div>
+    <div style="display:grid; grid-template-columns:50px 1fr; gap:20px; padding:14px 0; border-bottom:1px dashed var(--bmd); align-items:flex-start;">
+      <div style="font-family:'Instrument Serif',serif; font-style:italic; color:var(--amber); font-size:36px; line-height:1;">D</div>
+      <div><strong style="font-family:'Instrument Serif',serif; font-size:18px; display:block; margin-bottom:4px;">How demand gets created</strong><span style="font-size:13.5px; color:#2A2620; line-height:1.6;">Object → enemy → scarcity → creators → retail → collabs. Five comp brands proved each step. <em style="color:var(--amber-deep); font-style:italic;">Read: market_capture_story.html · trajectory_roadmap.html</em></span></div>
+    </div>
+    <div style="display:grid; grid-template-columns:50px 1fr; gap:20px; padding:14px 0; align-items:flex-start;">
+      <div style="font-family:'Instrument Serif',serif; font-style:italic; color:var(--amber); font-size:36px; line-height:1;">E</div>
+      <div><strong style="font-family:'Instrument Serif',serif; font-size:18px; display:block; margin-bottom:4px;">Why investors care</strong><span style="font-size:13.5px; color:#2A2620; line-height:1.6;">Repeat / refill economics + premium margin + strategic acquirer path. <em style="color:var(--amber-deep); font-style:italic;">Read: acquirer_thesis.html · comparable_exits.html</em></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- RECOMMENDED READING ORDER -->
+<section class="section">
+  <span class="section-eye">Read in this order · 90-minute walkthrough</span>
+  <h2 class="section-h">If you read four things, <em>read these.</em></h2>
+  <p class="section-intro">Each is a self-contained narrative. Read them in order to walk from "what is GESINE" → "is the market ready" → "who did this before" → "how does GESINE exit." Then drill into the deeper deliverables below.</p>
+
+  <div class="reading-list">
+
+    <a class="reading-row" href="../market_waiting/market_waiting_gtm.html">
+      <div class="reading-num">01</div>
+      <div class="reading-content">
+        <div class="reading-name">Market Is Waiting <em>+ GTM Pattern Proof</em></div>
+        <div class="reading-desc">Why now · 5 sourced market proofs · 7 patterns from comp brands · 7-step GESINE GTM sequence · investor slide order · plain-English thesis. <strong>The bridge between strategy and pitch.</strong></div>
+      </div>
+      <div class="reading-arrow">OPEN →</div>
+    </a>
+
+    <a class="reading-row" href="../market_capture/market_capture_story.html">
+      <div class="reading-num">02</div>
+      <div class="reading-content">
+        <div class="reading-name">5 Growth Stories <em>· Start to Bought</em></div>
+        <div class="reading-desc">Method · Touchland · Hero Cosmetics · Drunk Elephant · Dollar Shave Club. <strong>Each one origin → 5 cited tactics → exit price.</strong> The actual mechanics, not the headlines.</div>
+      </div>
+      <div class="reading-arrow">OPEN →</div>
+    </a>
+
+    <a class="reading-row" href="../trajectory_roadmap/trajectory_roadmap.html">
+      <div class="reading-num">03</div>
+      <div class="reading-content">
+        <div class="reading-name">Trajectory Roadmap <em>· $0 → $41M by 2031</em></div>
+        <div class="reading-desc">Year-by-year plan. Each year's moves cited to the brand that proved them. <strong>5 levers · 6-year arc · exit window opens 2031.</strong></div>
+      </div>
+      <div class="reading-arrow">OPEN →</div>
+    </a>
+
+    <a class="reading-row" href="../acquirer_thesis/acquirer_thesis.html">
+      <div class="reading-num">04</div>
+      <div class="reading-content">
+        <div class="reading-name">Acquirer Thesis <em>+ Exit Math</em></div>
+        <div class="reading-desc">11 strategic + PE buyers ranked. Two 5/5 fits (SC Johnson · Church &amp; Dwight). Six-row exit math table: revenue × multiple = price for every realistic acquirer.</div>
+      </div>
+      <div class="reading-arrow">OPEN →</div>
+    </a>
+
+  </div>
+</section>
+
+<!-- THE 11 DELIVERABLES -->
+<section class="section">
+  <span class="section-eye">The deliverables · 11 client-facing docs</span>
+  <h2 class="section-h">Every doc maps to <em>one of 11 buckets.</em></h2>
+  <p class="section-intro">This is the polished, client-shareable layer. Each bucket answers one specific question. <strong>If you're handing this to a client, this is the layer you send.</strong></p>
+
+  <div class="deep-grid">
+    <a class="deep-card" href="../executive_summary/executive_summary.html">
+      <span class="deep-card-num">01 · EXECUTIVE SUMMARY</span>
+      <div class="deep-card-name">One clean narrative · 90-sec read</div>
+      <div class="deep-card-desc">What GESINE is · why now · what to do next. Revenue arc · 2x2 positioning · exit-price bars · acquirer scatter. <strong>Open this first if you read nothing else.</strong></div>
+    </a>
+    <a class="deep-card" href="../market_waiting/market_waiting_gtm.html">
+      <span class="deep-card-num">02 · MARKET IS WAITING</span>
+      <div class="deep-card-name">Why the market + buyer are ready</div>
+      <div class="deep-card-desc">5 sourced market proofs · 5 search-trend proofs · 7-pattern GTM playbook · 7-step GESINE sequence · Proof to Collect metrics. Pinterest +545% · #CleanTok 150B+ · refillable +47%.</div>
+    </a>
+    <a class="deep-card" href="../buyers/buyer_map.html">
+      <span class="deep-card-num">03 · BUYER MAP</span>
+      <div class="deep-card-name">Who buys · why she buys · what she needs to believe</div>
+      <div class="deep-card-desc">4 personas (Design-Wellness Millennial · Sunday Reset · Premium Gift · Clean Home) plus 3-persona ICP with sourced HHI/age/spend data. <em>See also: icp_modern_premium.html for sourced expansion.</em></div>
+    </a>
+    <a class="deep-card" href="../messaging/messaging_framework.html">
+      <span class="deep-card-num">04 · POSITIONING + MESSAGING</span>
+      <div class="deep-card-name">Category · enemy · promise · taglines</div>
+      <div class="deep-card-desc">"Home Care is Self-Care" + "clean. by design." Voice rules · paste-ready copy blocks · investor / consumer / B2B taglines. <em>Pair with status_object_audit.html and naming_language_banks.html.</em></div>
+    </a>
+    <a class="deep-card" href="../pricing/pricing_ladder.html">
+      <span class="deep-card-num">05 · PRICING LADDER</span>
+      <div class="deep-card-name">Why $78 · where bundles + refills sit</div>
+      <div class="deep-card-desc">Visual ladder vs Touchland · Aesop · Caraway · Blueland. Three pricing zones. Anatomy of the $78 kit. Refill capsule $18/64% · cloth $18/78% · 4-8 wk sub.</div>
+    </a>
+    <a class="deep-card" href="../visuals/visual_lookbook.html">
+      <span class="deep-card-num">06 · VISUAL / PRODUCT WORLD</span>
+      <div class="deep-card-name">Look · feel · smell · signal</div>
+      <div class="deep-card-desc">Visual lookbook + 15 paste-ready ChatGPT/NB2 prompts. <em>Pair with status_object_audit.html for color palettes per comp brand + visual_concept_prompts.html for execution.</em></div>
+    </a>
+    <a class="deep-card" href="../trajectory_roadmap/trajectory_roadmap.html">
+      <span class="deep-card-num">07 · GTM ROADMAP</span>
+      <div class="deep-card-name">Step-by-step execution sequence</div>
+      <div class="deep-card-desc">Year-by-year 2026-2031 ($0 → $41M). 5 levers each cited to comp brand. <em>Pair with market_capture_story.html for the 5 brand journey stories that proved each move.</em></div>
+    </a>
+    <a class="deep-card" href="../influencers/influencer_targets.html">
+      <span class="deep-card-num">08 · INFLUENCER / CREATOR TARGETS</span>
+      <div class="deep-card-name">Who translates the object</div>
+      <div class="deep-card-desc">12 Apify-verified creators tagged by Aesop · Touchland · Flamingo Estate · Blueland · Caraway. Real follower counts · public emails · per-creator pitch.</div>
+    </a>
+    <a class="deep-card" href="../crate_barrel/crate_barrel_playbook.html">
+      <span class="deep-card-num">09 · RETAIL + GIFTING PLAYBOOK</span>
+      <div class="deep-card-name">C&amp;B + corporate gifting + hospitality</div>
+      <div class="deep-card-desc">Crate &amp; Barrel 6/3/1-month timeline · CEO Janet Hayes intel · Hudson Grace Phase 2. <em>Pair with corporate_gifting_gtm.html ($312B · 5 platforms · Aug 1 lock) + gifting_board.html (10 corporate concepts) + calm_wellness_path.html (hospitality precedent).</em></div>
+    </a>
+    <a class="deep-card" href="../guardrails/claims_guardrails.html">
+      <span class="deep-card-num">10 · CLAIMS GUARDRAILS</span>
+      <div class="deep-card-name">What they can say safely</div>
+      <div class="deep-card-desc">3-tier claims ladder (Safe · Conditional · Off-limits). 8 substantiation files required. EWG Verified posture flag. FTC Green Guides + FDA jurisdiction watch-outs.</div>
+    </a>
+    <a class="deep-card" href="../bonus/deep_evidence.html">
+      <span class="deep-card-num">11 · EVIDENCE APPENDIX</span>
+      <div class="deep-card-name">Sources · comps · proof trails</div>
+      <div class="deep-card-desc">Apify-scrape evidence + competitor deep dive + bonus findings. <em>Plus all research markdown at <code>phase2_investor/research/</code> — every figure cited URL.</em></div>
+    </a>
+  </div>
+</section>
+
+<!-- STRATEGY + INVESTOR NOTES -->
+<section class="section">
+  <span class="section-eye">Strategy + investor notes · the support layer</span>
+  <h2 class="section-h">Behind the deliverables · <em>the proof material.</em></h2>
+  <p class="section-intro">These are the deeper investor / strategy docs. <strong>Use when an investor asks "where did this number come from?" or when you need to argue an exit thesis.</strong> Not client-facing on their own — they back the 11 deliverables above.</p>
+
+  <div class="deep-grid">
+    <a class="deep-card" href="../market_capture/market_capture_story.html">
+      <span class="deep-card-num">N-1 · 5 GROWTH STORIES</span>
+      <div class="deep-card-name">Method · Touchland · Hero · Drunk Elephant · DSC</div>
+      <div class="deep-card-desc">Each = origin (founders · funding mechanism) → 5 cited tactics → exit price → GESINE lesson. <strong>The actual moves, not the headlines.</strong></div>
+    </a>
+    <a class="deep-card" href="../comparable_exits/comparable_exits.html">
+      <span class="deep-card-num">N-2 · COMPARABLE EXITS</span>
+      <div class="deep-card-name">14 cited exits + acquirer matrix</div>
+      <div class="deep-card-desc">"What's GESINE worth at exit?" Touchland $880M · Hero $630M · Aesop $2.525B · Drunk Elephant 8.5x. Series A target investors listed.</div>
+    </a>
+    <a class="deep-card" href="../brand_teardowns/brand_teardowns.html">
+      <span class="deep-card-num">N-3 · BRAND TEARDOWNS</span>
+      <div class="deep-card-name">12 brands · 4-moat whitespace</div>
+      <div class="deep-card-desc">"Who do we beat + on what dimension?" Revenue · funding · pricing · distribution · lessons for each.</div>
+    </a>
+    <a class="deep-card" href="../icp_premium/icp_modern_premium.html">
+      <span class="deep-card-num">N-4 · MODERN PREMIUM ICP</span>
+      <div class="deep-card-name">3 personas · sourced data</div>
+      <div class="deep-card-desc">Sourced expansion of the buyer map. Census + McKinsey + Sprout cited. 8 open data gaps flagged honestly.</div>
+    </a>
+    <a class="deep-card" href="../calm_partnership/calm_wellness_path.html">
+      <span class="deep-card-num">N-5 · CALM + WELLNESS PATH</span>
+      <div class="deep-card-name">Joe Lawson · 12-month roadmap</div>
+      <div class="deep-card-desc">Calm has never done a retail CPG SKU. Lawson hired 2025 to land first one. GESINE = right test case.</div>
+    </a>
+    <a class="deep-card" href="../acquirer_thesis/acquirer_thesis.html">
+      <span class="deep-card-num">N-6 · ACQUIRER THESIS</span>
+      <div class="deep-card-name">11 buyers ranked + exit math</div>
+      <div class="deep-card-desc">SC Johnson 5/5 · C&amp;D 5/5 · L Catterton bridge. Six-row exit-math table: revenue × multiple = price for every realistic acquirer.</div>
+    </a>
+  </div>
+</section>
+
+<!-- CORRECTIONS BAR -->
+<div class="corrections">
+  <div class="corrections-h">⚠ Before next investor circulation · 4 deck assertions to correct</div>
+  <div class="corrections-list">
+    <div class="corr-item"><strong>Touchland $880M</strong>Actual signing = $700M cash/stock + up to $180M earn-out. Footnote in deck.</div>
+    <div class="corr-item"><strong>Le Labo "$200-300M (2014)"</strong>UNVERIFIED. Reported figures range $60M-$80M. Correct or remove.</div>
+    <div class="corr-item"><strong>Lululemon × Calm</strong>FALSE. "CALM" = UK charity Campaign Against Living Miserably, not Calm-the-app. Strike.</div>
+    <div class="corr-item"><strong>DedCool × Crocs · Glossier × Olive Garden</strong>No public source for either. Likely confused with other launches. Strike both.</div>
+  </div>
+</div>
+
+<!-- CLOSING -->
+<div class="closing">
+  <span class="closing-eye">The clean one-page claim</span>
+  <h2 class="closing-h">The market is not waiting<br>for another cleaner.<br><em>It is waiting for a premium home-wellness object.</em></h2>
+  <p class="closing-body">GESINE has the shape of that object — patent-pending refillable bottle, Caraway design firm partnership, EWG Verified, Crate &amp; Barrel exclusive 2027, $400K angel round closed. <strong>The proof still needed is execution against the 7-step GTM sequence, on the timeline this sprint laid out.</strong> Every doc above is sourced. Every move is real. The next conversation is with your design partner, your retail buyer, and your first acquirer outreach.</p>
+</div>
+
+<div class="footer">
+  GESINE · Phase 2 Sprint Cover · May 2026 · Alex Lamb
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){if(sessionStorage.getItem('gesine_unlock')==='1')return;var p=prompt('GESINE — enter password to view');if(p==='gesine2026'){sessionStorage.setItem('gesine_unlock','1');}else{document.documentElement.innerHTML='<body style="margin:0;padding:60px;font-family:sans-serif;text-align:center;background:#0F0E0C;color:#F5F1E8;font-size:18px;">Access required.</body>';}})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GESINE — 12 Verified Influencer Targets</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --ink:#0F0E0C; --dark:#1A1814;
+  --cream:#F8FAF6; --off:#E8EFE3; --soft:#D6E4D0;
+  --amber:#4FA86A; --amber-deep:#2D5F3F;
+  --olive:#4A5240; --sage:#7C8470;
+  --muted:#6F665A; --light:#9C9285;
+  --bmd:rgba(15,14,12,0.14); --bstr:rgba(15,14,12,0.20);
+}
+body { background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-serif; font-size:15px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+.page { max-width:1080px; margin:0 auto; padding:56px 48px 80px; }
+.doc-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:48px; padding-bottom:24px; border-bottom:2px solid var(--ink); }
+.wordmark { display:flex; align-items:center; gap:12px; }
+.logo-box { width:36px; height:36px; background:var(--ink); border-radius:8px; display:grid; place-items:center; }
+.brand-name { font-family:'Instrument Serif',Georgia,serif; font-size:18px; letter-spacing:.02em; }
+.doc-meta { text-align:right; font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); line-height:2; }
+
+.hero { background:var(--ink); border-radius:16px; padding:44px 48px; margin-bottom:48px; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg, var(--amber), var(--sage)); }
+.hero-eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:rgba(245,241,232,.40); display:block; margin-bottom:16px; }
+.hero-headline { font-family:'Instrument Serif',Georgia,serif; font-size:clamp(28px,3.6vw,40px); line-height:1.1; letter-spacing:-.02em; color:var(--cream); margin-bottom:18px; }
+.hero-headline em { color:var(--amber); font-style:italic; }
+.hero-body { font-size:15px; color:rgba(245,241,232,.72); line-height:1.7; font-weight:300; max-width:720px; }
+.hero-body strong { color:var(--cream); font-weight:500; }
+.verified-stamp { display:inline-block; padding:4px 10px; background:rgba(124,132,112,0.30); color:#A5B58E; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; border-radius:5px; margin-top:18px; font-weight:500; }
+
+.section { margin-bottom:56px; }
+.eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:12px; }
+.h2 { font-family:'Instrument Serif',Georgia,serif; font-size:clamp(22px,2.8vw,28px); line-height:1.15; letter-spacing:-.015em; color:var(--ink); margin-bottom:14px; }
+.h2 em { font-style:italic; }
+.body { font-size:14px; color:#2A2620; line-height:1.75; font-weight:300; max-width:720px; }
+.body strong { font-weight:600; color:var(--ink); }
+
+.creator { background:var(--cream); border:1px solid var(--bstr); border-radius:14px; overflow:hidden; margin-bottom:14px; }
+.creator-head { display:grid; grid-template-columns:54px 1fr auto; gap:18px; align-items:center; padding:20px 26px; border-bottom:1px solid var(--bmd); background:var(--off); }
+.creator-num { font-family:'Instrument Serif',Georgia,serif; font-size:32px; color:var(--amber); line-height:1; letter-spacing:-.02em; }
+.creator-id .creator-handle { font-family:'DM Mono',monospace; font-size:13px; font-weight:500; color:var(--ink); letter-spacing:.02em; }
+.creator-id .creator-name { font-family:'Instrument Serif',Georgia,serif; font-size:18px; line-height:1.2; margin-top:2px; letter-spacing:-.005em; }
+.creator-stats { display:flex; gap:18px; align-items:center; }
+.stat { text-align:right; }
+.stat-num { font-family:'Instrument Serif',Georgia,serif; font-size:20px; color:var(--ink); line-height:1; }
+.stat-label { font-size:9px; color:var(--muted); margin-top:3px; letter-spacing:.18em; text-transform:uppercase; font-family:'DM Mono',monospace; }
+
+.creator-body { padding:20px 26px; display:grid; grid-template-columns:1.4fr 1fr; gap:26px; }
+.cb-block-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:8px; }
+.cb-block-text { font-size:13px; color:#2A2620; line-height:1.6; font-weight:300; margin-bottom:14px; }
+.cb-block-text strong { font-weight:600; color:var(--ink); }
+.cb-block-text em { font-style:italic; color:var(--amber-deep); }
+.creator-tags { display:flex; gap:6px; flex-wrap:wrap; margin-top:8px; }
+.creator-tag { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.04em; padding:4px 10px; background:var(--soft); color:var(--ink); border-radius:5px; }
+.creator-tag.scent { background:rgba(79,168,106,0.18); color:var(--amber-deep); }
+.creator-tag.ritual { background:rgba(74,82,64,0.18); color:#3A4234; }
+.creator-tag.gift { background:rgba(15,14,12,0.10); }
+.creator-tag.aesthetic { background:rgba(124,132,112,0.18); color:#4A5240; }
+.creator-tag.proven { background:rgba(79,168,106,0.30); color:var(--amber-deep); font-weight:600; }
+
+.creator-pitch { background:var(--ink); padding:18px 26px; color:var(--cream); }
+.creator-pitch-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.22em; text-transform:uppercase; color:var(--amber); margin-bottom:8px; display:block; }
+.creator-pitch-text { font-size:13px; line-height:1.65; font-weight:300; color:rgba(245,241,232,0.85); }
+.creator-pitch-text em { font-style:italic; color:var(--cream); }
+
+.method-box { background:rgba(79,168,106,0.06); border:1px solid rgba(79,168,106,0.25); border-radius:12px; padding:24px 28px; margin-top:24px; }
+.method-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--amber-deep); margin-bottom:12px; display:block; }
+.method-text { font-size:13.5px; color:#2A2620; line-height:1.7; font-weight:300; }
+.method-text strong { font-weight:600; color:var(--ink); }
+.method-text code { font-family:'DM Mono',monospace; font-size:12px; background:rgba(15,14,12,0.06); padding:2px 6px; border-radius:4px; }
+
+.doc-footer { margin-top:64px; padding-top:24px; border-top:2px solid var(--ink); display:flex; justify-content:space-between; align-items:center; }
+.ft-l { font-size:12px; color:var(--muted); }
+.ft-r { font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); }
+
+@media(max-width:760px) {
+  .page { padding:36px 20px 64px; }
+  .doc-header { flex-direction:column; align-items:flex-start; gap:14px; }
+  .hero { padding:30px 24px; }
+  .creator-head { grid-template-columns:40px 1fr; padding:16px 18px; }
+  .creator-stats { display:none; }
+  .creator-body { grid-template-columns:1fr; padding:18px; }
+  .creator-pitch { padding:14px 18px; }
+  .doc-footer { flex-direction:column; gap:12px; align-items:flex-start; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="doc-header">
+  <div class="wordmark">
+    <div class="logo-box">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <circle cx="9" cy="9" r="7" stroke="#4FA86A" stroke-width="1.5" fill="none"/>
+        <circle cx="9" cy="9" r="3" fill="#4FA86A"/>
+      </svg>
+    </div>
+    <span class="brand-name">GESINE × Alex Lamb</span>
+  </div>
+  <div class="doc-meta">Deliverable 05 · 12 Verified Influencer Targets<br>Foundation Sprint · May 2026</div>
+</header>
+
+<div class="hero">
+  <span class="hero-eyebrow">Apify-verified creators in the Aesop / Flamingo Estate / Caraway orbit</span>
+  <div class="hero-headline">
+    Twelve creators already<br>
+    <em>tagged by competitor brands.</em>
+  </div>
+  <div class="hero-body">
+    Every handle on this list is verified live via Apify Instagram Profile Scraper. Follower counts and post counts are real, pulled within the last 24 hours. Most were surfaced by scraping <strong>Aesop, Touchland, Flamingo Estate, Blueland, and Caraway's own tagged-user histories</strong> — meaning these creators have already proven they post about premium home + ritual + design products. <strong>GESINE doesn't have to invent the relationship — it inherits it.</strong>
+  </div>
+  <span class="verified-stamp">✓ Apify verified · May 2026</span>
+</div>
+
+
+<section class="section">
+  <span class="eyebrow">The list</span>
+  <h2 class="h2">Sorted by best-fit, not just reach.</h2>
+  <p class="body">Each profile pairs a verified handle with the angle to lead with, the scent SKU to send first, and a draft outreach hook. The "Proven in orbit" tag means the creator has been tagged or featured by Aesop, Touchland, Flamingo Estate, Blueland, or Caraway in the scraped sample.</p>
+
+  <!-- 01 EYESWOON -->
+  <div class="creator">
+    <div class="creator-head">
+      <div class="creator-num">01</div>
+      <div class="creator-id">
+        <div class="creator-handle">@eyeswoon</div>
+        <div class="creator-name">Athena Calderone — designer, host, cookbook author</div>
+      </div>
+      <div class="creator-stats">
+        <div class="stat"><div class="stat-num">1.20M</div><div class="stat-label">followers</div></div>
+        <div class="stat"><div class="stat-num">5,810</div><div class="stat-label">posts</div></div>
+      </div>
+    </div>
+    <div class="creator-body">
+      <div>
+        <span class="cb-block-label">Why she fits</span>
+        <div class="cb-block-text">Bio: <em>"Interior Designer, Creative Director, Cook, Author. Founder EyeSwoon + @studioathenacalderone."</em> Editorial-grade kitchen, dining, and styling content. <strong>Already partners with premium home brands</strong>; previous Caraway and Crate &amp; Barrel collabs.</div>
+        <div class="creator-tags">
+          <span class="creator-tag aesthetic">design</span>
+          <span class="creator-tag ritual">ritual</span>
+          <span class="creator-tag gift">gifting</span>
+        </div>
+      </div>
+      <div>
+        <span class="cb-block-label">Send first</span>
+        <div class="cb-block-text"><strong>After Dinner</strong> + Hosting kit. Premium tier. Hosting and dining is her core lane.</div>
+        <span class="cb-block-label">Angle</span>
+        <div class="cb-block-text"><em>"The reset between the meal and the morning."</em></div>
+      </div>
+    </div>
+    <div class="creator-pitch">
+      <span class="creator-pitch-label">Outreach hook</span>
+      <div class="creator-pitch-text">"Hi Athena — building a home-care brand designed to live where Caraway lives, not under the sink. <em>After Dinner</em> kit (tomato leaf, rosemary, blood orange) feels built for your kitchen. Sending one — would love your honest read."</div>
+    </div>
+  </div>
+
+  <!-- 02 STUDIOMCGEE -->
+  <div class="creator">
+    <div class="creator-head">
+      <div class="creator-num">02</div>
+      <div class="creator-id">
+        <div class="creator-handle">@studiomcgee</div>
+        <div class="creator-name">Studio McGee — interior design firm</div>
+      </div>
+      <div class="creator-stats">
+        <div class="stat"><div class="stat-num">4.06M</div><div class="stat-label">followers</div></div>
+        <div class="stat"><div class="stat-num">6,402</div><div class="stat-label">posts</div></div>
+      </div>
+    </div>
+    <div class="creator-body">
+      <div>
+        <span class="cb-block-label">Why they fit</span>
+        <div class="cb-block-text">Bio: <em>"Designing homes and making life beautiful. Shop our collection @mcgeeandco."</em> Massive home + design audience, Netflix series, retail collaboration history at Target. <strong>Brand-tier reach with editorial taste.</strong></div>
+        <div class="creator-tags">
+          <span class="creator-tag aesthetic">design</span>
+          <span class="creator-tag gift">retail</span>
+          <span class="creator-tag ritual">home</span>
+        </div>
+      </div>
+      <div>
+        <span class="cb-block-label">Send first</span>
+        <div class="cb-block-text">Full ritual lineup — let the team pick. Volume play, not single-SKU.</div>
+        <span class="cb-block-label">Angle</span>
+        <div class="cb-block-text"><em>"Home care that earns shelf space in a McGee &amp; Co. styled kitchen."</em></div>
+      </div>
+    </div>
+    <div class="creator-pitch">
+      <span class="creator-pitch-label">Outreach hook</span>
+      <div class="creator-pitch-text">"Targeting the Studio McGee buyer with a home-care kit that finally belongs in a styled kitchen — not under the sink. Sending the lineup, would love placement in @mcgeeandco shoots."</div>
+    </div>
+  </div>
+
+  <!-- 03 THE HOME EDIT -->
+  <div class="creator">
+    <div class="creator-head">
+      <div class="creator-num">03</div>
+      <div class="creator-id">
+        <div class="creator-handle">@thehomeedit</div>
+        <div class="creator-name">The Home Edit — Clea + Joanna · organization brand</div>
+      </div>
+      <div class="creator-stats">
+        <div class="stat"><div class="stat-num">6.29M</div><div class="stat-label">followers</div></div>
+        <div class="stat"><div class="stat-num">6,770</div><div class="stat-label">posts</div></div>
+      </div>
+    </div>
+    <div class="creator-body">
+      <div>
+        <span class="cb-block-label">Why they fit</span>
+        <div class="cb-block-text">Bio: <em>"by Clea + Joanna ✨ Very organized best friends ✉️ hello@thehomeedit.com"</em>. <strong>Public business email available.</strong> ROYGBIV pantry queens, cleaning content adjacent. Macro reach with curated aesthetic.</div>
+        <div class="creator-tags">
+          <span class="creator-tag aesthetic">aesthetic</span>
+          <span class="creator-tag gift">gifting</span>
+          <span class="creator-tag ritual">organization</span>
+        </div>
+      </div>
+      <div>
+        <span class="cb-block-label">Send first</span>
+        <div class="cb-block-text">Full ritual lineup. Scale matters more than scent specificity.</div>
+        <span class="cb-block-label">Angle</span>
+        <div class="cb-block-text"><em>"The cleaner that finally belongs in your color-coded pantry."</em></div>
+      </div>
+    </div>
+    <div class="creator-pitch">
+      <span class="creator-pitch-label">Outreach hook</span>
+      <div class="creator-pitch-text">"<strong>To: hello@thehomeedit.com</strong> · You've made organization aspirational. We're trying to do the same for cleaning. Sending the lineup — pick the one that earns shelf space."</div>
+    </div>
+  </div>
+
+  <!-- 04 PLANTKWEEN -->
+  <div class="creator">
+    <div class="creator-head">
+      <div class="creator-num">04</div>
+      <div class="creator-id">
+        <div class="creator-handle">@plantkween</div>
+        <div class="creator-name">Christopher Griffin — plant + lifestyle creator</div>
+      </div>
+      <div class="creator-stats">
+        <div class="stat"><div class="stat-num">802K</div><div class="stat-label">followers</div></div>
+        <div class="stat"><div class="stat-num">1,947</div><div class="stat-label">posts</div></div>
+      </div>
+    </div>
+    <div class="creator-body">
+      <div>
+        <span class="cb-block-label">Why he fits</span>
+        <div class="cb-block-text">Bio: <em>"Fashionable nerdy KWEEN."</em> Plant + lifestyle creator with editorial home content. <strong>Tagged by Flamingo Estate's Instagram in the scraped sample</strong> — proven in the orbit. Diversifies the GESINE creator pool off the all-female stereotype.</div>
+        <div class="creator-tags">
+          <span class="creator-tag proven">✓ proven in orbit</span>
+          <span class="creator-tag aesthetic">lifestyle</span>
+          <span class="creator-tag ritual">home</span>
+        </div>
+      </div>
+      <div>
+        <span class="cb-block-label">Send first</span>
+        <div class="cb-block-text"><strong>Coming Home</strong> or <strong>Sunday</strong>. Plant-adjacent scent palette fits.</div>
+        <span class="cb-block-label">Angle</span>
+        <div class="cb-block-text"><em>"Home care that respects the plants."</em></div>
+      </div>
+    </div>
+    <div class="creator-pitch">
+      <span class="creator-pitch-label">Outreach hook</span>
+      <div class="creator-pitch-text">"Saw you in @flamingoestate's feed — the brands you keep are the brands we want to live next to. Built a home-care kit with the same kind of garden-ingredient story. Sending one — see if it earns counter space next to the plants."</div>
+    </div>
+  </div>
+
+  <!-- 05 FARMERNICK -->
+  <div class="creator">
+    <div class="creator-head">
+      <div class="creator-num">05</div>
+      <div class="creator-id">
+        <div class="creator-handle">@farmernick</div>
+        <div class="creator-name">Nick Cutsumpas — gardener, landscaper, environmentalist</div>
+      </div>
+      <div class="creator-stats">
+        <div class="stat"><div class="stat-num">234K</div><div class="stat-label">followers</div></div>
+        <div class="stat"><div class="stat-num">2,307</div><div class="stat-label">posts</div></div>
+      </div>
+    </div>
+    <div class="creator-body">
+      <div>
+        <span class="cb-block-label">Why he fits</span>
+        <div class="cb-block-text">Bio: <em>"Gardener, Landscaper, Environmentalist 🌍."</em> Emmy with @netflix's Instant Dream Home. <strong>Tagged by Flamingo Estate's feed</strong> — direct creator-brand fit. Garden-to-home story is the exact territory GESINE wants to inhabit.</div>
+        <div class="creator-tags">
+          <span class="creator-tag proven">✓ proven in orbit</span>
+          <span class="creator-tag scent">garden / scent</span>
+          <span class="creator-tag aesthetic">editorial</span>
+        </div>
+      </div>
+      <div>
+        <span class="cb-block-label">Send first</span>
+        <div class="cb-block-text"><strong>After Dinner</strong> (tomato leaf, rosemary). Pure Flamingo Estate energy.</div>
+        <span class="cb-block-label">Angle</span>
+        <div class="cb-block-text"><em>"Cleaning that smells like the garden it came from."</em></div>
+      </div>
+    </div>
+    <div class="creator-pitch">
+      <span class="creator-pitch-label">Outreach hook</span>
+      <div class="creator-pitch-text">"Hey Nick — built a home-care kit scented like the garden, not the chemical aisle. After Dinner uses tomato leaf and rosemary as the lead notes. Sending one — would love your honest take."</div>
+    </div>
+  </div>
+
+  <!-- 06 GOHAR.WORLD -->
+  <div class="creator">
+    <div class="creator-head">
+      <div class="creator-num">06</div>
+      <div class="creator-id">
+        <div class="creator-handle">@gohar.world</div>
+        <div class="creator-name">Gohar World — Laila + Nadia Gohar · table styling</div>
+      </div>
+      <div class="creator-stats">
+        <div class="stat"><div class="stat-num">166K</div><div class="stat-label">followers</div></div>
+        <div class="stat"><div class="stat-num">1,835</div><div class="stat-label">posts</div></div>
+      </div>
+    </div>
+    <div class="creator-body">
+      <div>
+        <span class="cb-block-label">Why they fit</span>
+        <div class="cb-block-text">Bio: <em>"A dream place where cauliflowers are candles and every plate comes with beans 🕊️."</em> Editorial table-and-home styling. Heavy Flamingo Estate / Aesop crossover audience. Surreal-meets-domestic angle.</div>
+        <div class="creator-tags">
+          <span class="creator-tag aesthetic">editorial</span>
+          <span class="creator-tag gift">gifting</span>
+        </div>
+      </div>
+      <div>
+        <span class="cb-block-label">Send first</span>
+        <div class="cb-block-text"><strong>Hosting</strong> + <strong>After Dinner</strong>. Their world is table, plate, ritual.</div>
+        <span class="cb-block-label">Angle</span>
+        <div class="cb-block-text"><em>"A bottle that belongs on the table."</em></div>
+      </div>
+    </div>
+    <div class="creator-pitch">
+      <span class="creator-pitch-label">Outreach hook</span>
+      <div class="creator-pitch-text">"You make tables I'd never want to clear. Building home care that wants to live next to one. Sending the kit — would love to see if it earns table space."</div>
+    </div>
+  </div>
+
+  <!-- 07 THATCURLYTOP -->
+  <div class="creator">
+    <div class="creator-head">
+      <div class="creator-num">07</div>
+      <div class="creator-id">
+        <div class="creator-handle">@thatcurlytop</div>
+        <div class="creator-name">Jasmine Brown — NYC lifestyle</div>
+      </div>
+      <div class="creator-stats">
+        <div class="stat"><div class="stat-num">125K</div><div class="stat-label">followers</div></div>
+        <div class="stat"><div class="stat-num">2,026</div><div class="stat-label">posts</div></div>
+      </div>
+    </div>
+    <div class="creator-body">
+      <div>
+        <span class="cb-block-label">Why she fits</span>
+        <div class="cb-block-text">NYC-based lifestyle creator, "Featured in @marieclairemag @airbnb @prweek @forbes." <strong>Tagged in competitor brand orbit.</strong> Mid-tier engagement, editorial-leaning audience.</div>
+        <div class="creator-tags">
+          <span class="creator-tag proven">✓ proven in orbit</span>
+          <span class="creator-tag aesthetic">lifestyle</span>
+          <span class="creator-tag ritual">nyc</span>
+        </div>
+      </div>
+      <div>
+        <span class="cb-block-label">Send first</span>
+        <div class="cb-block-text"><strong>9PM Reset</strong> or <strong>Sunday</strong>. Aspirational lifestyle resonance.</div>
+        <span class="cb-block-label">Angle</span>
+        <div class="cb-block-text"><em>"The five-minute reset for a NYC apartment."</em></div>
+      </div>
+    </div>
+    <div class="creator-pitch">
+      <span class="creator-pitch-label">Outreach hook</span>
+      <div class="creator-pitch-text">"NYC apartments are too small to hide cleaning under the sink. Built a kit designed to live on the counter. Sending one — would love your read."</div>
+    </div>
+  </div>
+
+  <!-- 08 GRACEJSILLA -->
+  <div class="creator">
+    <div class="creator-head">
+      <div class="creator-num">08</div>
+      <div class="creator-id">
+        <div class="creator-handle">@gracejsilla</div>
+        <div class="creator-name">Grace Silla — travel + lifestyle photographer</div>
+      </div>
+      <div class="creator-stats">
+        <div class="stat"><div class="stat-num">102K</div><div class="stat-label">followers</div></div>
+        <div class="stat"><div class="stat-num">982</div><div class="stat-label">posts</div></div>
+      </div>
+    </div>
+    <div class="creator-body">
+      <div>
+        <span class="cb-block-label">Why she fits</span>
+        <div class="cb-block-text">Bio: <em>"Photographer focusing on travel and lifestyle content. ✉️ gracesilla@fashionedible.com."</em> <strong>Public email visible.</strong> Editorial travel photography with home crossover. Strong "place-led ritual" fit.</div>
+        <div class="creator-tags">
+          <span class="creator-tag aesthetic">photographer</span>
+          <span class="creator-tag scent">travel / scent</span>
+        </div>
+      </div>
+      <div>
+        <span class="cb-block-label">Send first</span>
+        <div class="cb-block-text"><strong>Turn Down</strong> + <strong>Coming Home</strong>. Hospitality + arrival ritual fits her travel content.</div>
+        <span class="cb-block-label">Angle</span>
+        <div class="cb-block-text"><em>"The ritual of the room you're arriving to."</em></div>
+      </div>
+    </div>
+    <div class="creator-pitch">
+      <span class="creator-pitch-label">Outreach hook</span>
+      <div class="creator-pitch-text">"<strong>To: gracesilla@fashionedible.com</strong> · You photograph the rooms guests want to arrive to. Built scent rituals for arriving and leaving. Sending one — would love a photographer's eye on the bottle."</div>
+    </div>
+  </div>
+
+  <!-- 09 SCOTLOUIE -->
+  <div class="creator">
+    <div class="creator-head">
+      <div class="creator-num">09</div>
+      <div class="creator-id">
+        <div class="creator-handle">@scotlouie</div>
+        <div class="creator-name">Scot Louie — director, "the divas"</div>
+      </div>
+      <div class="creator-stats">
+        <div class="stat"><div class="stat-num">114K</div><div class="stat-label">followers</div></div>
+        <div class="stat"><div class="stat-num">97</div><div class="stat-label">posts</div></div>
+      </div>
+    </div>
+    <div class="creator-body">
+      <div>
+        <span class="cb-block-label">Why he fits</span>
+        <div class="cb-block-text">Bio: <em>"director of the divas."</em> Cinematic editorial creator — <strong>tagged in Aesop's recent collab orbit</strong>. Lower post count + higher follower ratio = polished, not algorithmic. Quality over volume.</div>
+        <div class="creator-tags">
+          <span class="creator-tag proven">✓ proven in orbit</span>
+          <span class="creator-tag aesthetic">cinematic</span>
+        </div>
+      </div>
+      <div>
+        <span class="cb-block-label">Send first</span>
+        <div class="cb-block-text">Full lineup as photo / video kit, not single bottle. He'll create polished content.</div>
+        <span class="cb-block-label">Angle</span>
+        <div class="cb-block-text"><em>"Home care that gets a director's cut."</em></div>
+      </div>
+    </div>
+    <div class="creator-pitch">
+      <span class="creator-pitch-label">Outreach hook</span>
+      <div class="creator-pitch-text">"Saw your work in Aesop's orbit — the cinematic eye is the eye GESINE wants near it. Sending the full kit — feel free to direct it."</div>
+    </div>
+  </div>
+
+  <!-- 10 TULIPSFORTHETABLE -->
+  <div class="creator">
+    <div class="creator-head">
+      <div class="creator-num">10</div>
+      <div class="creator-id">
+        <div class="creator-handle">@tulipsforthetable</div>
+        <div class="creator-name">Madeline — NYC home decor + DIY</div>
+      </div>
+      <div class="creator-stats">
+        <div class="stat"><div class="stat-num">36K</div><div class="stat-label">followers</div></div>
+        <div class="stat"><div class="stat-num">533</div><div class="stat-label">posts</div></div>
+      </div>
+    </div>
+    <div class="creator-body">
+      <div>
+        <span class="cb-block-label">Why she fits</span>
+        <div class="cb-block-text">Bio: <em>"Interior decor + Premium DIYs."</em> NYC home creator. <strong>Tagged in competitor home-brand orbit.</strong> Strong nano-tier ratio, high implied engagement, perfect bridge between aspirational and accessible.</div>
+        <div class="creator-tags">
+          <span class="creator-tag proven">✓ proven in orbit</span>
+          <span class="creator-tag aesthetic">home decor</span>
+          <span class="creator-tag ritual">diy</span>
+        </div>
+      </div>
+      <div>
+        <span class="cb-block-label">Send first</span>
+        <div class="cb-block-text"><strong>9PM Reset</strong> + <strong>Sunday</strong>. Two-scent reveal.</div>
+        <span class="cb-block-label">Angle</span>
+        <div class="cb-block-text"><em>"Premium DIY meets premium ritual."</em></div>
+      </div>
+    </div>
+    <div class="creator-pitch">
+      <span class="creator-pitch-label">Outreach hook</span>
+      <div class="creator-pitch-text">"You make NYC apartments look like Goop spreads. Built scent rituals for the same reader. Sending one — see what fits the table."</div>
+    </div>
+  </div>
+
+  <!-- 11 MARCH_STUDIO -->
+  <div class="creator">
+    <div class="creator-head">
+      <div class="creator-num">11</div>
+      <div class="creator-id">
+        <div class="creator-handle">@march_studio</div>
+        <div class="creator-name">MARCH.STUDIO — architecture, interiors, design</div>
+      </div>
+      <div class="creator-stats">
+        <div class="stat"><div class="stat-num">57K</div><div class="stat-label">followers</div></div>
+        <div class="stat"><div class="stat-num">560</div><div class="stat-label">posts</div></div>
+      </div>
+    </div>
+    <div class="creator-body">
+      <div>
+        <span class="cb-block-label">Why they fit</span>
+        <div class="cb-block-text">Architecture + interiors firm. <strong>Tagged 4× by Aesop in scraped sample.</strong> B2B-leaning audience: designers, hotels, residential clients with $$ for premium home spec. <em>This is creator marketing as B2B sales pipeline.</em></div>
+        <div class="creator-tags">
+          <span class="creator-tag proven">✓ Aesop-tagged 4×</span>
+          <span class="creator-tag gift">b2b</span>
+          <span class="creator-tag aesthetic">architecture</span>
+        </div>
+      </div>
+      <div>
+        <span class="cb-block-label">Send first</span>
+        <div class="cb-block-text"><strong>Turn Down</strong> + Hosting kit. Hospitality-coded packaging.</div>
+        <span class="cb-block-label">Angle</span>
+        <div class="cb-block-text"><em>"Home care designers actually want to spec."</em></div>
+      </div>
+    </div>
+    <div class="creator-pitch">
+      <span class="creator-pitch-label">Outreach hook</span>
+      <div class="creator-pitch-text">"Built a home-care kit that designers and hospitality firms actually want to spec into projects. Sending one — would love your read, also love to know which hotel groups you'd recommend we approach."</div>
+    </div>
+  </div>
+
+  <!-- 12 LUDOVICBALAY -->
+  <div class="creator">
+    <div class="creator-head">
+      <div class="creator-num">12</div>
+      <div class="creator-id">
+        <div class="creator-handle">@ludovicbalay</div>
+        <div class="creator-name">Ludovic Balay — Paris-based photographer</div>
+      </div>
+      <div class="creator-stats">
+        <div class="stat"><div class="stat-num">32K</div><div class="stat-label">followers</div></div>
+        <div class="stat"><div class="stat-num">135</div><div class="stat-label">posts</div></div>
+      </div>
+    </div>
+    <div class="creator-body">
+      <div>
+        <span class="cb-block-label">Why he fits</span>
+        <div class="cb-block-text">Bio: <em>"Paris | Available Worldwide. contact@ludovicbalay.com. Represented by @c__u__r__a."</em> <strong>Tagged 2× by Aesop.</strong> Photography collab opportunity, not just endorsement. <em>Hire him to shoot the GESINE lookbook + post organically.</em></div>
+        <div class="creator-tags">
+          <span class="creator-tag proven">✓ Aesop-tagged 2×</span>
+          <span class="creator-tag aesthetic">editorial</span>
+          <span class="creator-tag gift">collab</span>
+        </div>
+      </div>
+      <div>
+        <span class="cb-block-label">Send first</span>
+        <div class="cb-block-text">Full kit + paid collab inquiry. He's a shooter, not an endorser.</div>
+        <span class="cb-block-label">Angle</span>
+        <div class="cb-block-text"><em>"Treat as a Phase 2 lookbook collaboration."</em></div>
+      </div>
+    </div>
+    <div class="creator-pitch">
+      <span class="creator-pitch-label">Outreach hook</span>
+      <div class="creator-pitch-text">"<strong>To: contact@ludovicbalay.com</strong> · Building a home-care brand that wants to live in your kind of frame. Interested in talking about a Phase 2 lookbook collaboration. Sending the kit ahead of any conversation."</div>
+    </div>
+  </div>
+
+
+  <div class="method-box">
+    <span class="method-label">How this list was built</span>
+    <div class="method-text">
+      Pulled live via Apify on April 29, 2026 using two actors: <code>apify~instagram-scraper</code> (to grab the most recent 30 posts from <code>@flamingoestate</code>, <code>@touchland</code>, <code>@aesop</code>, <code>@blueland</code>, <code>@carawayhome</code>) and <code>apify~instagram-profile-scraper</code> (to verify each tagged or featured creator). <strong>Hashtag-based searches were attempted but discarded</strong> — Instagram's hashtag pages now surface mostly small accounts and noise. Brand-tagged user data is the higher-signal path. The same Apify pipeline becomes <strong>Phase 3 of the AI Roadmap</strong> as a recurring "creator discovery" workflow inside Weavy + n8n: scrape brands weekly, append new tagged users to Airtable, auto-enrich, queue outreach.
+    </div>
+  </div>
+</section>
+
+
+<footer class="doc-footer">
+  <div class="ft-l">Alex Lamb · Creative Director, AI Architect</div>
+  <div class="ft-r">GESINE Foundation Sprint · Deliverable 05 · Apify-verified</div>
+</footer>
+
+</div>
+</body>
+</html>

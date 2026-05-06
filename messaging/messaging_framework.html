@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){if(sessionStorage.getItem('gesine_unlock')==='1')return;var p=prompt('GESINE — enter password to view');if(p==='gesine2026'){sessionStorage.setItem('gesine_unlock','1');}else{document.documentElement.innerHTML='<body style="margin:0;padding:60px;font-family:sans-serif;text-align:center;background:#0F0E0C;color:#F5F1E8;font-size:18px;">Access required.</body>';}})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>GESINE — Messaging Framework</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --ink:#0F0E0C; --dark:#1A1814;
+  --cream:#F8FAF6; --off:#E8EFE3; --soft:#D6E4D0;
+  --amber:#4FA86A; --amber-deep:#2D5F3F;
+  --olive:#4A5240; --sage:#7C8470;
+  --muted:#6F665A; --light:#9C9285;
+  --border:rgba(15,14,12,0.08); --bmd:rgba(15,14,12,0.14); --bstr:rgba(15,14,12,0.20);
+  --good:#4A5240; --bad:#8B3A2F;
+}
+body { background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-serif; font-size:15px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+.page { max-width:1040px; margin:0 auto; padding:56px 48px 80px; }
+
+.doc-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:48px; padding-bottom:24px; border-bottom:2px solid var(--ink); }
+.wordmark { display:flex; align-items:center; gap:12px; }
+.logo-box { width:36px; height:36px; background:var(--ink); border-radius:8px; display:grid; place-items:center; }
+.brand-name { font-family:'Instrument Serif',Georgia,serif; font-size:18px; letter-spacing:.02em; }
+.doc-meta { text-align:right; font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); line-height:2; }
+
+.hero { background:var(--ink); border-radius:16px; padding:44px 48px; margin-bottom:48px; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg, var(--amber), var(--sage)); }
+.hero-eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:rgba(245,241,232,.40); display:block; margin-bottom:16px; }
+.hero-headline { font-family:'Instrument Serif',Georgia,serif; font-size:clamp(28px,3.6vw,38px); line-height:1.15; letter-spacing:-.02em; color:var(--cream); margin-bottom:18px; }
+.hero-headline em { color:var(--amber); font-style:italic; }
+.hero-body { font-size:15px; color:rgba(245,241,232,.72); line-height:1.7; font-weight:300; max-width:680px; }
+.hero-body strong { color:var(--cream); font-weight:500; }
+
+.section { margin-bottom:56px; }
+.eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:12px; }
+.h2 { font-family:'Instrument Serif',Georgia,serif; font-size:clamp(24px,3vw,32px); line-height:1.15; letter-spacing:-.015em; color:var(--ink); margin-bottom:14px; }
+.h2 em { font-style:italic; }
+.body { font-size:14px; color:#2A2620; line-height:1.75; font-weight:300; max-width:720px; }
+.body strong { font-weight:600; color:var(--ink); }
+
+/* HOOK BLOCKS */
+.hook-row { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-top:20px; }
+.hook-card { background:var(--cream); border:1px solid var(--bstr); border-radius:14px; padding:24px 24px 20px; position:relative; overflow:hidden; }
+.hook-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--amber); }
+.hook-card.consumer::before { background:var(--sage); }
+.hook-card.b2b::before { background:var(--olive); }
+.hook-tag { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin-bottom:14px; display:block; }
+.hook-headline { font-family:'Instrument Serif',Georgia,serif; font-size:22px; line-height:1.25; letter-spacing:-.01em; color:var(--ink); margin-bottom:16px; padding-bottom:14px; border-bottom:1px solid var(--bmd); font-style:italic; }
+.hook-list { display:flex; flex-direction:column; gap:8px; }
+.hook-list-item { font-size:13px; color:#2A2620; line-height:1.55; padding-left:14px; position:relative; font-weight:400; }
+.hook-list-item::before { content:'\2014'; position:absolute; left:0; color:var(--amber); }
+
+/* DO / DON'T */
+.dodont { display:grid; grid-template-columns:1fr 1fr; gap:0; margin-top:24px; border:1px solid var(--bstr); border-radius:14px; overflow:hidden; }
+.dd-col { padding:28px 30px; }
+.dd-do { background:var(--off); border-right:1px solid var(--bmd); }
+.dd-dont { background:var(--cream); }
+.dd-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; margin-bottom:14px; display:block; }
+.dd-do .dd-label { color:var(--good); }
+.dd-dont .dd-label { color:var(--bad); }
+.dd-list { display:flex; flex-direction:column; gap:8px; }
+.dd-item { font-size:13.5px; line-height:1.55; padding:8px 12px; border-radius:8px; font-weight:400; }
+.dd-do .dd-item { background:rgba(74,82,64,0.08); color:var(--ink); }
+.dd-dont .dd-item { background:rgba(139,58,47,0.06); color:#3a2620; text-decoration:line-through; text-decoration-color:rgba(139,58,47,0.4); text-decoration-thickness:1px; }
+
+/* AD HOOKS */
+.ad { background:var(--cream); border:1px solid var(--bstr); border-radius:18px; overflow:hidden; margin-bottom:18px; }
+.ad-head { padding:22px 30px; display:grid; grid-template-columns:1fr auto; gap:18px; align-items:center; border-bottom:1px solid var(--bmd); background:linear-gradient(135deg, rgba(79,168,106,0.05) 0%, rgba(124,132,112,0.02) 100%); }
+.ad-num { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; color:var(--amber-deep); display:block; margin-bottom:6px; }
+.ad-hero { font-family:'Instrument Serif',Georgia,serif; font-size:24px; line-height:1.2; letter-spacing:-.015em; color:var(--ink); }
+.ad-hero em { font-style:italic; color:var(--amber-deep); }
+.ad-cta { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.16em; padding:8px 14px; background:var(--ink); color:var(--cream); border-radius:8px; text-transform:uppercase; }
+.ad-grid { display:grid; grid-template-columns:1fr 1fr; gap:0; }
+.ad-cell { padding:20px 30px; border-right:1px solid var(--bmd); border-bottom:1px solid var(--bmd); }
+.ad-cell:nth-child(2n) { border-right:none; }
+.ad-cell.full { grid-column:1 / -1; border-right:none; border-bottom:none; padding:22px 30px; background:var(--ink); color:var(--cream); }
+.ad-cell-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; display:block; }
+.ad-cell.full .ad-cell-label { color:var(--amber); }
+.ad-cell-text { font-size:13px; line-height:1.6; color:#2A2620; font-weight:400; }
+.ad-cell.full .ad-cell-text { color:rgba(245,241,232,0.85); font-weight:300; }
+.ad-cell-text strong { color:var(--ink); font-weight:600; }
+.ad-cell.full .ad-cell-text strong { color:var(--cream); }
+
+/* CAPTIONS */
+.cap-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:20px; }
+.cap-card { background:var(--cream); border:1px solid var(--bstr); border-radius:12px; padding:20px 22px; }
+.cap-tag { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.2em; text-transform:uppercase; color:var(--amber-deep); margin-bottom:10px; display:block; }
+.cap-text { font-size:13.5px; color:#2A2620; line-height:1.6; font-weight:400; font-style:italic; }
+.cap-text strong { font-weight:600; font-style:normal; color:var(--ink); }
+
+/* SUBJECT LINES */
+.subj-list { display:flex; flex-direction:column; gap:8px; margin-top:20px; }
+.subj-item { display:grid; grid-template-columns:auto 1fr; gap:16px; align-items:baseline; padding:14px 20px; background:var(--cream); border:1px solid var(--bstr); border-radius:10px; }
+.subj-num { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.16em; color:var(--amber-deep); }
+.subj-text { font-family:'Instrument Serif',Georgia,serif; font-size:18px; line-height:1.3; letter-spacing:-.005em; color:var(--ink); font-style:italic; }
+
+/* PRESS */
+.press-box { background:linear-gradient(135deg, rgba(79,168,106,.08) 0%, rgba(74,82,64,.08) 100%); border:1px solid rgba(79,168,106,.3); border-radius:14px; padding:32px 36px; margin-top:24px; }
+.press-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--amber-deep); display:block; margin-bottom:14px; }
+.press-text { font-family:'Instrument Serif',Georgia,serif; font-size:24px; line-height:1.4; color:var(--ink); letter-spacing:-.01em; font-style:italic; }
+.press-text em { color:var(--amber-deep); }
+
+.doc-footer { margin-top:64px; padding-top:24px; border-top:2px solid var(--ink); display:flex; justify-content:space-between; align-items:center; }
+.ft-l { font-size:12px; color:var(--muted); }
+.ft-r { font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); }
+
+@media(max-width:760px) {
+  .page { padding:36px 20px 64px; }
+  .doc-header { flex-direction:column; align-items:flex-start; gap:14px; }
+  .hero { padding:30px 24px; }
+  .hook-row, .ad-grid, .cap-grid { grid-template-columns:1fr; }
+  .ad-head { grid-template-columns:1fr; padding:20px 22px; }
+  .ad-cell { border-right:none; padding:18px 22px; }
+  .dodont { grid-template-columns:1fr; }
+  .dd-do { border-right:none; border-bottom:1px solid var(--bmd); }
+  .doc-footer { flex-direction:column; gap:12px; align-items:flex-start; }
+}
+@media print { body { background:#fff; } .page { padding:24px; } .hero, .ad-cell.full { -webkit-print-color-adjust:exact; print-color-adjust:exact; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="doc-header">
+  <div class="wordmark">
+    <div class="logo-box">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <circle cx="9" cy="9" r="7" stroke="#4FA86A" stroke-width="1.5" fill="none"/>
+        <circle cx="9" cy="9" r="3" fill="#4FA86A"/>
+      </svg>
+    </div>
+    <span class="brand-name">GESINE &times; Alex Lamb</span>
+  </div>
+  <div class="doc-meta">Deliverable 05 &middot; Messaging Framework<br>Foundation Sprint &middot; May 2026</div>
+</header>
+
+<div class="hero">
+  <span class="hero-eyebrow">&#9670; What we say, in what order, to whom</span>
+  <div class="hero-headline">
+    Three audiences. One brand voice.<br>
+    <em>Zero mention of cleaning.</em>
+  </div>
+  <div class="hero-body">
+    GESINE earns its premium by refusing the language of cleaning. Investors hear category creation, consumers hear ritual, retailers hear gifting. <strong>The product remains the same; the headline changes.</strong> This framework is the operating manual for every line of copy from launch through retail rollout.
+  </div>
+</div>
+
+<!-- AUDIENCE HOOKS -->
+<section class="section">
+  <span class="eyebrow">&#9670; Audience headlines</span>
+  <h2 class="h2">One bottle, <em>three pitches.</em></h2>
+  <p class="body">Each headline is the locked one-liner. The three supporting taglines below extend the same idea into press, deck, and ad copy without paraphrasing the original.</p>
+
+  <div class="hook-row">
+    <div class="hook-card">
+      <span class="hook-tag">Investor</span>
+      <div class="hook-headline">"Turning home cleaning from hidden utility into visible wellness, design, and gifting."</div>
+      <div class="hook-list">
+        <div class="hook-list-item">A category-of-one playing in a $258B gifting market.</div>
+        <div class="hook-list-item">The first cleaning brand priced and packaged like fragrance.</div>
+        <div class="hook-list-item">Retail-ready, refill-loyal, gift-defaulted economics on day one.</div>
+      </div>
+    </div>
+    <div class="hook-card consumer">
+      <span class="hook-tag">Consumer</span>
+      <div class="hook-headline">"Finally, a cleaning product you don't hide under the sink."</div>
+      <div class="hook-list">
+        <div class="hook-list-item">Designed to live next to your hand wash.</div>
+        <div class="hook-list-item">Scent-led. Refillable. Plastic-free.</div>
+        <div class="hook-list-item">A ritual, not a chore.</div>
+      </div>
+    </div>
+    <div class="hook-card b2b">
+      <span class="hook-tag">B2B / Gifting</span>
+      <div class="hook-headline">"A premium branded gift people won't throw in a drawer."</div>
+      <div class="hook-list">
+        <div class="hook-list-item">Co-branded scent &middot; co-branded bottle &middot; one MOQ minimum.</div>
+        <div class="hook-list-item">Sits on the desk, not in the swag pile.</div>
+        <div class="hook-list-item">A signature for hotels, agencies, and Fortune 500 client gifts.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VOICE / TONE -->
+<section class="section">
+  <span class="eyebrow">&#9670; Voice &amp; tone</span>
+  <h2 class="h2">Speak like Aesop. <em>Never like Lysol.</em></h2>
+  <p class="body">If a phrase below would feel at home on a Clorox bottle, it is wrong for GESINE. The brand sounds like a perfume house writing about texture, place, and time of day &mdash; never about germs, kills, or sanitization.</p>
+
+  <div class="dodont">
+    <div class="dd-col dd-do">
+      <span class="dd-label">&#9670; Always say</span>
+      <div class="dd-list">
+        <div class="dd-item">ritual</div>
+        <div class="dd-item">designed</div>
+        <div class="dd-item">scent-led</div>
+        <div class="dd-item">considered</div>
+        <div class="dd-item">made for</div>
+        <div class="dd-item">reset</div>
+        <div class="dd-item">refill</div>
+        <div class="dd-item">on the counter</div>
+        <div class="dd-item">plastic-free</div>
+        <div class="dd-item">EWG-conscious</div>
+        <div class="dd-item">biodegradable</div>
+        <div class="dd-item">slow</div>
+      </div>
+    </div>
+    <div class="dd-col dd-dont">
+      <span class="dd-label">&#9670; Never say</span>
+      <div class="dd-list">
+        <div class="dd-item">clean (as adjective)</div>
+        <div class="dd-item">antibacterial</div>
+        <div class="dd-item">fresh</div>
+        <div class="dd-item">kills</div>
+        <div class="dd-item">sanitize</div>
+        <div class="dd-item">disinfect</div>
+        <div class="dd-item">germ-free</div>
+        <div class="dd-item">chemical-free</div>
+        <div class="dd-item">100% non-toxic</div>
+        <div class="dd-item">eco-friendly</div>
+        <div class="dd-item">all-natural</div>
+        <div class="dd-item">8X stronger</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 AD HOOKS -->
+<section class="section">
+  <span class="eyebrow">&#9670; Five ad hooks</span>
+  <h2 class="h2">The five angles <em>we test on day one.</em></h2>
+  <p class="body">Five hooks, five 30-second ad arcs. Each maps to a buyer persona and a paid channel. <strong>$1K each, 14-day test, win criteria in the landing/ad plan.</strong></p>
+
+  <!-- AD 1 -->
+  <div class="ad">
+    <div class="ad-head">
+      <div>
+        <span class="ad-num">AD 01 &middot; Designed to be seen</span>
+        <div class="ad-hero">"You don't hide an Aesop bottle. <em>Why hide your cleaner?</em>"</div>
+      </div>
+      <div class="ad-cta">CTA: Shop the bottle</div>
+    </div>
+    <div class="ad-grid">
+      <div class="ad-cell">
+        <span class="ad-cell-label">Sub-line</span>
+        <div class="ad-cell-text">Cleaning, designed to live on the counter.</div>
+      </div>
+      <div class="ad-cell">
+        <span class="ad-cell-label">Persona target</span>
+        <div class="ad-cell-text">Design-Wellness Millennial</div>
+      </div>
+      <div class="ad-cell full">
+        <span class="ad-cell-label">30s ad arc</span>
+        <div class="ad-cell-text"><strong>0&ndash;3s:</strong> Aesop hand wash on a marble counter, warm light. <strong>3&ndash;8s:</strong> Pan to a sad plastic Clorox bottle, beat. <strong>8&ndash;18s:</strong> Sweep transition &mdash; GESINE bottle replaces the Clorox. Hand sprays linen. <strong>18&ndash;28s:</strong> Three SKU lineup. <strong>28&ndash;30s:</strong> Logo + "Designed to be seen."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AD 2 -->
+  <div class="ad">
+    <div class="ad-head">
+      <div>
+        <span class="ad-num">AD 02 &middot; Cleaning as ritual</span>
+        <div class="ad-hero">"What if cleaning <em>felt like lighting a candle?</em>"</div>
+      </div>
+      <div class="ad-cta">CTA: Start the ritual</div>
+    </div>
+    <div class="ad-grid">
+      <div class="ad-cell">
+        <span class="ad-cell-label">Sub-line</span>
+        <div class="ad-cell-text">A scent-led home reset, not a chore.</div>
+      </div>
+      <div class="ad-cell">
+        <span class="ad-cell-label">Persona target</span>
+        <div class="ad-cell-text">Sunday Reset Buyer</div>
+      </div>
+      <div class="ad-cell full">
+        <span class="ad-cell-label">30s ad arc</span>
+        <div class="ad-cell-text"><strong>0&ndash;4s:</strong> Hand striking a match, candle lights. <strong>4&ndash;10s:</strong> POV woman walks through morning kitchen. <strong>10&ndash;20s:</strong> She picks up GESINE bottle, sprays, wipes once, breathes. <strong>20&ndash;28s:</strong> Counter reveal &mdash; bottle stays out next to the candle. <strong>28&ndash;30s:</strong> Tagline: "A ritual, not a chore."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AD 3 -->
+  <div class="ad">
+    <div class="ad-head">
+      <div>
+        <span class="ad-num">AD 03 &middot; Safer home</span>
+        <div class="ad-hero">"<em>Plastic-free. EWG-conscious.</em> Designed for a home you live in."</div>
+      </div>
+      <div class="ad-cta">CTA: Read the ingredients</div>
+    </div>
+    <div class="ad-grid">
+      <div class="ad-cell">
+        <span class="ad-cell-label">Sub-line</span>
+        <div class="ad-cell-text">Every ingredient disclosed. Every bottle refillable.</div>
+      </div>
+      <div class="ad-cell">
+        <span class="ad-cell-label">Persona target</span>
+        <div class="ad-cell-text">Clean Home Buyer</div>
+      </div>
+      <div class="ad-cell full">
+        <span class="ad-cell-label">30s ad arc</span>
+        <div class="ad-cell-text"><strong>0&ndash;5s:</strong> Toddler hand on a marble counter. <strong>5&ndash;12s:</strong> Slow scroll over the ingredient list (full disclosure on screen). <strong>12&ndash;22s:</strong> Refill ritual &mdash; the bottle staying, the refill cartridge replacing. <strong>22&ndash;30s:</strong> "Designed for a home you live in. Not just a home you photograph."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AD 4 -->
+  <div class="ad">
+    <div class="ad-head">
+      <div>
+        <span class="ad-num">AD 04 &middot; Corporate gifting</span>
+        <div class="ad-hero">"<em>The branded gift</em> they keep on their desk."</div>
+      </div>
+      <div class="ad-cta">CTA: Inquire about MOQ</div>
+    </div>
+    <div class="ad-grid">
+      <div class="ad-cell">
+        <span class="ad-cell-label">Sub-line</span>
+        <div class="ad-cell-text">Co-branded scent. Co-branded bottle. One inquiry away.</div>
+      </div>
+      <div class="ad-cell">
+        <span class="ad-cell-label">Persona target</span>
+        <div class="ad-cell-text">Premium Gift Buyer &middot; B2B HR/agency</div>
+      </div>
+      <div class="ad-cell full">
+        <span class="ad-cell-label">30s ad arc</span>
+        <div class="ad-cell-text"><strong>0&ndash;5s:</strong> Stock pile of cheap branded mugs &mdash; cut. <strong>5&ndash;12s:</strong> Single GESINE bottle on a designer desk, brand foil visible. <strong>12&ndash;22s:</strong> Three real client logos co-branded (mock). <strong>22&ndash;30s:</strong> "A gift that doesn't end up in a drawer."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AD 5 -->
+  <div class="ad">
+    <div class="ad-head">
+      <div>
+        <span class="ad-num">AD 05 &middot; Scent-led dopamine</span>
+        <div class="ad-hero">"<em>The reason</em> she actually cleans now."</div>
+      </div>
+      <div class="ad-cta">CTA: Start with a scent</div>
+    </div>
+    <div class="ad-grid">
+      <div class="ad-cell">
+        <span class="ad-cell-label">Sub-line</span>
+        <div class="ad-cell-text">Eight scent rituals. One bottle. The chore is the byproduct.</div>
+      </div>
+      <div class="ad-cell">
+        <span class="ad-cell-label">Persona target</span>
+        <div class="ad-cell-text">Sunday Reset Buyer &middot; Design-Wellness Millennial</div>
+      </div>
+      <div class="ad-cell full">
+        <span class="ad-cell-label">30s ad arc</span>
+        <div class="ad-cell-text"><strong>0&ndash;3s:</strong> UGC creator: "I have a confession." <strong>3&ndash;10s:</strong> "I never used to clean &mdash; until this." <strong>10&ndash;22s:</strong> Spray demos across nightstand, desk, kitchen. <strong>22&ndash;28s:</strong> Scent flight &mdash; eight bottles on the counter. <strong>28&ndash;30s:</strong> "Pleasure first. Cleaning, second."</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- 10 CAPTIONS -->
+<section class="section">
+  <span class="eyebrow">&#9670; Caption frames</span>
+  <h2 class="h2">Ten caption frames <em>for IG &amp; TikTok.</em></h2>
+  <p class="body">Three hero, three use-case, two founder, two gifting. Drop in product detail, don't rewrite the structure.</p>
+
+  <div class="cap-grid">
+    <div class="cap-card">
+      <span class="cap-tag">&#9670; Hero 01</span>
+      <div class="cap-text"><strong>Designed to be seen.</strong><br>The bottle stays out. The cleaning becomes a ritual. The shelf becomes a story.</div>
+    </div>
+    <div class="cap-card">
+      <span class="cap-tag">&#9670; Hero 02</span>
+      <div class="cap-text"><strong>The last utility on your counter.</strong><br>Hand wash got beautiful. Cookware got beautiful. Your spray bottle still looks like 1998.</div>
+    </div>
+    <div class="cap-card">
+      <span class="cap-tag">&#9670; Hero 03</span>
+      <div class="cap-text"><strong>Cleaning, but make it fragrance.</strong><br>Eight scent rituals. One sculptural bottle. Refilled, not replaced.</div>
+    </div>
+    <div class="cap-card">
+      <span class="cap-tag">&#9670; Use-Case 01 &middot; Sunday</span>
+      <div class="cap-text"><strong>10am Sunday. The home reset.</strong><br>Open Window scent. Eucalyptus and cold air. The week begins on the counter, not in the calendar.</div>
+    </div>
+    <div class="cap-card">
+      <span class="cap-tag">&#9670; Use-Case 02 &middot; Nightstand</span>
+      <div class="cap-text"><strong>Quiet Cedar before bed.</strong><br>One spray. The day is officially closed.</div>
+    </div>
+    <div class="cap-card">
+      <span class="cap-tag">&#9670; Use-Case 03 &middot; Entryway</span>
+      <div class="cap-text"><strong>Smoke Linen on the doorframe.</strong><br>The 30 seconds before guests arrive. They will think it's a candle. It is not.</div>
+    </div>
+    <div class="cap-card">
+      <span class="cap-tag">&#9670; Founder 01</span>
+      <div class="cap-text"><strong>Why I built GESINE:</strong><br>Every other thing on my counter had a designer. The cleaner did not. So I made one.</div>
+    </div>
+    <div class="cap-card">
+      <span class="cap-tag">&#9670; Founder 02</span>
+      <div class="cap-text"><strong>The brief was simple.</strong><br>A bottle worth leaving out. A scent worth refilling. A ritual worth photographing.</div>
+    </div>
+    <div class="cap-card">
+      <span class="cap-tag">&#9670; Gifting 01</span>
+      <div class="cap-text"><strong>The housewarming gift</strong> that doesn't end up in a drawer. Wrap it. Hand it over. Watch it stay on their counter for a year.</div>
+    </div>
+    <div class="cap-card">
+      <span class="cap-tag">&#9670; Gifting 02</span>
+      <div class="cap-text"><strong>For the friend</strong> who already owns the candle, the hand wash, and the cookware. This is the last upgrade.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SUBJECT LINES -->
+<section class="section">
+  <span class="eyebrow">&#9670; Email subject line bank</span>
+  <h2 class="h2">Ten subject lines <em>for D2C launch.</em></h2>
+
+  <div class="subj-list">
+    <div class="subj-item"><span class="subj-num">01</span><span class="subj-text">"The cleaner you don't hide."</span></div>
+    <div class="subj-item"><span class="subj-num">02</span><span class="subj-text">"What's been missing from your counter."</span></div>
+    <div class="subj-item"><span class="subj-num">03</span><span class="subj-text">"Cleaning, redesigned by a perfumer."</span></div>
+    <div class="subj-item"><span class="subj-num">04</span><span class="subj-text">"Eight scents. One bottle. Sunday morning."</span></div>
+    <div class="subj-item"><span class="subj-num">05</span><span class="subj-text">"Why your hand wash got beautiful and your spray didn't."</span></div>
+    <div class="subj-item"><span class="subj-num">06</span><span class="subj-text">"The last utility on your counter just got a designer."</span></div>
+    <div class="subj-item"><span class="subj-num">07</span><span class="subj-text">"A ritual that begins on the kitchen counter."</span></div>
+    <div class="subj-item"><span class="subj-num">08</span><span class="subj-text">"Hosting this weekend? Read this first."</span></div>
+    <div class="subj-item"><span class="subj-num">09</span><span class="subj-text">"Refill is now a ritual, not a chore."</span></div>
+    <div class="subj-item"><span class="subj-num">10</span><span class="subj-text">"The gift you stop hiding."</span></div>
+  </div>
+</section>
+
+<!-- PRESS ONE-LINER -->
+<section class="section">
+  <span class="eyebrow">&#9670; The press line</span>
+  <h2 class="h2">The line <em>a journalist will lift verbatim.</em></h2>
+  <div class="press-box">
+    <span class="press-label">&#9670; Locked press one-liner</span>
+    <div class="press-text">
+      "GESINE is the first home-cleaning brand designed like fragrance &mdash; <em>a sculptural bottle, eight scent rituals, and a refill subscription &mdash; built to live on the counter, not under the sink.</em>"
+    </div>
+  </div>
+</section>
+
+<footer class="doc-footer">
+  <div class="ft-l">Alex Lamb &middot; Creative Director, AI Architect</div>
+  <div class="ft-r">GESINE Foundation Sprint &middot; Deliverable 05</div>
+</footer>
+
+</div>
+</body>
+</html>

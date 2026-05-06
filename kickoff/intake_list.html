@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){if(sessionStorage.getItem('gesine_unlock')==='1')return;var p=prompt('GESINE — enter password to view');if(p==='gesine2026'){sessionStorage.setItem('gesine_unlock','1');}else{document.documentElement.innerHTML='<body style="margin:0;padding:60px;font-family:sans-serif;text-align:center;background:#0F0E0C;color:#F5F1E8;font-size:18px;">Access required.</body>';}})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GESINE — Kickoff Intake List</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --ink:#0F0E0C; --dark:#1A1814;
+  --cream:#F8FAF6; --off:#E8EFE3; --soft:#D6E4D0;
+  --amber:#4FA86A; --amber-deep:#2D5F3F;
+  --olive:#4A5240; --sage:#7C8470;
+  --muted:#6F665A; --light:#9C9285;
+  --bmd:rgba(15,14,12,0.14); --bstr:rgba(15,14,12,0.20);
+  --alert:#A85C3F;
+}
+body { background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-serif; font-size:15px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+.page { max-width:980px; margin:0 auto; padding:48px 40px 80px; }
+
+.doc-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:36px; padding-bottom:20px; border-bottom:2px solid var(--ink); }
+.wordmark { display:flex; align-items:center; gap:12px; }
+.logo-box { width:36px; height:36px; background:var(--ink); border-radius:8px; display:grid; place-items:center; }
+.brand-name { font-family:'Instrument Serif',Georgia,serif; font-size:18px; letter-spacing:.02em; }
+.doc-meta { text-align:right; font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); line-height:2; }
+
+.hero { background:var(--ink); border-radius:16px; padding:36px 40px; margin-bottom:36px; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg, var(--amber), var(--sage)); }
+.hero-eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:rgba(245,241,232,.40); display:block; margin-bottom:14px; }
+.hero-headline { font-family:'Instrument Serif',Georgia,serif; font-size:clamp(26px,3.4vw,38px); line-height:1.1; letter-spacing:-.02em; color:var(--cream); margin-bottom:14px; }
+.hero-headline em { color:var(--amber); font-style:italic; }
+.hero-body { font-size:14px; color:rgba(245,241,232,.72); line-height:1.65; font-weight:300; max-width:680px; }
+.hero-body strong { color:var(--cream); font-weight:500; }
+
+.priority-banner { background:rgba(168,92,63,0.08); border:2px solid var(--alert); border-radius:12px; padding:18px 24px; margin-bottom:36px; }
+.priority-banner-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--alert); margin-bottom:8px; display:block; font-weight:600; }
+.priority-banner h2 { font-family:'Instrument Serif',Georgia,serif; font-size:20px; line-height:1.3; color:var(--ink); margin-bottom:6px; letter-spacing:-.005em; }
+.priority-banner h2 em { color:var(--alert); font-style:italic; }
+.priority-banner p { font-size:13.5px; color:#2A2620; line-height:1.55; font-weight:300; }
+.priority-banner p strong { color:var(--ink); font-weight:600; }
+
+.section { margin-bottom:36px; }
+.section-head { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--bmd); }
+.section-num { font-family:'Instrument Serif',Georgia,serif; font-size:24px; color:var(--amber); line-height:1; letter-spacing:-.01em; }
+.section-title { font-family:'Instrument Serif',Georgia,serif; font-size:22px; color:var(--ink); line-height:1.15; letter-spacing:-.005em; flex:1; margin-left:14px; }
+.section-tag { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); padding:4px 10px; background:rgba(15,14,12,0.06); border-radius:5px; }
+.section-tag.must { background:rgba(168,92,63,0.18); color:var(--alert); font-weight:600; }
+.section-tag.soon { background:rgba(79,168,106,0.18); color:var(--amber-deep); font-weight:600; }
+.section-tag.later { background:rgba(124,132,112,0.18); color:#4A5240; }
+
+.checklist { list-style:none; padding:0; margin:0; }
+.checklist li { padding:11px 16px 11px 36px; background:var(--off); border:1px solid var(--bstr); border-radius:8px; margin-bottom:6px; font-size:13.5px; line-height:1.55; color:#2A2620; position:relative; }
+.checklist li::before { content:'☐'; position:absolute; left:14px; top:10px; font-size:14px; color:var(--amber); font-weight:600; }
+.checklist li strong { color:var(--ink); font-weight:600; }
+.checklist li em { color:var(--amber-deep); font-style:italic; font-weight:500; }
+.checklist li code { font-family:'DM Mono',monospace; font-size:12px; background:rgba(15,14,12,0.08); padding:2px 5px; border-radius:4px; }
+.checklist li.urgent { background:rgba(168,92,63,0.06); border-color:rgba(168,92,63,0.3); }
+.checklist li.urgent::before { color:var(--alert); content:'!'; font-weight:700; font-size:16px; }
+.checklist li .why { display:block; font-size:12px; color:var(--muted); margin-top:4px; font-weight:300; line-height:1.45; }
+
+.meeting-agenda { background:var(--ink); color:var(--cream); border-radius:12px; padding:28px 32px; margin:24px 0; }
+.meeting-agenda-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--amber); margin-bottom:14px; display:block; }
+.meeting-agenda h3 { font-family:'Instrument Serif',Georgia,serif; font-size:22px; color:var(--cream); line-height:1.2; margin-bottom:14px; letter-spacing:-.005em; }
+.meeting-agenda h3 em { color:var(--amber); font-style:italic; }
+.meeting-agenda ol { padding-left:22px; }
+.meeting-agenda ol li { color:rgba(245,241,232,0.85); font-size:13.5px; padding:5px 0; line-height:1.55; }
+.meeting-agenda ol li strong { color:var(--cream); font-weight:500; }
+
+.summary-box { background:linear-gradient(135deg, rgba(79,168,106,.08) 0%, rgba(74,82,64,.08) 100%); border:1px solid rgba(79,168,106,.3); border-radius:12px; padding:24px 28px; margin-top:24px; }
+.summary-box .label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--amber-deep); display:block; margin-bottom:10px; font-weight:600; }
+.summary-box h3 { font-family:'Instrument Serif',Georgia,serif; font-size:20px; line-height:1.3; color:var(--ink); margin-bottom:8px; letter-spacing:-.005em; }
+.summary-box p { font-size:13.5px; color:#2A2620; line-height:1.6; font-weight:300; }
+
+.doc-footer { margin-top:48px; padding-top:20px; border-top:2px solid var(--ink); display:flex; justify-content:space-between; align-items:center; }
+.ft-l { font-size:12px; color:var(--muted); }
+.ft-r { font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); }
+
+@media print {
+  body { background:#fff; }
+  .checklist li { break-inside:avoid; }
+  .section { break-inside:avoid; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="doc-header">
+  <div class="wordmark">
+    <div class="logo-box">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <circle cx="9" cy="9" r="7" stroke="#4FA86A" stroke-width="1.5" fill="none"/>
+        <circle cx="9" cy="9" r="3" fill="#4FA86A"/>
+      </svg>
+    </div>
+    <span class="brand-name">GESINE × Alex Lamb</span>
+  </div>
+  <div class="doc-meta">Kickoff Intake List<br>For the founders' meeting · May 2026</div>
+</header>
+
+<div class="hero">
+  <span class="hero-eyebrow">What I need from you to make Phase 1 (and Phase 2) hit</span>
+  <div class="hero-headline">
+    Bring these to the kickoff,<br>
+    <em>or send after.</em>
+  </div>
+  <div class="hero-body">
+    Everything below feeds into work that's already in motion. <strong>The "Must-have today" items unlock founder content, ad creative, and claims-locked copy</strong>. The rest can come within 7 days. <strong>If anything's a "we don't have that yet"</strong>, that's also useful — flagging gaps now saves a re-shoot later.
+  </div>
+</div>
+
+
+<!-- URGENT BANNER -->
+<div class="priority-banner">
+  <span class="priority-banner-label">⚠ Urgent · trademark + naming</span>
+  <h2><em>@ritueliahome</em> launched in NYC with the same positioning. <em>Lock the brand name + USPTO filing this week.</em></h2>
+  <p>Verified via Apify scrape — <strong>"Rituelia™ • Ritual Wellness Candles • Sanctuary Living • Est. 2026 · NYC"</strong>. Currently 3 IG followers, 11 posts. <strong>6–12 month window</strong> before they crowd the lane. First question for the meeting: where's GESINE on trademark filing.</p>
+</div>
+
+
+<!-- AGENDA -->
+<div class="meeting-agenda">
+  <span class="meeting-agenda-label">In-meeting · 30 minutes</span>
+  <h3>Suggested kickoff agenda<br><em>(if you set it)</em></h3>
+  <ol>
+    <li><strong>5 min</strong> — Scope confirmation. Re-walk the 8 deliverables. Anything they want to push or pull.</li>
+    <li><strong>5 min</strong> — Decision-makers. Who approves what. Who signs Phase 2.</li>
+    <li><strong>10 min</strong> — Walk through this intake list. Flag what they have / don't have / need to chase down.</li>
+    <li><strong>5 min</strong> — Trademark + @ritueliahome flag. Action item before next call.</li>
+    <li><strong>5 min</strong> — Communication cadence (weekly sync? async?) + Phase 2 trigger conversation.</li>
+  </ol>
+</div>
+
+
+<!-- SECTION 01 — MUST HAVE TODAY -->
+<section class="section">
+  <div class="section-head">
+    <div style="display:flex;align-items:baseline;flex:1;">
+      <span class="section-num">01</span>
+      <span class="section-title">Must-have today · in the meeting</span>
+    </div>
+    <span class="section-tag must">Required</span>
+  </div>
+  <ul class="checklist">
+    <li class="urgent"><strong>Trademark search status</strong> — has anyone filed for "GESINE"? USPTO TESS check done? Need date of filing or commitment to file this week.<span class="why">Reason: @ritueliahome competitor is closing on the same naming territory.</span></li>
+    <li class="urgent"><strong>Brand name lock confirmation</strong> — is "GESINE" 100% locked? Or are alternatives still in play? <em>Affects every doc + every domain decision.</em></li>
+    <li><strong>Founder bios + photos</strong> — name, role, background, current title, headshots if comfortable. <em>Drives the founder-story content angle and press positioning.</em></li>
+    <li><strong>Decision-maker map</strong> — who approves creative? Who approves spend? Who signs Phase 2? <em>One name per question.</em></li>
+    <li><strong>Funding status</strong> — pre-revenue? Self-funded? Investor-backed? Round closed? <em>Shapes how we sequence Phase 2 vs build-in-public.</em></li>
+    <li><strong>Launch target date</strong> — Fall 2026 in the original brief — still accurate? Specific month or week?</li>
+    <li><strong>$750 Phase 1 payment confirmation</strong> — Stripe link sent / paid? Or sending today? <em>Sprint kicks off the day payment clears.</em></li>
+  </ul>
+</section>
+
+
+<!-- SECTION 02 — PRODUCT + FORMULATION -->
+<section class="section">
+  <div class="section-head">
+    <div style="display:flex;align-items:baseline;flex:1;">
+      <span class="section-num">02</span>
+      <span class="section-title">Product + formulation specs</span>
+    </div>
+    <span class="section-tag soon">Within 7 days</span>
+  </div>
+  <ul class="checklist">
+    <li><strong>Bottle dimensions, materials, finish</strong> — exact measurements, glass type (smoked-amber? frosted?), cap material/color, sprayer mechanism. <em>Locks visual prompts + investor deck mockups.</em></li>
+    <li><strong>Refill vial dimensions + closure type</strong> — drives Refill Ritual still-life photography (deliverable D06 prompt 15).</li>
+    <li><strong>Holder material + dimensions</strong> — ceramic? wood? metal? matte/gloss? <em>Holder is critical — it earns counter space.</em></li>
+    <li><strong>Bamboo towel specs</strong> — size, weave, color options, manufacturer or sourcing partner.</li>
+    <li><strong>Packaging dimensions</strong> — outer box (book-style? rigid? magnetic?), insert tray material, total weight, ship-ready dimensions.</li>
+    <li><strong>Full ingredient list</strong> per scent SKU, with INCI / CAS numbers if available. <em>Required for the L'AVANT-style ingredient transparency page.</em></li>
+    <li><strong>Fragrance ingredient disclosure</strong> — IFRA-compliant? Phthalate-free disclosure? Allergen list?</li>
+    <li><strong>Scent formulations status</strong> — which scents are formulated vs concept-only? Lead notes per scent.</li>
+    <li><strong>Surface compatibility test data</strong> — what surfaces is it tested on? Marble? Stone? Wood? Painted walls? <em>Drives "thoughtfully formulated for the surfaces you touch every day" copy.</em></li>
+    <li><strong>Efficacy testing results</strong> — anti-microbial, cleaning effectiveness vs Lysol-tier, third-party lab if any.</li>
+  </ul>
+</section>
+
+
+<!-- SECTION 03 — CLAIMS + COMPLIANCE -->
+<section class="section">
+  <div class="section-head">
+    <div style="display:flex;align-items:baseline;flex:1;">
+      <span class="section-num">03</span>
+      <span class="section-title">Claims + compliance</span>
+    </div>
+    <span class="section-tag soon">Within 7 days</span>
+  </div>
+  <ul class="checklist">
+    <li><strong>EWG Verified status</strong> — applied? in process? not yet? <em>"EWG-conscious" is safe; "EWG Verified" requires the certification.</em></li>
+    <li><strong>SDS sheets (Safety Data Sheets)</strong> — one per scent SKU. Required for any retail or B2B placement.</li>
+    <li><strong>Biodegradability substantiation</strong> — under what conditions? OECD test data? Time to biodegrade? <em>Determines whether "biodegradable" is a usable claim or a legal landmine.</em></li>
+    <li><strong>"Plastic-free" substantiation</strong> — refill vials material, cap material, label adhesive. <em>One plastic component breaks the whole claim.</em></li>
+    <li><strong>"Made without [list]"</strong> — confirm what's NOT in the formula. (Phthalates, parabens, ammonia, chlorine, bleach, dyes, etc.)</li>
+    <li><strong>Approved legal claims list</strong> — anything reviewed by legal counsel that we can use verbatim?</li>
+    <li><strong>Country-of-origin</strong> — where formulated? where bottled? where assembled? <em>"Made in USA" / "Made in France" claims have different legal thresholds.</em></li>
+    <li><strong>Certifications pursued or held</strong> — Leaping Bunny? Cruelty-free? B Corp? 1% for the Planet? Climate Neutral?</li>
+  </ul>
+</section>
+
+
+<!-- SECTION 04 — BRAND IDENTITY ASSETS -->
+<section class="section">
+  <div class="section-head">
+    <div style="display:flex;align-items:baseline;flex:1;">
+      <span class="section-num">04</span>
+      <span class="section-title">Brand identity assets</span>
+    </div>
+    <span class="section-tag soon">Within 7 days</span>
+  </div>
+  <ul class="checklist">
+    <li><strong>Logo files</strong> — vector (SVG/AI) + PNG variants in light/dark. <em>If no logo yet, that's a Phase 2 deliverable to flag.</em></li>
+    <li><strong>Wordmark vs symbol</strong> — confirmed lockup, or still iterating?</li>
+    <li><strong>Brand colors (hex)</strong> — primary, secondary, accent. <em>Intake deliverables already use cream/amber/olive — confirm or correct.</em></li>
+    <li><strong>Typography</strong> — typefaces locked? Serif for headlines / sans for body? Licensing covered?</li>
+    <li><strong>Existing brand guidelines doc</strong> — if any version exists, send.</li>
+    <li><strong>Existing product photography</strong> — even rough shots. Will compare to AI-generated lookbook visuals.</li>
+    <li><strong>Existing renders / 3D files</strong> — if industrial designer made the bottle, the .step or .obj file is gold for AI mockup generation.</li>
+    <li><strong>Mood boards or visual references</strong> — Pinterest boards, Figma frames, screenshot folders. <em>Anything they've been collecting.</em></li>
+  </ul>
+</section>
+
+
+<!-- SECTION 05 — DOMAIN + SOCIAL -->
+<section class="section">
+  <div class="section-head">
+    <div style="display:flex;align-items:baseline;flex:1;">
+      <span class="section-num">05</span>
+      <span class="section-title">Domain + social handles</span>
+    </div>
+    <span class="section-tag soon">Within 7 days</span>
+  </div>
+  <ul class="checklist">
+    <li><strong>Domain ownership</strong> — gesine.com? gesine.co? subdomain situation? <em>Lock domain before competitor does.</em></li>
+    <li><strong>Existing IG handle</strong> — if @gesine, @gesine.home, or similar is already secured. Login access needed for Phase 2.</li>
+    <li><strong>TikTok handle status</strong> — created? secured? deferred?</li>
+    <li><strong>Pinterest, X, LinkedIn handles</strong> — locked or open?</li>
+    <li><strong>Email infrastructure</strong> — branded email (e.g. hello@gesine.com) live? Workspace / Google Suite? Klaviyo set up?</li>
+    <li><strong>Existing email list</strong> — even 50 names from friends-and-family round.</li>
+  </ul>
+</section>
+
+
+<!-- SECTION 06 — TECH STACK ACCESS -->
+<section class="section">
+  <div class="section-head">
+    <div style="display:flex;align-items:baseline;flex:1;">
+      <span class="section-num">06</span>
+      <span class="section-title">Tech stack + access (for Phase 2 prep)</span>
+    </div>
+    <span class="section-tag later">Phase 2 trigger</span>
+  </div>
+  <ul class="checklist">
+    <li><strong>Shopify store status</strong> — created? store URL? plan tier? <em>Phase 2 lands here.</em></li>
+    <li><strong>Stripe account</strong> — created? KYC complete? <em>For payment links + Shopify integration.</em></li>
+    <li><strong>Weavy.ai account</strong> — created? <em>This is the core AI infrastructure layer in the roadmap (D03).</em></li>
+    <li><strong>Lovable.dev account</strong> — for internal apps layer.</li>
+    <li><strong>Klaviyo account</strong> — for email lane in marketing ecosystem (D03.5).</li>
+    <li><strong>Airtable workspace</strong> — paid tier ideal. <em>Becomes the brand's central nervous system per D03.5.</em></li>
+    <li><strong>n8n / Make.com preference</strong> — for orchestration layer. <em>n8n recommended in D03.5 — confirm.</em></li>
+    <li><strong>Blotato account</strong> — for multi-platform posting.</li>
+  </ul>
+</section>
+
+
+<!-- SECTION 07 — EXISTING NETWORK + ASSETS -->
+<section class="section">
+  <div class="section-head">
+    <div style="display:flex;align-items:baseline;flex:1;">
+      <span class="section-num">07</span>
+      <span class="section-title">Existing network + assets</span>
+    </div>
+    <span class="section-tag soon">Within 7 days</span>
+  </div>
+  <ul class="checklist">
+    <li><strong>Investor relationships</strong> — current backers + warm intros they could activate. <em>Investor deck visuals from D02 + D03 lean here.</em></li>
+    <li><strong>Existing press contacts</strong> — any journalists, beauty editors, lifestyle writers they've already met.</li>
+    <li><strong>Retail buyer relationships</strong> — Ox &amp; Noble or similar specialty stores already in conversation? Sephora? Goop? Anyone.</li>
+    <li><strong>Hotel / hospitality contacts</strong> — boutique hotels, design hotels, wellness retreats. <em>D02 gifting board has a hospitality lane.</em></li>
+    <li><strong>Corporate gifting prospects already named</strong> — any Fortune 500, design firm, wellness brand prospect they've already discussed?</li>
+    <li><strong>PR firm or publicist relationship</strong> — engaged? on retainer? recommendations?</li>
+    <li><strong>Existing creative team</strong> — agencies, designers, freelancers currently engaged. <em>Want to make sure I'm not stepping on toes or duplicating spend.</em></li>
+  </ul>
+</section>
+
+
+<!-- SECTION 08 — PROCESS + COMMUNICATION -->
+<section class="section">
+  <div class="section-head">
+    <div style="display:flex;align-items:baseline;flex:1;">
+      <span class="section-num">08</span>
+      <span class="section-title">Process + communication</span>
+    </div>
+    <span class="section-tag must">Required</span>
+  </div>
+  <ul class="checklist">
+    <li><strong>Primary point of contact</strong> — one name + email. <em>Founder vs assistant vs ops lead.</em></li>
+    <li><strong>Communication channel preference</strong> — Slack? Loom? email threads? scheduled calls?</li>
+    <li><strong>Review cadence</strong> — async drops or weekly sync? Who reviews?</li>
+    <li><strong>Asset delivery preference</strong> — Notion? Dropbox? Google Drive? Shared folder?</li>
+    <li><strong>Response SLA expectation</strong> — 24hr? 48hr? <em>Affects how fast we can iterate.</em></li>
+    <li><strong>Phase 2 commitment timeline</strong> — when do they expect to decide on the larger AI architecture engagement?</li>
+    <li><strong>NDA needed?</strong> — they may want one before sharing investor materials. <em>Standard for early-stage CPG.</em></li>
+  </ul>
+</section>
+
+
+<!-- SECTION 09 — VISUAL + PRODUCT FUTURES -->
+<section class="section">
+  <div class="section-head">
+    <div style="display:flex;align-items:baseline;flex:1;">
+      <span class="section-num">09</span>
+      <span class="section-title">Visual + product futures</span>
+    </div>
+    <span class="section-tag later">Phase 2+</span>
+  </div>
+  <ul class="checklist">
+    <li><strong>"G by GESINE" sub-brand status</strong> — concept developed? When does it launch? <em>Lower-tier line referenced in original brief.</em></li>
+    <li><strong>Subscription model</strong> — monthly refill subscription planned? Pricing? Quarterly?</li>
+    <li><strong>Customization platform</strong> — they want a "build your own kit" feature long-term. Tech approach?</li>
+    <li><strong>Corporate gifting MOQ + lead time</strong> — what's the minimum order? Customization time?</li>
+    <li><strong>International expansion</strong> — US-only Year 1? UK / EU on the roadmap?</li>
+    <li><strong>Adjacent product roadmap</strong> — beyond bottle + refills + holder, what's coming? Hand soap? Body care? Candle?</li>
+  </ul>
+</section>
+
+
+<!-- SUMMARY -->
+<div class="summary-box">
+  <span class="label">In one sentence</span>
+  <h3>The trademark question, the formulation specs, and the Phase 2 decision-maker map are the three things that <em>actually unblock everything else.</em></h3>
+  <p>Everything else can come in a Notion doc within 7 days. But trademark filing, full ingredient + claims data, and a clear "this person signs the $5K/mo" answer keep the work moving without friction. <strong>Push on these three first.</strong></p>
+</div>
+
+
+<footer class="doc-footer">
+  <div class="ft-l">Alex Lamb · Creative Director, AI Architect</div>
+  <div class="ft-r">GESINE Foundation Sprint · Kickoff Intake · May 2026</div>
+</footer>
+
+</div>
+</body>
+</html>

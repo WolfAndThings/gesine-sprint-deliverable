@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){if(sessionStorage.getItem('gesine_unlock')==='1')return;var p=prompt('GESINE — enter password to view');if(p==='gesine2026'){sessionStorage.setItem('gesine_unlock','1');}else{document.documentElement.innerHTML='<body style="margin:0;padding:60px;font-family:sans-serif;text-align:center;background:#0F0E0C;color:#F5F1E8;font-size:18px;">Access required.</body>';}})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GESINE — Bonus Findings</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --ink:#0F0E0C; --dark:#1A1814;
+  --cream:#F8FAF6; --off:#E8EFE3; --soft:#D6E4D0;
+  --amber:#4FA86A; --amber-deep:#2D5F3F;
+  --olive:#4A5240; --sage:#7C8470;
+  --muted:#6F665A; --light:#9C9285;
+  --bmd:rgba(15,14,12,0.14); --bstr:rgba(15,14,12,0.20);
+  --alert:#A85C3F;
+}
+body { background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-serif; font-size:15px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+.page { max-width:980px; margin:0 auto; padding:56px 48px 80px; }
+.doc-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:48px; padding-bottom:24px; border-bottom:2px solid var(--ink); }
+.wordmark { display:flex; align-items:center; gap:12px; }
+.logo-box { width:36px; height:36px; background:var(--ink); border-radius:8px; display:grid; place-items:center; }
+.brand-name { font-family:'Instrument Serif',Georgia,serif; font-size:18px; letter-spacing:.02em; }
+.doc-meta { text-align:right; font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); line-height:2; }
+
+.hero { background:var(--ink); border-radius:16px; padding:44px 48px; margin-bottom:48px; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg, var(--amber), var(--sage)); }
+.hero-eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:rgba(245,241,232,.40); display:block; margin-bottom:16px; }
+.hero-headline { font-family:'Instrument Serif',Georgia,serif; font-size:clamp(28px,3.6vw,40px); line-height:1.1; letter-spacing:-.02em; color:var(--cream); margin-bottom:18px; }
+.hero-headline em { color:var(--amber); font-style:italic; }
+.hero-body { font-size:15px; color:rgba(245,241,232,.72); line-height:1.7; font-weight:300; max-width:720px; }
+.hero-body strong { color:var(--cream); font-weight:500; }
+
+.section { margin-bottom:56px; }
+.eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:12px; }
+.h2 { font-family:'Instrument Serif',Georgia,serif; font-size:clamp(22px,2.8vw,30px); line-height:1.15; letter-spacing:-.015em; color:var(--ink); margin-bottom:14px; }
+.h2 em { font-style:italic; }
+.body { font-size:14px; color:#2A2620; line-height:1.75; font-weight:300; max-width:720px; }
+.body strong { font-weight:600; color:var(--ink); }
+
+/* FINDING CARD */
+.finding { background:var(--cream); border:1px solid var(--bstr); border-radius:14px; overflow:hidden; margin-bottom:14px; }
+.finding-head { padding:22px 28px; display:grid; grid-template-columns:auto 1fr auto; gap:18px; align-items:center; border-bottom:1px solid var(--bmd); background:var(--off); }
+.finding-num { font-family:'Instrument Serif',Georgia,serif; font-size:32px; color:var(--amber); line-height:1; letter-spacing:-.02em; }
+.finding-title { font-family:'Instrument Serif',Georgia,serif; font-size:22px; line-height:1.15; letter-spacing:-.005em; color:var(--ink); }
+.finding-tag { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; padding:5px 11px; border-radius:6px; font-weight:500; }
+.finding-tag.alert { background:rgba(168,92,63,0.15); color:var(--alert); }
+.finding-tag.opportunity { background:rgba(124,132,112,0.15); color:#4A5240; }
+.finding-tag.intel { background:rgba(79,168,106,0.15); color:var(--amber-deep); }
+.finding-tag.tactic { background:rgba(15,14,12,0.10); color:var(--ink); }
+
+.finding-body { padding:24px 28px; display:grid; grid-template-columns:1.4fr 1fr; gap:28px; }
+.fb-text { font-size:13.5px; line-height:1.7; font-weight:300; color:#2A2620; }
+.fb-text strong { font-weight:600; color:var(--ink); }
+.fb-text em { font-style:italic; color:var(--amber-deep); }
+.fb-text code { font-family:'DM Mono',monospace; font-size:12px; background:rgba(15,14,12,0.06); padding:2px 6px; border-radius:4px; }
+
+.fb-action { background:var(--ink); padding:18px 22px; border-radius:10px; }
+.fb-action-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.22em; text-transform:uppercase; color:var(--amber); margin-bottom:10px; display:block; }
+.fb-action-text { font-size:13px; line-height:1.6; color:rgba(245,241,232,0.85); font-weight:300; }
+.fb-action-text strong { color:var(--cream); font-weight:500; }
+.fb-action-text em { font-style:italic; color:var(--cream); }
+
+.urgent-box { background:rgba(168,92,63,0.08); border:2px solid var(--alert); border-radius:14px; padding:30px 36px; margin-top:22px; }
+.urgent-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--alert); margin-bottom:14px; display:block; font-weight:600; }
+.urgent-text { font-family:'Instrument Serif',Georgia,serif; font-size:24px; line-height:1.4; color:var(--ink); letter-spacing:-.01em; margin-bottom:14px; }
+.urgent-text em { font-style:italic; color:var(--alert); }
+.urgent-detail { font-size:14px; color:#2A2620; line-height:1.7; font-weight:300; }
+.urgent-detail strong { color:var(--ink); font-weight:600; }
+
+.doc-footer { margin-top:64px; padding-top:24px; border-top:2px solid var(--ink); display:flex; justify-content:space-between; align-items:center; }
+.ft-l { font-size:12px; color:var(--muted); }
+.ft-r { font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); }
+
+@media(max-width:760px) {
+  .page { padding:36px 20px 64px; }
+  .doc-header { flex-direction:column; align-items:flex-start; gap:14px; }
+  .hero { padding:30px 24px; }
+  .finding-head { grid-template-columns:auto 1fr; padding:18px 22px; }
+  .finding-tag { grid-column:1 / -1; justify-self:start; }
+  .finding-body { grid-template-columns:1fr; padding:20px; }
+  .doc-footer { flex-direction:column; gap:12px; align-items:flex-start; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="doc-header">
+  <div class="wordmark">
+    <div class="logo-box">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <circle cx="9" cy="9" r="7" stroke="#4FA86A" stroke-width="1.5" fill="none"/>
+        <circle cx="9" cy="9" r="3" fill="#4FA86A"/>
+      </svg>
+    </div>
+    <span class="brand-name">GESINE × Alex Lamb</span>
+  </div>
+  <div class="doc-meta">Bonus · Things Worth Sharing<br>Foundation Sprint · May 2026</div>
+</header>
+
+<div class="hero">
+  <span class="hero-eyebrow">Found while running the Apify scrapes</span>
+  <div class="hero-headline">
+    Things I wasn't<br>
+    <em>looking for.</em>
+  </div>
+  <div class="hero-body">
+    The Foundation Sprint promised "anything else interesting" as a bonus deliverable. Running real Apify scrapes against competitor pages and IG feeds surfaced <strong>14 findings worth flagging</strong> — including one direct competitor that needs immediate attention, several language patterns worth mining, and a few tactical openings the scoped deliverables didn't have room for.
+  </div>
+</div>
+
+
+<!-- URGENT -->
+<section class="section">
+  <div class="urgent-box">
+    <span class="urgent-label">⚠ Urgent · act on this first</span>
+    <div class="urgent-text">
+      <em>@ritueliahome</em> just launched in NYC<br>
+      with the exact GESINE positioning.
+    </div>
+    <div class="urgent-detail">
+      Bio reads: <em>"Rituelia™ • Ritual Wellness Candles • Sanctuary Living • Est. 2026 · 📍NYC."</em> Currently <strong>3 followers, 11 posts</strong>, "Flatiron Home" branding. They're using "<strong>Ritual</strong>" + "<strong>Wellness</strong>" + "<strong>Sanctuary</strong>" — the exact positioning GESINE plans to claim. <strong>Window of ~6–12 months</strong> before they crowd the lane. Recommend: trademark filings before fall launch, accelerate brand-name lock, and preempt the SEO race for "ritual home care."
+    </div>
+  </div>
+</section>
+
+
+<!-- FINDINGS GRID -->
+<section class="section">
+  <span class="eyebrow">14 findings</span>
+  <h2 class="h2">Things the audit didn't<br><em>have room for.</em></h2>
+
+  <!-- 01 -->
+  <div class="finding">
+    <div class="finding-head">
+      <div class="finding-num">01</div>
+      <div class="finding-title">Touchland's Disney collab outperformed by 3-10×</div>
+      <span class="finding-tag intel">competitor intel</span>
+    </div>
+    <div class="finding-body">
+      <div class="fb-text">Touchland's regular IG posts pulled <strong>200–1,700 likes</strong> in the scraped sample. The Disney Minnie Mouse collab posted to <code>@disneystyle</code> hit <strong>4,346 likes / 241 comments</strong> — 3–10× the brand's organic reach. <em>Collabs aren't just brand exercises — they're acquisition.</em></div>
+      <div class="fb-action">
+        <span class="fb-action-label">For GESINE</span>
+        <div class="fb-action-text"><strong>Phase 3 should target collab placement onto bigger brand accounts</strong>, not the other way around. The pitch isn't "post about us" — it's <em>"post us through your channel, to your audience."</em></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 -->
+  <div class="finding">
+    <div class="finding-head">
+      <div class="finding-num">02</div>
+      <div class="finding-title">Aesop's scent-naming formula is steal-able</div>
+      <span class="finding-tag tactic">tactical</span>
+    </div>
+    <div class="finding-body">
+      <div class="fb-text">Pulled live from Aesop product pages: <em>Resurrection Aromatique</em>, <em>Reverence Aromatique</em>, <em>Eleos Nourishing</em>, <em>Tacit Eau de Parfum</em>, <em>Above Us, Steorra</em>, <em>Solais Replenishing</em>, <em>Hwyl Eau de Parfum</em>. Pattern: <strong>one evocative or obscure word + a single descriptor</strong>. Resurrection = emotional claim. Eleos / Hwyl = literary obscurity. Tacit = restraint as virtue.</div>
+      <div class="fb-action">
+        <span class="fb-action-label">For GESINE</span>
+        <div class="fb-action-text">The 8 ritual names already use the moment-not-molecule angle. <strong>Add a parallel naming pattern</strong>: a one-word "Aesop-style" name per ritual for the premium tier. Examples: <em>9PM Reset → "Vespers."</em> <em>After Dinner → "Tomato."</em> <em>Sunday → "Hebdom."</em></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 -->
+  <div class="finding">
+    <div class="finding-head">
+      <div class="finding-num">03</div>
+      <div class="finding-title">Aesop's product copy formula is one sentence long</div>
+      <span class="finding-tag tactic">tactical</span>
+    </div>
+    <div class="finding-body">
+      <div class="fb-text">Live scrape of Resurrection Aromatique Hand Wash returned this exact copy: <em>"Simply put, the most coveted hand wash in the world. Containing oils of Orange, Rosemary and Lavender to cleanse the hands leaving them feeling refreshed."</em> Two sentences. <strong>Confidence + botanical specificity + sensory outcome.</strong> No claims, no fear language, no benefits ladder.</div>
+      <div class="fb-action">
+        <span class="fb-action-label">For GESINE</span>
+        <div class="fb-action-text">Replace every long PDP description with a two-sentence Aesop-style frame. Template: <em>"[Confidence claim]. Containing [3 botanical notes] to [sensory outcome]."</em> Test against current copy in Phase 2.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 -->
+  <div class="finding">
+    <div class="finding-head">
+      <div class="finding-num">04</div>
+      <div class="finding-title">Blueland's "free from" list is a legal-safe template</div>
+      <span class="finding-tag tactic">tactical</span>
+    </div>
+    <div class="finding-body">
+      <div class="fb-text">Live from Blueland's <code>/products/the-clean-essentials</code>: <em>"Formulas free from: Microplastics, Parabens, Ammonia, Phthalates, Chlorine, Bleach, Dyes, Preservatives."</em> Plus the substantiation line: <em>"Tested alongside major brands at an independent third party lab."</em> <strong>Two safe-claim moves rolled together.</strong> No "non-toxic," no "chemical-free," no FTC risk.</div>
+      <div class="fb-action">
+        <span class="fb-action-label">For GESINE</span>
+        <div class="fb-action-text">Use the Blueland frame verbatim. <em>"Formulas free from: [list]"</em> + an independent-lab line if substantiated. Already in the Naming + Language Banks doc, but Blueland's list is the literal template.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 -->
+  <div class="finding">
+    <div class="finding-head">
+      <div class="finding-num">05</div>
+      <div class="finding-title">Flamingo Estate's $150 free-shipping threshold is the AOV target</div>
+      <span class="finding-tag intel">competitor intel</span>
+    </div>
+    <div class="finding-body">
+      <div class="fb-text">Flamingo Estate runs <strong>"Free shipping on orders over $150"</strong> + <strong>"Spend $150, Get a Free Full-Size Green Goddess."</strong> Two bundling levers stacked. Their product mix is built to push customers past $150 — gift sets at $98, candles at $52, surface cleaners at $48. <em>The ladder is engineered.</em></div>
+      <div class="fb-action">
+        <span class="fb-action-label">For GESINE</span>
+        <div class="fb-action-text">A single $80 ritual kit hits the price ceiling but misses the AOV ceiling. <strong>Build a $150 tier as default ladder rung</strong>: kit + extra refill, kit + bamboo towel set, two-room set. Free shipping at $150. Free hand-towel or gift card at $200.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 -->
+  <div class="finding">
+    <div class="finding-head">
+      <div class="finding-num">06</div>
+      <div class="finding-title">Flamingo Estate runs branded "Projects" not just product lines</div>
+      <span class="finding-tag opportunity">opportunity</span>
+    </div>
+    <div class="finding-body">
+      <div class="fb-text">Their site nav has a "Projects" section: <em>The Melipona Bee Project, The Jamala Canyon Project, The Flower Infusion Project.</em> These aren't products — they're stories Flamingo Estate uses to seed press, founder interviews, podcast hits, and brand depth. <strong>Each project becomes a 6-month content runway.</strong></div>
+      <div class="fb-action">
+        <span class="fb-action-label">For GESINE</span>
+        <div class="fb-action-text">Phase 4 of the Marketing Ecosystem should include 2 GESINE "Projects" to seed before launch. Suggestions: <em>The Lavender Field Project</em> (sourcing story), <em>The Refill Project</em> (sustainability story), <em>The Hospitality Project</em> (boutique hotel partnership story).</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 -->
+  <div class="finding">
+    <div class="finding-head">
+      <div class="finding-num">07</div>
+      <div class="finding-title">Aesop's site has 4 different "Finder" quizzes</div>
+      <span class="finding-tag tactic">tactical</span>
+    </div>
+    <div class="finding-body">
+      <div class="fb-text">Scraped pages: <code>/skin-finder/</code>, <code>/fragrance-finder/</code>, <code>/body-care-finder/</code>, <code>/gift-finder/</code>. Aesop has invested heavily in <strong>guided-discovery quizzes as the front door</strong>. They pre-segment buyers, capture emails, recommend SKUs, and route to gift bundles. <em>Quiz = Aesop's lead magnet.</em></div>
+      <div class="fb-action">
+        <span class="fb-action-label">For GESINE</span>
+        <div class="fb-action-text">The AI Roadmap already has a Scent Finder + Ritual Builder. <strong>Add a Gift Finder as a parallel track</strong> — corporate gifting buyers and consumer gift buyers should share the same UI but route to different inventory + packaging tiers.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 08 -->
+  <div class="finding">
+    <div class="finding-head">
+      <div class="finding-num">08</div>
+      <div class="finding-title">Aesop runs a "Library" — design, literature, sound, vision</div>
+      <span class="finding-tag opportunity">opportunity</span>
+    </div>
+    <div class="finding-body">
+      <div class="fb-text">Aesop's site nav includes <code>/library/architecture-and-design/</code>, <code>/library/literature-and-culture/</code>, <code>/library/sound-and-vision/</code>, plus a "Sound of Aesop" curated playlist hub. <strong>Brand-as-publisher</strong> strategy. They aren't selling soap — they're publishing a sensibility.</div>
+      <div class="fb-action">
+        <span class="fb-action-label">For GESINE</span>
+        <div class="fb-action-text">Phase 4+ opportunity: build a GESINE Library. <em>Sound of GESINE</em> (Spotify playlists per ritual scent — Nightstand, Sunday, etc), <em>The Reading Room</em> (essays on rituals), <em>Architecture of Reset</em> (interviews with designers about mood + space). Cheap to make, high brand return.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 09 -->
+  <div class="finding">
+    <div class="finding-head">
+      <div class="finding-num">09</div>
+      <div class="finding-title">Touchland releases drops faster than they can be archived</div>
+      <span class="finding-tag intel">competitor intel</span>
+    </div>
+    <div class="finding-body">
+      <div class="fb-text">The scraped <code>touchland.com/products/power-mist</code> URL <strong>404'd</strong> when crawled — the canonical product page no longer exists at that path. Combined with new SKUs spotted in their feed (Disney Minnie Mouse, Blush Rose, "double the bag charm"), it's clear Touchland operates on a <strong>continuous-drop model</strong>, not a fixed catalog.</div>
+      <div class="fb-action">
+        <span class="fb-action-label">For GESINE</span>
+        <div class="fb-action-text">Pricing Ladder positions GESINE as a kit, not a drop brand. <strong>That's the right call</strong> — but Phase 3 should plan a sub-drop calendar: 4 limited scent collabs per year, similar to Touchland's pace, on top of the core ritual lineup.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10 -->
+  <div class="finding">
+    <div class="finding-head">
+      <div class="finding-num">10</div>
+      <div class="finding-title">Caraway's site blocks scrapers — anti-bot is high signal</div>
+      <span class="finding-tag intel">competitor intel</span>
+    </div>
+    <div class="finding-body">
+      <div class="fb-text">The Apify <code>website-content-crawler</code> returned <strong>0 chars</strong> for <code>carawayhome.com/products/cookware-set</code>. Either heavy JS rendering or active anti-bot. Either way it indicates Caraway is large enough to <strong>worry about competitive scrapes</strong> — sign of mature operation.</div>
+      <div class="fb-action">
+        <span class="fb-action-label">For GESINE</span>
+        <div class="fb-action-text">Phase 2+ needs a Playwright-based scraper for Caraway-tier targets, not just the Apify content crawler. <strong>Already in the LoopWorker stack — copy-paste the pattern.</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11 -->
+  <div class="finding">
+    <div class="finding-head">
+      <div class="finding-num">11</div>
+      <div class="finding-title">Blueland's CEO has 25K followers — founder visibility lever</div>
+      <span class="finding-tag opportunity">opportunity</span>
+    </div>
+    <div class="finding-body">
+      <div class="fb-text">Sarah Paiji Yoo (<code>@spaiji</code>) is Blueland's founder. <strong>25,361 followers, 1,317 posts</strong>. She's tagged 8× by Blueland's own brand account in the scraped sample — they're using her face and voice as a primary brand asset. <em>Founder = most valuable creator GESINE has access to.</em></div>
+      <div class="fb-action">
+        <span class="fb-action-label">For GESINE</span>
+        <div class="fb-action-text">Build the founder's IG account in parallel with the brand account from week 1. Tag the founder in every brand post. Phase 4 founder voice newsletter is good but underweighted — <strong>founder visibility should be a Phase 1 deliverable, not Phase 4</strong>.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 12 -->
+  <div class="finding">
+    <div class="finding-head">
+      <div class="finding-num">12</div>
+      <div class="finding-title">Touchland is in Sephora, Ulta, Target — confirmed retail partners</div>
+      <span class="finding-tag intel">competitor intel</span>
+    </div>
+    <div class="finding-body">
+      <div class="fb-text">Captions and tags reference <code>@sephora</code>, <code>@ultabeauty</code>, and Target. Touchland is also tagged with <code>@simplehuman</code> and <code>@eamesfoundation</code> — design-world partnerships. <strong>Retail expansion path validated.</strong> A non-Aesop, non-Caraway brand can sit at Sephora.</div>
+      <div class="fb-action">
+        <span class="fb-action-label">For GESINE</span>
+        <div class="fb-action-text">Phase 3 corporate gifting list should add a parallel "retail buyer" track: Sephora category buyers, Ulta clean home buyers, Target Designer Collab program managers, simplehuman partnerships. Not just employee-gift HR.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 13 -->
+  <div class="finding">
+    <div class="finding-head">
+      <div class="finding-num">13</div>
+      <div class="finding-title">Hashtag scraping is dead for creator discovery</div>
+      <span class="finding-tag intel">tooling intel</span>
+    </div>
+    <div class="finding-body">
+      <div class="fb-text">Round 1 scraped <code>#sundayreset</code>, <code>#cleanaesthetic</code>, <code>#homeritual</code>, <code>#aestheticcleaning</code> for 120 posts. <strong>Top creator by post count had 10 posts. 95% were churchgoers, food bloggers, or unrelated micro-brands.</strong> Instagram's hashtag pages have been algorithmically de-prioritized since 2024 — they no longer surface relevant creators at scale.</div>
+      <div class="fb-action">
+        <span class="fb-action-label">For GESINE</span>
+        <div class="fb-action-text">Future creator discovery: <strong>scrape <em>brand</em> tagged-user feeds, not hashtag pages</strong>. Aesop / Caraway / Flamingo Estate / Touchland's own IG feeds + tagged-user histories yielded the 12 verified creators. This becomes a recurring weekly Apify workflow.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 14 -->
+  <div class="finding">
+    <div class="finding-head">
+      <div class="finding-num">14</div>
+      <div class="finding-title">Aesop has a stand-alone "Animal" SKU — pet hygiene line</div>
+      <span class="finding-tag opportunity">opportunity</span>
+    </div>
+    <div class="finding-body">
+      <div class="fb-text">Scraped page <code>/home-fragrance/bathroom-deodorisers-pets/animal/BS09.html</code>: a luxury <em>"mild dog and pet skin and fur wash"</em> formulated with Tea Tree Leaf. <strong>Aesop sells pet products.</strong> This is a category extension nobody talks about, and it sits adjacent to home cleaning + scent.</div>
+      <div class="fb-action">
+        <span class="fb-action-label">For GESINE</span>
+        <div class="fb-action-text">Phase 5+ category extension: a <em>"Pet Reset"</em> SKU. Surface cleaner formulated for pet-friendly homes (no essential oils that harm pets), scent direction matched to the existing ritual map, and a parallel pet bed / fur freshener spray. Big AOV unlock for the millennial home buyer who's also a pet owner.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="doc-footer">
+  <div class="ft-l">Alex Lamb · Creative Director, AI Architect</div>
+  <div class="ft-r">GESINE Foundation Sprint · Bonus Findings</div>
+</footer>
+
+</div>
+</body>
+</html>

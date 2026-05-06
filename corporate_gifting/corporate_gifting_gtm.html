@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){if(sessionStorage.getItem('gesine_unlock')==='1')return;var p=prompt('GESINE — enter password to view');if(p==='gesine2026'){sessionStorage.setItem('gesine_unlock','1');}else{document.documentElement.innerHTML='<body style="margin:0;padding:60px;font-family:sans-serif;text-align:center;background:#0F0E0C;color:#F5F1E8;font-size:18px;">Access required.</body>';}})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GESINE — Corporate Gifting GTM</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --ink:#0F0E0C; --cream:#F8FAF6; --off:#E8EFE3; --soft:#D6E4D0;
+  --amber:#4FA86A; --amber-deep:#2D5F3F;
+  --olive:#4A5240; --sage:#7C8470;
+  --muted:#6F665A; --light:#9C9285;
+  --bmd:rgba(15,14,12,0.14); --bstr:rgba(15,14,12,0.20);
+}
+body { background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-serif; font-size:15px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+.page { max-width:1140px; margin:0 auto; padding:56px 48px 80px; }
+.doc-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:48px; padding-bottom:24px; border-bottom:2px solid var(--ink); }
+.wordmark { display:flex; align-items:center; gap:12px; }
+.logo-box { width:36px; height:36px; background:var(--ink); border-radius:8px; display:grid; place-items:center; color:var(--amber); font-family:'Instrument Serif',serif; font-size:20px; }
+.brand-name { font-family:'Instrument Serif',Georgia,serif; font-size:18px; letter-spacing:.02em; }
+.doc-meta { text-align:right; font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); line-height:2; }
+
+.hero { background:var(--ink); border-radius:16px; padding:44px 48px; margin-bottom:48px; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg, var(--amber), var(--sage)); }
+.hero-eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:rgba(245,241,232,.40); display:block; margin-bottom:16px; }
+.hero-headline { font-family:'Instrument Serif',serif; font-size:clamp(28px,3.6vw,38px); line-height:1.15; letter-spacing:-.02em; color:var(--cream); margin-bottom:18px; }
+.hero-headline em { color:var(--amber); font-style:italic; }
+.hero-body { font-size:15px; color:rgba(245,241,232,.72); line-height:1.7; font-weight:300; max-width:780px; }
+.hero-body strong { color:var(--cream); font-weight:500; }
+
+.section { margin-bottom:48px; }
+.eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:12px; }
+.h2 { font-family:'Instrument Serif',serif; font-size:clamp(24px,3vw,32px); line-height:1.15; letter-spacing:-.015em; color:var(--ink); margin-bottom:14px; }
+.h2 em { font-style:italic; }
+.body { font-size:14px; color:#2A2620; line-height:1.75; font-weight:300; max-width:880px; }
+.body strong { font-weight:600; color:var(--ink); }
+
+.stat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:24px; }
+.stat { background:var(--off); border:1px solid var(--bstr); border-radius:12px; padding:22px 22px; }
+.stat-num { font-family:'Instrument Serif',serif; font-size:26px; line-height:1.1; color:var(--ink); margin-bottom:6px; }
+.stat-num em { color:var(--amber-deep); font-style:italic; }
+.stat-label { font-family:'DM Mono',monospace; font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); }
+
+table { width:100%; border-collapse:collapse; margin-top:20px; font-size:12.5px; border:1px solid var(--bstr); border-radius:14px; overflow:hidden; }
+table th { background:var(--ink); color:var(--cream); text-align:left; padding:12px 12px; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; font-weight:500; }
+table td { padding:12px 12px; border-bottom:1px solid var(--bmd); vertical-align:top; }
+table tr:last-child td { border-bottom:none; }
+table tr:nth-child(even) td { background:rgba(15,14,12,0.025); }
+table .platform-cell { font-family:'Instrument Serif',serif; font-size:15px; font-weight:500; }
+table .price-cell { font-family:'DM Mono',monospace; color:var(--amber-deep); }
+table .priority { font-family:'DM Mono',monospace; font-size:10px; padding:3px 8px; background:var(--amber); color:var(--ink); border-radius:99px; letter-spacing:.1em; font-weight:500; white-space:nowrap; }
+table .priority.tier2 { background:var(--sage); color:var(--ink); }
+table .priority.tier3 { background:var(--muted); color:var(--cream); }
+
+.tier-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-top:24px; }
+.tier-card { padding:24px 26px; border-radius:14px; border:1px solid var(--bstr); background:var(--off); }
+.tier-card.hero-tier { background:var(--ink); color:var(--cream); border-color:var(--ink); }
+.tier-card.premium-tier { background:linear-gradient(135deg,var(--amber-deep),var(--olive)); color:var(--cream); border-color:var(--amber-deep); }
+.tier-name { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; margin-bottom:8px; display:block; color:var(--muted); }
+.tier-card.hero-tier .tier-name { color:rgba(245,241,232,.5); }
+.tier-card.premium-tier .tier-name { color:rgba(245,241,232,.6); }
+.tier-price { font-family:'Instrument Serif',serif; font-size:32px; line-height:1.1; margin-bottom:6px; color:var(--ink); }
+.tier-card.hero-tier .tier-price, .tier-card.premium-tier .tier-price { color:var(--cream); }
+.tier-card.hero-tier .tier-price em, .tier-card.premium-tier .tier-price em { color:var(--amber); font-style:italic; }
+.tier-card.hero-tier .tier-price em { color:var(--amber); }
+.tier-headline { font-family:'Instrument Serif',serif; font-size:18px; line-height:1.2; margin-bottom:8px; }
+.tier-body { font-size:13px; line-height:1.6; }
+.tier-card .tier-body { color:#2A2620; }
+.tier-card.hero-tier .tier-body, .tier-card.premium-tier .tier-body { color:rgba(245,241,232,.85); }
+.tier-card .tier-body strong { color:var(--ink); }
+.tier-card.hero-tier .tier-body strong, .tier-card.premium-tier .tier-body strong { color:var(--cream); }
+
+.account-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:12px; margin-top:20px; }
+.account { background:var(--off); border:1px solid var(--bstr); border-radius:10px; padding:18px 20px; }
+.account-num { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.18em; color:var(--amber-deep); margin-bottom:6px; display:block; }
+.account-name { font-family:'Instrument Serif',serif; font-size:17px; line-height:1.2; margin-bottom:6px; }
+.account-why { font-size:12.5px; line-height:1.55; color:var(--muted); }
+.account-why strong { color:var(--ink); }
+
+.cal-grid { display:grid; grid-template-columns:140px 1fr; gap:12px; margin-bottom:10px; }
+.cal-when { background:var(--ink); color:var(--cream); padding:14px 16px; border-radius:10px; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; }
+.cal-when strong { font-family:'Instrument Serif',serif; font-size:18px; display:block; color:var(--amber); text-transform:none; letter-spacing:0; margin-top:2px; }
+.cal-action { background:var(--off); border:1px solid var(--bstr); border-radius:10px; padding:14px 18px; font-size:13.5px; line-height:1.6; color:#2A2620; }
+.cal-action strong { color:var(--ink); }
+.cal-grid.lock .cal-when { background:#2D5F3F; }
+.cal-grid.lock .cal-when strong { color:var(--cream); }
+
+.callout { background:linear-gradient(135deg,var(--amber-deep),var(--olive)); color:var(--cream); border-radius:14px; padding:32px 36px; margin:32px 0; }
+.callout .eyebrow { color:rgba(245,241,232,.5); }
+.callout .h2 { color:var(--cream); }
+.callout .h2 em { color:var(--cream); }
+.callout .body { color:rgba(245,241,232,.88); max-width:none; }
+.callout .body strong { color:var(--cream); }
+
+.sources { margin-top:32px; padding:22px 28px; background:var(--off); border-radius:12px; border:1px solid var(--bmd); font-size:11px; color:var(--muted); line-height:1.85; }
+.sources strong { color:var(--ink); display:block; margin-bottom:10px; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; }
+.sources a { color:var(--amber-deep); text-decoration:none; word-break:break-word; }
+.sources a:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="doc-header">
+  <div class="wordmark">
+    <div class="logo-box">G</div>
+    <span class="brand-name">GESINE</span>
+  </div>
+  <div class="doc-meta">
+    PHASE 2 · INVESTOR<br>
+    CORPORATE GIFTING GTM<br>
+    MAY 2026
+  </div>
+</header>
+
+<section class="hero">
+  <span class="hero-eyebrow">$312B market · 3-tier AOV · Q4 lock by Aug 1</span>
+  <h1 class="hero-headline">Refill is rare in gifting.<br><em>$78 sits where 77% of B2B gifts cluster.</em></h1>
+  <p class="hero-body">Deck stat <strong>$258B (2022) → $312B (2025) verified</strong> via Coresight x GiftNow June 2022 study. 6.5% CAGR. B2E 43% / B2B 57%. Gift cards alone = 36% ($92.8B). <strong>$78 Organizer Set sits in the high-confidence $50-$125 mid-tier band where 77% of one-to-one gifts cluster</strong> — above median actual spend (~$30), below recipient expectation (~$100) = perceived overdelivery. Refill model = recurring SKU rare in gifting (90%+ are one-shot).</p>
+</section>
+
+<div class="section">
+  <span class="eyebrow">Market size · verified</span>
+  <h2 class="h2">Coresight $312B · use this number.</h2>
+
+  <div class="stat-grid">
+    <div class="stat">
+      <div class="stat-num"><em>$258B → $312B</em></div>
+      <div class="stat-label">US gifting · Coresight 2022 → 2025 · 6.5% CAGR</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num"><em>43% · 57%</em></div>
+      <div class="stat-label">B2E share · B2B share (2022 base)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num"><em>$92.8B</em></div>
+      <div class="stat-label">Gift cards alone · 36% of 2022 base</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num"><em>$26.6B</em></div>
+      <div class="stat-label">Promo products 2024 · ASI Central record</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <span class="eyebrow">Whitespace · 3 growth vectors at intersection</span>
+  <h2 class="h2">Wellness · sustainable · premium home.</h2>
+  <p class="body">2025 trend reports (Knack · Giftsenda · Imprint Engine) show category leaders: <strong>tech gadgets 22-25%</strong>, wellness 47% inclusion rate (not exclusive), personalized high-growth, sustainable high-growth, branded apparel + drinkware (mature high-volume), edibles + snacks (mature, declining novelty). <strong>GESINE intersects three growth vectors</strong> (wellness · sustainable · premium home) while avoiding saturated lanes (edibles · drinkware · gift cards). Refillable + bamboo + display-worthy = white space.</p>
+</div>
+
+<div class="section">
+  <span class="eyebrow">Top 10 platforms · onboarding reality</span>
+  <h2 class="h2">Drop-ship dominates.<br><em>Only Snappy has self-serve apply.</em></h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Platform</th>
+        <th>Model</th>
+        <th>Pricing</th>
+        <th>Onboarding</th>
+        <th>Priority</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="platform-cell">Snappy</td>
+        <td>Drop-ship marketplace · recipient picks</td>
+        <td class="price-cell">Pay-per-send + platform fee</td>
+        <td><strong>Public apply form</strong> · ship 1-3 biz days · deliver 14 days</td>
+        <td><span class="priority">Week 1</span></td>
+      </tr>
+      <tr>
+        <td class="platform-cell">Goody</td>
+        <td>Pay-per-send · text recipient</td>
+        <td class="price-cell">5% processing fee + revenue share</td>
+        <td>400+ premium brands. Direct outreach to brand partnerships team</td>
+        <td><span class="priority">Week 2</span></td>
+      </tr>
+      <tr>
+        <td class="platform-cell">Caroo (ex-SnackNation)</td>
+        <td>Employee care boxes · recipient choice</td>
+        <td class="price-cell">No contracts · $6.99 flat ship</td>
+        <td>Curated · direct partnership outreach</td>
+        <td><span class="priority">Week 3</span></td>
+      </tr>
+      <tr>
+        <td class="platform-cell">Sendoso (+ Postal + Alyce)</td>
+        <td>Enterprise SaaS + warehouse fulfillment</td>
+        <td class="price-cell">$15K-$100K+/yr platform fee</td>
+        <td>Curated marketplace · 60-90 day eval cycle · direct sales rep</td>
+        <td><span class="priority tier2">Week 4</span></td>
+      </tr>
+      <tr>
+        <td class="platform-cell">Knack</td>
+        <td>Curated artisan gift boxes</td>
+        <td class="price-cell">No public source</td>
+        <td>Apply via knackshops.com</td>
+        <td><span class="priority tier2">Week 4</span></td>
+      </tr>
+      <tr>
+        <td class="platform-cell">Reachdesk</td>
+        <td>Enterprise B2B · global warehouses</td>
+        <td class="price-cell">~$20K+ annual</td>
+        <td>Curated catalog · partnership team only</td>
+        <td><span class="priority tier3">Phase 2</span></td>
+      </tr>
+      <tr>
+        <td class="platform-cell">&amp;Open</td>
+        <td>Luxury + sustainable focus</td>
+        <td class="price-cell">No public pricing</td>
+        <td>No public vendor program</td>
+        <td><span class="priority tier3">Phase 2</span></td>
+      </tr>
+      <tr>
+        <td class="platform-cell">Bouquet Bar</td>
+        <td>Premium florals + curated boxes</td>
+        <td class="price-cell">No public source</td>
+        <td>No public vendor docs</td>
+        <td><span class="priority tier3">Phase 2</span></td>
+      </tr>
+      <tr>
+        <td class="platform-cell">Postal · Alyce</td>
+        <td>Now Sendoso — onboard via parent</td>
+        <td class="price-cell">Unified Sendoso program</td>
+        <td>Through Sendoso vendor program</td>
+        <td><span class="priority tier3">via Sendoso</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <span class="eyebrow">3-tier AOV strategy</span>
+  <h2 class="h2">Hold $78 anchor · build behind it.</h2>
+
+  <div class="tier-grid">
+    <div class="tier-card">
+      <span class="tier-name">Tier 01 · Starter</span>
+      <div class="tier-price">$58</div>
+      <div class="tier-headline">Single-fragrance · slim sleeve</div>
+      <div class="tier-body">Entry employee gift band. <strong>MOQ 100+.</strong> Sleeve-only co-brand. Sits at top of $50-$125 band.</div>
+    </div>
+    <div class="tier-card hero-tier">
+      <span class="tier-name">Tier 02 · Signature · public hero</span>
+      <div class="tier-price"><em>$78</em></div>
+      <div class="tier-headline">Public Organizer Set · default mid-tier client gift</div>
+      <div class="tier-body">Hero SKU. <strong>Above median actual ($30) · below recipient expectation ($100) = perceived overdelivery.</strong> Drop-ship qualified for Snappy + Goody + Caroo without platform investment.</div>
+    </div>
+    <div class="tier-card premium-tier">
+      <span class="tier-name">Tier 03 · Premium</span>
+      <div class="tier-price"><em>$148</em></div>
+      <div class="tier-headline">3-capsule + cloth set + ceramic tray</div>
+      <div class="tier-body">Top-tier client + executive band. <strong>Reaches into $100-$500 top-client band.</strong> Custom MOQ 250+. Full white-label box at MOQ 500+.</div>
+    </div>
+  </div>
+
+  <p class="body" style="margin-top:24px;">Co-brand sleeves at <strong>~$1.50/unit upcharge</strong> at 100+ MOQ keep contribution margin intact while delivering platform-required customization. Custom packaging $3-$8/unit at 250+ for full white-label box (Tier 03).</p>
+</div>
+
+<div class="section">
+  <span class="eyebrow">First 10 corporate accounts · pitch direct in parallel</span>
+  <h2 class="h2">Bypass the platforms for these.</h2>
+
+  <div class="account-grid">
+    <div class="account"><span class="account-num">ACCT 01</span><div class="account-name">1 Hotels (SH Hotels &amp; Resorts)</div><div class="account-why"><strong>Sustainability narrative fit</strong> · refillable matches brand. Direct procurement / sustainability lead — no public portal.</div></div>
+    <div class="account"><span class="account-num">ACCT 02</span><div class="account-name">Marriott EDITION</div><div class="account-why">Luxury + wellness positioning via <strong>Marriott SupplierOne</strong>. STARS ultra-luxury tier. Brand-level procurement, not property.</div></div>
+    <div class="account"><span class="account-num">ACCT 03</span><div class="account-name">Salesforce</div><div class="account-why">Verified <strong>$1,200/yr/employee wellness budget</strong>. 76K employees. $100/mo wellness reimbursement program.</div></div>
+    <div class="account"><span class="account-num">ACCT 04</span><div class="account-name">Google People Ops</div><div class="account-why">183K employees · <strong>Reset Days narrative</strong>. Total benefits $24,942/yr per employee (Levels.fyi). White-label "Reset Kit" angle.</div></div>
+    <div class="account"><span class="account-num">ACCT 05</span><div class="account-name">Compass top-1% agents</div><div class="account-why"><strong>340K agent base post Anywhere $1.6B merger.</strong> Closing gifts agent-funded. $50-$200 typical, luxury runs $500-$5K+. Agent-direct GTM.</div></div>
+    <div class="account"><span class="account-num">ACCT 06</span><div class="account-name">Sotheby's International Realty</div><div class="account-why">Now part of Compass post-Anywhere acq. Luxury closing gifts. <strong>$78 Organizer = "first thing they unbox in the new home"</strong> narrative.</div></div>
+    <div class="account"><span class="account-num">ACCT 07</span><div class="account-name">Aman Essentials</div><div class="account-why">Retail buyer for hotel-branded home goods. Aman Essentials is the public proof point. Direct relationship — no portal.</div></div>
+    <div class="account"><span class="account-num">ACCT 08</span><div class="account-name">Equinox / Equinox Hotels</div><div class="account-why">Wellness-first vertical. Member-perk + amenity dual angle.</div></div>
+    <div class="account"><span class="account-num">ACCT 09</span><div class="account-name">Goop</div><div class="account-why">B2B partnerships team — brand-aligned audience. Goop newsletter $100K+ HHI core (Wonder consumer profile).</div></div>
+    <div class="account"><span class="account-num">ACCT 10</span><div class="account-name">SoulCycle · Alo Yoga</div><div class="account-why">Corporate gifting teams. Wellness-vertical adjacency. Both have premium-priced studio + retail audiences.</div></div>
+  </div>
+</div>
+
+<div class="callout">
+  <span class="eyebrow">Q4 lock date · non-negotiable</span>
+  <h2 class="h2">August 1, 2026.</h2>
+  <p class="body">To capture Q4 2026 holiday corporate gifting, <strong>inventory + co-brand SKU options must be locked by August 1, 2026.</strong> Sales conversations with platforms should start NOW (May). Custom programs need August production start. Anything custom missing the early-October order placement deadline ships at air-freight cost — or stockouts. Lead times verified across BirdieBox · Clove &amp; Twine · PerkUp · Sock Club planning guides.</p>
+</div>
+
+<div class="section">
+  <span class="eyebrow">Q4 holiday calendar · lead times</span>
+  <h2 class="h2">May → November execution.</h2>
+
+  <div class="cal-grid">
+    <div class="cal-when">Apr-Jun<strong>Strategy</strong></div>
+    <div class="cal-action">Decide audience · budget · theme. <strong>GESINE is here NOW</strong> — start platform conversations immediately.</div>
+  </div>
+  <div class="cal-grid">
+    <div class="cal-when">Jun-Aug<strong>Sourcing + Design</strong></div>
+    <div class="cal-action">Vendor sourcing + co-brand design. <strong>Custom programs need August production start.</strong></div>
+  </div>
+  <div class="cal-grid lock">
+    <div class="cal-when">Aug 1<strong>LOCK</strong></div>
+    <div class="cal-action"><strong>Inventory + co-brand specs locked.</strong> Non-negotiable for Q4 corporate gifting season.</div>
+  </div>
+  <div class="cal-grid">
+    <div class="cal-when">Aug-Oct<strong>Production</strong></div>
+    <div class="cal-action">Custom packaging window. Pre-configured kits ship 5-10 biz days · fully custom 3-6 weeks.</div>
+  </div>
+  <div class="cal-grid">
+    <div class="cal-when">Early Oct<strong>Order Deadline</strong></div>
+    <div class="cal-action">Anything custom for Q4 must be placed. After this = air-freight cost or stockouts.</div>
+  </div>
+  <div class="cal-grid">
+    <div class="cal-when">Nov+<strong>Late risk</strong></div>
+    <div class="cal-action">Air freight cost spikes. Inventory gone. Catalog-only shipping at premium rates.</div>
+  </div>
+</div>
+
+<div class="section">
+  <span class="eyebrow">Adjacent verticals · proof points</span>
+  <h2 class="h2">Real estate · wedding · tech employee.</h2>
+
+  <div class="account-grid">
+    <div class="account"><span class="account-num">REAL ESTATE</span><div class="account-name">Compass + Sotheby's + Coldwell</div><div class="account-why"><strong>Compass acquiring Anywhere $1.6B all-stock</strong> = 340K agents combined. Closing gifts agent-funded. Coldwell Banker Warburg's "33 Best & Worst" list shows preferences for monogrammed + branded + "useful daily" — <strong>$78 Organizer fits perfectly</strong>.</div></div>
+    <div class="account"><span class="account-num">WEDDING</span><div class="account-name">Zola + The Knot</div><div class="account-why">Zola avg registry size <strong>~$5,500</strong>. Vendor program at zola.com/faq. The Knot Registry Store program. <strong>"First gift in the new shared home"</strong> = wedding registry sweet spot. Refill economics = LTV past wedding.</div></div>
+    <div class="account"><span class="account-num">TECH HEADCOUNT</span><div class="account-name">Top 7 US tech employers</div><div class="account-why">Amazon 1.55M · Microsoft 228K · Google 183K · Apple 164K · Meta 78.8K · Salesforce 76K · NVIDIA 36K. Industry wellness baseline $36-$90/yr per employee. <strong>$78 = comfortable mid-tier on employee gift cadence.</strong></div></div>
+  </div>
+</div>
+
+<div class="section">
+  <span class="eyebrow">Custom branding economics</span>
+  <h2 class="h2">3 co-brand tiers GESINE should offer.</h2>
+
+  <table>
+    <thead>
+      <tr><th>Tier</th><th>What's customized</th><th>MOQ</th><th>Upcharge / Unit</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Sleeve only</strong></td><td>Co-branded outer sleeve / hangtag</td><td class="price-cell">100+</td><td class="price-cell">$0.50-$2.00</td></tr>
+      <tr><td><strong>Custom scent capsule + sleeve</strong></td><td>Custom scent ID + branded sleeve</td><td class="price-cell">250+</td><td class="price-cell">~$3 + capsule cost</td></tr>
+      <tr><td><strong>Full white-label box</strong></td><td>Full custom packaging + scent + collateral</td><td class="price-cell">500+</td><td class="price-cell">$3-$8</td></tr>
+    </tbody>
+  </table>
+
+  <p class="body" style="margin-top:14px;">Industry standard custom promo MOQ 50-500 driven by print setup + packaging tooling. Quince Business 30 MOQ (lowest documented). Foxblossom 12+ for branded packaging (logo cards/tags only). <em>Co-branded SKU pricing across Sendoso/Snappy/Goody is negotiated per-deal — no public source.</em></p>
+</div>
+
+<div class="sources">
+  <strong>Sources</strong>
+  Coresight $258B / $312B: <a href="https://coresight.com/research/unboxed-the-258-billion-us-corporate-gifting-opportunity/">Coresight study</a> · <a href="https://www.prnewswire.com/news-releases/rapidly-growing-corporate-gifting-market-estimated-to-reach-312-billion-by-2025-according-to-a-new-study-from-coresight-research-and-giftnow-301564280.html">PRNewswire</a> · <a href="https://www.giftnow.com/assets/files/Unboxed-The-258-Billion-US-Corporate-Gifting-Opportunity-Jun-9-2022.pdf">GiftNow PDF</a> ·
+  ASI promo $26.6B: <a href="https://asicentral.com/press-releases/asi-reports-record-26-6-billion-in-annual-sales-for-promo-products-industry/">ASI Central</a> ·
+  Categories: <a href="https://www.giftsenda.com/blog/corporate-gifting-report-2025/">Giftsenda 2025</a> · <a href="https://imprintengine.com/blog/corporate-gifting-trends-2/">Imprint Engine</a> ·
+  Sendoso pricing: <a href="https://www.vendr.com/buyer-guides/sendoso">Vendr</a> · <a href="https://docket.io/resources/research/sendoso-pricing">Docket</a> ·
+  Snappy: <a href="https://www.snappy.com/business/partner-program-apply">apply</a> ·
+  Marriott: <a href="https://marriott.supplierone.co/">SupplierOne</a> · <a href="https://help.marriott.com/s/article/Article-34566">vendor help</a> ·
+  Hotel amenity: <a href="https://source1purchasing.com/blog/a-guide-to-hotel-amenities-and-seamless-procurement-with-source1/">Source1</a> ·
+  Aman: <a href="https://hotelsmag.com/news/aman-on-the-ins-and-outs-of-selling-retail/">HOTELS Magazine</a> ·
+  Compass: <a href="https://www.credaily.com/briefs/compass-to-acquire-anywhere-real-estate-in-1-6b-all-stock-deal/">CRE Daily</a> ·
+  Closing gifts: <a href="https://cbwarburg.com/press-report/the-33-best-worst-real-estate-closing-gifts/">CB Warburg list</a> ·
+  Salesforce wellness: <a href="https://www.salesforce.com/blog/how-we-encourage-wellbeing-at-salesforce/">SF blog</a> ·
+  Levels: <a href="https://www.levels.fyi/companies/google/benefits">Google</a> · <a href="https://www.levels.fyi/companies/salesforce/benefits">Salesforce</a> ·
+  Zola: <a href="https://www.zola.com/faq/category/115000342852-for-registry-product-vendors">vendor FAQ</a> ·
+  Q4 cal: <a href="https://birdiebox.com/blogs/inside-the-box/corporate-gifting-calendar-month-by-month-planning-guide">BirdieBox</a> · <a href="https://perkupapp.com/post/2025-corporate-holiday-gifting-timeline-a-step-by-step-guide">PerkUp</a> ·
+  AOV stats: <a href="https://www.giftafeeling.com/pages/corporate_gift_statistics_2025">GiftAFeeling 229+</a> · <a href="https://www.postal.com/blog/corporate-gifting-statistics">Postal</a> · <a href="https://www.sparkgift.com/corporate-gifting-statistics/">Sparkgift</a>
+</div>
+
+</div>
+</body>
+</html>

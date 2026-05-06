@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){if(sessionStorage.getItem('gesine_unlock')==='1')return;var p=prompt('GESINE — enter password to view');if(p==='gesine2026'){sessionStorage.setItem('gesine_unlock','1');}else{document.documentElement.innerHTML='<body style="margin:0;padding:60px;font-family:sans-serif;text-align:center;background:#0F0E0C;color:#F5F1E8;font-size:18px;">Access required.</body>';}})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GESINE — Comparable Exits</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --ink:#0F0E0C; --dark:#1A1814;
+  --cream:#F8FAF6; --off:#E8EFE3; --soft:#D6E4D0;
+  --amber:#4FA86A; --amber-deep:#2D5F3F;
+  --olive:#4A5240; --sage:#7C8470;
+  --muted:#6F665A; --light:#9C9285;
+  --border:rgba(15,14,12,0.08); --bmd:rgba(15,14,12,0.14); --bstr:rgba(15,14,12,0.20);
+}
+body { background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-serif; font-size:15px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+.page { max-width:1100px; margin:0 auto; padding:56px 48px 80px; }
+.doc-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:48px; padding-bottom:24px; border-bottom:2px solid var(--ink); }
+.wordmark { display:flex; align-items:center; gap:12px; }
+.logo-box { width:36px; height:36px; background:var(--ink); border-radius:8px; display:grid; place-items:center; color:var(--amber); font-family:'Instrument Serif',serif; font-size:20px; }
+.brand-name { font-family:'Instrument Serif',Georgia,serif; font-size:18px; letter-spacing:.02em; }
+.doc-meta { text-align:right; font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); line-height:2; }
+.hero { background:var(--ink); border-radius:16px; padding:44px 48px; margin-bottom:48px; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg, var(--amber), var(--sage)); }
+.hero-eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:rgba(245,241,232,.40); display:block; margin-bottom:16px; }
+.hero-headline { font-family:'Instrument Serif',Georgia,serif; font-size:clamp(28px,3.6vw,38px); line-height:1.15; letter-spacing:-.02em; color:var(--cream); margin-bottom:18px; }
+.hero-headline em { color:var(--amber); font-style:italic; }
+.hero-body { font-size:15px; color:rgba(245,241,232,.72); line-height:1.7; font-weight:300; max-width:760px; }
+.hero-body strong { color:var(--cream); font-weight:500; }
+.section { margin-bottom:56px; }
+.eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:12px; }
+.h2 { font-family:'Instrument Serif',Georgia,serif; font-size:clamp(24px,3vw,32px); line-height:1.15; letter-spacing:-.015em; color:var(--ink); margin-bottom:14px; }
+.h2 em { font-style:italic; }
+.body { font-size:14px; color:#2A2620; line-height:1.75; font-weight:300; max-width:880px; }
+.body strong { font-weight:600; color:var(--ink); }
+hr.rule { border:none; border-top:1px solid var(--bmd); margin:0 0 56px; }
+
+table.exits { width:100%; border-collapse:collapse; margin-top:24px; font-size:12.5px; border:1px solid var(--bstr); border-radius:14px; overflow:hidden; }
+table.exits th { background:var(--ink); color:var(--cream); text-align:left; padding:14px 12px; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; font-weight:500; }
+table.exits td { padding:14px 12px; border-bottom:1px solid var(--bmd); vertical-align:top; }
+table.exits tr:last-child td { border-bottom:none; }
+table.exits tr:nth-child(even) td { background:rgba(15,14,12,0.025); }
+table.exits .brand-cell { font-family:'Instrument Serif',serif; font-size:16px; color:var(--ink); font-weight:500; }
+table.exits .price-cell { font-family:'DM Mono',monospace; color:var(--amber-deep); font-weight:500; }
+table.exits .multiple-cell { font-family:'DM Mono',monospace; color:var(--olive); }
+table.exits .note { font-size:11px; color:var(--muted); display:block; margin-top:4px; }
+
+.callout { background:var(--ink); color:var(--cream); border-radius:14px; padding:32px 36px; margin:32px 0; }
+.callout .eyebrow { color:rgba(245,241,232,.40); }
+.callout .h2 { color:var(--cream); }
+.callout .body { color:rgba(245,241,232,.78); max-width:none; }
+.callout .body strong { color:var(--amber); }
+
+.tier { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-top:24px; }
+.tier-card { padding:24px 24px; border-radius:14px; border:1px solid var(--bstr); background:var(--off); }
+.tier-card.lead { background:var(--amber); border-color:var(--amber-deep); color:var(--ink); }
+.tier-card.upside { background:var(--olive); color:var(--cream); border-color:var(--olive); }
+.tier-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.2em; text-transform:uppercase; margin-bottom:10px; display:block; }
+.tier-card.upside .tier-label { color:rgba(245,241,232,.6); }
+.tier-headline { font-family:'Instrument Serif',serif; font-size:22px; line-height:1.15; margin-bottom:8px; }
+.tier-body { font-size:13px; line-height:1.65; opacity:.85; }
+
+.acquirer-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:20px; }
+.acquirer { padding:20px 22px; border-radius:12px; border:1px solid var(--bstr); background:var(--off); }
+.acquirer-name { font-family:'Instrument Serif',serif; font-size:18px; margin-bottom:6px; }
+.acquirer-thesis { font-size:13px; color:var(--muted); line-height:1.55; }
+.acquirer-deals { font-family:'DM Mono',monospace; font-size:11px; color:var(--amber-deep); margin-top:8px; }
+
+.sources { margin-top:32px; padding:24px 28px; background:var(--off); border-radius:12px; border:1px solid var(--bmd); font-size:11.5px; color:var(--muted); line-height:1.85; }
+.sources strong { color:var(--ink); display:block; margin-bottom:10px; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; }
+.sources a { color:var(--amber-deep); text-decoration:none; word-break:break-all; }
+.sources a:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="doc-header">
+  <div class="wordmark">
+    <div class="logo-box">G</div>
+    <span class="brand-name">GESINE</span>
+  </div>
+  <div class="doc-meta">
+    PHASE 2 · INVESTOR<br>
+    COMPARABLE EXITS<br>
+    MAY 2026
+  </div>
+</header>
+
+<section class="hero">
+  <span class="hero-eyebrow">Investor deck · slide draft</span>
+  <h1 class="hero-headline">Female-founded, design-led, scent-adjacent.<br><em>$630M-$880M is the lane.</em></h1>
+  <p class="hero-body">GESINE's archetype has cleared the ~5x sales bar twice in three years at the same acquirer. <strong>Hero Cosmetics ($630M, 2022) and Touchland ($880M, 2025)</strong> both went to Church &amp; Dwight at ~5.5x trailing sales. Both were scent-or-skin-adjacent, design-forward, female-founded, EBITDA-positive, with retail proof. GESINE — refillable luxury bottle, EWG Verified, Crate &amp; Barrel exclusive 2027 — slots into the same buyer, the same archetype, the same multiple lane.</p>
+</section>
+
+<div class="section">
+  <span class="eyebrow">The dataset · 14 exits + private comps</span>
+  <h2 class="h2">Recent home, wellness, and personal-care exits.</h2>
+  <p class="body">Every figure cited inline. "Not disclosed" = no public source — never an estimate. Private comps included where they reset the trajectory bar (Caraway, Blueland, Homecourt, DedCool).</p>
+
+  <table class="exits">
+    <thead>
+      <tr>
+        <th>Brand</th>
+        <th>Year</th>
+        <th>Acquirer</th>
+        <th>Price</th>
+        <th>Sales at Exit</th>
+        <th>Multiple</th>
+        <th>Founder · Founded</th>
+        <th>Why It Matters</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="brand-cell">Touchland</td>
+        <td>2025</td>
+        <td>Church &amp; Dwight</td>
+        <td class="price-cell">$700M + $180M earn-out<span class="note">up to $880M</span></td>
+        <td>$130M TTM (Mar 2025)</td>
+        <td class="multiple-cell">~5.4-6.8x sales</td>
+        <td>Andrea Lisbona · 2018</td>
+        <td>Most analogous: female-founded, design-led, scent-forward, status-good. C&amp;D paid up.</td>
+      </tr>
+      <tr>
+        <td class="brand-cell">Hero Cosmetics</td>
+        <td>2022</td>
+        <td>Church &amp; Dwight</td>
+        <td class="price-cell">$630M</td>
+        <td>$115M TTM Jun 2022 ($140M est. FY)</td>
+        <td class="multiple-cell">~5.5x sales · ~14x EBITDA</td>
+        <td>Ju Rhyu · 2017</td>
+        <td>Closest precedent to Touchland. Confirms C&amp;D 5x+ sales bar for category-leader DTC personal care.</td>
+      </tr>
+      <tr>
+        <td class="brand-cell">Aesop</td>
+        <td>2023</td>
+        <td>L'Oréal</td>
+        <td class="price-cell">$2.525B</td>
+        <td>$537M (2022)</td>
+        <td class="multiple-cell">~4.7x sales</td>
+        <td>Dennis Paphitis · 1987</td>
+        <td>Long-horizon ceiling. L'Oréal's largest deal ever. The "if GESINE goes the distance" slide.</td>
+      </tr>
+      <tr>
+        <td class="brand-cell">Drunk Elephant</td>
+        <td>2019</td>
+        <td>Shiseido</td>
+        <td class="price-cell">$845M</td>
+        <td>$120M (2019)</td>
+        <td class="multiple-cell">8.5x sales</td>
+        <td>Tiffany Masterson · 2012</td>
+        <td>The upside multiple every clean-beauty founder anchors to. 8.5x stated by Shiseido.</td>
+      </tr>
+      <tr>
+        <td class="brand-cell">Dollar Shave Club</td>
+        <td>2016</td>
+        <td>Unilever</td>
+        <td class="price-cell">$1.0B</td>
+        <td>$152M (2015)</td>
+        <td class="multiple-cell">~5x forward sales</td>
+        <td>Michael Dubin · 2011</td>
+        <td>The unicorn DTC exit. Set the benchmark every CPG founder cites.</td>
+      </tr>
+      <tr>
+        <td class="brand-cell">Seventh Generation</td>
+        <td>2016</td>
+        <td>Unilever</td>
+        <td class="price-cell">~$700M</td>
+        <td>Not disclosed</td>
+        <td class="multiple-cell">n/a</td>
+        <td>Jeffrey Hollender · 1988</td>
+        <td>Mission-locked deal: B-Corp survives inside Unilever. Template for EWG/eco brand exits that protect founder vision.</td>
+      </tr>
+      <tr>
+        <td class="brand-cell">Native</td>
+        <td>2017</td>
+        <td>P&amp;G</td>
+        <td class="price-cell">$100M cash</td>
+        <td>$25-30M est.</td>
+        <td class="multiple-cell">~3.3-4x sales</td>
+        <td>Moiz Ali · 2015</td>
+        <td>Two-year DTC-to-strategic exit. P&amp;G's template for fast personal-care roll-ups.</td>
+      </tr>
+      <tr>
+        <td class="brand-cell">Schmidt's Naturals</td>
+        <td>2017</td>
+        <td>Unilever</td>
+        <td class="price-cell">Not disclosed</td>
+        <td>Not disclosed</td>
+        <td class="multiple-cell">n/a</td>
+        <td>Jaime Schmidt · 2010</td>
+        <td>Closed same month as Native — peak CPG-appetite signal for natural personal care.</td>
+      </tr>
+      <tr>
+        <td class="brand-cell">Olly</td>
+        <td>2019</td>
+        <td>Unilever</td>
+        <td class="price-cell">Not disclosed</td>
+        <td>Not disclosed</td>
+        <td class="multiple-cell">n/a</td>
+        <td>Eric Ryan · 2014</td>
+        <td>Method co-founder's second exit. Repeat-founder thesis: design-first wellness brands sell to strategics.</td>
+      </tr>
+      <tr>
+        <td class="brand-cell">Method + Ecover</td>
+        <td>2017</td>
+        <td>SC Johnson</td>
+        <td class="price-cell">Not disclosed</td>
+        <td>~$200M combined (2012)</td>
+        <td class="multiple-cell">n/a</td>
+        <td>Eric Ryan, Adam Lowry · 2000</td>
+        <td>SC Johnson took both off the market in one sweep. Eco-home consolidator template.</td>
+      </tr>
+      <tr>
+        <td class="brand-cell">Mrs. Meyer's (Caldrea)</td>
+        <td>2008</td>
+        <td>SC Johnson</td>
+        <td class="price-cell">Not disclosed</td>
+        <td>Not disclosed</td>
+        <td class="multiple-cell">n/a</td>
+        <td>Monica Nassif · 2001</td>
+        <td>Earliest "premium scented home cleaning" exit. Showed scent + design pull household goods up-market.</td>
+      </tr>
+      <tr>
+        <td class="brand-cell">Caraway <span class="note">design firm = GESINE partner</span></td>
+        <td>Private</td>
+        <td>—</td>
+        <td class="price-cell">~$70M raised</td>
+        <td>~$61M e-comm (6 mo tracked)</td>
+        <td class="multiple-cell">n/a</td>
+        <td>Jordan Nathan · 2018</td>
+        <td>Direct format twin: design-led non-toxic home, DTC + Crate &amp; Barrel + Target. Same firm designed GESINE.</td>
+      </tr>
+      <tr>
+        <td class="brand-cell">Blueland</td>
+        <td>Private</td>
+        <td>—</td>
+        <td class="price-cell">$220M+ valuation (Jul 2024)</td>
+        <td>$100M+ lifetime sales</td>
+        <td class="multiple-cell">n/a</td>
+        <td>Sarah Paiji Yoo · 2019</td>
+        <td>Plastic-free home brand at 9-fig valuation, profitable. Sustainability-comp anchor.</td>
+      </tr>
+      <tr>
+        <td class="brand-cell">Homecourt</td>
+        <td>Private</td>
+        <td>—</td>
+        <td class="price-cell">$8M Series A · Cult Capital</td>
+        <td>~$30M est.</td>
+        <td class="multiple-cell">n/a</td>
+        <td>Courteney Cox · 2022</td>
+        <td>Closest scent-forward home comp. Doubled rev/yr, 300+ doors. Cult Capital is a target investor.</td>
+      </tr>
+      <tr>
+        <td class="brand-cell">DedCool</td>
+        <td>Private</td>
+        <td>—</td>
+        <td class="price-cell">~$9M raised · Sandbridge</td>
+        <td>$25-30M est. (2025)</td>
+        <td class="multiple-cell">n/a</td>
+        <td>Carina Chaz · 2016</td>
+        <td>Solo female founder, scent-led, profitable, growing 600% post-Sandbridge. Trajectory comp.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout">
+  <span class="eyebrow">The takeaway</span>
+  <h2 class="h2">Two recent C&amp;D deals set the GESINE bar.</h2>
+  <p class="body">Hero Cosmetics ($630M, 2022) and Touchland ($880M, 2025) are the cleanest comps. Both female-founded, design-led, scent-or-skin-adjacent, EBITDA-positive at exit, scaled DTC-then-retail. Both went to <strong>Church &amp; Dwight</strong>. GESINE — luxury home reset bottle, EWG Verified, Crate &amp; Barrel 2027 — is the same archetype, the same buyer, the same ~5x sales lane. Drunk Elephant's 8.5x at Shiseido is the upside slide; Aesop's $2.525B at L'Oréal is the long-horizon ceiling.</p>
+</div>
+
+<div class="section">
+  <span class="eyebrow">Acquirer target list</span>
+  <h2 class="h2">Where this deck should land.</h2>
+
+  <div class="tier">
+    <div class="tier-card lead">
+      <span class="tier-label">Lead — most active</span>
+      <div class="tier-headline">Church &amp; Dwight</div>
+      <div class="tier-body">2 relevant deals in 3 years (Hero $630M · Touchland $880M). Same archetype as GESINE. Top of the target list.</div>
+    </div>
+    <div class="tier-card">
+      <span class="tier-label">Tier 2 — eco-home consolidator</span>
+      <div class="tier-headline">SC Johnson</div>
+      <div class="tier-body">Method + Ecover + Mrs. Meyer's + Caldrea — systematic premium-home roll-up since 2008.</div>
+    </div>
+    <div class="tier-card">
+      <span class="tier-label">Tier 3 — broad CPG appetite</span>
+      <div class="tier-headline">Unilever</div>
+      <div class="tier-body">DSC $1B · Seventh Gen $700M · Schmidt's · Olly. 6 relevant deals 2016-2019, currently re-acquiring in wellness.</div>
+    </div>
+    <div class="tier-card upside">
+      <span class="tier-label">Upside · premium multiple</span>
+      <div class="tier-headline">L'Oréal · Shiseido</div>
+      <div class="tier-body">Aesop $2.525B · Drunk Elephant $845M (8.5x). Both reach if GESINE crosses $100M net sales.</div>
+    </div>
+    <div class="tier-card">
+      <span class="tier-label">Tier 5 — fast personal-care</span>
+      <div class="tier-headline">P&amp;G</div>
+      <div class="tier-body">Native $100M (3.3-4x). Will pay for fast-scaling DTC-to-retail — but at lower multiple than C&amp;D.</div>
+    </div>
+    <div class="tier-card">
+      <span class="tier-label">Wildcard</span>
+      <div class="tier-headline">Henkel · Reckitt · Colgate</div>
+      <div class="tier-body">Less active in premium home recently — could move if Church &amp; Dwight bids GESINE up. Useful auction leverage.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <span class="eyebrow">Series A target investors · post-$400K angel</span>
+  <h2 class="h2">Where the next round should source from.</h2>
+
+  <div class="acquirer-grid">
+    <div class="acquirer">
+      <div class="acquirer-name">Cult Capital</div>
+      <div class="acquirer-thesis">Led Homecourt $8M Series A (Oct 2025). Already inside the scent-led luxury home thesis. Warmest fit.</div>
+      <div class="acquirer-deals">DEALS · Homecourt</div>
+    </div>
+    <div class="acquirer">
+      <div class="acquirer-name">Sandbridge Capital</div>
+      <div class="acquirer-thesis">Backed DedCool — solo female founder, scent-led, profitable. Fits GESINE founder profile (Lee).</div>
+      <div class="acquirer-deals">DEALS · DedCool</div>
+    </div>
+    <div class="acquirer">
+      <div class="acquirer-name">Prelude Growth Partners</div>
+      <div class="acquirer-thesis">Led Blueland to $220M+ valuation. Plastic-free home thesis aligned with GESINE refill model.</div>
+      <div class="acquirer-deals">DEALS · Blueland</div>
+    </div>
+    <div class="acquirer">
+      <div class="acquirer-name">VMG Partners</div>
+      <div class="acquirer-thesis">Premium home + wellness DTC specialist (Drunk Elephant pre-Shiseido, Sun Bum, Quest). Has the muscle for the C&amp;B-anchored growth round.</div>
+      <div class="acquirer-deals">DEALS · Drunk Elephant · Sun Bum</div>
+    </div>
+    <div class="acquirer">
+      <div class="acquirer-name">Selva Ventures</div>
+      <div class="acquirer-thesis">Wellness + clean home thesis. Smaller checks but high signal for early Series A.</div>
+      <div class="acquirer-deals">DEALS · Olipop · Maude</div>
+    </div>
+    <div class="acquirer">
+      <div class="acquirer-name">L Catterton</div>
+      <div class="acquirer-thesis">Largest consumer-focused PE. Pre-IPO / late-stage growth. Park for Series B+.</div>
+      <div class="acquirer-deals">DEALS · Honest · Kopari · Tatcha</div>
+    </div>
+  </div>
+</div>
+
+<div class="sources">
+  <strong>Sources</strong>
+  Touchland: <a href="https://investor.churchdwight.com/Investors/news/news-details/2025/Church--Dwight-to-Acquire-the-Touchland-Brand-for-700-million-Plus-Earn-out/default.aspx">C&amp;D investor</a> · <a href="https://www.retaildive.com/news/church-and-dwight-acquires-touchland-880-million/748062/">Retail Dive</a> ·
+  Hero: <a href="https://www.businesswire.com/news/home/20220906005426/en/">BusinessWire</a> ·
+  Aesop: <a href="https://www.loreal.com/en/press-release/group/l-oreal-signs-an-agreement-with-natura-and-co-to-acquire-aesop/">L'Oréal</a> ·
+  Drunk Elephant: <a href="https://www.jonesday.com/en/practices/experience/2019/11/shiseido-to-acquire-drunk-elephant-for-845-million">Jones Day</a> ·
+  DSC: <a href="https://fortune.com/2016/07/19/unilever-buys-dollar-shave-club-for-1-billion/">Fortune</a> ·
+  Seventh Gen: <a href="https://fortune.com/2016/09/19/unilever-buying-seventh-generation/">Fortune</a> ·
+  Native: <a href="https://techcrunch.com/2017/11/15/procter-gamble-just-bought-this-venture-backed-deodorant-startup-for-100-million-cash/">TechCrunch</a> ·
+  Schmidt's: <a href="https://www.businesswire.com/news/home/20171214006077/en/">BusinessWire</a> ·
+  Olly: <a href="https://www.businesswire.com/news/home/20190418005592/en/">BusinessWire</a> ·
+  Method/Ecover: <a href="https://www.scjohnson.com/en/press-releases/2017/september/sc-johnson-signs-agreement-to-acquire-method-and-ecover">SC Johnson</a> ·
+  Mrs. Meyer's: <a href="https://www.happi.com/contents/view_breaking-news/2008-04-30/sc-johnson-to-acquire-caldrea/">Happi</a> ·
+  Caraway: <a href="https://pitchbook.com/profiles/company/292440-07">PitchBook</a> ·
+  Blueland: <a href="https://fortune.com/2025/06/21/blueland-ceo-sarah-paiji-yoo-sustainability-zero-waste-lifestyle/">Fortune</a> ·
+  Homecourt: <a href="https://www.prnewswire.com/news-releases/courteney-coxs-homecourt-secures-8m-series-a-funding-302597737.html">PRNewswire</a> ·
+  DedCool: <a href="https://wwd.com/beauty-industry-news/fragrance/dedcool-sephora-fragrance-investment-sandbridge-capital-1237084358/">WWD</a>
+</div>
+
+</div>
+</body>
+</html>
