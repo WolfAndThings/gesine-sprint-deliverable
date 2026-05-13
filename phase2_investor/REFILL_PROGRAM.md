@@ -41,11 +41,13 @@ Year 2 customer:
 
 3-year LTV target: **~$700-800 per retained customer.**
 
-Compare:
-- Method customer: ~$30-50/yr at most (mass channel, no recurring)
-- Blueland customer: ~$80-120/yr ([Source: research/brand_teardowns.md](research/brand_teardowns.md), $39 starter + $2.25 refills)
-- Branch Basics customer: ~$150-250/yr ([Source: research/brand_teardowns.md](research/brand_teardowns.md))
-- Aesop hand wash customer: $50-100/yr ([Source: research/brand_teardowns.md](research/brand_teardowns.md), $47 hand wash, no recurring)
+Compare (per-customer LTV figures below are directional projections, NOT audited customer LTV from competitor reports — `[unverified, modeled from publicly cited SKU prices]`):
+- Method customer: directional `[unverified]`. Mass channel, no recurring program. SKU prices $4-20 from [research/brand_teardowns.md](research/brand_teardowns.md).
+- Blueland customer: directional `[unverified]`. Starter $39 + refill tabs $2.25 from [research/brand_teardowns.md](research/brand_teardowns.md). Annual spend depends on refill frequency.
+- Branch Basics customer: directional `[unverified]`. Starter $69-99 + refill concentrate $19 from [research/brand_teardowns.md](research/brand_teardowns.md).
+- Aesop hand wash customer: directional `[unverified]`. $47 hand wash, no recurring program from [research/brand_teardowns.md](research/brand_teardowns.md).
+
+Customer-level LTV not publicly disclosed by these brands. Projections above are based on retail pricing and assumed purchase frequency, not audited customer cohort data.
 
 GESINE LTV target sits ~3-5x Branch Basics. Justified by: design-object purchase up front, recurring subscription, multiple bottles per household.
 

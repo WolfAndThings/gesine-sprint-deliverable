@@ -94,12 +94,22 @@ body { background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-ser
 .ft-l { font-size:12px; color:var(--muted); }
 .ft-r { font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); }
 
+/* WALKTHROUGH BANNER */
+.walk-banner-wrap { margin-bottom:32px; }
+.walk-banner { display:block; background:linear-gradient(135deg, rgba(79,168,106,.10) 0%, rgba(74,82,64,.10) 100%); border:1px solid rgba(79,168,106,.4); border-radius:12px; padding:20px 26px; text-decoration:none; color:var(--ink); transition:transform .15s, border-color .15s; }
+.walk-banner:hover { transform:translateY(-2px); border-color:var(--amber); }
+.walk-banner-tag { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.22em; text-transform:uppercase; color:var(--amber-deep); display:block; margin-bottom:6px; }
+.walk-banner-row { display:flex; align-items:baseline; justify-content:space-between; gap:18px; }
+.walk-banner-title { font-family:'Instrument Serif',Georgia,serif; font-size:20px; line-height:1.2; letter-spacing:-.005em; }
+.walk-banner-meta { font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); letter-spacing:.16em; }
+
 @media(max-width:760px) {
   .page { padding:36px 20px 64px; }
   .doc-header { flex-direction:column; align-items:flex-start; gap:14px; }
   .hero { padding:32px 24px; }
   .deliv-grid, .use-grid, .glance-grid { grid-template-columns:1fr; }
   .glance-grid { gap:24px; }
+  .walk-banner-row { flex-direction:column; align-items:flex-start; gap:6px; }
   .doc-footer { flex-direction:column; gap:12px; align-items:flex-start; }
 }
 </style>
@@ -117,19 +127,29 @@ body { background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-ser
     </div>
     <span class="brand-name">GESINE × Alex Lamb</span>
   </div>
-  <div class="doc-meta">Foundation Sprint · Delivery<br>May 1, 2026</div>
+  <div class="doc-meta">Foundation Sprint · Delivery<br>May 13, 2026</div>
 </header>
 
 <div class="hero">
-  <span class="hero-eyebrow">Phase 1 deliverables · Foundation Sprint complete</span>
+  <span class="hero-eyebrow">Phase 1 + Phase 2 · Foundation Sprint complete</span>
   <div class="hero-headline">
-    Eight deliverables.<br>
-    <em>One brand foundation.</em>
+    Twenty deliverables.<br>
+    <em>One brand foundation. One investor deck.</em>
   </div>
   <div class="hero-body">
-    Every artifact below is paste-ready, link-shareable, investor-deck-friendly, and built to feed directly into Phase 2. Two deliverables (Influencer Targets, Bonus Findings) used <strong>real Apify scrapes</strong> against competitor IG accounts and product pages — every follower count, brand-tagged creator, and competitor copy fragment is verified, not guessed. <strong>Read the Bonus Findings first if you only have ten minutes</strong> — it surfaces a competitor (<em>@ritueliahome</em>) that is already moving on GESINE's positioning.
+    Every artifact below is paste-ready, link-shareable, investor-deck-friendly, and sourced. Apify scrapes (Influencer Targets, Bonus Findings) verified live April 29, 2026. Phase 2 investor research (Comparable Exits, ICP, C&amp;B Playbook, Acquirer Thesis, Trajectory Roadmap, Beauty Thesis) shipped May 4-7 with citations baked in. <strong>For a ten-minute live walkthrough, open the Walkthrough lead page</strong> — six good-news cards in click-through order. <strong>For tomorrow's beauty mtg, open P2-BEAUTY first.</strong>
   </div>
-  <span class="hero-stamp">✓ Apify-verified · Live data April 29, 2026</span>
+  <span class="hero-stamp">✓ 20 deliverables · sourced · Caraway design partnership locked</span>
+</div>
+
+<div class="walk-banner-wrap">
+  <a href="../walkthrough/index.html" target="_blank" class="walk-banner">
+    <span class="walk-banner-tag">New · for live walkthrough</span>
+    <div class="walk-banner-row">
+      <div class="walk-banner-title">The Good News · Walkthrough Lead Page →</div>
+      <div class="walk-banner-meta">10 MIN · 6 CARDS · 8-STEP WALK</div>
+    </div>
+  </a>
 </div>
 
 
@@ -142,16 +162,16 @@ body { background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-ser
     <span class="glance-label">Foundation Sprint summary</span>
     <div class="glance-grid">
       <div class="glance-stat">
-        <div class="glance-num"><em>8</em></div>
-        <div class="glance-stat-label">Deliverables — all HTML, all link-shareable</div>
+        <div class="glance-num"><em>20</em></div>
+        <div class="glance-stat-label">Deliverables — 8 Phase 1 + 12 Phase 2</div>
+      </div>
+      <div class="glance-stat">
+        <div class="glance-num"><em>14</em></div>
+        <div class="glance-stat-label">Comparable exits sourced + cited</div>
       </div>
       <div class="glance-stat">
         <div class="glance-num"><em>12</em></div>
         <div class="glance-stat-label">Apify-verified influencer targets</div>
-      </div>
-      <div class="glance-stat">
-        <div class="glance-num"><em>14</em></div>
-        <div class="glance-stat-label">Bonus findings flagged from real scrapes</div>
       </div>
       <div class="glance-stat">
         <div class="glance-num"><em>15</em></div>
@@ -164,9 +184,9 @@ body { background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-ser
 
 <!-- DELIVERABLES -->
 <section class="section">
-  <span class="eyebrow">The eight</span>
+  <span class="eyebrow">Phase 1 · the foundation eight</span>
   <h2 class="h2">Click any tile to open.</h2>
-  <p class="body">Each deliverable opens in a new tab. <strong>Read order</strong>: start with the AI Roadmap + Marketing Ecosystem to set the frame, then the Audit + Pricing Ladder for positioning, then Naming + Influencers + Visual Prompts for execution-ready material. Bonus Findings surfaces what didn't fit anywhere else.</p>
+  <p class="body">Each deliverable opens in a new tab. <strong>Live walkthrough</strong>: open the Walkthrough lead page above for the ten-minute click-through. <strong>Self-paced read order</strong>: AI Roadmap + Marketing Ecosystem to set the frame, then Audit + Pricing Ladder for positioning, then Naming + Influencers + Visual Prompts for execution-ready material. Bonus Findings surfaces what didn't fit anywhere else (and the @ritueliahome competitor flag).</p>
 
   <div class="deliv-grid">
     <a class="deliv-card" href="../audit/status_object_audit.html" target="_blank">
@@ -272,7 +292,19 @@ body { background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-ser
 <section class="section">
   <span class="eyebrow">Phase 2 · investor research · May 2026</span>
   <h2 class="h2">Built off the May 2026 deck.<br><em>Sourced. Cited. No fabrication.</em></h2>
-  <p style="font-size:14px; color:#2A2620; line-height:1.75; font-weight:300; max-width:880px; margin-bottom:24px;"><strong>Start with P2-EXEC (Executive Summary)</strong> — visual show-and-tell of all 8 in one page. Drill into the deeper deliverables below as needed. Phase 1 deliverables also refreshed: pricing $80→$78, Caraway flipped to design partner, EWG Verified posture flagged.</p>
+  <p style="font-size:14px; color:#2A2620; line-height:1.75; font-weight:300; max-width:880px; margin-bottom:24px;"><strong>NEW (May 7) — P2-BEAUTY</strong>: investor briefing for tomorrow's beauty-focused mtg. Then P2-EXEC for visuals across all 8. Phase 1 deliverables also refreshed: pricing $80→$78, Caraway flipped to design partner, EWG Verified posture flagged.</p>
+
+  <a class="deliv-card bonus" href="../beauty_thesis/beauty_thesis.html" target="_blank" style="margin-bottom:14px;">
+    <div class="deliv-head">
+      <div class="deliv-num">P2-BEAUTY</div>
+      <div class="deliv-title">Beauty Thesis · Investor Briefing (May 7)</div>
+      <div class="deliv-arrow">→</div>
+    </div>
+    <div class="deliv-body">
+      <span class="deliv-tag">For tomorrow's mtg · 6 pillars · crossover table · EWG gap · TAM · talking points</span>
+      <div class="deliv-text">Why GESINE belongs in Sephora &amp; Ulta. Fragrance is beauty. <strong>EWG-certified products: ~6,000 beauty vs ~200 cleaning</strong> — same consumer, 30:1 supply gap. Demand strip: 25M EWG shoppers · 73% pay premium · $300M+ capital deployed · 15-20% category CAGR. Self-investment tailwind block: $1.8T US wellness · $9B Gen Z beauty · 41% say cleaning = self-care · 100B #CleanTok views. 7-row crossover table (Jolie, Touchland, Aesop, Le Labo, Diptyque, Saje, DedCool). 3 talking-point questions to flip mtg on offense. <strong>Open first.</strong></div>
+    </div>
+  </a>
 
   <a class="deliv-card bonus" href="../market_waiting/market_waiting_gtm.html" target="_blank" style="margin-bottom:14px;">
     <div class="deliv-head">

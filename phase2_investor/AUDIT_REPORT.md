@@ -1,3 +1,42 @@
+# Phase 2 + 3 Investor Docs — Citation Audit Report
+
+## Phase 3 audit pass (manual, May 5 2026)
+
+Audit agent hit usage cap mid-run. Manual quick-audit performed on 6 Phase 3 files.
+
+Files reviewed:
+- REFILL_PROGRAM.md
+- COLOR_PALETTE_OPTIONS.md
+- PRICING_LADDER_V2.md
+- BRAND_BOOK_OUTLINE.md
+- WHOLESALE_LINE_SHEET_TEMPLATE.md
+- RISK_REGISTER.md
+
+### Findings
+
+- **REFILL_PROGRAM.md**: Per-customer LTV comp lines (Method ~$30-50, Aesop $50-100, etc.) were directional estimates not in source data. Replaced with explicit `[unverified, modeled from publicly cited SKU prices]` framing + note that competitor LTV is not publicly disclosed.
+- **COLOR_PALETTE_OPTIONS.md**: Hex codes already flagged `[unverified — design pass needed]`. No data claims.
+- **PRICING_LADDER_V2.md**: Comp prices sourced inline from research/brand_teardowns.md. GESINE prices flagged `[unverified]`. Margin assumptions flagged `[unverified — needs unit econ pass]`.
+- **BRAND_BOOK_OUTLINE.md**: Mostly structural. TAM/SAM/SOM cited from research. Type picks flagged as suggestions during design pass.
+- **WHOLESALE_LINE_SHEET_TEMPLATE.md**: Net 30/60 + 5-8% co-op + 5-10% markdown all sourced inline to research/crate_barrel_intel.md. MOQs flagged `[unverified]`.
+- **RISK_REGISTER.md**: Acquisition multiples + Touchland $880M sourced. DTC subscription churn 5-10% flagged `[unverified — needs source per category]`.
+
+### Top 3 risks still in Phase 3 docs
+
+1. Per-customer LTV projections on competitors (now flagged but should be killed entirely if pitched verbally — say "publicly disclosed customer LTV not available")
+2. "Industry norm" claims in WHOLESALE_LINE_SHEET_TEMPLATE.md (Net 30/60 standard, 12-20 week glass lead times) — sourced to research file but research file itself uses general benchmarks, not single audited source
+3. Subscription churn benchmark in RISK_REGISTER.md — flagged but Lee should pull a real DTC consumables churn benchmark before pitch (Recurly, Bolt, Zuora reports)
+
+### What Lee needs to verify before any pitch using Phase 3 docs
+
+- C&B signed agreement scope (Risk 1, 9 in RISK_REGISTER.md)
+- Hazmat / EPA classification per concentrate (Risk 5)
+- Any specific subscription churn benchmark cited
+- Final price points (currently `[unverified]` across REFILL_PROGRAM, PRICING_LADDER_V2)
+- Color palette pick (A/B/C from COLOR_PALETTE_OPTIONS.md)
+
+---
+
 # Phase 2 Investor Docs — Citation Audit Report
 
 Audit date: May 3, 2026. Pass over 9 top-level files in `phase2_investor/` (research/ subfolder excluded as already sourced).

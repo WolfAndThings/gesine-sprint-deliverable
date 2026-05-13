@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GESINE — The Good News · Walkthrough</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --ink:#0F0E0C; --dark:#1A1814;
+  --cream:#F8FAF6; --off:#E8EFE3; --soft:#D6E4D0;
+  --amber:#4FA86A; --amber-deep:#2D5F3F;
+  --olive:#4A5240; --sage:#7C8470;
+  --muted:#6F665A; --light:#9C9285;
+  --bmd:rgba(15,14,12,0.14); --bstr:rgba(15,14,12,0.20);
+}
+body { background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-serif; font-size:15px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+.page { max-width:1080px; margin:0 auto; padding:56px 48px 80px; }
+
+.doc-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:48px; padding-bottom:24px; border-bottom:2px solid var(--ink); }
+.wordmark { display:flex; align-items:center; gap:12px; }
+.logo-box { width:36px; height:36px; background:var(--ink); border-radius:8px; display:grid; place-items:center; }
+.brand-name { font-family:'Instrument Serif',Georgia,serif; font-size:18px; letter-spacing:.02em; }
+.doc-meta { text-align:right; font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); line-height:2; }
+
+.hero { background:var(--ink); border-radius:16px; padding:52px 56px; margin-bottom:48px; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg, var(--amber), var(--sage)); }
+.hero-eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:rgba(245,241,232,.40); display:block; margin-bottom:18px; }
+.hero-headline { font-family:'Instrument Serif',Georgia,serif; font-size:clamp(34px,4.4vw,52px); line-height:1.05; letter-spacing:-.02em; color:var(--cream); margin-bottom:22px; }
+.hero-headline em { color:var(--amber); font-style:italic; }
+.hero-body { font-size:15.5px; color:rgba(245,241,232,.75); line-height:1.7; font-weight:300; max-width:740px; }
+.hero-body strong { color:var(--cream); font-weight:500; }
+.hero-stamp { display:inline-block; margin-top:24px; padding:7px 14px; background:rgba(79,168,106,0.20); color:var(--amber); font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; border-radius:5px; font-weight:500; }
+
+.section { margin-bottom:52px; }
+.eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:12px; }
+.h2 { font-family:'Instrument Serif',Georgia,serif; font-size:clamp(24px,3vw,32px); line-height:1.15; letter-spacing:-.015em; color:var(--ink); margin-bottom:14px; }
+.h2 em { font-style:italic; color:var(--amber-deep); }
+.body { font-size:14px; color:#2A2620; line-height:1.75; font-weight:300; max-width:760px; }
+.body strong { font-weight:600; color:var(--ink); }
+
+/* GOOD NEWS GRID — flagship cards */
+.news-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:24px; }
+.news-card { background:var(--cream); border:1px solid var(--bstr); border-radius:14px; padding:28px 30px; text-decoration:none; color:var(--ink); display:block; transition:transform .15s, box-shadow .15s, border-color .15s; position:relative; }
+.news-card:hover { transform:translateY(-2px); box-shadow:0 10px 30px rgba(15,14,12,0.10); border-color:var(--amber); }
+.news-card.hero-card { background:var(--ink); color:var(--cream); border-color:var(--ink); grid-column:1 / -1; padding:36px 40px; }
+.news-card.hero-card:hover { border-color:var(--amber); }
+.news-tag { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.22em; text-transform:uppercase; color:var(--amber-deep); margin-bottom:12px; display:block; }
+.news-card.hero-card .news-tag { color:var(--amber); }
+.news-headline { font-family:'Instrument Serif',Georgia,serif; font-size:22px; line-height:1.2; letter-spacing:-.005em; margin-bottom:12px; }
+.news-card.hero-card .news-headline { font-size:30px; }
+.news-headline em { color:var(--amber); font-style:italic; }
+.news-card.hero-card .news-headline em { color:var(--amber); }
+.news-text { font-size:13.5px; color:#2A2620; line-height:1.6; font-weight:300; }
+.news-card.hero-card .news-text { color:rgba(245,241,232,0.78); font-size:14.5px; }
+.news-text strong { color:var(--ink); font-weight:600; }
+.news-card.hero-card .news-text strong { color:var(--cream); }
+.news-link { display:inline-block; margin-top:14px; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--amber-deep); border-bottom:1px solid var(--amber-deep); padding-bottom:2px; }
+.news-card.hero-card .news-link { color:var(--amber); border-bottom-color:var(--amber); }
+
+/* WALK ORDER */
+.walk-box { background:linear-gradient(135deg, rgba(79,168,106,.08) 0%, rgba(74,82,64,.08) 100%); border:1px solid rgba(79,168,106,.3); border-radius:14px; padding:32px 36px; margin-top:24px; }
+.walk-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--amber-deep); display:block; margin-bottom:18px; }
+.walk-list { display:flex; flex-direction:column; gap:14px; }
+.walk-step { display:grid; grid-template-columns:auto 1fr auto; gap:18px; align-items:center; padding:14px 18px; background:var(--cream); border:1px solid var(--bstr); border-radius:10px; text-decoration:none; color:var(--ink); transition:border-color .15s, transform .15s; }
+.walk-step:hover { border-color:var(--amber); transform:translateX(2px); }
+.walk-num { font-family:'Instrument Serif',Georgia,serif; font-size:24px; color:var(--amber); line-height:1; min-width:32px; }
+.walk-info { display:flex; flex-direction:column; gap:3px; }
+.walk-title { font-family:'Instrument Serif',Georgia,serif; font-size:17px; line-height:1.2; letter-spacing:-.005em; }
+.walk-sub { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); }
+.walk-arrow { font-family:'DM Mono',monospace; font-size:14px; color:var(--amber); }
+
+/* NUMBERS */
+.glance-box { background:var(--ink); color:var(--cream); border-radius:14px; padding:36px 40px; margin-top:24px; position:relative; overflow:hidden; }
+.glance-box::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg, var(--amber), var(--sage)); }
+.glance-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--amber); display:block; margin-bottom:22px; }
+.glance-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+.glance-num { font-family:'Instrument Serif',Georgia,serif; font-size:42px; line-height:1; color:var(--cream); letter-spacing:-.02em; margin-bottom:6px; }
+.glance-num em { color:var(--amber); font-style:italic; }
+.glance-stat-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:rgba(245,241,232,.55); line-height:1.4; }
+
+.doc-footer { margin-top:64px; padding-top:24px; border-top:2px solid var(--ink); display:flex; justify-content:space-between; align-items:center; }
+.ft-l { font-size:12px; color:var(--muted); }
+.ft-r { font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); }
+
+@media(max-width:760px) {
+  .page { padding:36px 20px 64px; }
+  .doc-header { flex-direction:column; align-items:flex-start; gap:14px; }
+  .hero { padding:32px 24px; }
+  .news-grid, .glance-grid { grid-template-columns:1fr; }
+  .news-card.hero-card { padding:28px 24px; }
+  .glance-grid { gap:24px; }
+  .walk-step { grid-template-columns:auto 1fr; }
+  .walk-arrow { display:none; }
+  .doc-footer { flex-direction:column; gap:12px; align-items:flex-start; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="doc-header">
+  <div class="wordmark">
+    <div class="logo-box">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <circle cx="9" cy="9" r="7" stroke="#4FA86A" stroke-width="1.5" fill="none"/>
+        <circle cx="9" cy="9" r="3" fill="#4FA86A"/>
+      </svg>
+    </div>
+    <span class="brand-name">GESINE × Alex Lamb</span>
+  </div>
+  <div class="doc-meta">Walkthrough · The Good News<br>May 13, 2026</div>
+</header>
+
+<div class="hero">
+  <span class="hero-eyebrow">Foundation Sprint · Phase 1 + Phase 2 complete</span>
+  <div class="hero-headline">
+    The good news.<br>
+    <em>Five things working in your favor.</em>
+  </div>
+  <div class="hero-body">
+    Read top to bottom in ten minutes. Six things <strong>the sprint research surfaced that aren't in the deck yet</strong> — competitor moves, buyer timing, supply-gap math, and three figures in the existing deck that need correcting before the next investor read. Each card opens the source doc behind it.
+  </div>
+  <span class="hero-stamp">✓ All sourced · Apify-verified · ready for the meeting</span>
+</div>
+
+
+<!-- GOOD NEWS GRID -->
+<section class="section">
+  <span class="eyebrow">Open these in order</span>
+  <h2 class="h2">The wins, ranked.</h2>
+  <p class="body">Hero card first. Then five supporting wins, each anchored to a deliverable. Click through to the source doc when needed — the headline is enough for the room.</p>
+
+  <div class="news-grid">
+
+    <a class="news-card hero-card" href="../bonus/bonus_findings.html" target="_blank">
+      <span class="news-tag">Surprise 01 · Competitor moving now</span>
+      <div class="news-headline">@ritueliahome launched in NYC<br><em>on the same positioning.</em></div>
+      <div class="news-text"><strong>Surfaced from Apify scrape April 29, 2026.</strong> Same ritual-wellness language, same kit-not-spray frame, same demo. Caught before they scaled. <strong>Trademark filings need to go in this week.</strong> Plus 13 other findings the sprint pulled from real scrapes — Aesop's copy formula, Blueland's safe-claim template, Caraway's anti-bot wall (sign of mature ops worth defending against).</div>
+      <span class="news-link">Open bonus findings · +1 →</span>
+    </a>
+
+    <a class="news-card" href="../beauty_thesis/beauty_thesis.html" target="_blank">
+      <span class="news-tag">Surprise 02 · 30:1 supply gap</span>
+      <div class="news-headline">EWG-certified products:<br>6,000 in beauty. 200 in cleaning.</div>
+      <div class="news-text">Same consumer is shopping both shelves. <strong>30:1 supply gap means Sephora &amp; Ulta have a hole that EWG-certified cleaning fits.</strong> Demand strip: 25M EWG shoppers, 73% pay premium, $300M+ capital deployed, 15-20% category CAGR. Fragrance is already beauty. The shelf math says yes before the buyer pitch even starts.</div>
+      <span class="news-link">Open beauty thesis · P2-BEAUTY →</span>
+    </a>
+
+    <a class="news-card" href="../acquirer_thesis/acquirer_thesis.html" target="_blank">
+      <span class="news-tag">Surprise 03 · Buyer timing</span>
+      <div class="news-headline">SC Johnson is <em>overdue</em><br>by 7 years for a Method-tier add.</div>
+      <div class="news-text">Last LSB add: Method 2018. <strong>SC Johnson 5/5 fit, no current pipeline asset matches.</strong> C&amp;D also 5/5 — but timing-gated by Touchland integration through 2027 (don't pitch them yet). L Catterton = bridge buyer 2026-2028 if a strategic isn't ready. 11 buyers ranked end to end with the right windows.</div>
+      <span class="news-link">Open acquirer thesis · P2-8 →</span>
+    </a>
+
+    <a class="news-card" href="../crate_barrel/crate_barrel_playbook.html" target="_blank">
+      <span class="news-tag">Surprise 04 · The bar at C&amp;B</span>
+      <div class="news-headline">Caraway sold 3 months<br>of inventory <em>in 5 hours.</em></div>
+      <div class="news-text">That's the launch bar at Crate &amp; Barrel. <strong>CEO Janet Hayes, EVP Pat Eckerstrom = the names.</strong> VOG compliance, Imprint Visa loyalty hook, NYC Flatiron activation, Hudson Grace expansion as Phase 2. Eight specific intel asks listed for the pre-meeting prep.</div>
+      <span class="news-link">Open C&amp;B playbook · P2-4 →</span>
+    </a>
+
+    <a class="news-card" href="../calm_partnership/calm_wellness_path.html" target="_blank">
+      <span class="news-tag">Surprise 05 · Calm door open</span>
+      <div class="news-headline">Calm has never done a<br>retail CPG SKU. <em>That just changed.</em></div>
+      <div class="news-text"><strong>Joe Lawson hired 2025 as Head of Licensing</strong> — first time the door is open for a physical product partnership. 5 warm-intro paths mapped (LinkedIn direct + C&amp;B + shared investors + Hilton + Adidas). 9-14 month roadmap modeled on Le Labo × EDITION. Wellness adjacency without the regulated-claims trap.</div>
+      <span class="news-link">Open Calm partnership · P2-6 →</span>
+    </a>
+
+    <a class="news-card" href="../acquirer_thesis/acquirer_thesis.html" target="_blank">
+      <span class="news-tag">Surprise 06 · Deck corrections</span>
+      <div class="news-headline">Three figures in the deck<br>need to change <em>before next read.</em></div>
+      <div class="news-text">Caught while sourcing P2 research:<br><strong>1.</strong> Touchland exit = $700M + $180M earn-out (not flat $880M).<br><strong>2.</strong> Le Labo "$200-300M" is unverifiable — actual ~$60-80M revenue.<br><strong>3.</strong> Lululemon × Calm reference = false, never happened. Strike it. DedCool × Crocs and Glossier × Olive Garden also unverified — pull or replace before any investor read.</div>
+      <span class="news-link">Open acquirer thesis · P2-8 →</span>
+    </a>
+
+  </div>
+</section>
+
+
+<!-- BY THE NUMBERS -->
+<section class="section">
+  <span class="eyebrow">By the numbers</span>
+  <h2 class="h2">What's behind the walkthrough.</h2>
+
+  <div class="glance-box">
+    <span class="glance-label">Foundation Sprint · totals</span>
+    <div class="glance-grid">
+      <div class="glance-stat">
+        <div class="glance-num"><em>20</em></div>
+        <div class="glance-stat-label">Deliverables · 8 Phase 1 + 12 Phase 2</div>
+      </div>
+      <div class="glance-stat">
+        <div class="glance-num"><em>14</em></div>
+        <div class="glance-stat-label">Comparable exits sourced + cited</div>
+      </div>
+      <div class="glance-stat">
+        <div class="glance-num"><em>12</em></div>
+        <div class="glance-stat-label">Apify-verified influencer targets</div>
+      </div>
+      <div class="glance-stat">
+        <div class="glance-num"><em>15</em></div>
+        <div class="glance-stat-label">Paste-ready visual prompts</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- WALK ORDER -->
+<section class="section">
+  <span class="eyebrow">Live walkthrough order</span>
+  <h2 class="h2">Click through in this order.<br><em>Ten minutes, top to bottom.</em></h2>
+
+  <div class="walk-box">
+    <span class="walk-label">Sequence</span>
+    <div class="walk-list">
+
+      <a class="walk-step" href="../audit/status_object_audit.html" target="_blank">
+        <div class="walk-num">1</div>
+        <div class="walk-info">
+          <div class="walk-title">Status-Object Audit · the white space</div>
+          <div class="walk-sub">D01 · sets up the four-brand frame · Caraway partnership baked in</div>
+        </div>
+        <div class="walk-arrow">→</div>
+      </a>
+
+      <a class="walk-step" href="../pricing/pricing_ladder.html" target="_blank">
+        <div class="walk-num">2</div>
+        <div class="walk-info">
+          <div class="walk-title">Pricing Ladder · the $78 anchor</div>
+          <div class="walk-sub">D02 · visual ladder · perceived value $95-120</div>
+        </div>
+        <div class="walk-arrow">→</div>
+      </a>
+
+      <a class="walk-step" href="../bonus/bonus_findings.html" target="_blank">
+        <div class="walk-num">3</div>
+        <div class="walk-info">
+          <div class="walk-title">Bonus Findings · @ritueliahome flag</div>
+          <div class="walk-sub">+1 · 14 findings from real Apify scrapes</div>
+        </div>
+        <div class="walk-arrow">→</div>
+      </a>
+
+      <a class="walk-step" href="../beauty_thesis/beauty_thesis.html" target="_blank">
+        <div class="walk-num">4</div>
+        <div class="walk-info">
+          <div class="walk-title">Beauty Thesis · Sephora &amp; Ulta path</div>
+          <div class="walk-sub">P2-BEAUTY · 6 pillars · EWG gap · talking points</div>
+        </div>
+        <div class="walk-arrow">→</div>
+      </a>
+
+      <a class="walk-step" href="../comparable_exits/comparable_exits.html" target="_blank">
+        <div class="walk-num">5</div>
+        <div class="walk-info">
+          <div class="walk-title">Comparable Exits · the $880M lane</div>
+          <div class="walk-sub">P2-1 · 14 exits · acquirer matrix · 6 Series A targets</div>
+        </div>
+        <div class="walk-arrow">→</div>
+      </a>
+
+      <a class="walk-step" href="../acquirer_thesis/acquirer_thesis.html" target="_blank">
+        <div class="walk-num">6</div>
+        <div class="walk-info">
+          <div class="walk-title">Acquirer Thesis · 11 buyers ranked</div>
+          <div class="walk-sub">P2-8 · SC Johnson 5/5 · C&amp;D timing · L Catterton bridge</div>
+        </div>
+        <div class="walk-arrow">→</div>
+      </a>
+
+      <a class="walk-step" href="../trajectory_roadmap/trajectory_roadmap.html" target="_blank">
+        <div class="walk-num">7</div>
+        <div class="walk-info">
+          <div class="walk-title">Trajectory Roadmap · $0 → $41M → exit</div>
+          <div class="walk-sub">P2-7 · 5 levers · year-by-year 2026-2031</div>
+        </div>
+        <div class="walk-arrow">→</div>
+      </a>
+
+      <a class="walk-step" href="../delivery/index.html" target="_blank">
+        <div class="walk-num">8</div>
+        <div class="walk-info">
+          <div class="walk-title">Full Delivery Index · everything else</div>
+          <div class="walk-sub">All 20 deliverables · jump from here for any deeper question</div>
+        </div>
+        <div class="walk-arrow">→</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<footer class="doc-footer">
+  <div class="ft-l">Alex Lamb · Creative Director, AI Architect</div>
+  <div class="ft-r">GESINE Foundation Sprint · Walkthrough · May 2026</div>
+</footer>
+
+</div>
+</body>
+</html>

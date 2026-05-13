@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GESINE — The Beauty Thesis</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --ink:#0F0E0C; --cream:#F8FAF6; --off:#E8EFE3; --soft:#D6E4D0;
+  --amber:#4FA86A; --amber-deep:#2D5F3F;
+  --olive:#4A5240; --sage:#7C8470;
+  --muted:#6F665A; --light:#9C9285;
+  --bmd:rgba(15,14,12,0.14); --bstr:rgba(15,14,12,0.20);
+  --warn:#A87E50;
+}
+html, body { background:var(--cream); }
+body { color:var(--ink); font-family:'DM Sans',sans-serif; font-size:15.5px; line-height:1.7; -webkit-font-smoothing:antialiased; }
+.page { max-width:1080px; margin:0 auto; padding:48px 40px 96px; }
+
+/* HEADER */
+.doc-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:36px; padding-bottom:18px; border-bottom:2px solid var(--ink); }
+.wordmark { display:flex; align-items:center; gap:12px; }
+.logo-box { width:36px; height:36px; background:var(--ink); border-radius:8px; display:grid; place-items:center; color:var(--amber); font-family:'Instrument Serif',serif; font-size:20px; }
+.brand-name { font-family:'Instrument Serif',Georgia,serif; font-size:18px; }
+.doc-meta { text-align:right; font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); line-height:1.9; }
+
+/* HERO */
+.hero { background:var(--ink); border-radius:18px; padding:56px 56px; margin-bottom:36px; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg, var(--amber), var(--sage), var(--amber)); }
+.hero-eyebrow { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:rgba(245,241,232,.40); display:block; margin-bottom:22px; }
+.hero-headline { font-family:'Instrument Serif',serif; font-size:clamp(34px,4.6vw,58px); line-height:1.06; letter-spacing:-.022em; color:var(--cream); margin-bottom:22px; }
+.hero-headline em { color:var(--amber); font-style:italic; }
+.hero-explain { font-size:16px; color:rgba(245,241,232,.78); line-height:1.7; max-width:780px; }
+.hero-explain strong { color:var(--cream); }
+.hero-explain em { color:var(--amber); font-style:italic; }
+
+/* TLDR */
+.tldr { background:var(--off); border:1px solid var(--bstr); border-radius:14px; padding:28px 34px; margin-bottom:44px; }
+.tldr-tag { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--amber-deep); margin-bottom:10px; display:block; }
+.tldr h3 { font-family:'Instrument Serif',serif; font-size:24px; line-height:1.25; margin-bottom:12px; color:var(--ink); }
+.tldr h3 em { color:var(--amber-deep); font-style:italic; }
+.tldr p { font-size:15px; line-height:1.7; color:#2A2620; max-width:880px; margin-bottom:8px; }
+.tldr p strong { color:var(--ink); font-weight:600; }
+.tldr p em { color:var(--amber-deep); font-style:italic; }
+
+/* SECTION */
+.section { margin-bottom:56px; }
+.section-tag { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--amber-deep); display:block; margin-bottom:8px; }
+.section-h { font-family:'Instrument Serif',serif; font-size:clamp(28px,3.4vw,40px); line-height:1.08; color:var(--ink); letter-spacing:-.018em; margin-bottom:14px; }
+.section-h em { color:var(--amber-deep); font-style:italic; }
+.section-intro { font-size:15.5px; color:#2A2620; line-height:1.7; max-width:860px; margin-bottom:22px; }
+.section-intro strong { color:var(--ink); }
+.section-intro em { color:var(--amber-deep); font-style:italic; }
+
+/* PILLAR CARDS */
+.pillars { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+.pillar { background:var(--off); border:1px solid var(--bstr); border-radius:12px; padding:24px 26px; }
+.pillar.dark { background:linear-gradient(145deg,#2D5F3F,var(--ink)); color:var(--cream); border-color:var(--amber); }
+.pillar-num { font-family:'Instrument Serif',serif; font-size:34px; line-height:1; color:var(--amber); font-style:italic; display:block; margin-bottom:10px; }
+.pillar-h { font-family:'Instrument Serif',serif; font-size:20px; line-height:1.2; margin-bottom:10px; }
+.pillar.dark .pillar-h { color:var(--cream); }
+.pillar.dark .pillar-h em { color:var(--amber); }
+.pillar p { font-size:13.5px; line-height:1.6; color:#2A2620; }
+.pillar.dark p { color:rgba(245,241,232,.85); }
+.pillar p strong { color:var(--ink); }
+.pillar.dark p strong { color:var(--cream); }
+.pillar p em { color:var(--amber-deep); font-style:italic; }
+.pillar.dark p em { color:var(--amber); }
+
+/* CROSSOVER TABLE */
+.cross { background:var(--ink); border-radius:14px; padding:28px 32px; }
+.cross-row { display:grid; grid-template-columns:1.4fr 1.5fr 1.6fr 0.8fr; gap:18px; align-items:center; padding:14px 0; border-bottom:1px dashed rgba(245,241,232,.12); }
+.cross-row:first-of-type { padding-top:0; }
+.cross-row:last-child { border-bottom:none; padding-bottom:0; }
+.cross-head { padding-bottom:12px; border-bottom:1px solid rgba(245,241,232,.25); margin-bottom:6px; }
+.cross-head .cross-cell { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:rgba(245,241,232,.55); }
+.cross-cell { font-size:13.5px; color:rgba(245,241,232,.86); }
+.cross-cell.brand { font-family:'Instrument Serif',serif; font-size:18px; color:var(--cream); font-style:italic; }
+.cross-cell.price { font-family:'Instrument Serif',serif; font-size:16px; color:var(--amber); text-align:right; }
+
+/* EWG SPLIT */
+.ewg { background:var(--off); border:1px solid var(--bstr); border-radius:14px; padding:32px 36px; }
+.ewg-bars { display:grid; grid-template-columns:1fr; gap:14px; margin-top:6px; }
+.ewg-bar-row { display:grid; grid-template-columns:170px 1fr 90px; gap:18px; align-items:center; }
+.ewg-bar-name { font-family:'Instrument Serif',serif; font-size:17px; }
+.ewg-bar-name em { display:block; font-family:'DM Mono',monospace; font-style:normal; font-size:10px; color:var(--muted); margin-top:2px; letter-spacing:.1em; }
+.ewg-track { height:30px; background:var(--soft); border-radius:6px; position:relative; overflow:hidden; }
+.ewg-fill { position:absolute; top:0; left:0; bottom:0; border-radius:6px; }
+.ewg-fill.beauty { background:linear-gradient(90deg,var(--amber-deep),var(--olive)); width:100%; }
+.ewg-fill.cleaning { background:linear-gradient(90deg,var(--warn),var(--muted)); width:3.3%; }
+.ewg-num { font-family:'Instrument Serif',serif; font-size:18px; color:var(--amber-deep); text-align:right; }
+.ewg-num.warn { color:var(--warn); }
+.ewg-foot { font-size:13px; color:var(--muted); margin-top:18px; line-height:1.6; }
+.ewg-foot strong { color:var(--ink); }
+
+/* TAM */
+.tam { background:var(--ink); border-radius:14px; padding:32px 36px; color:var(--cream); }
+.tam-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:14px; }
+.tam-cell { background:rgba(245,241,232,.04); border:1px solid rgba(245,241,232,.10); border-radius:10px; padding:20px 22px; }
+.tam-num { font-family:'Instrument Serif',serif; font-style:italic; font-size:34px; color:var(--amber); line-height:1; margin-bottom:8px; display:block; }
+.tam-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:rgba(245,241,232,.6); margin-bottom:6px; display:block; }
+.tam-note { font-size:12px; color:rgba(245,241,232,.7); line-height:1.5; }
+.tam-eq { font-family:'Instrument Serif',serif; font-size:22px; line-height:1.4; color:var(--cream); margin-top:22px; padding:18px 22px; background:rgba(79,168,106,.08); border-left:3px solid var(--amber); border-radius:6px; }
+.tam-eq em { color:var(--amber); font-style:italic; }
+
+/* TALKING POINTS */
+.talk { display:grid; grid-template-columns:1fr; gap:12px; }
+.talk-card { background:var(--off); border:1px solid var(--bstr); border-radius:12px; padding:22px 26px; display:grid; grid-template-columns:48px 1fr; gap:18px; align-items:start; }
+.talk-num { font-family:'Instrument Serif',serif; font-style:italic; font-size:32px; color:var(--amber-deep); line-height:1; }
+.talk-h { font-family:'Instrument Serif',serif; font-size:19px; line-height:1.2; color:var(--ink); margin-bottom:6px; }
+.talk-h em { color:var(--amber-deep); font-style:italic; }
+.talk-card p { font-size:13.5px; color:#2A2620; line-height:1.6; }
+.talk-card p strong { color:var(--ink); }
+
+/* AVOID */
+.avoid { background:#fff7ed; border:1px solid var(--warn); border-radius:12px; padding:24px 28px; margin-top:24px; }
+.avoid-tag { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--warn); margin-bottom:8px; display:block; }
+.avoid h4 { font-family:'Instrument Serif',serif; font-size:20px; margin-bottom:10px; color:var(--ink); }
+.avoid ul { list-style:none; padding:0; }
+.avoid li { font-size:13.5px; color:#2A2620; line-height:1.6; padding:6px 0 6px 22px; position:relative; }
+.avoid li::before { content:'×'; position:absolute; left:0; top:6px; color:var(--warn); font-weight:600; font-size:16px; }
+.avoid li strong { color:var(--ink); }
+
+/* CLOSER */
+.closer { background:linear-gradient(160deg,#2D5F3F,var(--ink)); border-radius:18px; padding:48px 52px; color:var(--cream); margin-top:56px; }
+.closer-tag { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--amber); display:block; margin-bottom:14px; }
+.closer h2 { font-family:'Instrument Serif',serif; font-size:clamp(28px,3.6vw,40px); line-height:1.1; color:var(--cream); margin-bottom:16px; }
+.closer h2 em { color:var(--amber); font-style:italic; }
+.closer p { font-size:15.5px; color:rgba(245,241,232,.84); line-height:1.7; max-width:760px; }
+
+/* FOOT */
+.foot { margin-top:44px; padding-top:18px; border-top:1px solid var(--bmd); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); letter-spacing:.1em; text-transform:uppercase; }
+
+/* TRANSLATE HERO */
+.translate { background:var(--ink); border-radius:16px; padding:48px 52px; margin-top:24px; color:var(--cream); position:relative; overflow:hidden; }
+.translate::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg, var(--amber), var(--sage), var(--amber)); }
+.translate-tag { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:var(--amber); display:block; margin-bottom:18px; }
+.translate-h { font-family:'Instrument Serif',serif; font-size:clamp(26px,3.2vw,38px); line-height:1.18; color:var(--cream); margin-bottom:18px; letter-spacing:-.012em; }
+.translate-h em { color:var(--amber); font-style:italic; }
+.translate-h strong { color:var(--cream); font-weight:400; border-bottom:1px solid rgba(79,168,106,.5); padding-bottom:1px; }
+.translate-sub { font-size:15.5px; color:rgba(245,241,232,.78); line-height:1.7; max-width:760px; margin-bottom:32px; }
+.translate-sub strong { color:var(--cream); }
+.translate-sub em { color:var(--amber); font-style:italic; }
+
+/* DEMAND STRIP */
+.demand-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; padding-top:28px; border-top:1px solid rgba(245,241,232,.14); }
+.demand-cell { padding:6px 4px; }
+.demand-num { font-family:'Instrument Serif',serif; font-style:italic; font-size:34px; line-height:1; color:var(--amber); display:block; margin-bottom:8px; }
+.demand-label { font-family:'DM Mono',monospace; font-size:9.5px; letter-spacing:.18em; text-transform:uppercase; color:rgba(245,241,232,.55); margin-bottom:6px; display:block; }
+.demand-note { font-size:12px; color:rgba(245,241,232,.78); line-height:1.5; }
+.demand-src { font-family:'DM Mono',monospace; font-size:9.5px; color:var(--muted); letter-spacing:.08em; margin-top:24px; line-height:1.7; }
+.demand-src strong { color:rgba(245,241,232,.7); font-weight:500; }
+
+/* UTILS */
+.subline { font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); letter-spacing:.16em; text-transform:uppercase; }
+.span-2 { grid-column:span 2; }
+.right { text-align:right; }
+
+/* RESPONSIVE */
+@media (max-width:780px) {
+  .page { padding:32px 22px 64px; }
+  .hero, .closer { padding:40px 28px; }
+  .tldr, .cross, .ewg, .tam { padding:24px 22px; }
+  .pillars { grid-template-columns:1fr; }
+  .tam-grid { grid-template-columns:1fr; }
+  .cross-row { grid-template-columns:1fr 1fr; }
+  .cross-cell:nth-child(3), .cross-cell:nth-child(4) { grid-column:span 1; }
+  .cross-head { display:none; }
+  .ewg-bar-row { grid-template-columns:130px 1fr 70px; }
+  .translate { padding:32px 26px; }
+  .demand-strip { grid-template-columns:repeat(2,1fr); gap:18px; }
+}
+
+/* PRINT */
+@media print {
+  body { background:#fff; }
+  .page { padding:24px 24px 24px; max-width:none; }
+  .hero { background:#0F0E0C !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .cross, .tam, .closer { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .section { page-break-inside:avoid; margin-bottom:32px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- HEADER -->
+<div class="doc-header">
+  <div class="wordmark">
+    <div class="logo-box">G</div>
+    <div>
+      <div class="brand-name">GESINE</div>
+      <div class="subline">Beauty Thesis · Investor Briefing</div>
+    </div>
+  </div>
+  <div class="doc-meta">
+    Prepared 2026-05-07<br>
+    For: Beauty-focused investor mtg<br>
+    Internal · v1.0
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-eyebrow">The one-line thesis</span>
+  <h1 class="hero-headline">GESINE is <em>fragrance</em>, not cleaner.<br>Fragrance is <em>beauty</em>.<br>The beauty consumer has no premium, EWG-conscious option for the home. <em>We are it.</em></h1>
+  <p class="hero-explain">Home cleaning is the last category the beauty consumer hasn't been served. She buys Aesop hand soap at Nordstrom, a Jolie filtered showerhead at Sephora, Touchland sanitizer at Ulta, Le Labo detergent online. Then walks past Method on the way home. <strong>GESINE collapses that gap with a fragrance-led, EWG-conscious, designed-to-be-seen cleaning ritual</strong> — sold where she already shops.</p>
+</div>
+
+<!-- TL;DR -->
+<div class="tldr">
+  <span class="tldr-tag">If they only remember three things</span>
+  <h3>Beauty retailers are <em>already buying</em> our category. We are not asking them to invent a section. We are filling the gap inside it.</h3>
+  <p><strong>1.</strong> Sephora and Ulta already stock non-traditional beauty (Jolie, Touchland, Saje). Precedent set, no education needed.</p>
+  <p><strong>2.</strong> EWG-certified products: <em>~6,000 in beauty vs ~200 in cleaning.</em> Same consumer. 30:1 supply gap. We close it.</p>
+  <p><strong>3.</strong> Touchland exited to Church &amp; Dwight in Apr 2025 at <em>$700M cash + up to $180M contingent earn-out.</em> A sub-$15 personal-care SKU sold via Sephora. The exit math for our category is already on the board.</p>
+</div>
+
+<!-- 5 PILLARS -->
+<div class="section">
+  <span class="section-tag">Section 01</span>
+  <h2 class="section-h">The six pillars of the <em>beauty case</em></h2>
+  <p class="section-intro">Each pillar is a defensible answer to the investor's most likely pushback. None require the investor to take a leap of faith on category creation.</p>
+
+  <div class="pillars">
+
+    <div class="pillar dark">
+      <span class="pillar-num">01</span>
+      <h4 class="pillar-h">Fragrance <em>is</em> beauty.</h4>
+      <p>US prestige fragrance hit <strong>~$8B in 2024, growing ~12% YoY</strong> — fastest-growing beauty subcategory (Circana). <strong>56% of fragrance buyers are under 35</strong> — Gen Z and millennials are driving the surge. GESINE is fragrance-forward with seasonal scents. <strong>The product is a fragrance product that happens to clean</strong> — the way a candle is fragrance that happens to give light.</p>
+    </div>
+
+    <div class="pillar">
+      <span class="pillar-num">02</span>
+      <h4 class="pillar-h">Beauty retailers <em>already</em> sell home / wellness.</h4>
+      <p>Sephora wellness category up <strong>~30% YoY</strong> since 2022 (analyst notes). Ulta launched dedicated wellness aisle 2022, expanded 2024. Sephora carries Jolie ($165 showerhead), Touchland, DedCool. Bluemercury and Nordstrom carry Aesop home. <strong>The shelf already exists</strong> — we slot in.</p>
+    </div>
+
+    <div class="pillar">
+      <span class="pillar-num">03</span>
+      <h4 class="pillar-h">EWG <em>gap</em> is the white space.</h4>
+      <p>~6,000 EWG-certified beauty SKUs vs ~200 cleaning. The clean-conscious beauty buyer is trained to scan EWG and finds nothing premium in cleaning. <strong>GESINE is the obvious answer she's been priced into Branch Basics for.</strong></p>
+    </div>
+
+    <div class="pillar dark">
+      <span class="pillar-num">04</span>
+      <h4 class="pillar-h">"Skinification of home" is a <em>named</em> trend.</h4>
+      <p>Premium home care growing <strong>~8-9% CAGR vs ~2-3%</strong> for legacy (Mintel, Grand View). Global wellness home market: <strong>~$200B</strong> (Global Wellness Institute). Beauty consumers apply skincare logic to home: ingredient panels, fragrance notes, ritual language. Jolie, Canopy, Branch Basics, Public Goods all ride it. <strong>We are early but not first</strong> — category is forming.</p>
+    </div>
+
+    <div class="pillar">
+      <span class="pillar-num">05</span>
+      <h4 class="pillar-h">Beauty <em>economics</em> beat home-care economics.</h4>
+      <p>Premium beauty gross margin runs 65-75%. Cleaning commodity runs 35-45%. Aesop hand soap retails $41.50; the same SKU at grocery would be $5. <strong>GESINE captures beauty margin on cleaning's repeat-purchase frequency</strong> — better LTV than serum.</p>
+    </div>
+
+    <div class="pillar dark span-2">
+      <span class="pillar-num">06</span>
+      <h4 class="pillar-h">The <em>self-investment</em> tailwind nobody is pricing in.</h4>
+      <p>The GESINE buyer is spending more on herself, her ritual, and her home than any prior cohort. Cleaning has been re-coded as self-care. Self-care is sold in beauty aisles. <strong>Wellness is now the largest discretionary category in the US</strong> — and the consumer rebuilding her routine around it has nowhere premium to spend on the home. <em>This is not a vibe shift — it is a balance-sheet shift.</em></p>
+
+      <div class="demand-strip" style="margin-top:24px; padding-top:24px;">
+
+        <div class="demand-cell">
+          <span class="demand-label">US wellness market</span>
+          <span class="demand-num">~$1.8T</span>
+          <p class="demand-note">McKinsey 2024. Larger than US auto industry. Self-care = mainstream spend.</p>
+        </div>
+
+        <div class="demand-cell">
+          <span class="demand-label">Premium home care CAGR</span>
+          <span class="demand-num">~8-9%</span>
+          <p class="demand-note">vs ~2-3% for legacy home care (Mintel, Grand View). Consumer is trading up.</p>
+        </div>
+
+        <div class="demand-cell">
+          <span class="demand-label">Self-care spend per HH</span>
+          <span class="demand-num">~$200/mo</span>
+          <p class="demand-note">US average, up from ~$135/mo pre-2020 (NielsenIQ, McKinsey). Routine spend, not splurge.</p>
+        </div>
+
+        <div class="demand-cell">
+          <span class="demand-label">Gen Z beauty spend</span>
+          <span class="demand-num">~$9B</span>
+          <p class="demand-note">US, +18% YoY (Piper Sandler "Taking Stock With Teens"). They will inherit the GESINE shelf.</p>
+        </div>
+
+        <div class="demand-cell">
+          <span class="demand-label">Cleaning = self-care</span>
+          <span class="demand-num">41%</span>
+          <p class="demand-note">Of Americans say cleaning their home is a form of self-care (Cleveland Clinic / APA).</p>
+        </div>
+
+        <div class="demand-cell">
+          <span class="demand-label">#CleanTok views</span>
+          <span class="demand-num">100B+</span>
+          <p class="demand-note">TikTok cumulative. Cleaning is now content, identity, and ritual — not a chore.</p>
+        </div>
+
+        <div class="demand-cell">
+          <span class="demand-label">Millennial home spend</span>
+          <span class="demand-num">~$4K/yr</span>
+          <p class="demand-note">Per household, with ~40% on premium tier (Statista). Premium home is the default, not the splurge.</p>
+        </div>
+
+        <div class="demand-cell">
+          <span class="demand-label">Bath &amp; Body Works</span>
+          <span class="demand-num">~$7B</span>
+          <p class="demand-note">Annual revenue, public co (BBWI). Proves home fragrance + gifting at mass scale.</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CROSSOVER TABLE -->
+<div class="section">
+  <span class="section-tag">Section 02 · Precedent</span>
+  <h2 class="section-h">Beauty retailers are <em>already</em> stocking adjacent categories</h2>
+  <p class="section-intro">Each row is a brand the investor's team can verify. Pattern: <em>fragrance-forward + ingredient story + ritual framing + premium packaging</em> = welcomed by Sephora / Ulta / Bluemercury. GESINE checks all four.</p>
+
+  <div class="cross">
+    <div class="cross-row cross-head">
+      <div class="cross-cell">Brand</div>
+      <div class="cross-cell">Category</div>
+      <div class="cross-cell">Sold At</div>
+      <div class="cross-cell right">Price Anchor</div>
+    </div>
+
+    <div class="cross-row">
+      <div class="cross-cell brand">Jolie Skin Co</div>
+      <div class="cross-cell">Filtered showerhead</div>
+      <div class="cross-cell">Sephora</div>
+      <div class="cross-cell price">$165</div>
+    </div>
+
+    <div class="cross-row">
+      <div class="cross-cell brand">Touchland</div>
+      <div class="cross-cell">Hand sanitizer (personal care)</div>
+      <div class="cross-cell">Sephora, Ulta · acq Church &amp; Dwight 2025</div>
+      <div class="cross-cell price">$10-14</div>
+    </div>
+
+    <div class="cross-row">
+      <div class="cross-cell brand">Aesop</div>
+      <div class="cross-cell">Hand soap, surface, body</div>
+      <div class="cross-cell">Nordstrom, Bluemercury, own retail</div>
+      <div class="cross-cell price">$41.50</div>
+    </div>
+
+    <div class="cross-row">
+      <div class="cross-cell brand">Le Labo</div>
+      <div class="cross-cell">Laundry detergent + body</div>
+      <div class="cross-cell">Le Labo retail, dept stores</div>
+      <div class="cross-cell price">$50</div>
+    </div>
+
+    <div class="cross-row">
+      <div class="cross-cell brand">Diptyque</div>
+      <div class="cross-cell">Home fragrance + body</div>
+      <div class="cross-cell">Sephora (select), own retail, dept</div>
+      <div class="cross-cell price">$40-200</div>
+    </div>
+
+    <div class="cross-row">
+      <div class="cross-cell brand">Saje Wellness</div>
+      <div class="cross-cell">Home + body wellness</div>
+      <div class="cross-cell">Own retail + wellness chains</div>
+      <div class="cross-cell price">$20-40</div>
+    </div>
+
+    <div class="cross-row">
+      <div class="cross-cell brand">DedCool</div>
+      <div class="cross-cell">Fragrance + laundry detergent</div>
+      <div class="cross-cell">Sephora (fragrance), DTC + boutiques (detergent)</div>
+      <div class="cross-cell price">$35</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- EWG GAP -->
+<div class="section">
+  <span class="section-tag">Section 03 · The white space</span>
+  <h2 class="section-h">EWG-certified products: <em>30 to 1</em> supply gap</h2>
+  <p class="section-intro">The beauty buyer has been trained for a decade to scan ingredient labels and look for EWG certification. She finds plenty of options in skincare. She finds almost nothing in home care. Verifiable on the EWG Skin Deep + Healthy Living databases.</p>
+
+  <div class="ewg">
+    <div class="ewg-bars">
+
+      <div class="ewg-bar-row">
+        <div class="ewg-bar-name">Beauty<em>EWG-certified</em></div>
+        <div class="ewg-track"><div class="ewg-fill beauty"></div></div>
+        <div class="ewg-num">~6,000</div>
+      </div>
+
+      <div class="ewg-bar-row">
+        <div class="ewg-bar-name">Home Cleaning<em>EWG-certified</em></div>
+        <div class="ewg-track"><div class="ewg-fill cleaning"></div></div>
+        <div class="ewg-num warn">~200</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="translate">
+    <span class="translate-tag">Translation</span>
+    <h3 class="translate-h">The EWG-trained beauty consumer <em>cannot find</em> a premium clean cleaner that <em>smells good</em> or <em>fits her aesthetic.</em> She over-pays for Branch Basics ($69 starter, drab UX), settles for grocery Method, or <strong>just buys nothing.</strong></h3>
+    <p class="translate-sub"><em>GESINE is the option that doesn't exist.</em> And she is not a niche. The demand has been measured, the capital is already moving, and the category is growing 3-4× faster than legacy home care.</p>
+
+    <div class="demand-strip">
+
+      <div class="demand-cell">
+        <span class="demand-label">Active EWG shoppers</span>
+        <span class="demand-num">~25M</span>
+        <p class="demand-note">Annual users on EWG Skin Deep + Healthy Living. Trained to scan ingredient panels.</p>
+      </div>
+
+      <div class="demand-cell">
+        <span class="demand-label">Will pay more for clean</span>
+        <span class="demand-num">~73%</span>
+        <p class="demand-note">US millennials willing to pay premium for sustainable / clean-ingredient goods (NielsenIQ).</p>
+      </div>
+
+      <div class="demand-cell">
+        <span class="demand-label">Capital deployed</span>
+        <span class="demand-num">~$300M+</span>
+        <p class="demand-note">Disclosed VC into clean home brands (Branch Basics, Blueland, Public Goods, Cleancult, Grove pre-IPO). Investor appetite proven.</p>
+      </div>
+
+      <div class="demand-cell">
+        <span class="demand-label">Category growth</span>
+        <span class="demand-num">~15-20%</span>
+        <p class="demand-note">Clean / wellness home-care CAGR vs ~2-3% legacy. 3-7× the trad rate (Mintel, Grand View).</p>
+      </div>
+
+    </div>
+
+    <p class="demand-src"><strong>Sources:</strong> EWG.org annual usage · NielsenIQ 2023 sustainability survey · Crunchbase / TechCrunch funding rounds · Mintel + Grand View Research clean home-care reports · Touchland exit (Church &amp; Dwight Apr 2025).</p>
+  </div>
+</div>
+
+<!-- TAM -->
+<div class="section">
+  <span class="section-tag">Section 04 · The math</span>
+  <h2 class="section-h">Beauty <em>TAM</em> dwarfs home-care TAM, and we capture both</h2>
+  <p class="section-intro">We do not have to pick one category. By positioning as fragrance-led beauty, we expand our addressable market while keeping cleaning's repeat frequency.</p>
+
+  <div class="tam">
+    <div class="tam-grid">
+
+      <div class="tam-cell">
+        <span class="tam-label">US Fragrance</span>
+        <span class="tam-num">~$9B</span>
+        <p class="tam-note">Fastest-growing beauty subcategory 2023-25 (Circana). GESINE is fragrance-forward.</p>
+      </div>
+
+      <div class="tam-cell">
+        <span class="tam-label">Global Premium Beauty</span>
+        <span class="tam-num">~$140B</span>
+        <p class="tam-note">McKinsey State of Beauty. Clean / wellness segment driving ~30% of growth.</p>
+      </div>
+
+      <div class="tam-cell">
+        <span class="tam-label">US Corporate Gifting</span>
+        <span class="tam-num">~$312B</span>
+        <p class="tam-note">Coresight 2025. Adjacent revenue lane unlocked by beauty-grade packaging.</p>
+      </div>
+
+    </div>
+
+    <div class="tam-eq">
+      <em>If GESINE captures 0.5% of US fragrance buyers</em> = $45M revenue band = hero brand status. Investor math: Touchland exited at $700M cash + up to $180M earn-out at sub-$100M revenue. <em>The exit comp already exists.</em>
+    </div>
+  </div>
+</div>
+
+<!-- TALKING POINTS -->
+<div class="section">
+  <span class="section-tag">Section 05 · In the room</span>
+  <h2 class="section-h">Three questions to flip the meeting on <em>offense</em></h2>
+  <p class="section-intro">Do not spend the meeting convincing them cleaning can be beauty. Anchor on exit comps and distribution. These three questions reframe the conversation.</p>
+
+  <div class="talk">
+
+    <div class="talk-card">
+      <span class="talk-num">01</span>
+      <div>
+        <h4 class="talk-h">"Who in your portfolio sells in <em>Sephora wellness</em> — can you intro?"</h4>
+        <p>Investor mode flips from evaluator to enabler. Beauty-focused funds have these relationships. <strong>Use them as a deal sweetener, not a hurdle.</strong></p>
+      </div>
+    </div>
+
+    <div class="talk-card">
+      <span class="talk-num">02</span>
+      <div>
+        <h4 class="talk-h">"Touchland exited to Church &amp; Dwight at <em>$700M cash + up to $180M earn-out</em> — what's your read on category-crossover M&amp;A?"</h4>
+        <p>Forces them to confirm the comp is real. Anchors expectations on the upside, not on whether the category will work. <strong>If they engage, they're already valuing us against that comp.</strong></p>
+      </div>
+    </div>
+
+    <div class="talk-card">
+      <span class="talk-num">03</span>
+      <div>
+        <h4 class="talk-h">"Jolie went DTC → <em>Sephora wellness</em> in roughly 18 months. Realistic target for us?"</h4>
+        <p>Lets the investor co-author the timeline rather than push back on it. <strong>Co-authoring is the closest thing to a soft commitment in a first meeting.</strong></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- AVOID -->
+<div class="section">
+  <span class="section-tag">Section 06 · Guardrails</span>
+  <h2 class="section-h">What <em>not</em> to say tomorrow</h2>
+  <p class="section-intro">Three slips that historically cost cleaning brands their beauty-channel positioning. Easy to avoid.</p>
+
+  <div class="avoid">
+    <span class="avoid-tag">Do not say</span>
+    <h4>The phrases that frame us as a Method competitor instead of a beauty brand</h4>
+    <ul>
+      <li><strong>"We compete with Clorox / Method / Mrs Meyer's."</strong> Anchors the buyer on $5 grocery price points and crushes our premium thesis. We compete with <em>Aesop, Le Labo, DedCool, Diptyque</em>.</li>
+      <li><strong>"Non-toxic" / "chemical-free" / "100% safe."</strong> FTC and EWG guidance flag these. Use <em>"EWG-conscious," "biodegradable," "thoughtfully formulated," "made without [X]"</em>.</li>
+      <li><strong>"It's a cleaning product."</strong> It is a fragrance ritual that resets a space. The product description on the shelf and on the cap line should never lead with "cleaner."</li>
+    </ul>
+  </div>
+</div>
+
+<!-- CLOSER -->
+<div class="closer">
+  <span class="closer-tag">The close</span>
+  <h2>The beauty consumer <em>already lives</em> the GESINE thesis. We are giving her the SKU her shelf is missing.</h2>
+  <p>She buys Aesop for the sink, Le Labo for laundry, Jolie for the shower, Touchland for her bag. The home-cleaning slot on her shelf is empty because no brand has shown up with the fragrance, the ingredient story, the design language, and the retailer-grade packaging at the same time. <em>That is the GESINE shape.</em></p>
+</div>
+
+<!-- FOOT -->
+<div class="foot">
+  <div>GESINE · Beauty Thesis Briefing · v1.0</div>
+  <div>For Lee &amp; Ben · 2026-05-07</div>
+  <div>Internal · do not redistribute</div>
+</div>
+
+</div>
+</body>
+</html>
