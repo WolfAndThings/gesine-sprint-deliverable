@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GESINE · Geometry Lock Workflow · How the Bottle Stops Mutating</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --ink:#0F0E0C; --cream:#F8FAF6; --off:#E8EFE3; --soft:#D6E4D0;
+  --amber:#4FA86A; --amber-deep:#2D5F3F;
+  --olive:#4A5240; --sage:#7C8470;
+  --muted:#6F665A; --light:#9C9285;
+  --bmd:rgba(15,14,12,0.14); --bstr:rgba(15,14,12,0.20);
+  --warn:#A87E50;
+  --bad:#C46B5A;
+}
+html, body { background:var(--cream); }
+body { color:var(--ink); font-family:'DM Sans',sans-serif; font-size:15px; line-height:1.7; -webkit-font-smoothing:antialiased; }
+.page { max-width:1180px; margin:0 auto; padding:48px 40px 80px; }
+
+.doc-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:32px; padding-bottom:18px; border-bottom:2px solid var(--ink); }
+.wordmark { display:flex; align-items:center; gap:12px; }
+.logo-box { width:36px; height:36px; background:var(--ink); border-radius:8px; display:grid; place-items:center; }
+.brand-name { font-family:'Instrument Serif',serif; font-size:18px; }
+.doc-meta { text-align:right; font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); line-height:1.9; }
+
+.hero { background:var(--ink); border-radius:18px; padding:56px 56px; margin-bottom:40px; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--amber),var(--sage),var(--amber-deep)); }
+.hero-eye { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:rgba(245,241,232,.45); display:block; margin-bottom:18px; }
+.hero-h { font-family:'Instrument Serif',serif; font-size:clamp(34px,4.6vw,54px); line-height:1.06; letter-spacing:-.022em; color:var(--cream); margin-bottom:18px; }
+.hero-h em { color:var(--amber); font-style:italic; }
+.hero-sub { font-size:16px; color:rgba(245,241,232,.8); line-height:1.65; max-width:760px; }
+.hero-sub strong { color:var(--cream); }
+.hero-sub em { color:var(--amber); font-style:italic; }
+
+.problem { background:#2D1614; color:#FAE6E0; border-radius:14px; padding:28px 34px; margin-bottom:36px; }
+.problem-eye { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:#E89484; margin-bottom:10px; display:block; }
+.problem-h { font-family:'Instrument Serif',serif; font-size:24px; line-height:1.25; color:#FAE6E0; margin-bottom:8px; }
+.problem-h em { color:#E89484; font-style:italic; }
+.problem-body { font-size:14.5px; line-height:1.7; color:rgba(250,230,224,.88); }
+.problem-body strong { color:#FAE6E0; }
+
+.phases { margin-bottom:48px; }
+.phase { display:grid; grid-template-columns:60px 1fr; gap:24px; padding:32px 0; border-top:1px solid var(--bmd); }
+.phase:first-child { border-top:none; padding-top:8px; }
+.phase-num { font-family:'Instrument Serif',serif; font-size:64px; font-style:italic; color:var(--amber); line-height:0.95; }
+.phase-body { }
+.phase-tag { font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--amber-deep); margin-bottom:8px; display:block; }
+.phase-h { font-family:'Instrument Serif',serif; font-size:32px; line-height:1.1; color:var(--ink); margin-bottom:10px; letter-spacing:-.018em; }
+.phase-h em { color:var(--amber-deep); font-style:italic; }
+.phase-sub { font-family:'Instrument Serif',serif; font-style:italic; font-size:17px; color:var(--olive); margin-bottom:16px; line-height:1.4; }
+.phase-text { font-size:15px; line-height:1.7; color:#2A2620; margin-bottom:18px; max-width:760px; }
+.phase-text strong { color:var(--ink); }
+
+.steps { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-bottom:14px; }
+.step { background:var(--off); border:1px solid var(--bstr); border-radius:10px; padding:14px 18px; }
+.step-lbl { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--amber-deep); margin-bottom:4px; display:block; }
+.step-val { font-size:13.5px; line-height:1.55; color:#2A2620; }
+.step-val strong { color:var(--ink); }
+
+.gate { background:var(--ink); color:var(--cream); border-radius:10px; padding:14px 20px; display:grid; grid-template-columns:auto 1fr; gap:14px; align-items:center; margin-top:8px; }
+.gate-lbl { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--amber); padding:6px 10px; background:rgba(79,168,106,.18); border-radius:6px; white-space:nowrap; }
+.gate-text { font-size:13.5px; line-height:1.55; color:rgba(245,241,232,.88); }
+.gate-text strong { color:var(--cream); }
+
+.section { margin-bottom:48px; }
+.section-eye { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--amber-deep); display:block; margin-bottom:8px; }
+.section-h { font-family:'Instrument Serif',serif; font-size:clamp(28px,3.2vw,38px); line-height:1.1; color:var(--ink); letter-spacing:-.018em; margin-bottom:14px; }
+.section-h em { color:var(--amber-deep); font-style:italic; }
+.section-intro { font-size:15.5px; line-height:1.7; color:#2A2620; max-width:820px; margin-bottom:24px; }
+.section-intro strong { color:var(--ink); }
+.section-intro em { color:var(--amber-deep); font-style:italic; }
+
+.split-learn { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.lcol { border-radius:14px; padding:28px 30px; }
+.lcol.good { background:linear-gradient(135deg,var(--off),var(--soft)); border:1px solid var(--amber); }
+.lcol.bad { background:#FAE6E0; border:1px solid var(--bad); }
+.lcol-tag { font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; margin-bottom:10px; display:block; }
+.lcol.good .lcol-tag { color:var(--amber-deep); }
+.lcol.bad .lcol-tag { color:#8C3A2C; }
+.lcol-h { font-family:'Instrument Serif',serif; font-size:24px; line-height:1.2; margin-bottom:14px; }
+.lcol.good .lcol-h { color:var(--ink); }
+.lcol.bad .lcol-h { color:#3A1614; }
+.lcol-h em { font-style:italic; }
+.lcol.good .lcol-h em { color:var(--amber-deep); }
+.lcol.bad .lcol-h em { color:#8C3A2C; }
+.lcol ul { list-style:none; }
+.lcol li { padding:8px 0; border-top:1px dashed; font-size:13.5px; line-height:1.55; padding-left:24px; position:relative; }
+.lcol li:first-child { border-top:none; }
+.lcol li strong { display:block; font-size:14.5px; margin-bottom:2px; }
+.lcol.good li { border-top-color:rgba(45,95,63,.20); color:#2A2620; }
+.lcol.good li::before { content:'✓'; position:absolute; left:0; top:8px; color:var(--amber-deep); font-weight:600; }
+.lcol.good li strong { color:var(--ink); }
+.lcol.bad li { border-top-color:rgba(140,58,44,.25); color:#3A1614; }
+.lcol.bad li::before { content:'×'; position:absolute; left:0; top:6px; color:#8C3A2C; font-weight:700; font-size:18px; line-height:1; }
+.lcol.bad li strong { color:#1F0F08; }
+
+.pipeline { background:var(--ink); color:var(--cream); border-radius:18px; padding:36px 44px; margin:48px 0; }
+.pipeline-eye { font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--amber); display:block; margin-bottom:12px; }
+.pipeline-h { font-family:'Instrument Serif',serif; font-size:30px; line-height:1.15; color:var(--cream); margin-bottom:20px; }
+.pipeline-h em { color:var(--amber); font-style:italic; }
+.flow { display:grid; grid-template-columns:repeat(5,1fr); gap:8px; align-items:stretch; }
+.flow-node { background:rgba(245,241,232,.06); border:1px solid rgba(245,241,232,.12); border-radius:10px; padding:14px 14px; }
+.flow-node.active { background:rgba(79,168,106,.18); border-color:var(--amber); }
+.flow-step { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.16em; color:var(--amber); margin-bottom:4px; display:block; text-transform:uppercase; }
+.flow-name { font-family:'Instrument Serif',serif; font-size:15px; line-height:1.2; color:var(--cream); margin-bottom:4px; }
+.flow-note { font-family:'DM Mono',monospace; font-size:9.5px; color:rgba(245,241,232,.55); line-height:1.5; letter-spacing:.04em; }
+.flow-arrow { color:var(--amber); font-family:'DM Mono',monospace; font-size:18px; display:flex; align-items:center; justify-content:center; }
+
+.closing { background:linear-gradient(135deg,var(--amber-deep),var(--olive)); color:var(--cream); border-radius:16px; padding:36px 44px; margin-top:36px; }
+.closing-eye { font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.24em; text-transform:uppercase; color:rgba(245,241,232,.55); display:block; margin-bottom:12px; }
+.closing-h { font-family:'Instrument Serif',serif; font-size:28px; line-height:1.15; color:var(--cream); margin-bottom:14px; }
+.closing-h em { color:var(--amber); font-style:italic; }
+.closing-body { font-size:15px; line-height:1.7; color:rgba(245,241,232,.85); max-width:780px; }
+.closing-body strong { color:var(--cream); }
+
+.footer { padding:24px 0; margin-top:36px; border-top:1px solid var(--bmd); text-align:center; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; color:var(--muted); text-transform:uppercase; }
+
+@media (max-width:860px) {
+  .phase { grid-template-columns:1fr; gap:12px; }
+  .phase-num { font-size:48px; }
+  .split-learn { grid-template-columns:1fr; }
+  .flow { grid-template-columns:1fr; }
+  .steps { grid-template-columns:1fr; }
+  .hero { padding:36px 28px; }
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<header class="doc-header">
+  <div class="wordmark">
+    <div class="logo-box">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <circle cx="9" cy="9" r="7" stroke="#4FA86A" stroke-width="1.5" fill="none"/>
+        <circle cx="9" cy="9" r="3" fill="#4FA86A"/>
+      </svg>
+    </div>
+    <span class="brand-name">GESINE</span>
+  </div>
+  <div class="doc-meta">
+    GEOMETRY LOCK · VISUAL WORKFLOW<br>
+    HOW THE BOTTLE STOPS MUTATING<br>
+    MAY 2026
+  </div>
+</header>
+
+<section class="hero">
+  <span class="hero-eye">The pipeline behind Round 2</span>
+  <h1 class="hero-h">The bottle is not <em>generated</em>.<br>The bottle is <em>locked</em>, then composited.</h1>
+  <p class="hero-sub">A clear, three-phase production pipeline. <strong>Exploration is generative. Final assets are not.</strong> Hero shots ship with the same sprayer height, same vial proportions, same cap radius across every scene. The mutation problem Ben flagged was real and it is structurally solved at Phase 2.</p>
+</section>
+
+<div class="problem">
+  <span class="problem-eye">The problem · Ben's note</span>
+  <h3 class="problem-h">"The AI keeps <em>mutating</em> the product."</h3>
+  <p class="problem-body">In Round 1, prompt-only generation drifted the sprayer height, vial neck, and cap radius across every shot. <strong>That is acceptable in mood exploration. It is unacceptable in a hero asset.</strong> A hero shot has to read as the same physical SKU across the entire retail and PR roll. Round 2 partially closed the gap. The Geometry Lock Workflow below is the structural fix that takes it from "mostly consistent" to "shot from a single bottle."</p>
+</div>
+
+<section class="phases">
+
+  <article class="phase">
+    <div class="phase-num">1</div>
+    <div class="phase-body">
+      <span class="phase-tag">Phase 1 · exploration · what Round 1 + Round 2 are</span>
+      <h2 class="phase-h">Mood and <em>art direction</em></h2>
+      <p class="phase-sub">Generative. The bottle is allowed to breathe.</p>
+      <p class="phase-text">The job of this phase is to find the lighting, palette, composition, and ritual language that lands the brand. <strong>Geometry drift is acceptable here because nothing in this phase is a final asset.</strong> Mood boards become reference packs. Reference packs feed the locked pipeline downstream.</p>
+      <div class="steps">
+        <div class="step"><span class="step-lbl">Tooling</span><div class="step-val">NanoBanana 2 · NanoBanana Pro · ChatGPT image · Midjourney for mood</div></div>
+        <div class="step"><span class="step-lbl">Output</span><div class="step-val">30 to 200 candidate frames per scene set</div></div>
+        <div class="step"><span class="step-lbl">Decision</span><div class="step-val">Pick the lighting and composition direction. <strong>Bottle accuracy is not a Phase 1 criterion.</strong></div></div>
+        <div class="step"><span class="step-lbl">Round 2 status</span><div class="step-val">Complete. 30 hero candidates in the picker. Lee + Ben are selecting the 10 to advance.</div></div>
+      </div>
+      <div class="gate">
+        <span class="gate-lbl">Gate to Phase 2</span>
+        <span class="gate-text">10 hero scenes locked by client. Lighting and composition signed off. <strong>From here, the bottle becomes a fixed asset, not a generated one.</strong></span>
+      </div>
+    </div>
+  </article>
+
+  <article class="phase">
+    <div class="phase-num">2</div>
+    <div class="phase-body">
+      <span class="phase-tag">Phase 2 · geometry lock · the structural fix</span>
+      <h2 class="phase-h">Product is <em>locked</em>, scene is composited</h2>
+      <p class="phase-sub">The 10 selected scenes are rebuilt with a fixed product.</p>
+      <p class="phase-text">The single highest-leverage move in the pipeline. The 10 selected hero compositions get the bottle, vial, and sprayer pulled out and replaced with the locked product asset. <strong>Same CAD-derived geometry in every shot. Same materials. Same proportions.</strong> The scene around the bottle stays. The product becomes a constant.</p>
+      <div class="steps">
+        <div class="step"><span class="step-lbl">Source of truth</span><div class="step-val"><strong>CAD file from Caraway design partnership.</strong> The actual physical bottle dimensions, sprayer geometry, vial proportions.</div></div>
+        <div class="step"><span class="step-lbl">Render path</span><div class="step-val">KeyShot studio render. PBR materials. Brushed hardware. Plain glass. Multi-angle library against the lighting from Phase 1.</div></div>
+        <div class="step"><span class="step-lbl">Composite</span><div class="step-val">Locked product dropped into the Phase 1 scene. Photoshop or Figma masking. <strong>Color grade matched to scene LUT.</strong></div></div>
+        <div class="step"><span class="step-lbl">Fallback</span><div class="step-val">If the Phase 1 scene can't accept a clean composite, the scene gets a Stable Diffusion <em>img2img</em> pass with the locked render as ControlNet depth input. Geometry preserved.</div></div>
+      </div>
+      <div class="gate">
+        <span class="gate-lbl">Gate to Phase 3</span>
+        <span class="gate-text">All 10 hero scenes carry the same locked bottle, vial, and sprayer. <strong>Caliper test: trace the bottle silhouette from any two heroes and the lines should overlap.</strong> If they don't, the shot fails the gate.</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="phase">
+    <div class="phase-num">3</div>
+    <div class="phase-body">
+      <span class="phase-tag">Phase 3 · final asset production</span>
+      <h2 class="phase-h">Upscale, <em>polish</em>, and ship</h2>
+      <p class="phase-sub">The hero set hits print and retail spec.</p>
+      <p class="phase-text">The 10 locked scenes get the final pass. <strong>4x upscale, color consistency sweep across the set, packaging integration where the gifting and retail scenes require it.</strong> Hero stills become source material for motion: the launch reel, the Crate &amp; Barrel asset pack, the corporate gifting decks, the Sephora and Ulta pitch boards.</p>
+      <div class="steps">
+        <div class="step"><span class="step-lbl">Upscale</span><div class="step-val">Topaz Gigapixel or Magnific at 4x. Retail print spec is 300 dpi at 16 x 24 inches minimum.</div></div>
+        <div class="step"><span class="step-lbl">Color sweep</span><div class="step-val">Single LUT across all 10. <strong>Hero deck reads as one shoot, not ten generations.</strong></div></div>
+        <div class="step"><span class="step-lbl">Packaging</span><div class="step-val">Gifting + retail scenes get the box, sleeve, and label artwork composited. Pulled from final dieline.</div></div>
+        <div class="step"><span class="step-lbl">Motion</span><div class="step-val">Hero stills feed Runway Act-One or Pika for the 6 to 12 second launch reel cuts. Same locked product, in motion.</div></div>
+      </div>
+      <div class="gate">
+        <span class="gate-lbl">Output</span>
+        <span class="gate-text">10 hero stills, retail-ready. 1 launch reel, motion-ready. 1 packaging pass on the gifting + retail subset. <strong>Path A and Path B share the hero library.</strong></span>
+      </div>
+    </div>
+  </article>
+
+</section>
+
+<section class="pipeline">
+  <span class="pipeline-eye">The pipeline at a glance</span>
+  <h2 class="pipeline-h">Five stages. <em>One locked bottle from stage three onward.</em></h2>
+  <div class="flow">
+    <div class="flow-node">
+      <span class="flow-step">01 · explore</span>
+      <div class="flow-name">Mood library</div>
+      <div class="flow-note">NB2 · NB Pro · ChatGPT · MJ. Bottle drifts, scene defines.</div>
+    </div>
+    <div class="flow-node">
+      <span class="flow-step">02 · select</span>
+      <div class="flow-name">10 heroes locked</div>
+      <div class="flow-note">Lee + Ben pick via R2-PICKS. Scene + lighting frozen.</div>
+    </div>
+    <div class="flow-node active">
+      <span class="flow-step">03 · lock</span>
+      <div class="flow-name">KeyShot render</div>
+      <div class="flow-note">CAD geometry. Same bottle in every scene from here.</div>
+    </div>
+    <div class="flow-node active">
+      <span class="flow-step">04 · composite</span>
+      <div class="flow-name">Product relock</div>
+      <div class="flow-note">Locked render dropped into Phase 1 scene. Color match.</div>
+    </div>
+    <div class="flow-node active">
+      <span class="flow-step">05 · finish</span>
+      <div class="flow-name">Upscale + ship</div>
+      <div class="flow-note">4x · LUT sweep · packaging · motion stills.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <span class="section-eye">Round 1 + Round 2 · what we learned</span>
+  <h2 class="section-h">Two rounds of exploration. <em>Locked signal.</em></h2>
+  <p class="section-intro">Strong directions and weak directions, called honestly. The strong list is the brief for Phase 2. The weak list is the reason the Geometry Lock Workflow exists.</p>
+
+  <div class="split-learn">
+    <div class="lcol good">
+      <span class="lcol-tag">Hold these · they are the brand</span>
+      <h3 class="lcol-h">Strong <em>directions</em></h3>
+      <ul>
+        <li><strong>Luxury hard-flash</strong>Editorial flash with controlled spill. Reads as beauty editorial, not lifestyle stock.</li>
+        <li><strong>Editorial beauty lighting</strong>Soft north-window key plus rim. The Aesop catalog cue. The frame she already trusts.</li>
+        <li><strong>Clinical minimalism</strong>White or stone surfaces, single object, generous negative space. Reads premium without trying.</li>
+        <li><strong>Warm neutral palettes</strong>Cream, sage, oat, soft taupe. Anchored by one true black or one deep amber.</li>
+        <li><strong>Ritual self-care framing</strong>Hands in frame, half-finished gesture, ritual object adjacent. The frame Touchland and Aesop both run.</li>
+        <li><strong>Hand-held intimacy shots</strong>Bottle in hand at 70 degrees, close crop. The shot that translates to TikTok and Reels without rework.</li>
+      </ul>
+    </div>
+    <div class="lcol bad">
+      <span class="lcol-tag">Stop generating these · Phase 2 fixes them</span>
+      <h3 class="lcol-h">Weak <em>directions</em></h3>
+      <ul>
+        <li><strong>Product geometry drift</strong>Sprayer height changes from frame to frame. Bottle shoulder varies by 10 to 15 percent. <em>Fixed at Phase 2 lock.</em></li>
+        <li><strong>Inconsistent sprayer proportions</strong>Sprayer head sometimes oversized, sometimes truncated. Reads as a different SKU on the same shelf. <em>Fixed at Phase 2 lock.</em></li>
+        <li><strong>Packaging distortion</strong>Box logo placement shifts. Label height drifts. <em>Fixed when packaging composites pull from the locked dieline in Phase 3.</em></li>
+        <li><strong>Overly surreal outputs</strong>Maximalist florals, over-dressed shelves, art-directed-into-the-ground compositions. <em>Phase 1 selection criterion: would Aesop or Le Labo ship this. If no, kill it.</em></li>
+        <li><strong>Bronze foil label cues</strong>Earlier rounds added a bronze foil label that does not exist on the real bottle. <em>Plain bottle and plain cap from Phase 2 forward. Bronze is hardware-only.</em></li>
+        <li><strong>Stock-photo posing</strong>Centered, symmetrical, posed compositions. Reads stock, kills the prestige read. <em>Phase 1 filter: editorial in-between or kill the frame.</em></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="closing">
+  <span class="closing-eye">The promise behind the pipeline</span>
+  <h2 class="closing-h">Round 3 is not <em>another round of generation.</em> Round 3 is <em>final polish</em> on a locked product.</h2>
+  <p class="closing-body">The 10 heroes Lee and Ben pick from Round 2 do not get regenerated. They get the bottle, vial, and sprayer rebuilt against the CAD reference, dropped back into the same lighting and composition, color-graded as a set, upscaled, and shipped. <strong>From Round 3 onward, the product is a constant. Only the scene moves.</strong></p>
+</div>
+
+<div class="footer">
+  GESINE · Geometry Lock Workflow · May 2026 · Alex Lamb
+</div>
+
+</div>
+</body>
+</html>
