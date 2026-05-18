@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GESINE · Round 2 Visuals · Pick Your Top 10</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --ink:#0F0E0C; --cream:#F8FAF6; --off:#E8EFE3; --soft:#D6E4D0;
+  --amber:#4FA86A; --amber-deep:#2D5F3F;
+  --olive:#4A5240; --sage:#7C8470;
+  --muted:#6F665A; --light:#9C9285;
+  --bmd:rgba(15,14,12,0.14); --bstr:rgba(15,14,12,0.20);
+}
+html, body { background:var(--cream); }
+body { color:var(--ink); font-family:'DM Sans',sans-serif; font-size:15px; line-height:1.7; -webkit-font-smoothing:antialiased; }
+.page { max-width:1280px; margin:0 auto; padding:48px 40px 80px; }
+
+.doc-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:32px; padding-bottom:18px; border-bottom:2px solid var(--ink); }
+.wordmark { display:flex; align-items:center; gap:12px; }
+.logo-box { width:36px; height:36px; background:var(--ink); border-radius:8px; display:grid; place-items:center; }
+.brand-name { font-family:'Instrument Serif',serif; font-size:18px; }
+.doc-meta { text-align:right; font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); line-height:1.9; }
+
+.hero { background:var(--ink); border-radius:18px; padding:56px 56px; margin-bottom:36px; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--amber),var(--sage),var(--amber-deep)); }
+.hero-eye { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:rgba(245,241,232,.45); display:block; margin-bottom:18px; }
+.hero-h { font-family:'Instrument Serif',serif; font-size:clamp(34px,4.6vw,56px); line-height:1.04; letter-spacing:-.022em; color:var(--cream); margin-bottom:18px; }
+.hero-h em { color:var(--amber); font-style:italic; }
+.hero-sub { font-size:16px; color:rgba(245,241,232,.8); line-height:1.65; max-width:720px; }
+.hero-sub strong { color:var(--cream); }
+.hero-sub em { color:var(--amber); font-style:italic; }
+
+.tracker { position:sticky; top:0; z-index:50; background:var(--cream); padding:14px 0; border-bottom:1px solid var(--bmd); margin-bottom:24px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px; }
+.tracker-label { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); }
+.tracker-count { font-family:'Instrument Serif',serif; font-size:28px; font-style:italic; color:var(--amber-deep); }
+.tracker-count strong { color:var(--ink); font-style:normal; }
+.tracker-copy { font-family:'DM Mono',monospace; font-size:11px; padding:8px 14px; background:var(--amber-deep); color:var(--cream); border:none; border-radius:8px; cursor:pointer; letter-spacing:.14em; text-transform:uppercase; }
+.tracker-copy:hover { background:var(--ink); }
+.tracker-copy.ok { background:var(--amber); }
+
+.scene { margin-bottom:38px; }
+.scene-head { display:flex; align-items:baseline; gap:14px; margin-bottom:14px; padding-bottom:10px; border-bottom:1px dashed var(--bmd); }
+.scene-num { font-family:'Instrument Serif',serif; font-size:32px; font-style:italic; color:var(--amber); line-height:1; }
+.scene-name { font-family:'Instrument Serif',serif; font-size:22px; line-height:1.1; color:var(--ink); }
+.scene-name em { color:var(--amber-deep); font-style:italic; }
+.scene-note { font-family:'DM Mono',monospace; font-size:10.5px; color:var(--muted); letter-spacing:.14em; text-transform:uppercase; margin-left:auto; }
+
+.grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.shot { position:relative; cursor:pointer; border-radius:12px; overflow:hidden; border:2px solid transparent; transition:border-color .15s, transform .15s; background:var(--off); }
+.shot:hover { transform:translateY(-2px); }
+.shot.picked { border-color:var(--amber); }
+.shot img { width:100%; aspect-ratio:2/3; object-fit:cover; display:block; }
+.shot-meta { padding:10px 12px; background:var(--cream); display:flex; align-items:center; justify-content:space-between; gap:10px; }
+.shot-code { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em; color:var(--muted); text-transform:uppercase; }
+.shot-angle { font-family:'Instrument Serif',serif; font-style:italic; font-size:16px; color:var(--ink); }
+.shot.picked .shot-angle { color:var(--amber-deep); }
+.shot-check { width:22px; height:22px; border-radius:50%; border:1.5px solid var(--bstr); background:var(--cream); display:grid; place-items:center; font-family:'DM Mono',monospace; font-size:11px; color:transparent; flex-shrink:0; }
+.shot.picked .shot-check { background:var(--amber); border-color:var(--amber); color:var(--cream); }
+
+.lightbox { position:fixed; inset:0; background:rgba(15,14,12,.94); z-index:100; display:none; align-items:center; justify-content:center; padding:30px; cursor:pointer; }
+.lightbox.show { display:flex; }
+.lightbox img { max-width:100%; max-height:100%; object-fit:contain; }
+.lightbox-x { position:fixed; top:24px; right:30px; font-family:'DM Mono',monospace; font-size:14px; color:var(--cream); letter-spacing:.2em; text-transform:uppercase; cursor:pointer; }
+
+.cta { background:linear-gradient(135deg,var(--amber-deep),var(--olive)); color:var(--cream); border-radius:18px; padding:40px 48px; margin-top:48px; }
+.cta-eye { font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.24em; text-transform:uppercase; color:rgba(245,241,232,.55); display:block; margin-bottom:14px; }
+.cta-h { font-family:'Instrument Serif',serif; font-size:28px; line-height:1.18; color:var(--cream); margin-bottom:12px; }
+.cta-h em { color:var(--amber); font-style:italic; }
+.cta-body { font-size:14.5px; line-height:1.65; color:rgba(245,241,232,.85); max-width:660px; margin-bottom:18px; }
+.cta-body strong { color:var(--cream); }
+.cta-list { background:rgba(15,14,12,.34); border-radius:10px; padding:14px 18px; font-family:'DM Mono',monospace; font-size:11.5px; color:rgba(245,241,232,.92); line-height:1.85; min-height:54px; word-break:break-all; }
+.cta-list:empty::before { content:'Your picks will appear here. Click any image above to add it.'; opacity:.5; }
+.cta-actions { display:flex; gap:10px; margin-top:14px; flex-wrap:wrap; }
+.cta-btn { font-family:'DM Mono',monospace; font-size:11px; padding:10px 18px; background:var(--amber); color:var(--ink); border:none; border-radius:8px; cursor:pointer; letter-spacing:.14em; text-transform:uppercase; font-weight:600; }
+.cta-btn.ghost { background:transparent; color:var(--cream); border:1px solid rgba(245,241,232,.35); }
+
+.footer { padding:24px 0; margin-top:36px; border-top:1px solid var(--bmd); text-align:center; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; color:var(--muted); text-transform:uppercase; }
+
+@media (max-width:760px) {
+  .grid { grid-template-columns:1fr; }
+  .hero { padding:36px 28px; }
+  .page { padding:32px 22px 60px; }
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<header class="doc-header">
+  <div class="wordmark">
+    <div class="logo-box">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <circle cx="9" cy="9" r="7" stroke="#4FA86A" stroke-width="1.5" fill="none"/>
+        <circle cx="9" cy="9" r="3" fill="#4FA86A"/>
+      </svg>
+    </div>
+    <span class="brand-name">GESINE</span>
+  </div>
+  <div class="doc-meta">
+    ROUND 2 · VISUAL CURATION<br>
+    30 SHOTS · 10 SCENES<br>
+    MAY 2026
+  </div>
+</header>
+
+<section class="hero">
+  <span class="hero-eye">Final pass before geometry lock</span>
+  <h1 class="hero-h">Round 2 is live.<br><em>Pick the ten you want finalized.</em></h1>
+  <p class="hero-sub">Thirty hero shots, ten scenes, three angles each. <strong>This is the last open round.</strong> The ten you select move into the final pass: upscale, bottle and vial relock to the locked geometry, color consistency sweep, and packaging integration. Tap any image to see it full size. Tap once more on the card to lock it into your picks. <em>Aim for 10. Variety across scenes beats redundancy inside one.</em></p>
+</section>
+
+<div class="tracker">
+  <span class="tracker-label">Your selection</span>
+  <span class="tracker-count"><strong id="t-count">0</strong> / 10</span>
+  <button class="tracker-copy" id="t-copy">Copy picks</button>
+</div>
+
+<section class="scene">
+  <div class="scene-head">
+    <div class="scene-num">01</div>
+    <div class="scene-name">Bedside <em>reset</em></div>
+    <div class="scene-note">Morning ritual · low light · skincare adjacency</div>
+  </div>
+  <div class="grid">
+    <div class="shot" data-id="01" data-name="01 bedside · hero solo"><img loading="lazy" src="img/01_01_bedside_reset_A_hero_solo.jpg" alt="bedside hero solo"><div class="shot-meta"><div><span class="shot-code">01 · A</span><div class="shot-angle">hero solo</div></div><div class="shot-check">✓</div></div></div>
+    <div class="shot" data-id="02" data-name="01 bedside · hand & lamp"><img loading="lazy" src="img/02_01_bedside_reset_B_hand_lamp.jpg" alt="bedside hand lamp"><div class="shot-meta"><div><span class="shot-code">01 · B</span><div class="shot-angle">hand & lamp</div></div><div class="shot-check">✓</div></div></div>
+    <div class="shot" data-id="03" data-name="01 bedside · book & water"><img loading="lazy" src="img/03_01_bedside_reset_C_book_water.jpg" alt="bedside book water"><div class="shot-meta"><div><span class="shot-code">01 · C</span><div class="shot-angle">book & water</div></div><div class="shot-check">✓</div></div></div>
+  </div>
+</section>
+
+<section class="scene">
+  <div class="scene-head">
+    <div class="scene-num">02</div>
+    <div class="scene-name">Hotel <em>turndown</em></div>
+    <div class="scene-note">Hospitality cue · cream linens · gifting frame</div>
+  </div>
+  <div class="grid">
+    <div class="shot" data-id="04" data-name="02 hotel turndown · wide"><img loading="lazy" src="img/04_02_hotel_turndown_A_wide.jpg" alt="hotel turndown wide"><div class="shot-meta"><div><span class="shot-code">02 · A</span><div class="shot-angle">wide</div></div><div class="shot-check">✓</div></div></div>
+    <div class="shot" data-id="05" data-name="02 hotel turndown · tray close"><img loading="lazy" src="img/05_02_hotel_turndown_B_tray_close.jpg" alt="hotel tray close"><div class="shot-meta"><div><span class="shot-code">02 · B</span><div class="shot-angle">tray close</div></div><div class="shot-check">✓</div></div></div>
+    <div class="shot" data-id="06" data-name="02 hotel turndown · note & pillow"><img loading="lazy" src="img/06_02_hotel_turndown_C_note_pillow.jpg" alt="hotel note pillow"><div class="shot-meta"><div><span class="shot-code">02 · C</span><div class="shot-angle">note & pillow</div></div><div class="shot-check">✓</div></div></div>
+  </div>
+</section>
+
+<section class="scene">
+  <div class="scene-head">
+    <div class="scene-num">03</div>
+    <div class="scene-name">Empty <em>office</em></div>
+    <div class="scene-note">After-hours · workplace ritual · clean-desk reset</div>
+  </div>
+  <div class="grid">
+    <div class="shot" data-id="07" data-name="03 empty office · long table"><img loading="lazy" src="img/07_03_empty_office_A_long_table.jpg" alt="empty office long table"><div class="shot-meta"><div><span class="shot-code">03 · A</span><div class="shot-angle">long table</div></div><div class="shot-check">✓</div></div></div>
+    <div class="shot" data-id="08" data-name="03 empty office · desk close"><img loading="lazy" src="img/08_03_empty_office_B_desk_close.jpg" alt="empty office desk close"><div class="shot-meta"><div><span class="shot-code">03 · B</span><div class="shot-angle">desk close</div></div><div class="shot-check">✓</div></div></div>
+    <div class="shot" data-id="09" data-name="03 empty office · oak still"><img loading="lazy" src="img/09_03_empty_office_C_still_oak.jpg" alt="empty office oak still"><div class="shot-meta"><div><span class="shot-code">03 · C</span><div class="shot-angle">oak still</div></div><div class="shot-check">✓</div></div></div>
+  </div>
+</section>
+
+<section class="scene">
+  <div class="scene-head">
+    <div class="scene-num">04</div>
+    <div class="scene-name">Bath <em>shelf</em></div>
+    <div class="scene-note">Beauty-counter adjacency · three-object editorial</div>
+  </div>
+  <div class="grid">
+    <div class="shot" data-id="10" data-name="04 bath shelf · three objects"><img loading="lazy" src="img/10_04_bath_shelf_A_three_objects.jpg" alt="bath shelf three objects"><div class="shot-meta"><div><span class="shot-code">04 · A</span><div class="shot-angle">three objects</div></div><div class="shot-check">✓</div></div></div>
+    <div class="shot" data-id="11" data-name="04 bath shelf · overhead tray"><img loading="lazy" src="img/11_04_bath_shelf_B_overhead_tray.jpg" alt="bath shelf overhead tray"><div class="shot-meta"><div><span class="shot-code">04 · B</span><div class="shot-angle">overhead tray</div></div><div class="shot-check">✓</div></div></div>
+    <div class="shot" data-id="12" data-name="04 bath shelf · low angle"><img loading="lazy" src="img/12_04_bath_shelf_C_low_angle.jpg" alt="bath shelf low angle"><div class="shot-meta"><div><span class="shot-code">04 · C</span><div class="shot-angle">low angle</div></div><div class="shot-check">✓</div></div></div>
+  </div>
+</section>
+
+<section class="scene">
+  <div class="scene-head">
+    <div class="scene-num">05</div>
+    <div class="scene-name">Gift <em>unbox</em></div>
+    <div class="scene-note">Q4 corporate gifting · hands-in-frame intimacy</div>
+  </div>
+  <div class="grid">
+    <div class="shot" data-id="13" data-name="05 gift unbox · lid 70°"><img loading="lazy" src="img/13_05_gift_unbox_A_lid_70.jpg" alt="gift unbox lid"><div class="shot-meta"><div><span class="shot-code">05 · A</span><div class="shot-angle">lid 70°</div></div><div class="shot-check">✓</div></div></div>
+    <div class="shot" data-id="14" data-name="05 gift unbox · hands & twine"><img loading="lazy" src="img/14_05_gift_unbox_B_hands_twine.jpg" alt="gift unbox hands"><div class="shot-meta"><div><span class="shot-code">05 · B</span><div class="shot-angle">hands & twine</div></div><div class="shot-check">✓</div></div></div>
+    <div class="shot" data-id="15" data-name="05 gift unbox · ribbon olive"><img loading="lazy" src="img/15_05_gift_unbox_C_ribbon_olive.jpg" alt="gift unbox ribbon"><div class="shot-meta"><div><span class="shot-code">05 · C</span><div class="shot-angle">ribbon olive</div></div><div class="shot-check">✓</div></div></div>
+  </div>
+</section>
+
+<section class="scene">
+  <div class="scene-head">
+    <div class="scene-num">06</div>
+    <div class="scene-name">Sunday <em>reset</em></div>
+    <div class="scene-note">CleanTok native · kitchen counter · espresso & marble</div>
+  </div>
+  <div class="grid">
+    <div class="shot" data-id="16" data-name="06 sunday reset · marble"><img loading="lazy" src="img/16_06_sunday_reset_A_marble_reset.jpg" alt="sunday reset marble"><div class="shot-meta"><div><span class="shot-code">06 · A</span><div class="shot-angle">marble</div></div><div class="shot-check">✓</div></div></div>
+    <div class="shot" data-id="17" data-name="06 sunday reset · espresso"><img loading="lazy" src="img/17_06_sunday_reset_B_espresso_still.jpg" alt="sunday reset espresso"><div class="shot-meta"><div><span class="shot-code">06 · B</span><div class="shot-angle">espresso</div></div><div class="shot-check">✓</div></div></div>
+    <div class="shot" data-id="18" data-name="06 sunday reset · overhead counter"><img loading="lazy" src="img/18_06_sunday_reset_C_overhead_counter.jpg" alt="sunday reset overhead"><div class="shot-meta"><div><span class="shot-code">06 · C</span><div class="shot-angle">overhead counter</div></div><div class="shot-check">✓</div></div></div>
+  </div>
+</section>
+
+<section class="scene">
+  <div class="scene-head">
+    <div class="scene-num">07</div>
+    <div class="scene-name">Refill <em>box</em></div>
+    <div class="scene-note">Recurring-revenue ritual · subscription unbox</div>
+  </div>
+  <div class="grid">
+    <div class="shot" data-id="19" data-name="07 refill box · tray three"><img loading="lazy" src="img/19_07_refill_box_A_tray_three.jpg" alt="refill box tray"><div class="shot-meta"><div><span class="shot-code">07 · A</span><div class="shot-angle">tray three</div></div><div class="shot-check">✓</div></div></div>
+    <div class="shot" data-id="20" data-name="07 refill box · hand load"><img loading="lazy" src="img/20_07_refill_box_B_hand_load.jpg" alt="refill box hand load"><div class="shot-meta"><div><span class="shot-code">07 · B</span><div class="shot-angle">hand load</div></div><div class="shot-check">✓</div></div></div>
+    <div class="shot" data-id="21" data-name="07 refill box · three in row"><img loading="lazy" src="img/21_07_refill_box_C_three_in_row.jpg" alt="refill box three in row"><div class="shot-meta"><div><span class="shot-code">07 · C</span><div class="shot-angle">three in row</div></div><div class="shot-check">✓</div></div></div>
+  </div>
+</section>
+
+<section class="scene">
+  <div class="scene-head">
+    <div class="scene-num">08</div>
+    <div class="scene-name">Plastic <em>free</em></div>
+    <div class="scene-note">Sustainability proof · refillable glass on wood</div>
+  </div>
+  <div class="grid">
+    <div class="shot" data-id="22" data-name="08 plastic free · eye level"><img loading="lazy" src="img/22_08_plastic_free_A_eye_level.jpg" alt="plastic free eye level"><div class="shot-meta"><div><span class="shot-code">08 · A</span><div class="shot-angle">eye level</div></div><div class="shot-check">✓</div></div></div>
+    <div class="shot" data-id="23" data-name="08 plastic free · three-quarter"><img loading="lazy" src="img/23_08_plastic_free_B_three_quarter.jpg" alt="plastic free three quarter"><div class="shot-meta"><div><span class="shot-code">08 · B</span><div class="shot-angle">three-quarter</div></div><div class="shot-check">✓</div></div></div>
+    <div class="shot" data-id="24" data-name="08 plastic free · overhead"><img loading="lazy" src="img/24_08_plastic_free_C_overhead.jpg" alt="plastic free overhead"><div class="shot-meta"><div><span class="shot-code">08 · C</span><div class="shot-angle">overhead</div></div><div class="shot-check">✓</div></div></div>
+  </div>
+</section>
+
+<section class="scene">
+  <div class="scene-head">
+    <div class="scene-num">09</div>
+    <div class="scene-name">Founder <em>portrait</em></div>
+    <div class="scene-note">Press-ready human story · for PR + investor decks</div>
+  </div>
+  <div class="grid">
+    <div class="shot" data-id="25" data-name="09 founder portrait · mid shot"><img loading="lazy" src="img/25_09_founder_portrait_A_mid_shot.jpg" alt="founder mid shot"><div class="shot-meta"><div><span class="shot-code">09 · A</span><div class="shot-angle">mid shot</div></div><div class="shot-check">✓</div></div></div>
+    <div class="shot" data-id="26" data-name="09 founder portrait · close hands"><img loading="lazy" src="img/26_09_founder_portrait_B_close_hands.jpg" alt="founder close hands"><div class="shot-meta"><div><span class="shot-code">09 · B</span><div class="shot-angle">close hands</div></div><div class="shot-check">✓</div></div></div>
+    <div class="shot" data-id="27" data-name="09 founder portrait · three-quarter"><img loading="lazy" src="img/27_09_founder_portrait_C_three_quarter.jpg" alt="founder three quarter"><div class="shot-meta"><div><span class="shot-code">09 · C</span><div class="shot-angle">three-quarter</div></div><div class="shot-check">✓</div></div></div>
+  </div>
+</section>
+
+<section class="scene">
+  <div class="scene-head">
+    <div class="scene-num">10</div>
+    <div class="scene-name">Retail <em>shelf</em></div>
+    <div class="scene-note">Crate &amp; Barrel rehearsal · Pottery Barn · endcap close</div>
+  </div>
+  <div class="grid">
+    <div class="shot" data-id="28" data-name="10 retail shelf · lineup nine"><img loading="lazy" src="img/28_10_retail_shelf_A_lineup_nine.jpg" alt="retail shelf lineup"><div class="shot-meta"><div><span class="shot-code">10 · A</span><div class="shot-angle">lineup nine</div></div><div class="shot-check">✓</div></div></div>
+    <div class="shot" data-id="29" data-name="10 retail shelf · Pottery Barn"><img loading="lazy" src="img/29_10_retail_shelf_B_pottery_barn.jpg" alt="retail shelf pottery barn"><div class="shot-meta"><div><span class="shot-code">10 · B</span><div class="shot-angle">Pottery Barn</div></div><div class="shot-check">✓</div></div></div>
+    <div class="shot" data-id="30" data-name="10 retail shelf · endcap close"><img loading="lazy" src="img/30_10_retail_shelf_C_endcap_close.jpg" alt="retail shelf endcap close"><div class="shot-meta"><div><span class="shot-code">10 · C</span><div class="shot-angle">endcap close</div></div><div class="shot-check">✓</div></div></div>
+  </div>
+</section>
+
+<section class="cta">
+  <span class="cta-eye">After you pick</span>
+  <h2 class="cta-h">Your ten go into <em>final polish</em>.</h2>
+  <p class="cta-body">Final pass: 4x upscale, bottle and vial geometry relock against the CAD reference, color consistency sweep across the set, packaging integration on the gifting and retail scenes. <strong>Then we move the heroes into motion for the launch reel.</strong> Hit copy and paste the list into your reply, or screenshot this page.</p>
+  <div class="cta-list" id="cta-list"></div>
+  <div class="cta-actions">
+    <button class="cta-btn" id="btn-copy">Copy picks to clipboard</button>
+    <button class="cta-btn ghost" id="btn-clear">Clear all</button>
+  </div>
+</section>
+
+<div class="footer">
+  GESINE · Round 2 Curation · May 2026 · Alex Lamb
+</div>
+
+</div>
+
+<div class="lightbox" id="lb">
+  <span class="lightbox-x" id="lb-x">close ×</span>
+  <img id="lb-img" src="" alt="full size">
+</div>
+
+<script>
+(function(){
+  var STORAGE_KEY = "gesine_r2_picks";
+  var picks = new Set(JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"));
+  var shots = document.querySelectorAll(".shot");
+  var tCount = document.getElementById("t-count");
+  var ctaList = document.getElementById("cta-list");
+  var lb = document.getElementById("lb");
+  var lbImg = document.getElementById("lb-img");
+  var lbX = document.getElementById("lb-x");
+
+  function render() {
+    var names = [];
+    shots.forEach(function(s){
+      var id = s.dataset.id;
+      if (picks.has(id)) {
+        s.classList.add("picked");
+        names.push(s.dataset.name);
+      } else {
+        s.classList.remove("picked");
+      }
+    });
+    tCount.textContent = picks.size;
+    tCount.style.color = picks.size === 10 ? "#4FA86A" : (picks.size > 10 ? "#A87E50" : "#0F0E0C");
+    ctaList.textContent = names.length ? names.join("  ·  ") : "";
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(picks)));
+  }
+
+  shots.forEach(function(s){
+    var img = s.querySelector("img");
+    img.addEventListener("click", function(e){
+      e.stopPropagation();
+      lbImg.src = img.src;
+      lb.classList.add("show");
+    });
+    s.addEventListener("click", function(){
+      var id = s.dataset.id;
+      if (picks.has(id)) picks.delete(id);
+      else picks.add(id);
+      render();
+    });
+  });
+
+  lb.addEventListener("click", function(){ lb.classList.remove("show"); });
+  lbX.addEventListener("click", function(){ lb.classList.remove("show"); });
+
+  function copyPicks() {
+    var names = [];
+    shots.forEach(function(s){
+      if (picks.has(s.dataset.id)) names.push("- " + s.dataset.name);
+    });
+    var text = names.length
+      ? "GESINE Round 2 picks (" + names.length + "/10):\n\n" + names.join("\n")
+      : "No picks selected yet.";
+    navigator.clipboard.writeText(text).then(function(){
+      [document.getElementById("t-copy"), document.getElementById("btn-copy")].forEach(function(b){
+        if (!b) return;
+        var orig = b.textContent;
+        b.textContent = "Copied ✓";
+        b.classList.add("ok");
+        setTimeout(function(){ b.textContent = orig; b.classList.remove("ok"); }, 1600);
+      });
+    });
+  }
+  document.getElementById("t-copy").addEventListener("click", copyPicks);
+  document.getElementById("btn-copy").addEventListener("click", copyPicks);
+  document.getElementById("btn-clear").addEventListener("click", function(){
+    if (confirm("Clear all picks?")) { picks.clear(); render(); }
+  });
+
+  render();
+})();
+</script>
+
+</body>
+</html>
