@@ -118,6 +118,14 @@ body { color:var(--ink); font-family:'DM Sans',sans-serif; font-size:15px; line-
 
 .footer { padding:24px 0; margin-top:36px; border-top:1px solid var(--bmd); text-align:center; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; color:var(--muted); text-transform:uppercase; }
 
+.sitenav { display:flex; flex-wrap:wrap; gap:0; padding:0; margin:0 0 18px; background:var(--ink); border-radius:10px; overflow:hidden; }
+.sitenav a { flex:1; min-width:140px; padding:12px 16px; font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:rgba(245,241,232,.62); text-decoration:none; text-align:center; border-right:1px solid rgba(245,241,232,.08); transition:background .15s, color .15s; }
+.sitenav a:last-child { border-right:none; }
+.sitenav a:hover { background:rgba(79,168,106,.15); color:var(--cream); }
+.sitenav a.here { background:var(--amber-deep); color:var(--cream); }
+.sitenav a strong { display:block; color:var(--amber); font-family:'Instrument Serif',serif; font-size:14px; letter-spacing:.01em; text-transform:none; font-style:italic; margin-bottom:2px; font-weight:400; }
+.sitenav a.here strong { color:var(--cream); }
+
 @media (max-width:860px) {
   .phase { grid-template-columns:1fr; gap:12px; }
   .phase-num { font-size:48px; }
@@ -131,6 +139,15 @@ body { color:var(--ink); font-family:'DM Sans',sans-serif; font-size:15px; line-
 <body>
 
 <div class="page">
+
+<nav class="sitenav">
+  <a href="../../delivery/index.html"><strong>Hub</strong>Delivery</a>
+  <a href="../../walkthrough/index.html"><strong>Walk</strong>Walkthrough</a>
+  <a href="../../beauty_thesis/beauty_thesis.html"><strong>Beauty</strong>Thesis</a>
+  <a href="../round_2/index.html"><strong>R2</strong>Pick 10</a>
+  <a href="index.html" class="here"><strong>Geo</strong>Lock</a>
+  <a href="../../retail_paths/index.html"><strong>2x</strong>Retail Paths</a>
+</nav>
 
 <header class="doc-header">
   <div class="wordmark">
